@@ -25,20 +25,20 @@ import            Text.Pandoc         (
   )
 --------------------------------------------------------------------------------
 newtype Paper = Paper BibTex.T
-    deriving (Show, Typeable)
+  deriving (Show, Typeable)
 
 instance Binary Paper where
-    put (Paper t) = do
-        put $ BibTex.entryType t
-        put $ BibTex.identifier t
-        put $ BibTex.fields t
+  put (Paper t) = do
+    put $ BibTex.entryType t
+    put $ BibTex.identifier t
+    put $ BibTex.fields t
 
-    get = Paper <$> (BibTex.Cons <$> get <*> get <*> get)
+  get = Paper <$> (BibTex.Cons <$> get <*> get <*> get)
 
 instance Writable Paper where
-    write fp item =
-        let Paper t = itemBody item
-        in writeFile fp (BibTex.Format.entry t)
+  write fp item =
+    let Paper t = itemBody item
+    in writeFile fp (BibTex.Format.entry t)
 
 instance Eq Paper where
   (==) paper paper' = paperID paper == paperID paper'
@@ -55,13 +55,16 @@ paperURI paper = fromFilePath ("paper/" ++ (toFilePath $ paperID paper) ++ ".htm
 
 paperContext :: Context Paper
 paperContext = Context $ \key item ->
-    let Paper t = itemBody item
-    in case key of
-        "identifier" -> return $ BibTex.identifier t
-        "url"        -> return $ "/" ++ (toFilePath $ paperURI (Paper t))
-        _            -> case lookup key (BibTex.fields t) of
-            Nothing  -> empty
-            Just val -> return $ latexToHtml val
+  let paper@(Paper t) = itemBody item
+  in case key of
+    "identifier" -> return $ BibTex.identifier t
+    "url"        -> return $ "/" ++ (toFilePath $ paperURI paper)
+    "pdf"        -> case lookup "pdf" (BibTex.fields t) of
+      Nothing  -> return $ "/pdf/" ++ (toFilePath $ paperID paper)
+      Just pdf -> return $ pdf
+    _            -> case lookup key (BibTex.fields t) of
+      Nothing  -> empty
+      Just val -> return $ latexToHtml val
 
 --------------------------------------------------------------------------------
 -- Converts a TeX string into HTML + MathJax
@@ -70,9 +73,9 @@ latexToHtml tex =
   let p = case readLaTeX defaultParserState tex of
         Pandoc meta [Para para] -> Pandoc meta [Plain para]
         x                       -> x
-  in writeHtmlString defaultWriterOptions { writerHTMLMathMethod = MathJax "" } p
+  in writeHtmlString 
+    defaultWriterOptions { writerHTMLMathMethod = MathJax "" } p
 
 --------------------------------------------------------------------------------
 getField field (Paper t) = lookup field $ BibTex.fields t 
 
-abstracts = liftM latexToHtml . getField "abstract"

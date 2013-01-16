@@ -2,8 +2,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 --------------------------------------------------------------------------------
-import      Author      
-import      Control.Applicative ((<$>)) 
+import      Author
+import      Control.Applicative ((<$>))
 import      Control.Monad       (forM_)
 import      Data.List           (intersperse)
 import      Data.Map            (keys, (!))
@@ -23,7 +23,12 @@ bibFilePattern :: Pattern
 bibFilePattern = fromString bibFilePath
 
 main :: IO ()
-main = hakyllWith config $ do
+main = do
+  putStrLn "Testing"
+  runHakyll
+
+runHakyll :: IO()
+runHakyll = hakyllWith config $ do
   
   -- Preprocessing: read in paper and author identifiers
   bibdb <- preprocess $ parseBibFile <$> readFile bibFilePath
@@ -32,7 +37,8 @@ main = hakyllWith config $ do
   let papersPattern   = fromList $ map paperID $ keys $ paperToAuthors bibdb
 
   -- Templates
-  match "templates/*" $ compile templateCompiler
+  match "templates/*" $ 
+    compile templateCompiler
 
   -- Create a reference for every paper
   forM_ (keys $ paperToAuthors bibdb) $ \paper -> do
@@ -41,17 +47,17 @@ main = hakyllWith config $ do
     create [ paperPattern ] $ compile $ makeItem paper
     
     create [ paperURI paper ] $ do
-      route (setExtension ".html")
+      route (setExtension "html")
       compile $ do
         let authors         = (paperToAuthors bibdb) ! paper
         
         authorItems <- loadAll $ fromList $ map authorID authors
         linkTpl     <- loadBody "templates/author-link.html"
-        authorLinks <- joinTemplateList linkTpl authorContext authorItems ","
+        authorLinks <- joinTemplateList linkTpl authorContext authorItems ", "
         
-        let paperCtx = constField "authors" authorLinks `mappend` paperContext 
+        let paperCtx = constField "authors" authorLinks `mappend` paperContext
         
-        makeItem paper 
+        makeItem paper
           >>= loadAndApplyTemplate "templates/paper.html" paperCtx
           >>= loadAndApplyTemplate "templates/default.html" defaultContext
           >>= relativizeUrls
@@ -68,13 +74,13 @@ main = hakyllWith config $ do
         let papersPattern = fromList (map paperID papers)
         
         paperItems  <- loadAll papersPattern
-        linkTpl    <- loadBody "templates/paper-link.html"
+        linkTpl     <- loadBody "templates/paper-link.html"
         paperLinks  <- applyTemplateList linkTpl paperContext paperItems
         
         let authorCtx =
                 constField "title" (name author)  `mappend`
-                constField "papers" paperLinks    `mappend` 
-                authorContext 
+                constField "papers" paperLinks    `mappend`
+                authorContext
         
         makeItem author
           >>= saveSnapshot "author"
@@ -87,9 +93,9 @@ main = hakyllWith config $ do
     route idRoute
     compile $ do
       
-      authors <- loadAll authorsPattern
+      authors <- loadAll authorsPattern   
       itemTpl <- loadBody "templates/author-item.html"
-      list    <- applyTemplateList itemTpl authorContext authors 
+      list    <- applyTemplateList itemTpl authorContext authors
       
       let authorsCtx =
             constField "title" "All Authors"  `mappend`
@@ -108,7 +114,7 @@ main = hakyllWith config $ do
       
       papers  <- loadAll papersPattern
       itemTpl <- loadBody "templates/paper-item.html"
-      list  <- applyTemplateList itemTpl paperContext papers 
+      list  <- applyTemplateList itemTpl paperContext papers
       
       let papersCtx =
             constField "title" "All Papers" `mappend`
@@ -127,8 +133,11 @@ main = hakyllWith config $ do
         pandocCompiler
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         >>= relativizeUrls
-      
 
+  -- CSS
+  match "static/css/*.css" $ do
+    route (gsubRoute "static/" (const ""))
+    compile copyFileCompiler
 
 --------------------------------------------------------------------------------
 config :: Configuration

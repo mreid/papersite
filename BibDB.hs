@@ -10,20 +10,20 @@ module BibDB
 
 --------------------------------------------------------------------------------
 import           Author
-import           Control.Applicative (empty, (<$>), (<*>))
-import           Control.Monad (liftM)
-import           Data.Binary         (Binary (..))
+import           Control.Applicative  (empty, (<$>), (<*>))
+import           Control.Monad        (liftM)
+import           Data.Binary          (Binary (..))
 import           Data.Char
 import           Data.Maybe
-import           Data.Map      (Map)
-import qualified Data.Map            as Map
-import           Data.Typeable       (Typeable)
+import           Data.Map             (Map)
+import qualified Data.Map             as Map
+import           Data.Typeable        (Typeable)
 import           Hakyll
 import           Network.URI
 import           Paper
-import qualified Text.BibTeX.Entry   as BibTex
-import qualified Text.BibTeX.Parse   as BibTex.Parse
-import qualified Text.Parsec         as Parsec
+import qualified Text.BibTeX.Entry    as BibTex
+import qualified Text.BibTeX.Parse    as BibTex.Parse
+import qualified Text.Parsec          as Parsec
 import           Text.LaTeX.Character
 
 
@@ -44,8 +44,8 @@ instance Binary BibDB where
 --------------------------------------------------------------------------------
 parseBibFile :: String -> BibDB
 parseBibFile string = case Parsec.parse BibTex.Parse.file "<bib file>" string of
-    Left err -> error $ show err
-    Right xs -> scanBibFileEntries xs
+  Left err -> error $ show err
+  Right xs -> scanBibFileEntries xs
 
 scanBibFileEntries :: [BibTex.T] -> BibDB
 scanBibFileEntries entries = foldr updateBibFile newBibFile entries
@@ -56,7 +56,10 @@ updateBibFile :: BibTex.T -> BibDB -> BibDB
 updateBibFile entry bibdb = 
   case map toUpper $ BibTex.entryType entry of
     "INPROCEEDINGS" -> updateBibFile' (Paper entry) bibdb
-    _       -> bibdb
+    _               -> bibdb
+  -- where
+  --   newPaper = (Paper paperID entry)
+  --   paperID  = case BibTex.
 
 updateBibFile' paper (BibDB p2a a2p) = BibDB p2a' a2p'
   where

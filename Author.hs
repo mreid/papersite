@@ -82,7 +82,7 @@ toAuthor name =
 		(_, "")			->	parseFirstLast unicode
 		(last, firsts)	->  parseLastFirst (splitnames firsts) last
 	where
-		unicode 	= toUnicodeString name
+		unicode 	= trim $ toUnicodeString name
 		splitnames 	= filter (/= ",") . words
 
 -- Creates a canonical ID for a given author
