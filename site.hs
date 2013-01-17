@@ -24,7 +24,6 @@ bibFilePattern = fromString bibFilePath
 
 main :: IO ()
 main = do
-  putStrLn "Testing"
   runHakyll
 
 runHakyll :: IO()

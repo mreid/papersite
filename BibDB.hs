@@ -69,7 +69,7 @@ updateBibFile' paper (BibDB p2a a2p) = BibDB p2a' a2p'
 
 paperAuthors paper = case getField "author" paper of
   (Just authorStr)  -> toAuthors authorStr
-  Nothing       -> []
+  Nothing           -> []
 
 --------------------------------------------------------------------------------
 -- getField field = lookup field . BibTex.fields 
