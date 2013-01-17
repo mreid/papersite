@@ -6,3 +6,7 @@ cabal-dev
 *.chs.h
 .virthualenv
 testdata
+_site
+_cache
+import
+site
