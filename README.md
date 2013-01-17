@@ -16,7 +16,7 @@ conform exactly to the following:
    - `abstract`: The paper's abstract (in valid LaTeX).
    - `author`:   The paper's authors in Lastname, Firstnames format, separated by
                  `and`.
-   - `pages`:    The page numbers for the paper in _startpage_-_endpage_ format.
+   - `pages`:    The page numbers for the paper in _startpage_ - _endpage_ format.
 
 2. A `@Conference` entry must appear in the file with the conference details.
    The following fields **must** be present:
