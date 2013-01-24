@@ -4,15 +4,18 @@
 --------------------------------------------------------------------------------
 import      Author
 import      Control.Applicative ((<$>))
-import      Control.Monad       (forM_)
+import      Control.Monad       (forM_, liftM)
 import      Data.List           (intersperse)
+import      Data.List.HT        (segmentBefore)
 import      Data.Map            (keys, (!))
+import      Data.Maybe
 import      Data.Monoid         (mappend)
 import      Data.String         (fromString)
 import      Hakyll
-import      BibDB
+-- import      BibDB
 import      Paper
 import      Text.Pandoc
+import qualified      Text.BibTeX.Entry as BibTex
 
 --------------------------------------------------------------------------------
 bibFilePath :: String
@@ -23,9 +26,140 @@ bibFilePattern :: Pattern
 bibFilePattern = fromString bibFilePath
 
 main :: IO ()
-main = do
-  runHakyll
+main = hakyllWith config $ do
+  match "db/*/*.bib" $ do
+    compile $ 
+      entryCompiler >>= saveSnapshot "conference"
 
+  -- Conference details in, e.g., @db/conf/ICML/2012.bib@
+  match "db/*/*.bib" $ version "html" $ do
+    route $ 
+      gsubRoute "db/" (const "") `composeRoutes` 
+      gsubRoute ".bib" (const "/index.html")
+
+    compile $ do 
+      confID <- getUnderlying
+      papers <- loadAllSnapshots ("db/*/*/*.bib" `withVersion` "entry") $ toFilePath confID
+
+      linkTpl     <- loadBody "templates/paper-link.html"
+      paperLinks  <- applyTemplateList linkTpl entryContext papers
+
+      let papersCtx =
+            constField "title" "All Papers" `mappend`
+            constField "papers" paperLinks  `mappend`
+            conferenceContext 
+
+      entryCompiler
+        >>= loadAndApplyTemplate "templates/papers.html" papersCtx
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext -- papersCtx
+        >>= relativizeUrls
+      -- makeItem ""   
+      -- entryCompiler
+
+  match "db/*/*/*.bib" $ version "entry" $ do
+    compile $ 
+      entryCompiler >>= saveEntryCompiler
+
+  -- Papers are in, e.g., @db/conf/ICML/2012/reid12b.bib
+  match "db/*/*/*.bib" $ do
+    route $ 
+      gsubRoute "db/" (const "") `composeRoutes` 
+      setExtension "html"
+
+    compile $ 
+      entryCompiler
+      >>= loadAndApplyTemplate "templates/paper.html" entryContext
+
+  -- Templates
+  match "templates/*" $ 
+    compile templateCompiler
+
+  -- Static HTML
+  match "static/*.html" $ do
+    route (gsubRoute "static/" (const ""))
+    compile $ do
+        pandocCompiler
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= relativizeUrls
+
+  -- CSS
+  match "static/css/*.css" $ do
+    route (gsubRoute "static/" (const ""))
+    compile copyFileCompiler
+
+--------------------------------------------------------------------------------
+config :: Configuration
+config = defaultConfiguration
+  { deployCommand = "rsync --checksum -ave 'ssh -p 2222' \
+            \_site/* jaspervdj@jaspervdj.be:jaspervdj.be/tmp/hakyll4"
+  }
+
+--------------------------------------------------------------------------------
+-- | Set a field of a page to a listing of pages
+joinTemplateList :: Template
+          -> Context a
+          -> [Item a]
+          -> String
+          -> Compiler String
+joinTemplateList tpl context items delimiter = do
+  items' <- mapM (applyTemplate tpl context) items
+  return $ concat $ intersperse delimiter $ map itemBody items'
+
+
+
+--------------------------------------------------------------------------------
+conferenceContext :: Context Entry
+conferenceContext = Context $ \key item ->
+  return $ case (getField key . itemBody $ item) of
+    Just value -> value
+    Nothing    -> "FIXME"
+
+-- Define a context for template fields using a given entry.
+-- This context will look for a matching field in the Entry's BibTeX fields
+-- if it is one of "title", "author", "abstract", or "pages".
+-- If it is not one of these it will look up the associated conference entry
+-- and look for the BibTeX field there.
+entryContext :: Context Entry
+entryContext = Context $ \key item ->
+  let entry = itemBody item
+      conf  = conferenceEntry . itemIdentifier $ item
+  in entryLookup entry conf key
+  -- if key `elem` paperFields 
+  -- then return $ fromJust $ getField key entry
+  -- else fmap (fromJust . getField key . itemBody) conf
+
+entryLookup :: Entry -> Compiler (Item Entry) -> String -> Compiler String
+entryLookup entry conf key 
+  | key `elem` paperFields  = return $ fromJust $ getField key entry
+  | key `elem` confFields   = fmap (fromJust . getField key . itemBody) conf
+  | True                    = return $ "FIXME"
+  where
+    paperFields = ["identifier", "title", "author", "abstract", "pages", "firstpage", "lastpage"]
+    confFields  = ["booktitle", "volume", "year", "editor", "shortname"]
+
+-- Compile an entry by parsing its associated BibTeX file
+entryCompiler :: Compiler (Item Entry)
+entryCompiler = getResourceString >>= makeItem . parseEntry . itemBody
+
+-- Save a snapshot of the paper with snapshot name equal to its conference ID
+saveEntryCompiler :: Item Entry -> Compiler (Item Entry)
+saveEntryCompiler paper = saveSnapshot conferenceID paper
+  where
+    conferenceID = confPath . toFilePath . itemIdentifier $ paper
+
+-- Compute the path for the conference BibTeX file given the path for a paper
+-- e.g., this takes "db/ICML/2012/reid12a.bib" to "db/ICML/2012.bib"
+confPath :: FilePath -> FilePath
+confPath path = (concat . init . segmentBefore (== '/') $ path) ++ ".bib"
+
+-- Load the conference entry associated with the paper with the given ID.
+conferenceEntry :: Identifier -> Compiler (Item Entry)
+conferenceEntry paperID =
+  let confID = fromFilePath . confPath . toFilePath $ paperID
+  in loadSnapshot confID "conference"
+
+
+{-
 runHakyll :: IO()
 runHakyll = hakyllWith config $ do
   
@@ -124,35 +258,4 @@ runHakyll = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/papers.html" papersCtx
         >>= loadAndApplyTemplate "templates/default.html" papersCtx
         >>= relativizeUrls
-
-  -- Static HTML
-  match "static/*.html" $ do
-    route (gsubRoute "static/" (const ""))
-    compile $ do
-        pandocCompiler
-        >>= loadAndApplyTemplate "templates/default.html" defaultContext
-        >>= relativizeUrls
-
-  -- CSS
-  match "static/css/*.css" $ do
-    route (gsubRoute "static/" (const ""))
-    compile copyFileCompiler
-
---------------------------------------------------------------------------------
-config :: Configuration
-config = defaultConfiguration
-  { deployCommand = "rsync --checksum -ave 'ssh -p 2222' \
-            \_site/* jaspervdj@jaspervdj.be:jaspervdj.be/tmp/hakyll4"
-  }
---------------------------------------------------------------------------------
--- | Set a field of a page to a listing of pages
-joinTemplateList :: Template
-          -> Context a
-          -> [Item a]
-          -> String
-          -> Compiler String
-joinTemplateList tpl context items delimiter = do
-  items' <- mapM (applyTemplate tpl context) items
-  return $ concat $ intersperse delimiter $ map itemBody items'
-
-
+-}

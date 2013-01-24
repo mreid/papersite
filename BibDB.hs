@@ -55,7 +55,7 @@ scanBibFileEntries entries = foldr updateBibFile newBibFile entries
 updateBibFile :: BibTex.T -> BibDB -> BibDB
 updateBibFile entry bibdb = 
   case map toUpper $ BibTex.entryType entry of
-    "INPROCEEDINGS" -> updateBibFile' (Paper entry) bibdb
+    "INPROCEEDINGS" -> updateBibFile' (Paper entry entry) bibdb
     _               -> bibdb
   -- where
   --   newPaper = (Paper paperID entry)
@@ -67,9 +67,9 @@ updateBibFile' paper (BibDB p2a a2p) = BibDB p2a' a2p'
     a2p' = foldr (\author mp -> Map.insertWith (++) author [paper] mp) a2p authors
     authors = paperAuthors paper
 
-paperAuthors paper = case getField "author" paper of
+paperAuthors paper = case getField' "author" paper of
   (Just authorStr)  -> toAuthors authorStr
   Nothing           -> []
 
 --------------------------------------------------------------------------------
--- getField field = lookup field . BibTex.fields 
+getField' field = lookup field . BibTex.fields 
