@@ -2,37 +2,30 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 --------------------------------------------------------------------------------
-import      Author
-import      Control.Applicative ((<$>))
-import      Control.Monad       (forM_, liftM)
-import      Data.List           (intersperse)
-import      Data.List.HT        (segmentBefore)
-import      Data.Map            (keys, (!))
-import      Data.Maybe
-import      Data.Monoid         (mappend)
-import      Data.String         (fromString)
-import      Hakyll
--- import      BibDB
-import      Paper
-import      Text.Pandoc
-import qualified      Text.BibTeX.Entry as BibTex
-import      System.FilePath
+import            Author
+import            Control.Applicative ((<$>))
+import            Control.Monad       (forM_, liftM)
+import            Data.List           (intersperse)
+import            Data.List.HT        (segmentBefore)
+import            Data.Map            (keys, (!))
+import            Data.Maybe
+import            Data.Monoid         (mappend)
+import            Data.String         (fromString)
+import            Hakyll
+import            Paper
+import            Text.Pandoc
+import qualified  Text.BibTeX.Entry   as BibTex
+import            System.FilePath
 
 --------------------------------------------------------------------------------
-bibFilePath :: String
-bibFilePath = "testdata/ACML12Papers.bib"
-bibFileIdentifier :: Identifier
-bibFileIdentifier = fromString bibFilePath
-bibFilePattern :: Pattern
-bibFilePattern = fromString bibFilePath
-
 main :: IO ()
 main = hakyllWith config $ do
+  -- Compile BibTeX information for each conference and save as an Entry
   match "db/*/*.bib" $ do
     compile $ 
       entryCompiler >>= saveSnapshot "conference"
 
-  -- Conference details in, e.g., @db/conf/ICML/2012.bib@
+  -- Compile conference details in, e.g., @db/conf/ICML/2012.bib@ to HTML
   match "db/*/*.bib" $ version "html" $ do
     route $ 
       gsubRoute "db/" (const "") `composeRoutes` 
@@ -40,7 +33,6 @@ main = hakyllWith config $ do
 
     compile $ do 
       confID <- getUnderlying
-      -- FIXME: Need to load only "db/NNNN/YYYY/*.bib" and ignore snapshot with confID
       let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
       papers <- loadAllSnapshots (pattern `withVersion` "entry") $ toFilePath confID
 
@@ -48,15 +40,17 @@ main = hakyllWith config $ do
       paperLinks  <- applyTemplateList linkTpl entryContext papers
 
       let papersCtx =
-            constField "title" "All Papers" `mappend`
-            constField "papers" paperLinks  `mappend`
+            constField "title"  "All Papers"  `mappend`
+            constField "papers" paperLinks    `mappend`
             conferenceContext 
 
       entryCompiler
         >>= loadAndApplyTemplate "templates/papers.html" papersCtx
-        >>= loadAndApplyTemplate "templates/default.html" defaultContext -- papersCtx
+        >>= loadAndApplyTemplate "templates/default.html" 
+              (constField "metadata" "" `mappend` defaultContext) 
         >>= relativizeUrls
 
+  -- Compile each paper BibTeX to an Entry and save
   match "db/*/*/*.bib" $ version "entry" $ do
     compile $ 
       entryCompiler >>= saveEntryCompiler
@@ -67,13 +61,19 @@ main = hakyllWith config $ do
       gsubRoute "db/" (const "") `composeRoutes` 
       setExtension "html"
 
-    compile $ 
-      entryCompiler
-      >>= loadAndApplyTemplate "templates/paper.html" entryContext
-      >>= loadAndApplyTemplate "templates/default.html" defaultContext
+    compile $ do
+      entry   <- entryCompiler
+      metaTpl <- loadBody "templates/scholar/paper.html" 
+      meta    <- applyTemplateList metaTpl entryContext [entry]
+
+      let metaContext = constField "metadata" meta `mappend` defaultContext
+
+      -- entryCompiler
+      entryHtml <- loadAndApplyTemplate "templates/paper.html" entryContext entry
+      loadAndApplyTemplate "templates/default.html" metaContext entryHtml
 
   -- Templates
-  match "templates/*" $ 
+  match "templates/**" $ 
     compile templateCompiler
 
   -- Static HTML
@@ -81,7 +81,8 @@ main = hakyllWith config $ do
     route (gsubRoute "static/" (const ""))
     compile $ do
         pandocCompiler
-        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= loadAndApplyTemplate "templates/default.html" 
+              (constField "metadata" "" `mappend` defaultContext)
         >>= relativizeUrls
 
   -- CSS
@@ -96,9 +97,9 @@ main = hakyllWith config $ do
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
-  { deployCommand = "rsync --checksum -ave 'ssh -p 2222' \
-            \_site/* jaspervdj@jaspervdj.be:jaspervdj.be/tmp/hakyll4"
-  }
+  -- { deployCommand = "rsync --checksum -ave 'ssh -p 2222' \
+  --           \_site/* jaspervdj@jaspervdj.be:jaspervdj.be/tmp/hakyll4"
+  -- }
 
 --------------------------------------------------------------------------------
 -- | Set a field of a page to a listing of pages
@@ -112,13 +113,7 @@ joinTemplateList tpl context items delimiter = do
   return $ concat $ intersperse delimiter $ map itemBody items'
 
 
-
 --------------------------------------------------------------------------------
--- navigationContext :: Context String
--- navigationContext = 
---   field "nav" (const $ loadBody "templates/nav.html") 
---   `mappend` defaultContext
-
 conferenceContext :: Context Entry
 conferenceContext = Context $ \key item ->
   return $ case (getField key . itemBody $ item) of
