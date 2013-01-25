@@ -143,6 +143,7 @@ writeEntry entry dirPath = do
   let entryID = BibTex.identifier entry
   handle <- openFile (dirPath ++ "/" ++ entryID ++ ".bib") WriteMode
   hPutStr handle $ BibTex.entry $ cleanEntry entry
+  hClose handle
 
 cleanEntry = fieldFilter (`elem` ["author", "title", "abstract", "pages"])
 
