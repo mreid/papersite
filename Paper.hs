@@ -144,7 +144,8 @@ getField key entry@(Entry t) =
   "identifier"  -> Just $ BibTex.identifier t
   "firstpage"   -> firstpage
   "lastpage"    -> lastpage
-  "url"         -> fmap ((++ ".html") . escapeURIString isUnreserved) $ identifier
+  "url"         -> fmap (toURI "html") $ identifier
+  "pdf"         -> fmap (toURI "pdf") $ identifier
   _             -> fmap latexToHtml (lookup key . BibTex.fields $ t)
   where
     pages = getField "pages" entry
@@ -153,3 +154,5 @@ getField key entry@(Entry t) =
     lastpage  = fmap (reverse . takeWhile isNumber . reverse) pages
     isNumber c = c `elem` ['0'..'9'] ++ ['x','v','i']
 
+toURI :: String -> FilePath -> String
+toURI ext path = (escapeURIString isUnreserved path) ++ "." ++ ext

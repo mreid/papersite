@@ -16,6 +16,7 @@ import      Hakyll
 import      Paper
 import      Text.Pandoc
 import qualified      Text.BibTeX.Entry as BibTex
+import      System.FilePath
 
 --------------------------------------------------------------------------------
 bibFilePath :: String
@@ -39,7 +40,9 @@ main = hakyllWith config $ do
 
     compile $ do 
       confID <- getUnderlying
-      papers <- loadAllSnapshots ("db/*/*/*.bib" `withVersion` "entry") $ toFilePath confID
+      -- FIXME: Need to load only "db/NNNN/YYYY/*.bib" and ignore snapshot with confID
+      let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
+      papers <- loadAllSnapshots (pattern `withVersion` "entry") $ toFilePath confID
 
       linkTpl     <- loadBody "templates/paper-item.html"
       paperLinks  <- applyTemplateList linkTpl entryContext papers
@@ -142,7 +145,7 @@ entryLookup entry conf key
   | key `elem` confFields   = fmap (fromJust . getField key . itemBody) conf
   | True                    = return $ "FIXME"
   where
-    paperFields = ["identifier", "title", "author", "abstract", "pages", "firstpage", "lastpage", "url"]
+    paperFields = ["identifier", "title", "author", "abstract", "pages", "firstpage", "lastpage", "url", "pdf"]
     confFields  = ["booktitle", "volume", "year", "editor", "shortname"]
 
 -- Compile an entry by parsing its associated BibTeX file
@@ -153,17 +156,17 @@ entryCompiler = getResourceString >>= makeItem . parseEntry . itemBody
 saveEntryCompiler :: Item Entry -> Compiler (Item Entry)
 saveEntryCompiler paper = saveSnapshot conferenceID paper
   where
-    conferenceID = confPath . toFilePath . itemIdentifier $ paper
+    conferenceID = confBib . toFilePath . itemIdentifier $ paper
 
 -- Compute the path for the conference BibTeX file given the path for a paper
 -- e.g., this takes "db/ICML/2012/reid12a.bib" to "db/ICML/2012.bib"
-confPath :: FilePath -> FilePath
-confPath path = (concat . init . segmentBefore (== '/') $ path) ++ ".bib"
+confBib :: FilePath -> FilePath
+confBib path = (takeDirectory path) ++ ".bib"
 
 -- Load the conference entry associated with the paper with the given ID.
 conferenceEntry :: Identifier -> Compiler (Item Entry)
 conferenceEntry paperID =
-  let confID = fromFilePath . confPath . toFilePath $ paperID
+  let confID = fromFilePath . confBib . toFilePath $ paperID
   in loadSnapshot confID "conference"
 
 
