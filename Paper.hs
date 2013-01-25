@@ -23,6 +23,7 @@ import            Data.List.HT
 import            Data.Maybe
 import            Data.Typeable
 import            Hakyll
+import            Network.URI
 import qualified  Text.BibTeX.Entry   as BibTex
 import qualified  Text.BibTeX.Format  as BibTex.Format
 import qualified  Text.BibTeX.Parse   as BibTex.Parse
@@ -138,13 +139,17 @@ latexToHtml tex =
 
 --------------------------------------------------------------------------------
 getField :: String -> Entry -> Maybe String
-getField key entry@(Entry t) 
-  | key == "firstpage"      = firstpage
-  | key == "lastpage"       = lastpage
-  | True                    = lookup key . BibTex.fields $ t
+getField key entry@(Entry t) =
+  case key of
+  "identifier"  -> Just $ BibTex.identifier t
+  "firstpage"   -> firstpage
+  "lastpage"    -> lastpage
+  "url"         -> fmap ((++ ".html") . escapeURIString isUnreserved) $ identifier
+  _             -> fmap latexToHtml (lookup key . BibTex.fields $ t)
   where
     pages = getField "pages" entry
-    firstpage = fmap (takeWhile (/= '-')) pages
-    lastpage  = fmap (reverse . takeWhile (/= '-') . reverse) pages
-  
+    identifier = getField "identifier" entry
+    firstpage = fmap (takeWhile isNumber) pages
+    lastpage  = fmap (reverse . takeWhile isNumber . reverse) pages
+    isNumber c = c `elem` ['0'..'9'] ++ ['x','v','i']
 

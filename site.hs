@@ -41,7 +41,7 @@ main = hakyllWith config $ do
       confID <- getUnderlying
       papers <- loadAllSnapshots ("db/*/*/*.bib" `withVersion` "entry") $ toFilePath confID
 
-      linkTpl     <- loadBody "templates/paper-link.html"
+      linkTpl     <- loadBody "templates/paper-item.html"
       paperLinks  <- applyTemplateList linkTpl entryContext papers
 
       let papersCtx =
@@ -53,8 +53,6 @@ main = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/papers.html" papersCtx
         >>= loadAndApplyTemplate "templates/default.html" defaultContext -- papersCtx
         >>= relativizeUrls
-      -- makeItem ""   
-      -- entryCompiler
 
   match "db/*/*/*.bib" $ version "entry" $ do
     compile $ 
@@ -69,6 +67,7 @@ main = hakyllWith config $ do
     compile $ 
       entryCompiler
       >>= loadAndApplyTemplate "templates/paper.html" entryContext
+      >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
   -- Templates
   match "templates/*" $ 
@@ -87,6 +86,10 @@ main = hakyllWith config $ do
     route (gsubRoute "static/" (const ""))
     compile copyFileCompiler
 
+  -- Images
+  match "static/img/*" $ do
+    route (gsubRoute "static/" (const ""))
+    compile copyFileCompiler
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
@@ -108,6 +111,11 @@ joinTemplateList tpl context items delimiter = do
 
 
 --------------------------------------------------------------------------------
+-- navigationContext :: Context String
+-- navigationContext = 
+--   field "nav" (const $ loadBody "templates/nav.html") 
+--   `mappend` defaultContext
+
 conferenceContext :: Context Entry
 conferenceContext = Context $ \key item ->
   return $ case (getField key . itemBody $ item) of
@@ -134,7 +142,7 @@ entryLookup entry conf key
   | key `elem` confFields   = fmap (fromJust . getField key . itemBody) conf
   | True                    = return $ "FIXME"
   where
-    paperFields = ["identifier", "title", "author", "abstract", "pages", "firstpage", "lastpage"]
+    paperFields = ["identifier", "title", "author", "abstract", "pages", "firstpage", "lastpage", "url"]
     confFields  = ["booktitle", "volume", "year", "editor", "shortname"]
 
 -- Compile an entry by parsing its associated BibTeX file
