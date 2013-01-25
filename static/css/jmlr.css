@@ -1,3 +1,26 @@
 .authors, #authors { font-weight: bold; font-style: italic; display: inline; }
 .info, #info { display: inline; }
 #footer { border-top: 1px solid gray; padding-top: 1em; margin-top: 1em; font-size: smaller; }
+{font-family:verdana,helvetica,sans-serif}
+a {text-decoration:none;color:#3030a0}
+#content {
+	margin-top: 1em;
+    margin-left: 10em;
+    margin-right: 0.5em;
+}
+#fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8em;
+    height: 100%;
+}
+body > #fixed {
+    position: fixed;
+}
+img.jmlr {
+    width: 7em;
+}
+img.rss {
+    width: 2em;
+}
