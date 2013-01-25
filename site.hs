@@ -62,15 +62,25 @@ main = hakyllWith config $ do
       setExtension "html"
 
     compile $ do
-      entry   <- entryCompiler
-      metaTpl <- loadBody "templates/scholar/paper.html" 
-      meta    <- applyTemplateList metaTpl entryContext [entry]
+      entry      <- entryCompiler
+      -- FIXME: This is ugly
+      let authors = fmap (Item "") $ toAuthors . fromJust . getField "author" . itemBody $ entry
+
+      authorTpl  <- loadBody "templates/scholar/author.html"
+      authorMeta <- applyTemplateList authorTpl authorContext authors
+
+      let entryContextWithAuthors = 
+            constField "authors" authorMeta `mappend`
+            entryContext
+            
+      metaTpl    <- loadBody "templates/scholar/paper.html" 
+      meta       <- applyTemplateList metaTpl entryContextWithAuthors [entry]
 
       let metaContext = constField "metadata" meta `mappend` defaultContext
 
-      -- entryCompiler
-      entryHtml <- loadAndApplyTemplate "templates/paper.html" entryContext entry
-      loadAndApplyTemplate "templates/default.html" metaContext entryHtml
+      entryCompiler
+        >>= loadAndApplyTemplate "templates/paper.html" entryContext
+        >>= loadAndApplyTemplate "templates/default.html" metaContext 
 
   -- Templates
   match "templates/**" $ 
@@ -80,10 +90,11 @@ main = hakyllWith config $ do
   match "static/*.html" $ do
     route (gsubRoute "static/" (const ""))
     compile $ do
+        let metaContext = constField "metadata" "" `mappend` defaultContext
+
         pandocCompiler
-        >>= loadAndApplyTemplate "templates/default.html" 
-              (constField "metadata" "" `mappend` defaultContext)
-        >>= relativizeUrls
+          >>= loadAndApplyTemplate "templates/default.html" metaContext
+          >>= relativizeUrls
 
   -- CSS
   match "static/css/*.css" $ do
@@ -130,9 +141,6 @@ entryContext = Context $ \key item ->
   let entry = itemBody item
       conf  = conferenceEntry . itemIdentifier $ item
   in entryLookup entry conf key
-  -- if key `elem` paperFields 
-  -- then return $ fromJust $ getField key entry
-  -- else fmap (fromJust . getField key . itemBody) conf
 
 entryLookup :: Entry -> Compiler (Item Entry) -> String -> Compiler String
 entryLookup entry conf key 
