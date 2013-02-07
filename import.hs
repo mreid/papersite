@@ -10,6 +10,7 @@ import            Data.List
 import            Data.Maybe
 import            System.Directory
 import            System.Environment
+import            System.FilePath
 import            System.IO
 import qualified  Text.BibTeX.Entry    as BibTex
 import qualified  Text.BibTeX.Format   as BibTex
@@ -109,11 +110,42 @@ main = do
           let dir = intercalate "/" [dbPath, shortname procs, year procs ]
           createDirectoryIfMissing True dir
           writeProceedings procs dir 
-          forM_ (entries procs) $ \entry -> writeEntry entry dir
-        Nothing             -> error $ "Could not parse " ++ name
+          suppFiles <- copySupplementaries name dir
+          forM_ (entries procs) $ \entry ->
+            -- case hasSupplementary suppFiles entry ->
+              -- (Just suppFile) -> writeEntry (addSupp suppFile entry) dir
+              -- Nothing         -> writeEntry dir
+            writeEntry entry dir
 
+        Nothing       -> error $ "Could not parse " ++ name
 
     _            -> print "Usage: import bibtex database_directory"
+
+-- Test whether the given filename is for a supplementary file
+-- Currently just checks whether it ends in "-supp"
+isSupplementary :: FilePath -> Bool
+isSupplementary = (isSuffixOf "-supp") . takeBaseName
+
+-- Test whether the given list of supplementary files names contains the given
+-- entry identifier and returns the filename of the supplementary, if so.
+hasSupplementary :: [String] -> BibTex.T -> Maybe String
+hasSupplementary suppFiles entry = 
+  let entryID = BibTex.identifier entry 
+      suppIDs = map takeFileName suppFiles
+  in find (entryID `isPrefixOf`) suppIDs
+
+copySupplementaries :: FilePath -> FilePath -> IO [String]
+copySupplementaries name dir = do
+  let (sourceDir,bibtexName) = splitFileName name
+  let targetDir = combine dir "supplementary"
+  createDirectoryIfMissing True targetDir
+  
+  contents <- getDirectoryContents sourceDir
+  let names = filter isSupplementary contents
+  forM_ names $ \filename ->
+    copyFile (sourceDir </> filename) (targetDir </> filename)
+  
+  return names
 
 parseBibFile :: String -> Maybe Proceedings
 parseBibFile string = case Parsec.parse BibTex.Parse.file "<bib file>" string of
