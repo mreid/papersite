@@ -82,6 +82,11 @@ main = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/paper.html" entryContext
         >>= loadAndApplyTemplate "templates/default.html" metaContext 
 
+  -- Supplementary files
+  match "db/*/*/supplementary/*" $ do
+    route gsubRoute "db/" (const "")
+    compile copyFileCompiler
+
   -- Templates
   match "templates/**" $ 
     compile templateCompiler
