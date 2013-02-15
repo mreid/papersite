@@ -65,12 +65,12 @@ authorContext :: Context Author
 authorContext = Context $ \key item ->
 	let author = itemBody item
 	in case key of
-		"id"	        -> return $ toFilePath $ authorID author
+		"id"	      -> return $ toFilePath $ authorID author
 		"name"	      -> return $ name author
 		"firstnames"  -> return $ unwords $ firstNames author
 		"surname"     -> return $ lastName author
-		"url"	        -> return $ "/" ++ (toFilePath $ authorURI author)
-		_		          -> return $ "NA" 
+		"url"	      -> return $ "/" ++ (toFilePath $ authorURI author)
+		_		      -> return $ "NA" 
 
 --------------------------------------------------------------------------------
 -- Converts a raw BibTeX author name into an Author
