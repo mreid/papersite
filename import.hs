@@ -58,6 +58,9 @@ year = value "year" . conference
 shortname :: Proceedings -> String
 shortname = value "shortname" . conference
 
+volume :: Proceedings -> String
+volume = value "volume" . conference
+
 
 --------------------------------------------------------------------------------
 -- | Imports a single BibTeX file into the given directory. The
@@ -116,11 +119,11 @@ main = do
       let parsed = parseBibFile bibtex
       case parsed of
         (Just procs)  ->  do
-          let targetdir = intercalate "/" [dbPath, shortname procs, year procs ]
+          let targetdir = intercalate "/" [dbPath, "v" ++ (volume procs)]
           let sourcedir = dropFileName name
           createDirectoryIfMissing True targetdir
           writeProceedings procs targetdir 
-          suppFiles <- copySupplementaries sourcedir targetdir
+          suppFiles <- copyBinaries sourcedir targetdir
           forM_ (entries procs) $ \entry ->
             writeEntry (addSupps suppFiles entry) targetdir
 
@@ -152,18 +155,21 @@ hasSupplementary suppFiles entry =
       suppIDs = map takeFileName suppFiles
   in find (entryID `isPrefixOf`) suppIDs
 
--- Moves all supplementary files for the given file to 
-copySupplementaries :: FilePath -> FilePath -> IO [String]
-copySupplementaries sourceDir targetDir = do
-  let suppDir = combine targetDir "supplementary"
-  createDirectoryIfMissing True suppDir
+-- Moves all binary files (e.g., PDFs) for the given file to the target directory
+-- and returns a list of the supplementary file names
+copyBinaries :: FilePath -> FilePath -> IO [String]
+copyBinaries sourceDir targetDir = do
+  -- let suppDir = combine targetDir "supplementary"
+  -- createDirectoryIfMissing True suppDir
   
   contents <- getDirectoryContents sourceDir
-  let names = filter isSupplementary contents
-  forM_ names $ \filename ->
-    copyFile (sourceDir </> filename) (suppDir </> filename)
+  -- TODO: This currently copies sup files that PDF twice
+  let suppNames = filter isSupplementary contents
+  let pdfNames  = filter ((==) ".pdf" . takeExtension) contents
+  forM_ (suppNames ++ pdfNames) $ \filename ->
+    copyFile (sourceDir </> filename) (targetDir </> filename)
   
-  return $ map takeFileName names
+  return $ map takeFileName suppNames
 
 parseBibFile :: String -> Maybe Proceedings
 parseBibFile string = case Parsec.parse BibTex.Parse.file "<bib file>" string of
