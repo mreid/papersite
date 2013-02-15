@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE DeriveDataTypeable #-}
-
+module Main ( main, hasSupplementary, fieldAdd ) where
 --------------------------------------------------------------------------------
 import            Control.Applicative
 import            Control.Monad
@@ -25,6 +25,15 @@ data Proceedings =
 
 instance Eq BibTex.T where
   (==) t t' = (BibTex.entryType t) == (BibTex.entryType t')
+
+-- Add a new key-value mapping to the given BibTeX entry
+-- This will override any previous value with the same key.
+fieldAdd :: String -> String -> BibTex.T -> BibTex.T
+fieldAdd key value t =
+  BibTex.Cons
+    (BibTex.entryType t)
+    (BibTex.identifier t)
+    ((key, value) : (BibTex.fields t))
 
 fieldMap :: (String -> String) -> BibTex.T -> BibTex.T
 fieldMap f t = 
@@ -107,22 +116,31 @@ main = do
       let parsed = parseBibFile bibtex
       case parsed of
         (Just procs)  ->  do
-          let dir = intercalate "/" [dbPath, shortname procs, year procs ]
-          createDirectoryIfMissing True dir
-          writeProceedings procs dir 
-          suppFiles <- copySupplementaries name dir
+          let targetdir = intercalate "/" [dbPath, shortname procs, year procs ]
+          let sourcedir = dropFileName name
+          createDirectoryIfMissing True targetdir
+          writeProceedings procs targetdir 
+          suppFiles <- copySupplementaries sourcedir targetdir
           forM_ (entries procs) $ \entry ->
-            -- case hasSupplementary suppFiles entry ->
-              -- (Just suppFile) -> writeEntry (addSupp suppFile entry) dir
-              -- Nothing         -> writeEntry dir
-            writeEntry entry dir
+            writeEntry (addSupps suppFiles entry) targetdir
 
         Nothing       -> error $ "Could not parse " ++ name
 
     _            -> print "Usage: import bibtex database_directory"
 
+addSupps :: [String] -> BibTex.T -> BibTex.T
+addSupps suppFiles entry =
+  case hasSupplementary suppFiles entry of
+    (Just suppFile)   -> addSupp suppFile entry
+    Nothing           -> entry
+
+addSupp :: String -> BibTex.T -> BibTex.T
+addSupp suppFile entry =
+  let value = "Supplementary:" ++ suppFile in
+    fieldAdd "supplementary" value entry
+
 -- Test whether the given filename is for a supplementary file
--- Currently just checks whether it ends in "-supp"
+-- TODO: Currently only checks whether it ends in "-supp"
 isSupplementary :: FilePath -> Bool
 isSupplementary = (isSuffixOf "-supp") . takeBaseName
 
@@ -134,18 +152,18 @@ hasSupplementary suppFiles entry =
       suppIDs = map takeFileName suppFiles
   in find (entryID `isPrefixOf`) suppIDs
 
+-- Moves all supplementary files for the given file to 
 copySupplementaries :: FilePath -> FilePath -> IO [String]
-copySupplementaries name dir = do
-  let (sourceDir,bibtexName) = splitFileName name
-  let targetDir = combine dir "supplementary"
-  createDirectoryIfMissing True targetDir
+copySupplementaries sourceDir targetDir = do
+  let suppDir = combine targetDir "supplementary"
+  createDirectoryIfMissing True suppDir
   
   contents <- getDirectoryContents sourceDir
   let names = filter isSupplementary contents
   forM_ names $ \filename ->
-    copyFile (sourceDir </> filename) (targetDir </> filename)
+    copyFile (sourceDir </> filename) (suppDir </> filename)
   
-  return names
+  return $ map takeFileName names
 
 parseBibFile :: String -> Maybe Proceedings
 parseBibFile string = case Parsec.parse BibTex.Parse.file "<bib file>" string of
@@ -177,5 +195,7 @@ writeEntry entry dirPath = do
   hPutStr handle $ BibTex.entry $ cleanEntry entry
   hClose handle
 
-cleanEntry = fieldFilter (`elem` ["author", "title", "abstract", "pages"])
+cleanEntry = 
+  fieldFilter 
+    (`elem` ["author", "title", "abstract", "pages","supplementary"])
 
