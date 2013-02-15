@@ -5,7 +5,7 @@
 import            Author
 import            Control.Applicative ((<$>))
 import            Control.Monad       (forM_, liftM)
-import            Data.List           (intersperse)
+import            Data.List           (intersperse, sortBy)
 import            Data.List.HT        (segmentBefore)
 import            Data.Map            (keys, (!))
 import            Data.Maybe
@@ -18,15 +18,16 @@ import qualified  Text.BibTeX.Entry   as BibTex
 import            System.FilePath
 
 --------------------------------------------------------------------------------
+
 main :: IO ()
 main = hakyllWith config $ do
   -- Compile BibTeX information for each conference and save as an Entry
-  match "db/*/*.bib" $ do
+  match "db/*.bib" $ do
     compile $ 
       entryCompiler >>= saveSnapshot "conference"
 
   -- Compile conference details in, e.g., @db/conf/ICML/2012.bib@ to HTML
-  match "db/*/*.bib" $ version "html" $ do
+  match "db/*.bib" $ version "html" $ do
     route $ 
       gsubRoute "db/" (const "") `composeRoutes` 
       gsubRoute ".bib" (const "/index.html")
@@ -34,7 +35,7 @@ main = hakyllWith config $ do
     compile $ do 
       confID <- getUnderlying
       let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
-      papers <- loadAllSnapshots (pattern `withVersion` "entry") $ toFilePath confID
+      papers <- firstPageSort <$> (loadAllSnapshots (pattern `withVersion` "entry") $ toFilePath confID)
 
       linkTpl     <- loadBody "templates/paper-item.html"
       paperLinks  <- applyTemplateList linkTpl entryContext papers
@@ -51,12 +52,12 @@ main = hakyllWith config $ do
         >>= relativizeUrls
 
   -- Compile each paper BibTeX to an Entry and save
-  match "db/*/*/*.bib" $ version "entry" $ do
+  match "db/*/*.bib" $ version "entry" $ do
     compile $ 
       entryCompiler >>= saveEntryCompiler
 
   -- Papers are in, e.g., @db/conf/ICML/2012/reid12b.bib
-  match "db/*/*/*.bib" $ do
+  match "db/*/*.bib" $ do
     route $ 
       gsubRoute "db/" (const "") `composeRoutes` 
       setExtension "html"
@@ -69,23 +70,38 @@ main = hakyllWith config $ do
       authorTpl  <- loadBody "templates/scholar/author.html"
       authorMeta <- applyTemplateList authorTpl authorContext authors
 
+
       let entryContextWithAuthors = 
             constField "authors" authorMeta `mappend`
+			constField "baseURI" "http://jmlr.csail.mit.edu/proceedings/papers" `mappend`
             entryContext
             
       metaTpl    <- loadBody "templates/scholar/paper.html" 
       meta       <- applyTemplateList metaTpl entryContextWithAuthors [entry]
+	  
 
-      let metaContext = constField "metadata" meta `mappend` defaultContext
+      let metaContext = 
+			constField "metadata" meta `mappend` 
+			defaultContext
+
+      -- suppTpl	 <- loadBody "templates/supplementary.html"
+	   
+      -- let suppContext = 
+			-- entryContext
 
       entryCompiler
         >>= loadAndApplyTemplate "templates/paper.html" entryContext
         >>= loadAndApplyTemplate "templates/default.html" metaContext 
 
+  -- All files (PDFs, Zip, BibTeX)
+  match "db/*/*.*" $ do
+	route $ gsubRoute "db/" (const "")
+	compile copyFileCompiler
+
   -- Supplementary files
-  match "db/*/*/supplementary/*" $ do
-    route $ gsubRoute "db/" (const "")
-    compile copyFileCompiler
+  -- match "db/*/supplementary/*" $ do
+  --   route $ gsubRoute "db/" (const "")
+  --   compile copyFileCompiler
 
   -- Templates
   match "templates/**" $ 
@@ -130,6 +146,17 @@ joinTemplateList tpl context items delimiter = do
 
 
 --------------------------------------------------------------------------------
+firstPageSort :: [Item Entry] -> [Item Entry]
+firstPageSort = sortBy (\i1 i2 -> compare (firstPage $ itemBody i1) (firstPage $ itemBody i2))
+  where
+	firstPage e = (read . fromJust $ (getField "firstpage" e)) :: Int
+
+suppContext :: Context Entry
+suppContext = Context $ \key item ->
+  return $ case (getField "supplementary" . itemBody $ item) of
+	Just suppStr  -> ""
+	Nothing		  -> ""
+
 conferenceContext :: Context Entry
 conferenceContext = Context $ \key item ->
   return $ case (getField key . itemBody $ item) of
@@ -149,9 +176,9 @@ entryContext = Context $ \key item ->
 
 entryLookup :: Entry -> Compiler (Item Entry) -> String -> Compiler String
 entryLookup entry conf key 
-  | key `elem` paperFields  = return $ fromJust $ getField key entry
-  | key `elem` confFields   = fmap (fromJust . getField key . itemBody) conf
-  | True                    = return $ "FIXME"
+  | key `elem` paperFields   = return $ fromJust $ getField key entry
+  | key `elem` confFields    = fmap (fromJust . getField key . itemBody) conf
+  | True                     = return $ "FIXME"
   where
     paperFields = ["identifier", "title", "author", "abstract", "pages", "firstpage", "lastpage", "url", "pdf"]
     confFields  = ["booktitle", "volume", "year", "editor", "shortname"]
