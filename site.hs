@@ -73,6 +73,7 @@ main = hakyllWith config $ do
       entryCompiler
         >>= loadAndApplyTemplate "templates/paper.html" entryContext
         >>= loadAndApplyTemplate "templates/default.html" metaContext 
+        >>= relativizeUrls
 
   -- All files (PDFs, Zip, BibTeX)
   match "db/*/*.*" $ do
