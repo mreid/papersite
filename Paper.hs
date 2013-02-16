@@ -10,7 +10,7 @@ module Paper
   , paperID
   , paperConferenceID
   , paperURI
-  , paperContext
+  -- , paperContext
   , parsePaper
   ) where
 
@@ -102,26 +102,6 @@ paperID (Paper entry _) = fromFilePath $ BibTex.identifier entry
 
 paperURI :: Paper -> Identifier
 paperURI paper = fromFilePath ("paper/" ++ (toFilePath $ paperID paper) ++ ".html") 
-
--- entryContextWithDefaults :: Entry -> Context Entry
--- entryContextWithDefaults backup = 
---   Context $ \key item ->
---     let entry@(Entry t) = itemBody item
---     in case key of
-    
-
-paperContext :: Context Paper
-paperContext = Context $ \key item ->
-  let paper@(Paper t _) = itemBody item
-  in case key of
-    "identifier" -> return $ BibTex.identifier t
-    "url"        -> return $ "/" ++ (toFilePath $ paperURI paper)
-    "pdf"        -> case lookup "pdf" (BibTex.fields t) of
-      Nothing  -> return $ "/pdf/" ++ (toFilePath $ paperID paper)
-      Just pdf -> return $ pdf
-    _            -> case lookup key (BibTex.fields t) of
-      Nothing  -> empty
-      Just val -> return $ latexToHtml val
 
 paperConferenceID :: Paper -> Identifier
 paperConferenceID (Paper _ conf) = fromFilePath $ BibTex.identifier conf
