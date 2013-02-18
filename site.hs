@@ -38,7 +38,7 @@ main = hakyllWith config $ do
     compile $ do 
       confID <- getUnderlying
       let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
-      papers <- pageSort <$> (loadAllSnapshots (pattern `withVersion` "entry") $ toFilePath confID)
+      papers <- pageSort <$> (loadAllSnapshots (pattern .&&. hasVersion "entry") $ toFilePath confID)
 
       let papersCtx =
             templateField "papers" "templates/paper-item.html" entryContext papers
@@ -151,6 +151,33 @@ maybeRenderAs args item = do
 	(Just _)	-> applyTemplateList (readTemplate template) entryContext [item]
 	Nothing		-> return ""
 
+-- Renders against template given in first arg the structure ("authors", "supps")
+-- given in the second arg, as derived from the given entry item.
+renderListWith :: [String] -> Item Entry -> Compiler String
+renderListWith (templateID : name : rest) item = do
+  template <- loadBody . fromFilePath $ templateID 
+  let render ctx  = applyTemplateList template ctx
+  case name of 
+    "authors"	-> render authorContext $ entryAuthors item
+
+-- Renders against template given in first arg the structure ("authors", "supps")
+-- given in the second arg, as derived from the given entry item.
+renderJoinListAs :: [String] -> Item Entry -> Compiler String
+renderJoinListAs (name : delim : tplStrs) item = do
+  let template = map (\c -> if c=='%' then '$' else c) (unwords tplStrs)
+  let render ctx  = applyJoinTemplateList delim (readTemplate template) ctx
+  case name of 
+    "authors"	-> render authorContext $ entryAuthors item
+
+-- Renders against template given in first arg the structure ("authors", "supps")
+-- given in the second arg, as derived from the given entry item.
+renderListAs :: [String] -> Item Entry -> Compiler String
+renderListAs (name : tplStrs) item = do
+  let template = map (\c -> if c=='%' then '$' else c) (unwords tplStrs)
+  let render ctx  = applyTemplateList (readTemplate template) ctx
+  case name of 
+    "authors"	-> render authorContext $ entryAuthors item
+
 -- FIXME: Make sure this can handle roman (e.g., "xvi") page numbers.
 pageSort :: [Item Entry] -> [Item Entry]
 pageSort = sortBy (\i1 i2 -> compare (page $ itemBody i1) (page $ itemBody i2))
@@ -171,6 +198,8 @@ conferenceContext = Context $ \key item ->
 entryContext = 
   constField "baseURI" "http://jmlr.csail.mit.edu/proceedings/papers"
   <> functionField "renderListWith" renderListWith
+  <> functionField "renderListAs" renderListAs
+  <> functionField "renderJoinListAs" renderJoinListAs
   <> functionField "maybeRenderAs" maybeRenderAs
   <> functionField "maybeRenderWith" maybeRenderWith
   <> functionField "supplementary" supplementary
@@ -202,14 +231,6 @@ entrySupps entry =
 toSupps :: String -> [(String,FilePath)]
 toSupps str = undefined
 
--- Renders against template given in first arg the structure ("authors", "supps")
--- given in the second arg, as derived from the given entry item.
-renderListWith :: [String] -> Item Entry -> Compiler String
-renderListWith (templateID : name : rest) item = do
-  template <- loadBody . fromFilePath $ templateID 
-  let render ctx  = applyTemplateList template ctx
-  case name of 
-    "authors"	-> render authorContext $ entryAuthors item
 
 entryContext' :: Context Entry
 entryContext' = Context $ \key item -> do
