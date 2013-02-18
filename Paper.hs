@@ -30,7 +30,7 @@ import qualified  Text.BibTeX.Parse   as BibTex.Parse
 import qualified  Text.Parsec         as Parsec           
 import            Text.Pandoc         ( 
   Pandoc (..), Block( Para, Plain ), HTMLMathMethod ( MathJax ), 
-  defaultParserState, defaultWriterOptions,
+  def,
   readLaTeX, writerHTMLMathMethod, writeHtmlString
   )
 --------------------------------------------------------------------------------
@@ -111,11 +111,11 @@ paperConferenceID (Paper _ conf) = fromFilePath $ BibTex.identifier conf
 -- Converts a TeX string into HTML + MathJax
 -- (Adapted from Jasper Van der Jeugt's Hakyll-BibTeX code)
 latexToHtml tex =
-  let p = case readLaTeX defaultParserState tex of
+  let p = case readLaTeX def tex of
         Pandoc meta [Para para] -> Pandoc meta [Plain para]
         x                       -> x
   in writeHtmlString 
-    defaultWriterOptions { writerHTMLMathMethod = MathJax "" } p
+    def { writerHTMLMathMethod = MathJax "" } p
 
 --------------------------------------------------------------------------------
 getField :: String -> Entry -> Maybe String
