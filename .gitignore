@@ -11,6 +11,7 @@ _cache
 import
 site
 
+.DS_Store
 db/**/*.pdf
 db/**/*.zip
 received/**/*.pdf
