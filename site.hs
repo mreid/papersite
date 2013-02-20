@@ -105,8 +105,7 @@ main = hakyllWith config $ do
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
-  { deployCommand = "rsync --checksum -ave 'ssh -p 2222' \
-            \_site/* mreid@login.csail.mit.edu:"
+  { deployCommand = "rsync --checksum -avz _site/* mreid@login.csail.mit.edu:/afs/csail.mit.edu/group/jmlr/docroot/proceedings/papers/"
   }
 
 --------------------------------------------------------------------------------
