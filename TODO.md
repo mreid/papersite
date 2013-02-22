@@ -9,22 +9,22 @@
       (Wasn't closing file handle after writing entry)
 
 ## Improvements
+- [_] Test for missing PDFs for each BibTeX entry imported.
 
-- [X] Preprocess single BibTeX files into one-per-paper and add link to 
-	  each's paper's BibTeX.
+- [ ] Add javascript to embed discussion on each paper page
 
 - [ ] Improve the docs for the system on GitHub (especially dependencies) 
       so others can run it
 
 - [X] Prettify the pages that are generated
 
-- [ ] Add the Google Scholar metadata to each paper page
+- [X] Add the Google Scholar metadata to each paper page
 
-- [ ] Add javascript to embed discussion on each paper page
 
 - [X] Document exactly how we want things like BibTeX entry identifiers to 
       appear and other constraints on the BibTeX file
 
-- [ ] Add some code to automate pushing the generated sites to the JMLR server
+- [X] Add some code to automate pushing the generated sites to the JMLR server
 
-
+- [X] Preprocess single BibTeX files into one-per-paper and add link to 
+	  each's paper's BibTeX.
