@@ -1,0 +1,74 @@
+@Proceedings{ICML-2013,
+booktitle = {Proceedings of The 30th International Conference on Machine Learning},
+editor = {Sanjoy Dasgupta and David McAllester},
+publisher   = {JMLR Workshop and Conference Proceedings},
+volume = {28},
+number = {1},
+month = {February},
+year = {2013},
+shortname = {ICML}
+}
+
+@InProceedings{sznitman13,
+title = {An Optimal Policy for Target Localization with Application to Electron Microscopy},
+author = {Sznitman, Raphael and Lucchi, Aurelien and Frazier, Peter and Jedynak, Bruno and Fua, Pascal},
+pages = {1-9},
+abstract = {This paper considers the task of finding a target location by making a limited number of sequential observations.  Each observation results from evaluating an imperfect classifier of a chosen cost and accuracy on an interval of chosen length and position.  Within a Bayesian framework, we study the problem of minimizing an objective that combines the entropy of the posterior distribution with the cost of the questions asked.  In this problem, we show that the one-step lookahead policy is Bayes-optimal for any arbitrary time horizon.  Moreover, this one-step lookahead policy is easy to compute and implement. We then use this policy in the context of localizing mitochondria in electron microscope images, and experimentally show that significant speed ups in acquisition can be gained, while maintaining near equal image quality at target locations, when compared to current policies.}
+}
+
+@InProceedings{muandet13,
+title = {Domain Generalization via Invariant Feature Representation},
+author = {Muandet, Krikamol and Balduzzi, David and Sch\"{o}lkopf, Bernhard},
+pages = {10-18},
+abstract = {This paper investigates domain generalization: How to take knowledge acquired from an arbitrary number of related domains and apply it to previously unseen domains? We propose Domain-Invariant Component Analysis (DICA), a kernel-based optimization algorithm that learns an invariant transformation by minimizing the dissimilarity across domains, whilst preserving the functional relationship between input and output variables. A learning-theoretic analysis shows that reducing dissimilarity improves the expected generalization ability of classifiers on new domains, motivating the proposed algorithm. Experimental results on synthetic and real-world datasets demonstrate that DICA successfully learns invariant features and improves classifier performance in practice.  }
+}
+
+@InProceedings{boots13,
+title = {A Spectral Learning Approach to Range-Only {SLAM}},
+author = {Boots, Byron and Gordon, Geoff},
+pages = {19-26},
+abstract = {We present a novel spectral learning algorithm for simultaneous localization and mapping (SLAM) from range data with known correspondences.  This algorithm is an instance of a general spectral system identification framework, from which it inherits several desirable properties, including statistical consistency and no local optima. Compared with popular batch optimization or multiple-hypothesis tracking (MHT) methods for range-only SLAM, our spectral approach offers guaranteed low computational requirements and good tracking performance. Compared with MHT and with popular extended Kalman filter (EKF) or extended information filter (EIF) approaches, our approach does not need to linearize a transition or measurement model. We provide a theoretical analysis of our method, including finite-sample error bounds.  Finally, we demonstrate on a real-world robotic SLAM problem that our algorithm is not only theoretically justified, but works well in practice: in a comparison of multiple methods, the lowest errors come from a combination of our algorithm with batch optimization, but our method alone produces nearly as good a result at far lower computational cost.}
+}
+
+@InProceedings{kumar13a,
+title = {Near-Optimal Bounds for Cross-Validation via Loss Stability},
+author = {Kumar, Ravi and Lokshtanov, Daniel and Vassilvitskii, Sergei and Vattani, Andrea},
+pages = {27-35},
+abstract = {Multi-fold cross-validation is an established practice to estimate the error rate   of a learning algorithm.  Quantifying the variance reduction gains due to cross-validation   has been challenging due to the inherent correlations introduced by the folds.    In this work we introduce a new and weak measure of stability called \emph{loss stability}  and relate the cross-validation performance to loss stability; we also establish that this   relationship is near-optimal.  Our work thus quantitatively improves the current  best bounds on cross-validation.}
+}
+
+@InProceedings{mehta13,
+title = {Sparsity-Based Generalization Bounds for Predictive Sparse Coding},
+author = {Mehta, Nishant and Gray, Alexander},
+pages = {36-44},
+abstract = {The goal of predictive sparse coding is to learn a representation of examples as sparse linear combinations of elements from a dictionary, such that a learned hypothesis linear in the new representation performs well on a predictive task. Predictive sparse coding has demonstrated impressive performance on a variety of supervised tasks, but its generalization properties have not been studied. We establish the first generalization error bounds for predictive sparse coding, in the overcomplete setting, where the number of features k exceeds the original dimensionality d. The learning bound decays as (sqrt(d k/m)) with respect to d, k, and the size m of the training sample. It depends intimately on stability properties of the learned sparse encoder, as measured on the training sample. Consequently, we also present a fundamental stability result for the LASSO, a result that characterizes the stability of the sparse codes with respect to dictionary perturbations.}
+}
+
+@InProceedings{zhang13,
+title = {Sparse Uncorrelated Linear Discriminant Analysis},
+author = {Zhang, Xiaowei and Chu, Delin},
+pages = {45-52},
+abstract = {In this paper, we develop a novel approach for sparse uncorrelated linear discriminant analysis (ULDA). Our proposal is based on characterization of all solutions of the generalized ULDA. We incorporate sparsity into the ULDA transformation by seeking the solution with minimum $\ell_1$-norm from all minimum dimension solutions of the generalized ULDA. The problem is then formulated as a $\ell_{1}$-minimization problem and is solved by accelerated linearized Bregman method. Experiments on high-dimensional gene expression data demonstrate that our approach not only computes extremely sparse solutions but also performs well in classification. Experimental results also show that our approach can help for data visualization in low-dimensional space.}
+}
+
+@InProceedings{lacoste-julien13,
+title = {Block-Coordinate {Frank-Wolfe} Optimization for Structural {SVMs}},
+author = {Lacoste-Julien, Simon and Jaggi, Martin and Schmidt, Mark and Pletscher, Patrick},
+pages = {53-61},
+abstract = {We propose a randomized block-coordinate variant of the classic Frank-Wolfe algorithm for convex optimization with block-separable constraints. Despite its lower iteration cost, we show that it achieves a similar convergence rate in duality gap as the full Frank-Wolfe algorithm. We also show that, when applied to the dual structural support vector machine (SVM) objective, this yields an online algorithm that has the same low iteration complexity as primal stochastic subgradient methods. However, unlike stochastic subgradient methods, the block-coordinate Frank-Wolfe algorithm allows us to compute the optimal step-size and yields a computable duality gap guarantee. Our experiments indicate that this simple algorithm outperforms competing structural SVM solvers.}
+}
+
+@InProceedings{hennig13,
+title = {Fast Probabilistic Optimization from Noisy Gradients},
+author = {Hennig, Philipp},
+pages = {62-70},
+abstract = {Stochastic gradient descent remains popular in large-scale machine learning, on account of its very low computational cost and robustness to noise. However, gradient descent is only linearly efficient and not transformation invariant. Scaling by a local measure can substantially improve its performance. One natural choice of such a scale is the Hessian of the objective function: Were it available, it would turn linearly efficient gradient descent into the quadratically efficient Newton-Raphson optimization. Existing covariant methods, though, are either super-linearly expensive or do not address noise. Generalising recent results, this paper constructs a nonparametric Bayesian quasi-Newton algorithm that learns gradient and Hessian from noisy evaluations of the gradient. Importantly, the resulting algorithm, like stochastic gradient descent, has cost linear in the number of input dimensions.}
+}
+
+@InProceedings{shamir13,
+title = {Stochastic Gradient Descent for Non-smooth Optimization: Convergence Results and Optimal Averaging Schemes},
+author = {Shamir, Ohad and Zhang, Tong},
+pages = {71-79},
+abstract = {Stochastic Gradient Descent (SGD) is one of the simplest and most popular stochastic optimization methods. While it has already been theoretically studied for decades, the classical analysis usually required non-trivial smoothness assumptions, which do not apply to many modern applications of SGD with non-smooth objective functions such as support vector machines.  In this paper, we investigate the performance of SGD \emph{without} such smoothness assumptions, as well as a running average scheme to convert the SGD iterates to a solution with optimal optimization accuracy. In this framework, we prove that after $T$ rounds, the suboptimality of the \emph{last} SGD iterate scales as $O(\log(T)/\sqrt{T}$) for non-smooth convex objective functions, and $O(\log(T)/T)$ in the non-smooth strongly convex case. To the best of our knowledge, these are the first bounds of this kind, and almost match the minimax-optimal rates obtainable by appropriate averaging schemes. We also propose a new and simple averaging scheme, which not only attains optimal rates, but can also be easily computed on-the-fly (in contrast, the suffix averaging scheme proposed in \citet{RakhShaSri12arxiv} is not as simple to implement). Finally, we provide some experimental illustrations.}
+}
+
