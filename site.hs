@@ -6,11 +6,11 @@ import            Author
 import            Control.Applicative ((<$>), (<|>), empty)
 import            Control.Monad       (forM_, liftM, liftM3)
 import			  Data.Char
-import            Data.List           (intersperse, sortBy)
-import            Data.List.HT        (segmentBefore)
+import            Data.List           (foldl', intersperse, sortBy)
+import            Data.List.HT        (chop, segmentBefore)
 import            Data.Map            (keys, (!))
 import            Data.Maybe
-import            Data.Monoid         (mappend, (<>))
+import            Data.Monoid         (mappend, (<>), mconcat)
 import            Data.String         (fromString)
 import            Hakyll
 import            Paper
@@ -29,7 +29,7 @@ main = hakyllWith config $ do
     compile $ 
       entryCompiler >>= saveSnapshot "conference"
 
-  -- Compile conference details in, e.g., @db/conf/ICML/2012.bib@ to HTML
+  -- Compile conference details in, e.g., @db/v31.bib@ to HTML
   match "db/*.bib" $ version "html" $ do
     route $ 
       gsubRoute "db/" (const "") `composeRoutes` 
@@ -37,15 +37,21 @@ main = hakyllWith config $ do
 
     compile $ do 
       confID <- getUnderlying
-      let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
-      papers <- pageSort <$> (loadAllSnapshots (pattern .&&. hasVersion "entry") $ toFilePath confID)
+      conf   <- entryCompiler
 
-      let papersCtx =
-            templateField "papers" "templates/paper-item.html" entryContext papers
-			<> conferenceContext
+      let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
+      papers <- pageSort 
+                <$> (loadAllSnapshots (pattern .&&. hasVersion "entry") 
+                    $ toFilePath confID)
+
+      let titles = sectionTitles conf
+      let sections = fmap (Item "") $ makeSections [] papers
+      let sectionsCtx = 
+            templateField "sections" "templates/section.html" (sectionContext titles) sections
+            <> conferenceContext
 
       entryCompiler
-        >>= loadAndApplyTemplate "templates/papers.html" papersCtx
+        >>= loadAndApplyTemplate "templates/papers.html" sectionsCtx
         >>= loadAndApplyTemplate "templates/default.html" 
               (constField "metadata" "" 
 			  <> constField "title"  "All Papers"
@@ -57,7 +63,7 @@ main = hakyllWith config $ do
     compile $ 
       entryCompiler >>= saveEntryCompiler
 
-  -- Papers are in, e.g., @db/conf/ICML/2012/reid12b.bib
+  -- Papers are in, e.g., @db/v26/reid12b.bib
   match "db/*/*.bib" $ do
     route $ 
       gsubRoute "db/" (const "") `composeRoutes` 
@@ -68,7 +74,8 @@ main = hakyllWith config $ do
 
       let metaContext = 
 		  defaultContext
-		  <> templateField "metadata" "templates/scholar/paper.html" entryContext [entry]  
+		  <> templateField "metadata" "templates/scholar/paper.html" 
+              entryContext [entry]  
 
       entryCompiler
         >>= loadAndApplyTemplate "templates/paper.html" entryContext
@@ -105,7 +112,10 @@ main = hakyllWith config $ do
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
-  { deployCommand = "rsync --checksum -avz _site/* mreid@login.csail.mit.edu:/afs/csail.mit.edu/group/jmlr/docroot/proceedings/papers/"
+  { deployCommand = 
+      "rsync --checksum -avz _site/* " 
+        ++ "mreid@login.csail.mit.edu:"
+        ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/papers/"
   }
 
 --------------------------------------------------------------------------------
@@ -230,7 +240,6 @@ entrySupps entry =
 toSupps :: String -> [(String,FilePath)]
 toSupps str = undefined
 
-
 entryContext' :: Context Entry
 entryContext' = Context $ \key item -> do
   conf <- conferenceEntry item
@@ -262,6 +271,48 @@ conferenceEntry :: (Item Entry) -> Compiler (Item Entry)
 conferenceEntry paperID = do
   let confID = fromFilePath . confBib . toFilePath . itemIdentifier $ paperID
   loadSnapshot confID "conference"
+
+--------------------------------------------------------------------------------
+-- Sections in the proceedings
+type Section = (Maybe String, [Item Entry])
+
+
+-- Break the papers into sections
+section = getField "section" . itemBody
+
+-- Build an association list of sections
+makeSections :: [Section] -> [Item Entry] -> [Section] 
+makeSections = foldl' addToSection
+
+-- Adds an entry to the association list according to its section.
+-- The entry is added to the section "none" if it has no section field.
+addToSection :: [Section] -> (Item Entry) -> [Section]
+addToSection [] entry = [(section entry, [entry])]
+addToSection ((sec, es):rest) entry
+  | sec == section entry   = (sec, es ++ [entry]):rest
+  | True                   = (sec, es):(addToSection rest entry)
+
+-- Build a context for a section using the given titling function.
+--    section = title of section
+--    papers  = rendered list of papers
+sectionContext :: (String -> String) -> Context Section
+sectionContext titleFor = Context $ \key item -> 
+  case key of
+    "section"     -> return $ titleFor . fromMaybe "none" . fst . itemBody $ item
+    "papers"      -> do
+        tpl <- loadBody "templates/paper-item.html"
+        applyTemplateList tpl entryContext (snd . itemBody $ item)
+    _             -> empty
+
+-- Build a function that mas sections keywords to their corresponding titles
+-- by parsing a "sections" field of a conference that has the form
+--	  key1=Title Number 1|key2=Title Number Two|none=Default Title
+sectionTitles entry = case getField "sections" . itemBody $ entry of
+    Nothing     -> \_ -> ""
+    Just val    -> \key -> fromMaybe "" . lookup key . convert $ val
+    where 
+	  tuplify [x,y] = (x,y)
+	  convert = map tuplify . map (chop (=='=')) . chop (=='|') 
 
 --------------------------------------------------------------------------------
 -- Data type for the supplementary contents for a paper
