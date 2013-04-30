@@ -1,0 +1,8 @@
+@InProceedings{meng13a,
+  title = {Distributed Learning of Gaussian Graphical Models via Marginal Likelihoods},
+  section = {notable},
+  note = {Notable paper award},
+  author = {Meng, Zhaoshi and Wei, Dennis and Wiesel, Ami and III, Alfred Hero},
+  pages = {39--47},
+  abstract = {We consider distributed estimation of the inverse covariance matrix, also called the concentration matrix, in Gaussian graphical models. Traditional centralized estimation often requires iterative and expensive global inference and is therefore difficult in large distributed networks. In this paper, we propose a general framework for distributed estimation based on a maximum marginal likelihood (MML) approach. Each node independently computes a local estimate by maximizing a marginal likelihood defined with respect to data collected from its local neighborhood. Due to the non-convexity of the MML problem, we derive and consider solving a convex relaxation.  The local estimates are then combined into a global estimate without the need for iterative message-passing between neighborhoods.  We prove that this relaxed MML estimator is asymptotically consistent. Through numerical experiments on several synthetic and real-world data sets, we demonstrate that the two-hop version of the proposed estimator is significantly better than the one-hop version, and nearly closes the gap to the centralized maximum likelihood estimator in many situations.},
+}

@@ -1,0 +1,7 @@
+@InProceedings{kambadur13a,
+  supplementary = {Supplementary:kambadur13a-supp.pdf},
+  title = {A Parallel, Block Greedy Method for Sparse Inverse Covariance Estimation for Ultra-high Dimensions},
+  author = {Kambadur, Prabhanjan  and Lozano, Aurelie},
+  pages = {351--359},
+  abstract = {Discovering the graph structure of a Gaussian Markov Random Field is an important problem in application areas such as computational biology and atmospheric sciences. This task, which translates to estimating the sparsity pattern of the inverse covariance matrix, has been extensively studied in the literature. However, the existing approaches are unable to handle ultra-high dimensional datasets and there is a crucial need to develop methods that are both highly scalable and memory-efficient. In this paper, we present GINCO, a blocked greedy method for sparse inverse covariance matrix estimation. We also present detailed description of a highly-scalable and memory-efficient implementation of GINCO, which is able to operate on both shared- and distributed-memory architectures. Our implementation is able recover the sparsity pattern of 25,000 vertex random and chain graphs with 87\% and 84\% accuracy in $\le$ 5 minutes using $\le$ 10GB of memory on a single 8-core machine. Furthermore, our method is statistically consistent in recovering the sparsity pattern of the inverse covariance matrix, which we demonstrate through extensive empirical studies.},
+}

@@ -1,0 +1,7 @@
+@InProceedings{guzman-rivera13a,
+  supplementary = {Supplementary:guzman-rivera13a-supp.pdf},
+  title = {DivMCuts: Faster Training of Structural SVMs with Diverse M-Best Cutting-Planes},
+  author = {Guzman-Rivera, Abner and Kohli, Pushmeet and Batra, Dhruv},
+  pages = {316--324},
+  abstract = {Training of Structural SVMs involves solving a large Quadratic Program (QP). One popular method for solving this QP is a cutting-plane approach, where the most violated constraint is iteratively added to a working-set of constraints. Unfortunately, training models with a large number of parameters remains a time consuming process. This paper shows that significant computational savings can be achieved by adding multiple diverse and highly violated constraints at every iteration of the cutting-plane algorithm. We show that generation of such diverse cutting-planes involves extracting diverse M-Best solutions from the loss-augmented score of the training instances. To find these diverse M-Best solutions, we employ a recently proposed algorithm [4]. Our experiments on image segmentation and protein side-chain prediction show that the proposed approach can lead to significant computational savings, e.g., $\sim 28\%$ reduction in training time.},
+}
