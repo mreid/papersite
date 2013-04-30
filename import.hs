@@ -76,37 +76,14 @@ volume = value "volume" . conference
 --   files in the @db/@ directory. It does so as follows:
 --
 --   1. The \@Proceedings / \@Conference entry (henceforth, "conference")
---      is saved to a file @db/conf/N/Y.bib@ where @N@ is the value
---      of the @shortname@ field in the conference entry and @Y@ is the
---      value of the @year@ field.
+--      is saved to a file @db/vNN.bib@ where @NN@ is the volume number.
 --
 --      If the @booktitle@ field is not present it is set to the value of
 --      the @title@ field.
 --
 --   2. A modified version of each other entry (the @\@InProceedings@ entries) 
---      is written to @db/conf/N/Y/ID.bib@ where @N@ and @Y@ are as above 
+--      is written to @db/vNN/ID.bib@ where @NN@ is the volume number
 --      and @ID@ is value of the entry's BibTeX indentifier.
---
---      The modifications to the entry are as follows:
---
---      a. The @crossref@ field is set to @N/Y@ where @N@ and @Y@ are as above.
---   
---   3. For every author appear in the @author@ field of a non-conference entry
---      a file is written to @db/authors/A.bib@ where @A@ is a unique
---      identifier for the author (described below) and the contents of the
---      file are of the form:
---      @
---        @author{A,
---          lastname = { Smith },
---          firstnames = { John Xavier }
---        }
---      @
---
---      This file is only written to if it does not already exist.
---
---      The identifer @A@ is of the form @Lastname_IJ@ where @Lastname@
---      is a unicode-cleansed version of the author's last name and @I@ and
---      @J@ are the unicode-cleansed initials of the author's first names.
 main :: IO()
 main = do
   args <- getArgs 
@@ -203,5 +180,5 @@ writeEntry entry dirPath = do
 
 cleanEntry = 
   fieldFilter 
-    (`elem` ["author", "title", "abstract", "pages","supplementary"])
+    (`elem` ["author", "title", "abstract", "pages","supplementary", "section", "note"])
 
