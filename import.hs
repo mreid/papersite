@@ -180,5 +180,5 @@ writeEntry entry dirPath = do
 
 cleanEntry = 
   fieldFilter 
-    (`elem` ["author", "title", "abstract", "pages","supplementary", "section", "note"])
+    (`elem` ["author", "title", "abstract", "pages","supplementary", "section", "note", "number"])
 
