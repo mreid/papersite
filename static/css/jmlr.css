@@ -16,6 +16,10 @@ a {text-decoration:none;color:#3030a0}
     width: 8em;
     height: 100%;
 }
+#sectionnav { 
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
 body > #fixed {
     position: fixed;
 }

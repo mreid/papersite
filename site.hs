@@ -45,9 +45,14 @@ main = hakyllWith config $ do
                     $ toFilePath confID)
 
       let titles = sectionTitles conf
+      let sectionCtx = sectionContext titles
       let sections = fmap (Item "") $ makeSections [] papers
+
       let sectionsCtx = 
-            templateField "sections" "templates/section.html" (sectionContext titles) sections
+            templateField "sections" "templates/section.html" 
+                sectionCtx sections
+            <> templateField "sectionnav" "templates/section-link.html"   
+                sectionCtx sections
             <> conferenceContext
 
       entryCompiler
@@ -276,6 +281,8 @@ conferenceEntry paperID = do
 -- Sections in the proceedings
 type Section = (Maybe String, [Item Entry])
 
+sectionID :: Item Section -> String
+sectionID = fromMaybe "none" .fst . itemBody
 
 -- Break the papers into sections
 section = getField "section" . itemBody
@@ -298,11 +305,13 @@ addToSection ((sec, es):rest) entry
 sectionContext :: (String -> String) -> Context Section
 sectionContext titleFor = Context $ \key item -> 
   case key of
-    "section"     -> return $ titleFor . fromMaybe "none" . fst . itemBody $ item
+    "sectionid"   -> return . sectionID $ item
+    "section"     -> return . titleFor . sectionID $ item
     "papers"      -> do
         tpl <- loadBody "templates/paper-item.html"
         applyTemplateList tpl entryContext (snd . itemBody $ item)
     _             -> empty
+
 
 -- Build a function that mas sections keywords to their corresponding titles
 -- by parsing a "sections" field of a conference that has the form
