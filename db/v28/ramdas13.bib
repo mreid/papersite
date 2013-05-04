@@ -1,6 +1,8 @@
 @InProceedings{ramdas13,
   supplementary = {Supplementary:ramdas13-supp.pdf},
   title = {Optimal rates for stochastic convex optimization under Tsybakov noise condition},
+  number = {1},
+  section = {cycle-1},
   author = {Ramdas, Aaditya and Singh, Aarti},
   pages = {365-373},
   abstract = {We focus on the problem of minimizing a convex function $f$ over a convex set $S$ given $T$ queries to a stochastic first order oracle. We argue that the complexity of convex minimization is only determined by the rate of growth of the function around its minimum $x^*_{f,S}$, as quantified by a Tsybakov-like noise condition. Specifically, we prove that if $f$ grows at least as fast as $\|x-x^*_{f,S}\|^\kappa$ around its minimum, for some $\kappa > 1$, then the optimal rate of learning $f(x^*_{f,S})$ is  $\Theta(T^{-\frac{\kappa}{2\kappa-2}})$. The classic rate $\Theta(1/\sqrt T)$ for convex functions and $\Theta(1/T)$ for strongly convex functions are special cases of our result for $\kappa \rightarrow \infty$ and $\kappa=2$, and even faster rates are attained for $1 < \kappa < 2$. We also derive tight bounds for the complexity of learning $x_{f,S}^*$, where the optimal rate is $\Theta(T^{-\frac{1}{2\kappa-2}})$. Interestingly, these precise rates also characterize the complexity of active learning and our results further strengthen the connections between the fields of active learning and convex optimization, both of which rely on feedback-driven queries.},
