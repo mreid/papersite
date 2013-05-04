@@ -105,6 +105,11 @@ main = hakyllWith config $ do
 				(constField "metadata" "" <> defaultContext)
           >>= relativizeUrls
 
+  -- Javascript
+  match "static/js/*.js" $ do
+    route (gsubRoute "static/" (const ""))
+    compile copyFileCompiler
+
   -- CSS
   match "static/css/*.css" $ do
     route (gsubRoute "static/" (const ""))
