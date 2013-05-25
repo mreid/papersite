@@ -92,7 +92,7 @@ pages = {46-54},
 abstract = {We present a new algorithm for multi-class classification with multiple kernels. Our algorithm is based on a natural notion of the multi-class margin of a kernel. We show that larger values of this quantity guarantee the existence of an accurate multi-class predictor and also define a family of multiple kernel algorithms based on the maximization of the multi-class margin of a kernel (M^3K).  We present an extensive theoretical analysis in support of our algorithm, including novel multi-class Rademacher complexity margin bounds.  Finally, we also report the results of a series of experiments with several data sets, including comparisons where we improve upon the performance of state-of-the-art algorithms both in binary and multi-class classification with multiple kernels.}
 }
 
-@InProceedings{grohans13,
+@InProceedings{grosshans13,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -101,12 +101,12 @@ number = {3},
 month = {May},
 year = {2013},
 title = {Bayesian Games for Adversarial Regression Problems},
-author = {Grohans, Michael and Sawade, Christoph and Brckner, Michael and Scheffer, Tobias},
+author = {Großhans, Michael and Sawade, Christoph and Brückner, Michael and Scheffer, Tobias},
 pages = {55-63},
 abstract = {We study regression problems in which an adversary can exercise some control over the data generation process. Learner and adversary have conflicting but not necessarily perfectly antagonistic objectives. We study the case in which the learner is not fully informed about the adversary's objective; instead, any knowledge of the learner about parameters of the adversary's goal may be reflected in a Bayesian prior. We model this problem as a Bayesian game, and characterize conditions under which a unique Bayesian equilibrium point exists. We experimentally compare the Bayesian equilibrium strategy to the Nash equilibrium strategy, the minimax strategy, and regular linear regression.}
 }
 
-@InProceedings{chen13a,
+@InProceedings{chen13f,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -120,7 +120,7 @@ pages = {64-72},
 abstract = {In real crowdsourcing applications, each label from a crowd usually comes  with a certain cost. Given a pre- fixed amount of budget, since different tasks have different ambiguities and different workers have different expertises, we want to  find an optimal way to allocate the budget among instance-worker pairs such that the overall label quality can be maximized. To address this issue, we start from the simplest setting in which all workers are assumed to be perfect. We formulate the problem as a Bayesian Markov Decision Process (MDP). Using the dynamic programming (DP) algorithm, one can obtain the optimal allocation policy for a given budget. However,  DP is computationally intractable. To solve the computational challenge, we propose a novel approximate policy which is called optimistic knowledge gradient. It is practically efficient while theoretically its consistency can be guaranteed.  We then extend  the MDP framework to deal with inhomogeneous workers and tasks with contextual information available.  The experiments on both simulated and real data  demonstrate the superiority of our method.}
 }
 
-@InProceedings{kolar13,
+@InProceedings{kolar13a,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -243,7 +243,7 @@ year = {2013},
 title = {Inference algorithms for pattern-based CRFs on sequence data},
 author = {Kolmogorov, Vladimir and Takhanov, Rustem},
 pages = {145-153},
-abstract = {We consider {\em Conditional Random Fields (CRFs) with pattern-based potentials}  defined on a chain. In this model the energy of a string (labeling) $x_1\ldots x_n$  is the sum of terms over intervals $[i,j]$ where each term is non-zero only if the substring $x_i\ldots x_j$  equals a prespecified pattern $\alpha$. Such CRFs can be naturally applied to many sequence tagging problems.  %and were also used in computer vision.    We present efficient algorithms for the three standard inference tasks in a CRF, namely  computing (i) the partition function, (ii) marginals, and (iii) computing the MAP.  Their complexities are respectively  $O(n L)$, $O(n L \ell_{\max})$ and  $O(n L \min\{|D|,\log (\ell_{\max}\!+\!1)\})$  where $L$ is the combined length of input patterns, $\ell_{\max}$ is the maximum length of a pattern,  and $D$ is the input alphabet.  This improves on the previous algorithms of~\cite{Ye:NIPS09} whose complexities are respectively $O(n L |D|)$,  $O\left(n |\Gamma| L^2 \ell_{\max}^2\right)$ and $O(n L |D|)$,  where $|\Gamma|$ is the number of input patterns. In addition, we give an efficient algorithm for sampling,  and revisit the case of MAP with non-positive weights.  %  Finally, we apply pattern-based CRFs to the problem of the protein dihedral angles prediction.  }
+abstract = {We consider {\em Conditional Random Fields (CRFs) with pattern-based potentials}  defined on a chain. In this model the energy of a string (labeling) $x_1\ldots x_n$  is the sum of terms over intervals $[i,j]$ where each term is non-zero only if the substring $x_i\ldots x_j$  equals a prespecified pattern $\alpha$. Such CRFs can be naturally applied to many sequence tagging problems. We present efficient algorithms for the three standard inference tasks in a CRF, namely  computing (i) the partition function, (ii) marginals, and (iii) computing the MAP.  Their complexities are respectively  $O(n L)$, $O(n L \ell_{\max})$ and  $O(n L \min\{|D|,\log (\ell_{\max} + 1)\})$  where $L$ is the combined length of input patterns, $\ell_{\max}$ is the maximum length of a pattern,  and $D$ is the input alphabet.  This improves on the previous algorithms of~\cite{Ye:NIPS09} whose complexities are respectively $O(n L |D|)$,  $O\left(n |\Gamma| L^2 \ell_{\max}^2\right)$ and $O(n L |D|)$,  where $|\Gamma|$ is the number of input patterns. In addition, we give an efficient algorithm for sampling,  and revisit the case of MAP with non-positive weights. Finally, we apply pattern-based CRFs to the problem of the protein dihedral angles prediction.  }
 }
 
 @InProceedings{gopi13,
@@ -302,7 +302,7 @@ pages = {181-189},
 abstract = {Human-generated lists are a form of non-iid data with important applications in machine learning and cognitive psychology. We propose a generative model - sampling with reduced replacement (SWIRL) - for such lists. We discuss SWIRL's relation to standard sampling paradigms, provide the maximum likelihood estimate for learning, and demonstrate its value with two real-world applications: (i) In a ""feature volunteering"" task where non-experts spontaneously generate feature=>label pairs for text classification, SWIRL improves the accuracy of state-of-the-art feature-learning frameworks. (ii) In a ""verbal fluency"" task where brain-damaged patients generate word lists when prompted with a category, SWIRL parameters align well with existing psychological theories, and our model can classify healthy people vs. patients from the lists they generate.    }
 }
 
-@InProceedings{wang13a,
+@InProceedings{wang13f,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -470,7 +470,7 @@ pages = {289-297},
 abstract = {We propose and analyze a novel framework for learning sparse representations, based on two statistical techniques: kernel smoothing and marginal regression. The proposed approach provides a flexible framework for incorporating feature similarity or temporal information present in data sets, via nonparametric kernel smoothing. We provide generalization bounds for dictionary learning  using smooth sparse coding and show how the sample complexity depends on the L1 norm of kernel function used. Furthermore, we propose using marginal regression for obtaining sparse codes, which significantly improves the  speed and allows one to scale to large dictionary sizes easily. We demonstrate the advantages of the proposed approach, both in terms of accuracy and speed by extensive experimentation on several real data sets. In addition, we demonstrate how the proposed approach could be used for improving semisupervised sparse coding.}
 }
 
-@InProceedings{wang13b,
+@InProceedings{wang13g,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -652,7 +652,7 @@ pages = {405-413},
 abstract = {Multi-label classification deals with the problem where each instance can be associated with a set of class labels. However, in many real-world applications, the number of class labels can be in the hundreds or even thousands, and existing multi-label classification methods often become computationally inefficient. In recent years, a number of remedies have been proposed. However, they are either based on simple dimension reduction techniques or involve expensive optimization problems. In this paper, we address this problem by selecting a small subset of class labels that can approximately span the original label space. This is performed by randomized sampling where the sampling probability of each class label reflects its importance among all the labels. Theoretical analysis shows that this randomized sampling approach is highly efficient. Experiments on a number of real-world multi-label datasets with many labels demonstrate the appealing performance and efficiency of the proposed algorithm.  }
 }
 
-@InProceedings{chen13b,
+@InProceedings{chen13g,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -666,7 +666,7 @@ pages = {414-422},
 abstract = {The paper studies the problem of recovering a spectrally sparse object from a small number of time domain samples. Specifically, the object of interest with ambient dimension $n$ is assumed to be a mixture of $r$ complex multi-dimensional sinusoids, while the underlying frequencies can assume any value in the unit disk. Conventional compressed sensing paradigms suffer from the {\em basis mismatch} issue when imposing a discrete dictionary on the Fourier representation. To address this problem,  we develop a novel nonparametric algorithm, called enhanced matrix completion (EMaC), based on structured matrix completion. The algorithm starts by converting the data into a low-rank enhanced form with multi-fold Hankel structure, then attempts recovery via nuclear norm minimization. Under mild incoherence conditions, EMaC allows perfect recovery as soon as the number of samples exceeds the order of $\mathcal{O}(r\log^{2} n)$. We also show that, in many instances, accurate completion of a low-rank multi-fold Hankel matrix is possible when the number of observed entries is proportional to the information theoretical limits (except for a logarithmic gap). The robustness of EMaC against bounded noise and its applicability to super resolution are further demonstrated by numerical experiments.  }
 }
 
-@InProceedings{yang13a,
+@InProceedings{yang13d,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -792,7 +792,7 @@ pages = {495-503},
 abstract = {In this paper we extend temporal difference policy evaluation algorithms to performance criteria that include the variance of the cumulative reward. Such criteria are useful for risk management, and are important in domains such as finance and process control. We propose variants of both TD(0) and LSTD($\lambda$) with linear function approximation, prove their convergence, and demonstrate their utility in a 4-dimensional continuous state space problem.}
 }
 
-@InProceedings{yu13,
+@InProceedings{yu13a,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -918,7 +918,7 @@ pages = {576-584},
 abstract = {This paper presents a new class of tensor factorization called positive semidefinite tensor factorization (PSDTF) that decomposes a set of positive semidefinite (PSD) matrices into the convex combinations of fewer PSD basis matrices. PSDTF can be viewed as a natural extension of nonnegative matrix factorization. One of the main problems of PSDTF is that an appropriate number of bases should be given in advance. To solve this problem, we propose a nonparametric Bayesian model based on a gamma process that can instantiate only a limited number of necessary bases from the infinitely many bases assumed to exist. We derive a variational Bayesian algorithm for closed-form posterior inference and a multiplicative update rule for maximum-likelihood estimation. We evaluated PSDTF on both synthetic data and real music recordings to show its superiority.}
 }
 
-@InProceedings{yang13b,
+@InProceedings{yang13e,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -946,7 +946,7 @@ pages = {594-602},
 abstract = {Boosted decision trees are one of the most popular and successful learning techniques used today.  While exhibiting fast speeds at test time, relatively slow training makes them impractical for applications with real-time learning requirements. We propose a principled approach to overcome this drawback. We prove a bound on the error of a decision stump given its preliminary error on a subset of the training data; the bound may be used to prune unpromising features early on in the training process. We propose a fast training algorithm that exploits this bound, yielding speedups of an order of magnitude at no cost in the final performance of the classifier. Our method is not a new variant of Boosting; rather, it may be used in conjunction with existing Boosting algorithms and other sampling heuristics to achieve even greater speedups.}
 }
 
-@InProceedings{menon13,
+@InProceedings{menon13a,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -1212,7 +1212,7 @@ pages = {765-773},
 abstract = {We propose an interpretable rule-based classification system based on ideas from Boolean compressed sensing. We represent the problem of learning individual conjunctive clauses or individual disjunctive clauses as a Boolean group testing problem, and apply a novel linear programming relaxation to find solutions. We derive results for exact rule recovery which parallel the conditions for exact recovery of sparse signals in the compressed sensing literature: although the general rule recovery problem is NP-hard, under some conditions on the Boolean `sensing' matrix, the rule can be recovered exactly. This is an exciting development in rule learning where most prior work focused on heuristic solutions. Furthermore we construct rule sets from these learned clauses using set covering and boosting.  We show competitive classification accuracy using the proposed approach.}
 }
 
-@InProceedings{chen13c,
+@InProceedings{chen13h,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -1352,7 +1352,7 @@ pages = {855-863},
 abstract = {We present a practical and powerful new framework for both unconstrained and constrained submodular function optimization based on discrete semidifferentials (sub- and super-differentials). The resulting algorithms, which repeatedly compute and then efficiently optimize submodular semigradients, offer new and generalize many old methods for submodular optimization.  Our approach, moreover, takes steps towards providing a unifying paradigm applicable to both submodular minimization and maximization, problems that historically have been treated quite distinctly. The practicality of our algorithms is important since interest in submodularity, owing to its natural and wide applicability, has recently been in ascendance within machine learning.  We analyze theoretical properties of our algorithms for minimization and maximization, and show that many state-of-the-art maximization algorithms are special cases. Lastly, we complement our theoretical analyses with supporting empirical experiments.}
 }
 
-@InProceedings{gnen13,
+@InProceedings{gonen13a,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -1361,7 +1361,7 @@ number = {3},
 month = {May},
 year = {2013},
 title = {Kernelized Bayesian Matrix Factorization},
-author = {Gnen, Mehmet and Khan, Suleiman and Kaski, Samuel},
+author = {Gönen, Mehmet and Khan, Suleiman and Kaski, Samuel},
 pages = {864-872},
 abstract = {We extend kernelized matrix factorization with a fully Bayesian treatment and with an ability to work with multiple side information sources expressed as different kernels. Kernel functions have been introduced to matrix factorization to integrate side information about the rows and columns (e.g., objects and users in recommender systems), which is necessary for making out-of-matrix (i.e., cold start) predictions. We discuss specifically bipartite graph inference, where the output matrix is binary, but extensions to more general matrices are straightforward. We extend the state of the art in two key aspects: (i) A fully conjugate probabilistic formulation of the kernelized matrix factorization problem enables an efficient variational approximation, whereas fully Bayesian treatments are not computationally feasible in the earlier approaches. (ii) Multiple side information sources are included, treated as different kernels in multiple kernel learning that additionally reveals which side information sources are informative. Our method outperforms alternatives in predicting drug-protein interactions on two data sets. We then show that our framework can also be used for solving multilabel learning problems by considering samples and labels as the two domains where matrix factorization operates on. Our algorithm obtains the lowest Hamming loss values on 10 out of 14 multilabel classification data sets compared to five state-of-the-art multilabel learning algorithms.}
 }
@@ -1380,7 +1380,7 @@ pages = {873-880},
 abstract = {Sum-product networks (SPNs) are a new class of deep probabilistic models. SPNs can have unbounded treewidth but inference in them is always tractable. An SPN is either a univariate distribution, a product of SPNs over disjoint variables, or a weighted sum of SPNs over the same variables. We propose the first algorithm for learning the structure of SPNs that takes full advantage of their expressiveness. At each step, the algorithm attempts to divide the current variables into approximately independent subsets. If successful, it returns the product of recursive calls on the subsets; otherwise it returns the sum of recursive calls on subsets of similar instances from the current training set. A comprehensive empirical study shows that the learned SPNs are typically comparable to graphical models in likelihood but superior in inference speed and accuracy.}
 }
 
-@InProceedings{yang13c,
+@InProceedings{yang13f,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -1520,7 +1520,7 @@ pages = {960-968},
 abstract = {Many real-world networks exhibit both temporal evolution and multiscale structure.  We propose a model for temporally correlated multifurcating hierarchies in complex networks which jointly capture both effects. We use the Gibbs fragmentation tree as prior over multifurcating trees and a change-point model to account for the temporal evolution of each vertex.  We demonstrate that our model is able to infer time-varying multiscale structure in synthetic as well as three real world time-evolving complex networks.  Our modeling of the temporal evolution of hierarchies brings new insights into the changing roles and position of entities and possibilities for better understanding these dynamic complex systems.  }
 }
 
-@InProceedings{chen13d,
+@InProceedings{chen13i,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -1702,7 +1702,7 @@ pages = {1076-1084},
 abstract = {Evaluation cost during test-time is becoming increasingly important as many real-world applications need fast evaluation (e.g. web search engines, email spam filtering) or use expensive features (e.g. medical diagnosis). We introduce Anytime Feature Representations (AFR), a novel algorithm that explicitly addresses this trade-off in the data representation rather than in the classifier. This enables us to turn conventional classifiers, in particular Support Vector Machines, into test-time cost sensitive anytime classifiers combining the advantages of anytime learning and large-margin classification.}
 }
 
-@InProceedings{nguyen13,
+@InProceedings{nguyen13a,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -1744,7 +1744,7 @@ pages = {1103-1111},
 abstract = {The parameters of temporal models, such as dynamic Bayesian networks, may be modelled in a Bayesian context as static or atemporal variables that influence transition probabilities at every time step. Particle filters fail for models that include such variables, while methods that use Gibbs sampling of parameter variables may incur a per-sample cost that grows linearly with the length of the observation sequence. Storvik devised a method for incremental computation of exact sufficient statistics that, for some cases, reduces the per-sample cost to a constant.  In this paper, we demonstrate a connection between Storvik's filter and a Kalman filter in parameter space and establish more general conditions under which Storvik's filter works. Drawing on an analogy to the extended Kalman filter, we develop and analyze, both theoretically and experimentally, a Taylor approximation to the parameter posterior that allows Storvik's method to be applied to a broader class of models. Our experiments on both synthetic examples and real applications show improvement over existing methods.}
 }
 
-@InProceedings{balcan13,
+@InProceedings{balcan13a,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -1996,7 +1996,7 @@ pages = {1265-1273},
 abstract = {This paper considers the sparse Gaussian conditional random field, a discriminative extension of sparse inverse covariance estimation, where we use convex methods to learn a high-dimensional conditional distribution of outputs given inputs. The model has been proposed by multiple researchers within the past year, yet previous papers have been substantially limited in their analysis of the method and in the ability to solve large-scale problems.  In this paper, we make three contributions: 1) we develop a second-order active-set method which is several orders of magnitude faster that previously proposed optimization approaches for this problem 2) we analyze the model from a theoretical standpoint, improving upon past bounds with convergence rates that depend logarithmically on the data dimension, and 3) we apply the method to large-scale energy forecasting problems, demonstrating state-of-the-art performance on two real-world tasks.}
 }
 
-@InProceedings{chen13e,
+@InProceedings{chen13j,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -2150,7 +2150,7 @@ pages = {1364-1372},
 abstract = {Many prediction domains, such as ad placement, recommendation, trajectory prediction, and document summarization, require predicting a set or list of options. Such lists are often evaluated using submodular reward functions that measure both quality and diversity. We propose a simple, efficient, and provably near-optimal approach to optimizing such prediction problems based on no-regret learning. Our method leverages a surprising result from online submodular optimization: a single no-regret online learner can compete with an optimal sequence of predictions. Compared to previous work, which either learn a sequence of classifiers or rely on stronger assumptions such as realizability, we ensure both data-efficiency as well as performance guarantees in the fully agnostic setting. Experiments validate the efficiency and applicability of the approach on a wide range of problems including manipulator trajectory optimization, news recommendation and document summarization.}
 }
 
-@InProceedings{kim13,
+@InProceedings{kim13a,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -2178,7 +2178,7 @@ pages = {1382-1390},
 abstract = { In this paper, we claim that some of the non-support vectors (non-SVs) that have no influence on the classifier can be screened out prior to the training phase in pathwise SVM computation scenario, in which one is asked to train a sequence (or path) of SVM classifiers for different regularization parameters. Based on a recently proposed framework so-called safe screening rule, we derive a rule for screening out non-SVs in advance, and discuss how we can exploit the advantage of the rule in pathwise SVM computation scenario. Experiments indicate that our approach often substantially reduce the total pathwise computation cost.}
 }
 
-@InProceedings{vilapires13,
+@InProceedings{avilapires13,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
@@ -2187,7 +2187,7 @@ number = {3},
 month = {May},
 year = {2013},
 title = {Cost-sensitive Multiclass Classification Risk Bounds},
-author = {vila Pires, Bernardo and Szepesvari, Csaba and Ghavamzadeh, Mohammad},
+author = {Ávila Pires, Bernardo and Szepesvari, Csaba and Ghavamzadeh, Mohammad},
 pages = {1391-1399},
 abstract = {A commonly used approach to multiclass classification is to replace the $0-1$ loss with a convex surrogate so as to make empirical risk minimization computationally tractable. Previous work has uncovered sufficient and necessary conditions for the consistency of the resulting procedures. In this paper, we strengthen these results by showing how the $0-1$ excess loss of a predictor can be upper bounded as a function of the excess loss of the predictor measured using the convex surrogate. The bound is developed for the case of cost-sensitive multiclass classification and a convex surrogate loss that goes back to the work of  Lee, Lin and Wahba. The bounds are as easy to calculate as in binary classification. Furthermore, we also show that our analysis extends to the analysis of the recently introduced ``Simplex Coding'' scheme.}
 }
@@ -2318,7 +2318,7 @@ pages = {1471-1479},
 abstract = {Coco (""cooperative/competitive"") values are a solution concept for two-player normal-form games with transferable utility, when binding agreements and side payments between players are possible. In this paper, we show that coco values can also be defined for stochastic games and can be learned using a simple variant of Q-learning that is provably convergent. We provide a set of examples showing how the strategies learned by the Coco-Q algorithm relate to those learned by existing multiagent Q-learning algorithms.}
 }
 
-@InProceedings{ho13,
+@InProceedings{ho13a,
 booktitle = {Proceedings of The 30th International Conference on Machine Learning},
 editor = {Sanjoy Dasgupta and David McAllester},
 publisher   = {JMLR Workshop and Conference Proceedings},
