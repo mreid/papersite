@@ -1,0 +1,8 @@
+@InProceedings{meng13b,
+  number = {3},
+  section = {cycle-3},
+  title = {Robust Regression on MapReduce},
+  author = {Meng, Xiangrui and Mahoney, Michael},
+  pages = {888-896},
+  abstract = {Although the MapReduce framework is now the \emph{de facto} standard for   analyzing massive data sets, many algorithms (in particular, many   iterative algorithms popular in machine learning, optimization, and linear   algebra) are hard to fit into MapReduce.   Consider, \emph{e.g.}, the $\ell_p$ regression problem: given a matrix   $A \in \mathbb{R}^{m \times n}$ and a vector $b \in \mathbb{R}^m$, find a   vector $x^* \in \mathbb{R}^n$ that minimizes $f(x) = \|A x - b\|_p$.   The widely-used $\ell_2$ regression, \emph{i.e.}, linear least-squares, is   known to be highly sensitive to outliers; and choosing $p \in [1, 2)$ can   help improve robustness.  In this work, we propose an efficient algorithm for solving strongly   over-determined $(m \gg n)$ robust $\ell_p$ regression problems to moderate precision on   MapReduce.  Our empirical results on data up to the terabyte scale demonstrate   that our algorithm is a significant improvement over traditional iterative algorithms on MapReduce   for $\ell_1$ regression, even for a fairly small number   of iterations.   In addition, our proposed interior-point cutting-plane method can also be   extended to solving more general convex problems on MapReduce.},
+}

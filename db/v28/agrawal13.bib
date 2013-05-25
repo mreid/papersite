@@ -1,0 +1,9 @@
+@InProceedings{agrawal13,
+  supplementary = {Supplementary:agrawal13-supp.pdf},
+  number = {3},
+  section = {cycle-3},
+  title = {Thompson Sampling for Contextual Bandits with Linear Payoffs},
+  author = {Agrawal, Shipra and Goyal, Navin},
+  pages = {127-135},
+  abstract = {Thompson Sampling is one of the oldest heuristics for multi-armed bandit problems. It is a randomized algorithm based on Bayesian ideas, and has recently generated significant interest after several studies demonstrated it to have better empirical performance compared to the state of the art methods. However, many questions regarding its theoretical performance remained open. In this paper, we design and analyze Thompson Sampling algorithm for the stochastic contextual multi-armed bandit problem with linear payoff functions, when the contexts are provided by an adaptive adversary. This is among the most important and widely studied version of the contextual bandits problem. We prove a high probability regret bound of $\tilde{O}(\frac{d}{\sqrt{\epsilon}}\sqrt{T^{1+\epsilon}})$ in time $T$ for any $\epsilon \in (0,1)$, where $d$ is the dimension of each context vector and $\epsilon$ is a parameter used by the algorithm. Our results provide the first theoretical guarantees for the contextual version of Thompson Sampling, and are close to the lower bound of $\Omega(\sqrt{dT})$ for this problem. This essentially solves the COLT open problem of Chapelle and Li [COLT 2012] regarding regret bounds for Thompson Sampling for contextual bandits problem with linear payoff functions.     Our version of Thompson sampling uses Gaussian prior and Gaussian likelihood function. Our novel martingale-based analysis techniques also allow easy extensions to the use of other distributions, satisfying certain general conditions.   },
+}

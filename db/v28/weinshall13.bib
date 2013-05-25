@@ -1,0 +1,8 @@
+@InProceedings{weinshall13,
+  number = {3},
+  section = {cycle-3},
+  title = {LDA Topic Model with Soft Assignment of Descriptors to Words},
+  author = {Weinshall, Daphna and Levi, Gal and Hanukaev, Dmitri},
+  pages = {711-719},
+  abstract = {The LDA topic model is being used to model corpora of documents that can be represented by bags of words. Here we extend the LDA model to deal with documents that are represented more naturally by bags of continuous descriptors. Given a finite dictionary of words which are generative models of descriptors, our extended LDA model allows for the soft assignment of descriptors to (many) dictionary words. We derive variational inference and parameter estimation procedures for the extended model, which closely resemble those obtained for the original model, with two important differences: First, the histogram of word counts is replaced by a histogram of pseudo word counts, or sums of responsibilities over all descriptors. Second, parameter estimation now depends on the average covariance matrix between these pseudo-counts, reflecting the fact that with soft assignment words are not independent.    We use this approach to address novelty detection, where we seek to identify video events with low posterior probability. Video events are described by a generative dynamic texture model, from which we naturally derive a dictionary of generative words.  Using a benchmark dataset for novelty detection, we show a very significant improvement in the detection of novel events when using our extended LDA model with soft assignment to words as against hard assignment (the original model), achieving state of the art novelty detection results.},
+}
