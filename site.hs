@@ -6,11 +6,12 @@ import            Author
 import            Control.Applicative ((<$>), (<|>), empty)
 import            Control.Monad       (forM_, liftM, liftM3)
 import			  Data.Char
-import            Data.List           (foldl', intersperse, sortBy)
+import            Data.List           (foldl', intersperse, sortBy, elemIndex)
 import            Data.List.HT        (chop, segmentBefore)
 import            Data.Map            (keys, (!))
 import            Data.Maybe
 import            Data.Monoid         (mappend, (<>), mconcat)
+import            Data.Ord            (comparing)
 import            Data.String         (fromString)
 import            Hakyll
 import            Paper
@@ -46,7 +47,8 @@ main = hakyllWith config $ do
 
       let titles = sectionTitles conf
       let sectionCtx = sectionContext titles
-      let sections = fmap (Item "") $ makeSections [] papers
+      let sectionOrd = comparing $ (flip elemIndex $ (sectionOrder conf)) . fromMaybe "" .fst
+      let sections = fmap (Item "") . sortBy sectionOrd $ makeSections [] papers
 
       let sectionsCtx = 
             templateField "sections" "templates/section.html" 
@@ -326,7 +328,14 @@ sectionTitles entry = case getField "sections" . itemBody $ entry of
     Just val    -> \key -> fromMaybe "" . lookup key . convert $ val
     where 
 	  tuplify [x,y] = (x,y)
-	  convert = map tuplify . map (chop (=='=')) . chop (=='|') 
+	  convert = map tuplify . parseSections
+
+-- Get the section IDs from the sections field in the order they appear
+sectionOrder entry = case getField "sections" . itemBody $ entry of
+    Nothing   -> []
+    Just val  -> map head . parseSections $ val
+
+parseSections = map (chop (=='=')) . chop (=='|')
 
 --------------------------------------------------------------------------------
 -- Data type for the supplementary contents for a paper
