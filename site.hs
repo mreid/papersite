@@ -45,9 +45,10 @@ main = hakyllWith config $ do
                 <$> (loadAllSnapshots (pattern .&&. hasVersion "entry") 
                     $ toFilePath confID)
 
+      -- TODO: Tidy up the sorting by section code below
       let titles = sectionTitles conf
       let sectionCtx = sectionContext titles
-      let sectionOrd = comparing $ (flip elemIndex $ (sectionOrder conf)) . fromMaybe "" .fst
+      let sectionOrd = comparing $ (flip elemIndex $ (sectionOrder conf)) . fromMaybe "none" .fst
       let sections = fmap (Item "") . sortBy sectionOrd $ makeSections [] papers
 
       let sectionsCtx = 
@@ -125,7 +126,7 @@ main = hakyllWith config $ do
 config :: Configuration
 config = defaultConfiguration
   { deployCommand = 
-      "rsync --checksum -avz _site/* " 
+      "rsync --checksum -avz --no-group _site/* " 
         ++ "mreid@login.csail.mit.edu:"
         ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/papers/"
   }
@@ -331,9 +332,7 @@ sectionTitles entry = case getField "sections" . itemBody $ entry of
 	  convert = map tuplify . parseSections
 
 -- Get the section IDs from the sections field in the order they appear
-sectionOrder entry = case getField "sections" . itemBody $ entry of
-    Nothing   -> []
-    Just val  -> map head . parseSections $ val
+sectionOrder = maybe [] (map head . parseSections) . (getField "sections" . itemBody)
 
 parseSections = map (chop (=='=')) . chop (=='|')
 
