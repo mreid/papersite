@@ -1,0 +1,37 @@
+-- Cabal package for papersite
+name:                papersite
+version:             0.1.0.0
+synopsis:            Site generation tool for JMLR proceedings.
+
+-- A longer description of the package.
+description:         
+  A Hakyll-based static website generation tool that takes 
+  BibTeX descriptions of a conference or workshop proceedings
+  and generates a collection of MathJax-enabled pages that
+  can be uploaded to http://jmlr.org/proceedings/ .
+
+-- URL for the project homepage or repository.
+homepage:            https://github.com/mreid/papersite
+license:             MIT
+license-file:		 LICENSE
+author:              Mark Reid
+maintainer:          mark.reid@gmail.com
+
+category:            Web
+build-type:          Simple
+cabal-version:       >=1.8
+
+source-repository head
+  type:              git
+  location:          https://github.com/mreid/papersite
+
+executable site
+  -- .hs or .lhs file containing the Main module.
+  main-is: site.hs            
+  
+  -- Modules included in this executable, other than Main.
+  other-modules:       Author, Paper
+  
+  -- Other library packages from which modules are imported.
+  build-depends:       base ==4.5.*, binary ==0.5.*, hakyll ==4.2.*, network ==2.3.*, bibtex ==0.1.*, parsec ==3.1.*, latex ==0.1.*, containers ==0.4.*, regex-compat ==0.95.*, text ==0.11.*, pandoc ==1.11.*, mtl ==2.1.*, utility-ht ==0.0.*
+  
