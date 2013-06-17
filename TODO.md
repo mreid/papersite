@@ -2,6 +2,8 @@
 
 ## Bugs
 
+- [X] Do not use Pandoc to render titles for Google citation meta information (cf. Woodruff13 in v30)
+
 - [X] Load only papers for given conference (Snapshotting not working)
       (Search path now built from conference ID)
 
