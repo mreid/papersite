@@ -126,6 +126,7 @@ getField key entry@(Entry t) =
   "lastpage"    -> lastpage
   "url"         -> fmap (toURI "html") $ identifier
   "pdf"         -> fmap (toURI "pdf") $ identifier
+  "metatitle"   -> lookup "title" . BibTex.fields $ t
   _             -> fmap latexToHtml (lookup key . BibTex.fields $ t)
   where
     pages = getField "pages" entry
