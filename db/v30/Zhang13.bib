@@ -1,0 +1,6 @@
+@InProceedings{Zhang13,
+  title = {Divide and Conquer Kernel Ridge Regression},
+  author = {Yuchen Zhang and John Duchi and Martin Wainwright},
+  pages = {592-617},
+  abstract = {We study a decomposition-based scalable approach to performing kernel ridge regression.  The method is simply described: it randomly partitions a dataset of size $N$ into $m$ subsets of equal size, computes an independent kernel ridge regression estimator for each subset, then averages the local solutions into a global predictor. This partitioning leads to a substantial reduction in computation time versus the standard approach of performing kernel ridge regression on all $N$ samples. Our main theorem establishes that despite the computational speed-up, statistical optimality is retained: that so long as $m$ is not too large, the partition-based estimate achieves optimal rates of convergence for the full sample size $N$.  As concrete examples, our theory guarantees that $m$ may grow polynomially in $N$ for Sobolev spaces, and nearly linearly for finite-rank kernels and Gaussian kernels. We conclude with simulations complementing our theoretical results and exhibiting the computational and statistical benefits of our approach.},
+}
