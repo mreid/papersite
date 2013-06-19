@@ -58,11 +58,16 @@ main = hakyllWith config $ do
                 sectionCtx sections
             <> conferenceContext
 
+      let shortname = fromJust $ getField "shortname" . itemBody $ conf
+      let year = fromJust $ getField "year" . itemBody $ conf
+
       entryCompiler
         >>= loadAndApplyTemplate "templates/papers.html" sectionsCtx
         >>= loadAndApplyTemplate "templates/default.html" 
               (constField "metadata" "" 
 			  <> constField "title"  "All Papers"
+			  <> constField "shortname" shortname
+              <> constField "year" year
 			  <> defaultContext) 
         >>= relativizeUrls
 
@@ -79,11 +84,19 @@ main = hakyllWith config $ do
 
     compile $ do
       entry <- entryCompiler
-
+      conf <- conferenceEntry entry
+      
+      -- Get the non-rendered text of title for the HTML page title
+      let title = fromJust $ getField "metatitle" . itemBody $ entry
+      let shortname = fromJust $ getField "shortname" . itemBody $ conf
+      let year = fromJust $ getField "year" . itemBody $ conf
       let metaContext = 
-		  defaultContext
-		  <> templateField "metadata" "templates/scholar/paper.html" 
+		  templateField "metadata" "templates/scholar/paper.html" 
               entryContext [entry]  
+           <> constField "title" title
+           <> constField "shortname" shortname
+           <> constField "year" year
+           <> defaultContext
 
       entryCompiler
         >>= loadAndApplyTemplate "templates/paper.html" entryContext
@@ -100,13 +113,13 @@ main = hakyllWith config $ do
     compile templateCompiler
 
   -- Static HTML
-  match "static/*.html" $ do
-    route (gsubRoute "static/" (const ""))
-    compile $ do
-        pandocCompiler
-          >>= loadAndApplyTemplate "templates/default.html" 
-				(constField "metadata" "" <> defaultContext)
-          >>= relativizeUrls
+  -- match "static/*.html" $ do
+  --   route (gsubRoute "static/" (const ""))
+  --   compile $ do
+  --       pandocCompiler
+  --         >>= loadAndApplyTemplate "templates/default.html" 
+				-- (constField "metadata" "" <> defaultContext)
+  --         >>= relativizeUrls
 
   -- Javascript
   match "static/js/*.js" $ do
@@ -218,7 +231,7 @@ conferenceContext = Context $ \key item ->
 -- If it is not one of these it will look up the associated conference entry
 -- and look for the BibTeX field there.
 entryContext = 
-  constField "baseURI" "http://jmlr.csail.mit.edu/proceedings/papers"
+  constField "baseURI" "http://jmlr.org/proceedings/papers"
   <> functionField "renderListWith" renderListWith
   <> functionField "renderListAs" renderListAs
   <> functionField "renderJoinListAs" renderJoinListAs
