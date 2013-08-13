@@ -7,7 +7,7 @@
         <title>$title$ | $shortname$ $year$ | JMLR W&amp;CP</title>
 
 		<!-- Stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/jmlr.css">
+		<link rel="stylesheet" type="text/css" href="/css/jmlr.css"/>
 
 		<!-- MathJax -->
 		<script type="text/x-mathjax-config">
@@ -18,54 +18,12 @@
 		</script>
 
 		<!-- Metadata -->
-		$metadata$
+		$partial("templates/scholar/paper.html")$
 
     </head>
     <body>
 
-	<div id="fixed">
-<a align="right" href="http://www.jmlr.org/" target="_top"><img 
-class="jmlr" src="/img/jmlr.jpg" align="right" border="0"></a> 
-<p><br><br>
-</p><p align="right"> <a href="http://www.jmlr.org/"> Home Page </a> 
-
-</p><p align="right"> <a href="http://jmlr.csail.mit.edu/papers"> Papers
- </a> 
-
-</p><p align="right"> <a 
-href="http://jmlr.csail.mit.edu/author-info.html"> Submissions </a> 
-
-</p><p align="right"> <a href="http://jmlr.csail.mit.edu/news.html"> 
-News </a> 
-
-</p><p align="right"> <a href="http://jmlr.csail.mit.edu/scope.html"> 
-Scope </a>
-
-</p><p align="right"> <a 
-href="http://jmlr.csail.mit.edu/editorial-board.html"> Editorial Board </a>
- 
-
-</p><p align="right"> <a 
-href="http://jmlr.csail.mit.edu/announcements.html"> Announcements </a>
-
-</p><p align="right"> <a href="http://jmlr.csail.mit.edu/proceedings"> 
-Proceedings </a>
-
-</p><p align="right"> <a href="http://jmlr.csail.mit.edu/mloss">Open 
-Source Software</a>
-
-</p><p align="right"> <a 
-href="http://jmlr.csail.mit.edu/search-jmlr.html"> Search </a>
-
-</p><p align="right"> <a href="http://jmlr.csail.mit.edu/manudb"> Login </a></p>
-
-<br><br>
-<p align="right"> <a href="http://jmlr.csail.mit.edu/jmlr.xml"> 
-<img src="/img/RSS.gif" class="rss" alt="RSS Feed">
-</a>
-
-</p>
-	</div>
+	$partial("templates/nav.html")$
 
 	<div id="content">
 		$body$

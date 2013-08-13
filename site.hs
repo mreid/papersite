@@ -51,12 +51,7 @@ main = hakyllWith config $ do
       let sectionOrd = comparing $ (flip elemIndex $ (sectionOrder conf)) . fromMaybe "none" .fst
       let sections = fmap (Item "") . sortBy sectionOrd $ makeSections [] papers
 
-      let sectionsCtx = 
-            templateField "sections" "templates/section.html" 
-                sectionCtx sections
-            <> templateField "sectionnav" "templates/section-link.html"   
-                sectionCtx sections
-            <> conferenceContext
+      let sectionsCtx = listField "sections" sectionCtx (return sections)
 
       let shortname = fromJust $ getField "shortname" . itemBody $ conf
       let year = fromJust $ getField "year" . itemBody $ conf
@@ -91,9 +86,9 @@ main = hakyllWith config $ do
       let shortname = fromJust $ getField "shortname" . itemBody $ conf
       let year = fromJust $ getField "year" . itemBody $ conf
       let metaContext = 
-		  templateField "metadata" "templates/scholar/paper.html" 
-              entryContext [entry]  
-           <> constField "title" title
+		  -- templateField "metadata" "templates/scholar/paper.html" 
+              -- entryContext [entry]  
+           constField "title" title
            <> constField "shortname" shortname
            <> constField "year" year
            <> defaultContext
@@ -155,12 +150,13 @@ joinTemplateList tpl context items delimiter = do
   items' <- mapM (applyTemplate tpl context) items
   return $ concat $ intersperse delimiter $ map itemBody items'
 
+templateField key templateID cts items = undefined
 -- | Set a field according to a render of a set of items with a given template
-templateField key templateID ctx items = 
-  Context $ \k _ -> if (k==key) then do
-      template  <- loadBody templateID
-      applyTemplateList template ctx items
-	else empty
+-- templateField key templateID ctx items = 
+--   Context $ \k _ -> if (k==key) then do
+--       template  <- loadBody templateID
+--       applyTemplateList template ctx items
+-- 	else empty
 
 --------------------------------------------------------------------------------
 -- Render the given item with using the String template if the test field exists
@@ -222,8 +218,8 @@ pageSort = sortBy (\i1 i2 -> compare (page $ itemBody i1) (page $ itemBody i2))
 conferenceContext :: Context Entry
 conferenceContext = Context $ \key item ->
   return $ case entryLookup item item key of
-    Just value -> value
-    Nothing    -> empty 
+    Just value -> StringField value
+    Nothing    -> StringField empty 
 
 -- Define a context for template fields using a given entry.
 -- This context will look for a matching field in the Entry's BibTeX fields
@@ -239,7 +235,7 @@ entryContext =
   <> functionField "maybeRenderWith" maybeRenderWith
   <> functionField "supplementary" supplementary
   <> entryContext'
-
+ 
 -- Derive supplementary file details from an entry item
 -- This recognises the keywords "url", "name", and "kind"
 supplementary [key] item = do
@@ -270,9 +266,9 @@ entryContext' :: Context Entry
 entryContext' = Context $ \key item -> do
   conf <- conferenceEntry item
   return $ case entryLookup item conf key of
-	(Just value)  -> value
-	Nothing		  -> empty
-
+	(Just value)  -> StringField value
+	Nothing		  -> StringField empty
+ 
 entryLookup :: (Item Entry) -> (Item Entry) -> String -> Maybe String
 entryLookup entry conf key =
   getField key (itemBody entry) <|> getField key (itemBody conf)
@@ -302,10 +298,17 @@ conferenceEntry paperID = do
 -- Sections in the proceedings
 type Section = (Maybe String, [Item Entry])
 
-sectionID :: Item Section -> String
-sectionID = fromMaybe "none" .fst . itemBody
+sectionEntries :: Section -> [Item Entry]
+sectionEntries = snd
+
+sectionID :: Section -> String
+sectionID = fromMaybe "none" . fst
+
+sectionEntriesCompiler :: Compiler [Item Entry]
+sectionEntriesCompiler = fmap sectionEntries (getUnderlying >>= loadBody)
 
 -- Break the papers into sections
+section :: Item Entry -> Maybe String
 section = getField "section" . itemBody
 
 -- Build an association list of sections
@@ -324,19 +327,15 @@ addToSection ((sec, es):rest) entry
 --    section = title of section
 --    papers  = rendered list of papers
 sectionContext :: (String -> String) -> Context Section
-sectionContext titleFor = Context $ \key item -> 
-  case key of
-    "sectionid"   -> return . sectionID $ item
-    "section"     -> return . titleFor . sectionID $ item
-    "papers"      -> do
-        tpl <- loadBody "templates/paper-item.html"
-        applyTemplateList tpl entryContext (snd . itemBody $ item)
-    _             -> empty
-
+sectionContext titleFor =
+  field     "sectionid"   (return . sectionID . itemBody)              <>
+  field     "section"     (return . titleFor . sectionID . itemBody)   <>
+  listField "papers"      entryContext sectionEntriesCompiler
 
 -- Build a function that mas sections keywords to their corresponding titles
 -- by parsing a "sections" field of a conference that has the form
 --	  key1=Title Number 1|key2=Title Number Two|none=Default Title
+sectionTitles :: Item Entry -> String -> String
 sectionTitles entry = case getField "sections" . itemBody $ entry of
     Nothing     -> \_ -> ""
     Just val    -> \key -> fromMaybe "" . lookup key . convert $ val
@@ -345,8 +344,10 @@ sectionTitles entry = case getField "sections" . itemBody $ entry of
 	  convert = map tuplify . parseSections
 
 -- Get the section IDs from the sections field in the order they appear
+sectionOrder :: Item Entry -> [String]
 sectionOrder = maybe [] (map head . parseSections) . (getField "sections" . itemBody)
 
+parseSections :: String -> [[String]]
 parseSections = map (chop (=='=')) . chop (=='|')
 
 --------------------------------------------------------------------------------
@@ -367,3 +368,4 @@ parseSupplementary str = case matchRegex suppDefRegex str of
   
 entrySupplementary item = 
   entryLookup item item "supplementary" >>= parseSupplementary
+

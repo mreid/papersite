@@ -6,7 +6,9 @@
 <div id='sectionnav'>
 	<p>Contents:</p>
 	<ul>
-		$sectionnav$
+	$for(sections)$
+		<li><a href='#$sectionid$'>$section$</a></li>
+	$endfor$
 	</ul>
 
 	<label for="search-authors">Filter Authors:</label>
@@ -15,7 +17,15 @@
     <input type="search" name="filter-titles" id="search-titles" value="" />
 </div>
 
-$sections$
+$for(sections)$
+<h3 id='$sectionid$'>$section$</h3>
+
+<dl>
+	$for(papers)$
+		$partial("templates/paper-item.html")$
+	$endfor$
+</dl>
+$endfor$
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="/js/search.js"></script>
