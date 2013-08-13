@@ -138,8 +138,10 @@ main = hakyllWith config $ do
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
-  { deployCommand = 
-      "rsync --checksum -avz --no-group _site/* " 
+  { destinationDirectory = "/tmp/jmlr/",
+    storeDirectory       = "/tmp/hakyll_cache/jmlr/",
+	deployCommand = 
+      "rsync --checksum -avz --no-group /tmp/jmlr/* " 
         ++ "mreid@login.csail.mit.edu:"
         ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/papers/"
   }
