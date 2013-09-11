@@ -1,7 +1,9 @@
 <!-- Google Scholar Meta Data -->
 
-<meta name="citation_title" content="$metatitle$">
-$renderListWith templates/scholar/author.html authors$
+<meta name="citation_title" content="$rawtitle$">
+$for(authors)$
+  <meta name="citation_author" content="$surname$, $firstnames$">
+$endfor$
 <meta name="citation_publication_date" content="$year$">
 <meta name="citation_conference_title" content="$booktitle$">
 <meta name="citation_firstpage" content="$firstpage$">

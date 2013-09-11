@@ -25,10 +25,11 @@ import            System.FilePath
 
 main :: IO ()
 main = hakyllWith config $ do
-  -- Compile BibTeX information for each conference and save as an Entry
-  match "db/*.bib" $ do
-    compile $ 
-      entryCompiler >>= saveSnapshot "conference"
+
+  -- Load in the conference details for reference from paper entries
+  match "db/*.bib" $ version "fields" $ do
+    compile $ do
+      entryCompiler 
 
   -- Compile conference details in, e.g., @db/v31.bib@ to HTML
   match "db/*.bib" $ version "html" $ do
@@ -37,44 +38,21 @@ main = hakyllWith config $ do
       gsubRoute ".bib" (const "/index.html")
 
     compile $ do 
-      confID <- getUnderlying
-      conf   <- entryCompiler
-
-      let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
-      papers <- pageSort 
-                <$> (loadAllSnapshots (pattern .&&. hasVersion "entry") 
-                    $ toFilePath confID)
-
-      -- TODO: Tidy up the sorting by section code below
-      let titles = sectionTitles conf
-      let sectionCtx = sectionContext titles
-      let sectionOrd = comparing $ (flip elemIndex $ (sectionOrder conf)) . fromMaybe "none" .fst
-      let sections = fmap (Item "") . sortBy sectionOrd $ makeSections [] papers
-
-      let sectionsCtx = 
-            templateField "sections" "templates/section.html" 
-                sectionCtx sections
-            <> templateField "sectionnav" "templates/section-link.html"   
-                sectionCtx sections
-            <> conferenceContext
-
-      let shortname = fromJust $ getField "shortname" . itemBody $ conf
-      let year = fromJust $ getField "year" . itemBody $ conf
-
       entryCompiler
-        >>= loadAndApplyTemplate "templates/papers.html" sectionsCtx
-        >>= loadAndApplyTemplate "templates/default.html" 
-              (constField "metadata" "" 
-			  <> constField "title"  "All Papers"
-			  <> constField "shortname" shortname
-              <> constField "year" year
-			  <> defaultContext) 
-        >>= relativizeUrls
+        >>= (\conf -> do 
+          let confID = itemIdentifier conf
+          let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
+          papers <- pageSort <$> loadAllSnapshots pattern "test"
 
-  -- Compile each paper BibTeX to an Entry and save
-  match "db/*/*.bib" $ version "entry" $ do
-    compile $ 
-      entryCompiler >>= saveEntryCompiler
+          let sectionOrd = comparing $ (flip elemIndex $ (sectionOrder conf)) . fromMaybe "none" .fst
+          let sections = fmap (Item "") . sortBy sectionOrd $ makeSections [] papers
+
+          let sectionCtx = sectionContext conf
+          let sectionsCtx = listField "sections" sectionCtx (return sections) <> conferenceContext
+          
+          loadAndApplyTemplate "templates/papers.html" sectionsCtx conf
+        ) 
+        >>= relativizeUrls
 
   -- Papers are in, e.g., @db/v26/reid12b.bib
   match "db/*/*.bib" $ do
@@ -83,24 +61,9 @@ main = hakyllWith config $ do
       setExtension "html"
 
     compile $ do
-      entry <- entryCompiler
-      conf <- conferenceEntry entry
-      
-      -- Get the non-rendered text of title for the HTML page title
-      let title = fromJust $ getField "metatitle" . itemBody $ entry
-      let shortname = fromJust $ getField "shortname" . itemBody $ conf
-      let year = fromJust $ getField "year" . itemBody $ conf
-      let metaContext = 
-		  templateField "metadata" "templates/scholar/paper.html" 
-              entryContext [entry]  
-           <> constField "title" title
-           <> constField "shortname" shortname
-           <> constField "year" year
-           <> defaultContext
-
       entryCompiler
+        >>= saveSnapshot "test"
         >>= loadAndApplyTemplate "templates/paper.html" entryContext
-        >>= loadAndApplyTemplate "templates/default.html" metaContext 
         >>= relativizeUrls
 
   -- All files (PDFs, Zip, BibTeX)
@@ -111,15 +74,6 @@ main = hakyllWith config $ do
   -- Templates
   match "templates/**" $ 
     compile templateCompiler
-
-  -- Static HTML
-  -- match "static/*.html" $ do
-  --   route (gsubRoute "static/" (const ""))
-  --   compile $ do
-  --       pandocCompiler
-  --         >>= loadAndApplyTemplate "templates/default.html" 
-				-- (constField "metadata" "" <> defaultContext)
-  --         >>= relativizeUrls
 
   -- Javascript
   match "static/js/*.js" $ do
@@ -135,6 +89,7 @@ main = hakyllWith config $ do
   match "static/img/*" $ do
     route (gsubRoute "static/" (const ""))
     compile copyFileCompiler
+
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
@@ -146,86 +101,17 @@ config = defaultConfiguration
         ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/papers/"
   }
 
---------------------------------------------------------------------------------
--- | Set a field of a page to a listing of pages
-joinTemplateList :: Template
-          -> Context a
-          -> [Item a]
-          -> String
-          -> Compiler String
-joinTemplateList tpl context items delimiter = do
-  items' <- mapM (applyTemplate tpl context) items
-  return $ concat $ intersperse delimiter $ map itemBody items'
-
--- | Set a field according to a render of a set of items with a given template
-templateField key templateID ctx items = 
-  Context $ \k _ -> if (k==key) then do
-      template  <- loadBody templateID
-      applyTemplateList template ctx items
-	else empty
-
---------------------------------------------------------------------------------
--- Render the given item with using the String template if the test field exists
--- An empty string is returned if the test field does not exist.
--- Field names in the template text are delimited by %key% instead of $key$.
-maybeRenderWith args item = do
-  let [test , tplID] = args
-  template <- loadBody (fromFilePath tplID)
-  conf	   <- conferenceEntry item  
-  case entryLookup item conf test of
-	(Just _)	-> applyTemplateList template entryContext [item]
-	Nothing		-> return ""
-
--- Render the given item with using the String template if the test field exists
--- An empty string is returned if the test field does not exist.
--- Field names in the template text are delimited by %key% instead of $key$.
-maybeRenderAs args item = do
-  let (test : rawtpl) = args
-      template        = map (\c -> if c=='%' then '$' else c) (unwords rawtpl)
-  
-  conf <- conferenceEntry item  
-  case entryLookup item conf test of
-	(Just _)	-> applyTemplateList (readTemplate template) entryContext [item]
-	Nothing		-> return ""
-
--- Renders against template given in first arg the structure ("authors", "supps")
--- given in the second arg, as derived from the given entry item.
-renderListWith :: [String] -> Item Entry -> Compiler String
-renderListWith (templateID : name : rest) item = do
-  template <- loadBody . fromFilePath $ templateID 
-  let render ctx  = applyTemplateList template ctx
-  case name of 
-    "authors"	-> render authorContext $ entryAuthors item
-
--- Renders against template given in first arg the structure ("authors", "supps")
--- given in the second arg, as derived from the given entry item.
-renderJoinListAs :: [String] -> Item Entry -> Compiler String
-renderJoinListAs (name : delim : tplStrs) item = do
-  let template = map (\c -> if c=='%' then '$' else c) (unwords tplStrs)
-  let render ctx  = applyJoinTemplateList delim (readTemplate template) ctx
-  case name of 
-    "authors"	-> render authorContext $ entryAuthors item
-
--- Renders against template given in first arg the structure ("authors", "supps")
--- given in the second arg, as derived from the given entry item.
-renderListAs :: [String] -> Item Entry -> Compiler String
-renderListAs (name : tplStrs) item = do
-  let template = map (\c -> if c=='%' then '$' else c) (unwords tplStrs)
-  let render ctx  = applyTemplateList (readTemplate template) ctx
-  case name of 
-    "authors"	-> render authorContext $ entryAuthors item
-
 -- FIXME: Make sure this can handle roman (e.g., "xvi") page numbers.
 pageSort :: [Item Entry] -> [Item Entry]
 pageSort = sortBy (\i1 i2 -> compare (page $ itemBody i1) (page $ itemBody i2))
   where
-	page e = (read . fromJust $ (getField "firstpage" e)) :: Int
+	page = (read :: String -> Int) . fromJust . (getField "firstpage")
 
 conferenceContext :: Context Entry
 conferenceContext = Context $ \key item ->
   return $ case entryLookup item item key of
-    Just value -> value
-    Nothing    -> empty 
+    Just value -> StringField value
+    Nothing    -> StringField empty
 
 -- Define a context for template fields using a given entry.
 -- This context will look for a matching field in the Entry's BibTeX fields
@@ -234,14 +120,11 @@ conferenceContext = Context $ \key item ->
 -- and look for the BibTeX field there.
 entryContext = 
   constField "baseURI" "http://jmlr.org/proceedings/papers"
-  <> functionField "renderListWith" renderListWith
-  <> functionField "renderListAs" renderListAs
-  <> functionField "renderJoinListAs" renderJoinListAs
-  <> functionField "maybeRenderAs" maybeRenderAs
-  <> functionField "maybeRenderWith" maybeRenderWith
+  <> field "rawtitle" (return . fromJust . (getField "title") . itemBody)
   <> functionField "supplementary" supplementary
+  <> listField' "authors" authorContext (return . entryAuthors)
   <> entryContext'
-
+ 
 -- Derive supplementary file details from an entry item
 -- This recognises the keywords "url", "name", and "kind"
 supplementary [key] item = do
@@ -254,9 +137,9 @@ supplementary [key] item = do
 		"kind"	-> return $ kind suppVal
 supplementary _ item = empty
 
--- Parse and return the authors for an Entry as a list of Item Author
+entryAuthors :: Item Entry -> [Item Author]
 entryAuthors = 
-  fmap (Item "") . toAuthors . fromJust . getField "author" . itemBody
+  map (Item "") . maybe [] toAuthors . getField "author" . itemBody
 
 -- Parse and return the supplementary files for an Entry
 entrySupps entry = 
@@ -272,9 +155,9 @@ entryContext' :: Context Entry
 entryContext' = Context $ \key item -> do
   conf <- conferenceEntry item
   return $ case entryLookup item conf key of
-	(Just value)  -> value
-	Nothing		  -> empty
-
+	(Just value)  -> StringField value
+	Nothing		  -> StringField empty
+ 
 entryLookup :: (Item Entry) -> (Item Entry) -> String -> Maybe String
 entryLookup entry conf key =
   getField key (itemBody entry) <|> getField key (itemBody conf)
@@ -298,16 +181,23 @@ confBib path = (takeDirectory path) ++ ".bib"
 conferenceEntry :: (Item Entry) -> Compiler (Item Entry)
 conferenceEntry paperID = do
   let confID = fromFilePath . confBib . toFilePath . itemIdentifier $ paperID
-  loadSnapshot confID "conference"
+  load (setVersion (Just "fields") confID)
 
 --------------------------------------------------------------------------------
 -- Sections in the proceedings
 type Section = (Maybe String, [Item Entry])
 
-sectionID :: Item Section -> String
-sectionID = fromMaybe "none" .fst . itemBody
+sectionEntries :: Section -> [Item Entry]
+sectionEntries = snd
+
+sectionID :: Section -> String
+sectionID = fromMaybe "none" . fst
+
+sectionEntriesCompiler :: Compiler [Item Entry]
+sectionEntriesCompiler = fmap sectionEntries (getUnderlying >>= loadBody)
 
 -- Break the papers into sections
+section :: Item Entry -> Maybe String
 section = getField "section" . itemBody
 
 -- Build an association list of sections
@@ -325,20 +215,24 @@ addToSection ((sec, es):rest) entry
 -- Build a context for a section using the given titling function.
 --    section = title of section
 --    papers  = rendered list of papers
-sectionContext :: (String -> String) -> Context Section
-sectionContext titleFor = Context $ \key item -> 
-  case key of
-    "sectionid"   -> return . sectionID $ item
-    "section"     -> return . titleFor . sectionID $ item
-    "papers"      -> do
-        tpl <- loadBody "templates/paper-item.html"
-        applyTemplateList tpl entryContext (snd . itemBody $ item)
-    _             -> empty
+sectionContext :: Item Entry -> Context Section
+sectionContext conf =
+  field     "sectionid"   (return . secID)              <>
+  field     "section"     (return . (sectionTitles conf) . secID)   <>
+  listField' "papers"     entryContext (return . sectionEntries . itemBody)
+  where
+    secID = sectionID . itemBody
 
+listField' :: String -> Context a -> (Item b -> Compiler [Item a]) -> Context b
+listField' key c value = field' key $ fmap (ListField c) . value
+
+field' :: String -> (Item a -> Compiler ContextField) -> Context a
+field' key value = Context $ \k i -> if k == key then value i else empty
 
 -- Build a function that mas sections keywords to their corresponding titles
 -- by parsing a "sections" field of a conference that has the form
 --	  key1=Title Number 1|key2=Title Number Two|none=Default Title
+sectionTitles :: Item Entry -> String -> String
 sectionTitles entry = case getField "sections" . itemBody $ entry of
     Nothing     -> \_ -> ""
     Just val    -> \key -> fromMaybe "" . lookup key . convert $ val
@@ -347,8 +241,10 @@ sectionTitles entry = case getField "sections" . itemBody $ entry of
 	  convert = map tuplify . parseSections
 
 -- Get the section IDs from the sections field in the order they appear
+sectionOrder :: Item Entry -> [String]
 sectionOrder = maybe [] (map head . parseSections) . (getField "sections" . itemBody)
 
+parseSections :: String -> [[String]]
 parseSections = map (chop (=='=')) . chop (=='|')
 
 --------------------------------------------------------------------------------
@@ -369,3 +265,4 @@ parseSupplementary str = case matchRegex suppDefRegex str of
   
 entrySupplementary item = 
   entryLookup item item "supplementary" >>= parseSupplementary
+

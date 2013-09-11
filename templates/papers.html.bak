@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>$shortname$ $year$ | JMLR W&amp;CP</title>
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="/css/jmlr.css"/>
+
+	<!-- MathJax -->
+	$partial("templates/mathjax.html")$
+
+	<!-- Search Widget -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="/js/search.js"></script>
+
+</head>
+<body>
+
+<div id="fixed"> $partial("templates/nav.html")$ </div>
+
+<div id="content">
+	<h1>JMLR Workshop and Conference Proceedings</h1>
+	<h2>Volume $volume$: $booktitle$</h2>
+
+	<p><strong>Editors: $editor$</strong></p>
+
+	<div id='sectionnav'>
+		<p>Contents:</p>
+		<ul>
+		$for(sections)$
+			<li><a href='#$sectionid$'>$section$</a></li>
+		$endfor$
+		</ul>
+
+		<label for="search-authors">Filter Authors:</label>
+		<input type="search" name="filter-authors" id="search-authors" value="" />
+		<label for="search-titles">Filter Titles:</label>
+		<input type="search" name="filter-titles" id="search-titles" value="" />
+	</div>
+
+	$for(sections)$
+	<h3 id='$sectionid$'>$section$</h3>
+
+	<dl>
+		$for(papers)$
+			$partial("templates/paper-item.html")$
+		$endfor$
+	</dl>
+	$endfor$
+
+</div> <!-- content -->
+</body>
+</html>

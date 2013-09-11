@@ -1,6 +1,6 @@
 -- Cabal package for papersite
 name:                papersite
-version:             0.1.0.0
+version:             0.2.0.0
 synopsis:            Site generation tool for JMLR proceedings.
 
 -- A longer description of the package.
@@ -33,12 +33,11 @@ executable site
   other-modules:       Author, Paper
   
   -- Other library packages from which modules are imported.
-  build-depends:       base ==4.*, binary ==0.5.*, hakyll ==4.2.*, filepath == 1.3.*, network ==2.*, bibtex ==0.1.*, parsec ==3.1.*, latex ==0.1.*, containers >=0.4, regex-compat ==0.95.*, text ==0.11.*, pandoc ==1.11.*, mtl ==2.1.*, utility-ht ==0.0.*
-
+  build-depends:       base,  binary ==0.5.*, hakyll ==4.3.*, network >=2.3, filepath, bibtex ==0.1.*, parsec ==3.1.*, latex ==0.1.*, containers >=0.4, regex-compat ==0.95.*, text ==0.11.*, pandoc ==1.11.*, mtl ==2.1.*, utility-ht ==0.0.*
+  
 executable import
   -- .hs or .lhs file containing the Main module.
-  main-is: import.hs            
-  
+  main-is: import.hs
+
   -- Other library packages from which modules are imported.
-  build-depends:       base, directory, filepath == 1.3.*, bibtex ==0.1.*, parsec ==3.1.*, latex ==0.1.* 
-   
+  build-depends:       base, directory, filepath == 1.3.*, bibtex ==0.1.*, parsec ==3.1.*, latex ==0.1.*

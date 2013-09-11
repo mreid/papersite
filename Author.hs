@@ -12,9 +12,10 @@ module Author
 
 --------------------------------------------------------------------------------
 import           Control.Applicative (empty, (<$>), (<*>))
-import 			 Control.Monad (liftM)
+import 			 Control.Monad       (liftM)
 import           Data.Binary         (Binary (..))
 import			 Data.Char
+import           Data.Monoid         ((<>))
 import           Data.Typeable       (Typeable)
 import           Hakyll
 import			 Network.URI
@@ -24,6 +25,7 @@ import 			 Text.LaTeX.Character
 
 --------------------------------------------------------------------------------
 -- newtype AuthorID = AuthorID String
+type Authorship = (Integer, Author)
 
 data Author = Author { 
 	authorID	:: Identifier,
@@ -60,17 +62,13 @@ authorURI :: Author -> Identifier
 authorURI author = 
     fromFilePath ("author/" ++ (toFilePath $ authorID author) ++ ".html")
 
--- Creates a Hakyll context for an author
 authorContext :: Context Author
-authorContext = Context $ \key item ->
-	let author = itemBody item
-	in case key of
-		"id"	      -> return $ toFilePath $ authorID author
-		"name"	      -> return $ name author
-		"firstnames"  -> return $ unwords $ firstNames author
-		"surname"     -> return $ lastName author
-		"url"	      -> return $ "/" ++ (toFilePath $ authorURI author)
-		_		      -> return $ "NA" 
+authorContext =
+  field "id"          (return . toFilePath . authorID . itemBody)             <>
+  field "name"        (return . name . itemBody)                              <>
+  field "firstnames"  (return . unwords . firstNames . itemBody)              <>
+  field "surname"     (return . lastName . itemBody )                         <>
+  field "url"         (return . ("/" ++) . toFilePath . authorURI . itemBody) 
 
 --------------------------------------------------------------------------------
 -- Converts a raw BibTeX author name into an Author
@@ -95,6 +93,11 @@ makeAuthorID firstNames lastName = fromFilePath
 toAuthors :: String -> [Author]
 toAuthors = map toAuthor . BibTex.Parse.splitAuthorList
 
+toAuthors' :: [String] -> [Author]
+toAuthors' [] = []
+toAuthors' [name] = []
+toAuthors' names = map toAuthor names
+
 -- Parse author names of the form "First Names Lastname"
 -- FIX: Currently does not handle multipart last names (e.g., "von ...")
 parseFirstLast :: String -> Author
@@ -105,6 +108,7 @@ parseFirstLast fullname = Author aID firstNames lastName
 		lastName	= last names
 		aID			= makeAuthorID firstNames lastName
 
+parseLastFirst :: [String] -> String -> Author
 parseLastFirst firstNames lastName = 
 	Author (makeAuthorID firstNames lastName) firstNames lastName
 
@@ -112,6 +116,7 @@ parseLastFirst firstNames lastName =
 -- Simple (and lossy) conversion of unicode characters to ASCII for URIs
 -- Hand coded from the Unicode Latin 1 and (parts of) A Supplement table here:
 --   http://en.wikipedia.org/wiki/List_of_Unicode_characters
+cleanUnicode :: String -> String
 cleanUnicode s = map convert s
     where
       convert c = case (lookup c mapping) of

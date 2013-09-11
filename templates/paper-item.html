@@ -2,16 +2,21 @@
 	<p class="title">$title$</p>
 	<p class="details">
 	<span class="authors">
-		$renderJoinListAs authors ,&nbsp; %firstnames% %surname%$
+		$for(authors)$
+			$firstnames$ $surname$$sep$,
+		$endfor$
 	</span>
 	;
 	<span class="info">
-		JMLR W&amp;CP $volume$$maybeRenderAs number (%number%)$:$pages$, $year$
+		JMLR W&amp;CP $volume$
+		$if(number)$ ($number$) $endif$:$pages$, $year$
 	</span>
 	<p>
 	<p class="links">
 		[<a href="$url$">abs</a>]
 		[<a href="$pdf$">pdf</a>]
-		$maybeRenderAs supplementary [<a href="%supplementary url%">supplementary</a>]$
+		$if(supplementary)$
+		[<a href="$supplementary url$">supplementary</a>]
+		$endif$
 	</p>
 </div>
