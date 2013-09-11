@@ -12,6 +12,9 @@
 	<!-- MathJax -->
 	$partial("templates/mathjax.html")$
 
+	<!-- Search Widget -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="/js/search.js"></script>
 
 </head>
 <body>
@@ -49,8 +52,5 @@
 	$endfor$
 
 </div> <!-- content -->
-	<!-- Search Widget -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	<script src="/js/search.js"></script>
 </body>
 </html>

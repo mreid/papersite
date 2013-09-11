@@ -25,6 +25,7 @@ import 			 Text.LaTeX.Character
 
 --------------------------------------------------------------------------------
 -- newtype AuthorID = AuthorID String
+type Authorship = (Integer, Author)
 
 data Author = Author { 
 	authorID	:: Identifier,
@@ -69,18 +70,6 @@ authorContext =
   field "surname"     (return . lastName . itemBody )                         <>
   field "url"         (return . ("/" ++) . toFilePath . authorURI . itemBody) 
 
--- Creates a Hakyll context for an author
--- authorContext :: Context Author
--- authorContext = Context $ \key item ->
--- 	let author = itemBody item
--- 	in case key of
--- 		"id"	      -> return $ toFilePath $ authorID author
--- 		"name"	      -> return $ name author
--- 		"firstnames"  -> return $ unwords $ firstNames author
--- 		"surname"     -> return $ lastName author
--- 		"url"	      -> return $ "/" ++ (toFilePath $ authorURI author)
--- 		_		      -> return $ "NA" 
-
 --------------------------------------------------------------------------------
 -- Converts a raw BibTeX author name into an Author
 -- e.g., toAuthor "Gr\"unwald, Peter D." = Author ["Peter", "D."] "Grünwald"
@@ -103,6 +92,11 @@ makeAuthorID firstNames lastName = fromFilePath
 
 toAuthors :: String -> [Author]
 toAuthors = map toAuthor . BibTex.Parse.splitAuthorList
+
+toAuthors' :: [String] -> [Author]
+toAuthors' [] = []
+toAuthors' [name] = []
+toAuthors' names = map toAuthor names
 
 -- Parse author names of the form "First Names Lastname"
 -- FIX: Currently does not handle multipart last names (e.g., "von ...")

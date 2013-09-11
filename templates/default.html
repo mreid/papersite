@@ -18,12 +18,15 @@
 		</script>
 
 		<!-- Metadata -->
+		$if(showMetadata)$
 		$partial("templates/scholar/paper.html")$
-
+		$endif$
     </head>
     <body>
 
+	<div id="fixed">
 	$partial("templates/nav.html")$
+	</div>
 
 	<div id="content">
 		$body$
