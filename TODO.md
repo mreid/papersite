@@ -1,22 +1,35 @@
 # To Do
 
 ## Bugs
-- [_] Cannot handle all proceedings simultaneously (too many file handles open)
+
+- [_] Supplementary files are always displayed.
+
+- [_] MathJax is evaluating equations in the metadata.
+
+- [_] Empty section title when no section field in top-level .bib
+
+### Fixed
+
+- [X] Cannot handle all proceedings simultaneously (too many file handles open)
       Current workaround: move all but latest files into 
 	  directory other than `db/`
+	  (FIXED: Using Hakyll 4.3 which handles files better)
 
 ## Improvements
 
 - [_] Test for missing PDFs for each BibTeX entry imported.
+
+- [_] Test for clashing BibTeX keys upon importing.
 
 - [ ] Add javascript to embed discussion on each paper page
 
 - [ ] Improve the docs for the system on GitHub (especially dependencies) 
       so others can run it
 
-- [_] Test cabal install on fresh machine
 
-## Done
+### Completed
+
+- [X] Test cabal install on fresh machine
 
 - [X] Prettify the pages that are generated
 
