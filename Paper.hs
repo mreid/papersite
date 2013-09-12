@@ -8,10 +8,7 @@ module Paper
   , parseEntry
   , getField
   , paperID
-  -- , paperConferenceID
   , paperURI
-  -- , paperContext
-  -- , parsePaper
   ) where
 
 --------------------------------------------------------------------------------
@@ -78,23 +75,6 @@ parseEntry path =
     Right []       -> error $ "Empty BibTeX file: " ++ path
     Right _        -> error "BibTeX files must only have a single entry"
 
--- Parses a Paper from the given BibTeX file in the site's database.
--- parsePaper :: FilePath -> Paper
--- parsePaper path = 
---   case Parsec.parse BibTex.Parse.file "<BibTeX paper>" path of
---     Left err       -> error $ show err
---     Right [paper]  -> 
---       case Parsec.parse BibTex.Parse.file "<BibTeX conference>" (confPath path) of
---         Left err      -> error $ show err
---         Right [conf]  -> Paper paper conf
---         Right _       -> error "More than one entry in the conference BibTeX file"
---     Right _ -> error "More than a single paper in the BibTeX file"
-
--- Compute the path for the conference BibTeX file given the path for a paper
--- e.g., this takes "db/ICML/2012/reid12a.bib" to "db/ICML/2012.bib"
--- confPath :: FilePath -> FilePath
--- confPath path = (concat . init . segmentBefore (== '/') $ path) ++ ".bib"
-
 --------------------------------------------------------------------------------
 -- Get the paper's indentifier
 paperID :: Paper -> Identifier
@@ -102,10 +82,6 @@ paperID (Paper entry _) = fromFilePath $ BibTex.identifier entry
 
 paperURI :: Paper -> Identifier
 paperURI paper = fromFilePath ("paper/" ++ (toFilePath $ paperID paper) ++ ".html") 
-
--- paperConferenceID :: Paper -> Identifier
--- paperConferenceID (Paper _ conf) = fromFilePath $ BibTex.identifier conf
-
 
 --------------------------------------------------------------------------------
 -- Converts a TeX string into HTML + MathJax
@@ -118,19 +94,22 @@ latexToHtml tex =
     def { writerHTMLMathMethod = MathJax "" } p
 
 --------------------------------------------------------------------------------
-getField :: String -> Entry -> Maybe String
-getField key entry@(Entry t) =
+getField :: String -> (Item Entry) -> Maybe String
+getField key = getField' key . itemBody
+
+getField' :: String -> Entry -> Maybe String
+getField' key entry@(Entry t) =
   case key of
   "identifier"  -> Just $ BibTex.identifier t
   "firstpage"   -> firstpage
   "lastpage"    -> lastpage
   "url"         -> fmap (toURI "html") $ identifier
   "pdf"         -> fmap (toURI "pdf") $ identifier
-  "metatitle"   -> lookup "title" . BibTex.fields $ t
+  "rawtitle"    -> lookup "title" . BibTex.fields $ t
   _             -> fmap latexToHtml (lookup key . BibTex.fields $ t)
   where
-    pages = getField "pages" entry
-    identifier = getField "identifier" entry
+    pages = getField' "pages" entry
+    identifier = getField' "identifier" entry
     firstpage = fmap (takeWhile isNumber) pages
     lastpage  = fmap (reverse . takeWhile isNumber . reverse) pages
     isNumber c = c `elem` ['0'..'9'] ++ ['x','v','i']
