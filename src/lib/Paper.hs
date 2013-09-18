@@ -7,6 +7,7 @@ module Paper
   , Entry
   , parseEntry
   , getField
+  , getField'
   , paperID
   , paperURI
   ) where

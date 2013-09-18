@@ -1,0 +1,102 @@
+@Proceedings{EXMPL-2013,
+booktitle   = {European eXchange on Machine-assisted Predictive Learning},
+year    	= {2013},
+editor  	= {Hoi, Steven C.H. and Buntine, Wray},
+publisher   = {JMLR Workshop and Conference Proceedings},
+volume 		= {25},
+address 	= {Singapore},
+month   	= {Nov.},
+shortname 	= {EXMPL}
+}
+
+@InProceedings{aboumoustafa12,
+title   = {A Note on Metric Properties for Some Divergence Measures: The Gaussian Case},
+author  = {Abou-Moustafa, Karim T. and Ferrie, Frank P.},
+pages   = {1-15},
+abstract    = {Multivariate Gaussian densities are pervasive in pattern recognition and machine learning.
+A central operation that appears in most of these areas is to measure the difference between two
+multivariate Gaussians.
+Unfortunately, traditional measures based on the Kullback--Leibler (KL) divergence and the
+Bhattacharyya distance do not satisfy all metric axioms necessary for many algorithms.
+In this paper we propose a modification for the KL divergence and the Bhattacharyya distance,
+for multivariate Gaussian densities, that transforms the two measures into distance
+metrics.
+Next, we show how these metric axioms impact the unfolding process of manifold learning algorithms.
+Finally, we illustrate the efficacy of the proposed metrics on two different manifold learning
+algorithms when used for motion clustering in video data.
+Our results show that, in this particular application, the new proposed metrics lead to boosts
+in performance (at least $7\%$) when compared to other divergence measures.}
+}
+
+
+@InProceedings{chiang12,
+title   = {A Ranking-based KNN Approach for Multi-Label Classification},
+author  = {Chiang, Tsung-Hsien and Lo, Hung-Yi and Lin, Shou-De},
+pages   = {81-96},
+abstract    = {Multi-label classification has attracted a great deal of attention
+in recent years. This paper presents an interesting finding,
+namely, being able to identify neighbors with trustable labels can
+significantly improve the classification accuracy. Based on this
+finding, we propose a $k$-nearest-neighbor-based ranking approach
+to solve the multi-label classification problem. The approach
+exploits a ranking model to learn which neighbor's labels are more
+trustable candidates for a weighted KNN-based strategy, and then
+assigns higher weights to those candidates when making
+weighted-voting decisions. The weights can then be determined by
+using a generalized pattern search technique. We collect several
+real-word data sets from various domains for the experiment. Our
+experiment results demonstrate that the proposed method
+outperforms state-of-the-art instance-based learning approaches.
+We believe that appropriately exploiting k-nearest neighbors is
+useful to solve the multi-label problem.}
+}
+
+@InProceedings{feraud12,
+title   = {A Stochastic Bandit Algorithm for Scratch Games},
+author  = {F\'{e}raud, Rapha\"{e}l and Urvoy, Tanguy},
+pages   = {129-143},
+abstract    = {Stochastic multi-armed bandit algorithms are used to solve the exploration and exploitation dilemma in sequential optimization problems.
+The algorithms based on upper confidence bounds offer strong theoretical guarantees, they are easy to implement and efficient in practice.
+We considers a new bandit setting, called ``scratch-games'', where arm budgets are limited and reward are drawn without replacement.
+Using Serfling inequality, we propose an upper confidence bound algorithm adapted to this setting.
+We show that the bound of expectation to play a suboptimal arm is lower than the one of UCB1 policy.
+We illustrate this result on both synthetic problems and realistic problems (ad-serving and emailing campaigns optimization).}
+}
+
+@InProceedings{tran12a,
+title   = {Cumulative Restricted Boltzmann Machines for Ordinal Matrix Data Analysis},
+author  = {Tran, Truyen and Phung, Dinh and Venkatesh, Svetha},
+pages   = {411-426},
+abstract    = {Ordinal data is omnipresent in almost all multiuser-generated feedback
+- questionnaires, preferences etc. This paper investigates modelling
+of ordinal data with Gaussian restricted Boltzmann machines (RBMs).
+In particular, we present the model architecture, learning and inference
+procedures for both vector-variate and matrix-variate ordinal data.
+We show that our model is able to capture latent opinion profile of
+citizens around the world, and is competitive against state-of-art
+collaborative filtering techniques on large-scale public datasets.
+The model thus has the potential to extend application of RBMs to
+diverse domains such as recommendation systems, product reviews and
+expert assessments.}
+}
+
+@InProceedings{tran12b,
+title   = {Learning From Ordered Sets and Applications in Collaborative Ranking},
+author  = {Tran, Truyen and Phung, Dinh and Venkatesh, Svetha},
+pages   = {427-442},
+abstract    = {Ranking over sets arise when users choose between groups of items.
+For example, a group may be of those movies deemed $5$ stars to them,
+or a customized tour package. It turns out, to model this data type
+properly, we need to investigate the general combinatorics problem
+of partitioning a set and ordering the subsets. Here we construct
+a probabilistic log-linear model over a set of ordered subsets. Inference
+in this combinatorial space is highly challenging: The space size
+approaches $(N!/2)6.93145^{N+1}$ as $N$ approaches infinity. We
+propose a \texttt{split-and-merge} Metropolis-Hastings procedure that
+can explore the state-space efficiently. For discovering hidden aspects
+in the data, we enrich the model with latent binary variables so that
+the posteriors can be efficiently evaluated. Finally, we evaluate
+the proposed model on large-scale collaborative filtering tasks and
+demonstrate that it is competitive against state-of-the-art methods.}
+}
+

@@ -1,4 +1,6 @@
 -- Cabal package for papersite
+-- There is a good introduction to writing Cabal files on StackExchange:
+--   http://stackoverflow.com/questions/12305970/how-to-make-a-haskell-cabal-project-with-libraryexecutables-that-still-run-with
 name:                papersite
 version:             0.2.0.0
 synopsis:            Site generation tool for JMLR proceedings.
@@ -13,31 +15,65 @@ description:
 -- URL for the project homepage or repository.
 homepage:            https://github.com/mreid/papersite
 license:             MIT
-license-file:		 LICENSE
+license-file:        LICENSE
 author:              Mark Reid
 maintainer:          mark.reid@gmail.com
-
 category:            Web
 build-type:          Simple
-cabal-version:       >=1.8
+cabal-version:       >=1.10
 
+-- Source at GitHub
 source-repository head
   type:              git
   location:          https://github.com/mreid/papersite
 
-executable site
-  -- .hs or .lhs file containing the Main module.
-  main-is: site.hs            
-  
-  -- Modules included in this executable, other than Main.
-  other-modules:       Author, Paper
-  
-  -- Other library packages from which modules are imported.
-  build-depends:       base,  binary ==0.5.*, hakyll ==4.3.*, network >=2.3, filepath, bibtex ==0.1.*, parsec ==3.1.*, latex ==0.1.*, containers >=0.4, regex-compat ==0.95.*, text ==0.11.*, pandoc ==1.11.*, mtl ==2.1.*, utility-ht ==0.0.*
-  
-executable import
-  -- .hs or .lhs file containing the Main module.
-  main-is: import.hs
+-- Define and export the main modules from src/lib to avoid build-depends repeats
+library
+  default-language:  Haskell2010
+  hs-source-dirs:    src/lib
+  exposed-modules:   Site, Paper, Author
+  build-depends:       
+   base,
+   binary ==0.5.*,
+   containers >=0.4,
+   filepath,
+   mtl ==2.1.*,
+   network >=2.3,
+   parsec ==3.1.*,
+   regex-compat ==0.95.*,
+   text ==0.11.*,
+   utility-ht ==0.0.*,
+   ---
+   hakyll ==4.3.*,
+   pandoc ==1.11.*,
+   bibtex ==0.1.*,
+   latex ==0.1.*
 
-  -- Other library packages from which modules are imported.
-  build-depends:       base, directory, filepath == 1.3.*, bibtex ==0.1.*, parsec ==3.1.*, latex ==0.1.*
+-- The main executable depends only on the library modules
+executable site
+  default-language:  Haskell2010
+  hs-source-dirs:    src/exec
+  main-is:           Main.hs
+  build-depends:     base, papersite
+
+-- The import executable is built as a stand-alone
+-- executable import
+--  hs-source-dirs:    src/exec
+--  default-language:  Haskell2010
+--  main-is:           import.hs
+--
+--  build-depends:
+--   base, directory, filepath == 1.3.*, parsec ==3.1.*,
+--   bibtex ==0.1.*, latex ==0.1.*
+
+-- Testing
+test-suite tests
+  default-language:    Haskell2010
+  hs-source-dirs:      src/test
+  type:                exitcode-stdio-1.0
+  main-is:             TestSite.hs
+
+  build-depends:  
+   base, papersite,
+   test-framework, test-framework-hunit, HUnit,
+   hakyll

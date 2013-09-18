@@ -22,7 +22,7 @@ import			 Network.URI
 import qualified Text.BibTeX.Parse   as BibTex.Parse
 import qualified Text.Parsec         as Parsec
 import 			 Text.LaTeX.Character
-
+ 
 --------------------------------------------------------------------------------
 -- newtype AuthorID = AuthorID String
 type Authorship = (Integer, Author)

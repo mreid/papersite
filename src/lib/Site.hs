@@ -1,5 +1,6 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
+module Site where
 
 --------------------------------------------------------------------------------
 import            Author
@@ -21,10 +22,8 @@ import            Text.Regex
 import            System.FilePath
 
 --------------------------------------------------------------------------------
--- TODO: Clean up and reorganise!
-
-main :: IO ()
-main = hakyllWith config $ do
+realMain :: IO ()
+realMain = hakyllWith config $ do
 
   -- Load in the conference details for reference from paper entries
   match "db/*.bib" $ version "fields" $ do
@@ -48,7 +47,8 @@ main = hakyllWith config $ do
           let sections = fmap (Item "") . sortBy sectionOrd $ makeSections [] papers
 
           let sectionCtx = sectionContext conf
-          let sectionsCtx = listField "sections" sectionCtx (return sections) <> entryContext'
+          let sectionsCtx = listField "sections" sectionCtx (return sections) 
+                            <> entryContext'
           
           loadAndApplyTemplate "templates/papers.html" sectionsCtx conf
         ) 
@@ -114,10 +114,11 @@ pageSort = sortBy (\i1 i2 -> compare (page $ i1) (page $ i2))
 -- and look for the BibTeX field there.
 entryContext :: Context Entry
 entryContext = 
-  constField "baseURI" "http://jmlr.org/proceedings/papers"
-  <> listField' "authors" authorContext (return . entryAuthors)
-  <> entryContext'
-  -- <> suppContext
+  constField "baseURI" "http://jmlr.org/proceedings/papers"     -- Base URI
+  <> listField' "authors" authorContext (return . entryAuthors) -- Authors
+  <> entryContext'      -- Fields from BibTeX entry
+  <> confContext'       -- Fields from parent conference's BibTeX entry
+  <> suppContext        -- Fields for entry's supplementary items, if found
 
 suppContext :: Context Entry
 suppContext =
@@ -139,9 +140,26 @@ entryContext' :: Context Entry
 entryContext' = Context $ 
   \key item -> maybeGetField key item >>= return . StringField
 
+confContext' :: Context Entry
+confContext' = Context $
+  \key item -> conferenceEntry item >>= maybeGetField key >>= return . StringField
+
 -- Return a Compiler String for a looked-up value or the empty Compiler
+-- If the key search for is a default key then log a warning and return a
+-- placeholder value if it is missing
 maybeGetField :: String -> (Item Entry) -> Compiler String
-maybeGetField key = maybe empty return . getField key
+maybeGetField key  
+ | key `elem` defaultKeys = maybe (defaultKeyWarning key) return . getField key
+ | True                   = maybe empty return . getField key
+
+-- These are keys, such as abstracts, that each entry should have by default.
+defaultKeys :: [String]
+defaultKeys = ["abstract"]
+
+defaultKeyWarning :: String -> Compiler String
+defaultKeyWarning key = 
+  debugCompiler ("WARNING: Could not find " ++ key)
+  >> return ("[Not found: " ++ key ++ "]")
 
 -- Compile an entry by parsing its associated BibTeX file
 entryCompiler :: Compiler (Item Entry)
@@ -222,7 +240,8 @@ parseSections = map (chop (=='=')) . chop (=='|')
 data Supplementary = Supplementary {
   suppID :: String,
   filename :: FilePath
-}
+} deriving (Show, Eq)
+
 kind supp = map toUpper (tail . takeExtension . filename $ supp)
 
 suppDefRegex = mkRegex "^[ ]*([a-z|A-Z|0-9]+):(.*)[ ]*$"
