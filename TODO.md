@@ -2,13 +2,16 @@
 
 ## Bugs
 
-- [_] Supplementary files are always displayed.
-
-- [_] MathJax is evaluating equations in the metadata.
-
-- [_] Empty section title when no section field in top-level .bib
+- [_] ID/Link to PDF for `v2/mansinghka07a` should be
+      http://jmlr.org/proceedings/papers/v2/masinghka07a/masinghka07a.pdf
 
 ### Fixed
+
+- [X] MathJax is evaluating equations in the metadata.
+
+- [X] Empty section title when no section field in top-level .bib
+
+- [X] Supplementary files are always displayed.
 
 - [X] Cannot handle all proceedings simultaneously (too many file handles open)
       Current workaround: move all but latest files into 
