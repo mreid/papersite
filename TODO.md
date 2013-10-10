@@ -5,6 +5,10 @@
 - [_] ID/Link to PDF for `v2/mansinghka07a` should be
       http://jmlr.org/proceedings/papers/v2/masinghka07a/masinghka07a.pdf
 
+- [_] How to handle Challenge Contribution subsections in 
+      http://jmlr.org/proceedings/papers/v6/
+	  (Currently just ignore subsections)
+
 ### Fixed
 
 - [X] MathJax is evaluating equations in the metadata.
