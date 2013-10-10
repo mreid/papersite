@@ -43,7 +43,7 @@ realMain = hakyllWith config $ do
           let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
           papers <- pageSort <$> loadAllSnapshots pattern "test"
 
-          let sectionOrd = comparing $ (flip elemIndex $ (sectionOrder conf)) . fromMaybe "none" .fst
+          let sectionOrd = comparing $ (flip elemIndex $ (sectionOrder conf)) . fromMaybe "default" .fst
           let sections = fmap (Item "") . sortBy sectionOrd $ makeSections [] papers
 
           let sectionCtx = sectionContext conf
@@ -189,7 +189,7 @@ sectionEntries :: Section -> [Item Entry]
 sectionEntries = snd
 
 sectionID :: Section -> String
-sectionID = fromMaybe "none" . fst
+sectionID = fromMaybe "default" . fst
 
 sectionEntriesCompiler :: Compiler [Item Entry]
 sectionEntriesCompiler = fmap sectionEntries (getUnderlying >>= loadBody)
@@ -199,7 +199,7 @@ makeSections :: [Section] -> [Item Entry] -> [Section]
 makeSections = foldl' addToSection
 
 -- Adds an entry to the association list according to its section.
--- The entry is added to the section "none" if it has no section field.
+-- The entry is added to the section "default" if it has no section field.
 addToSection :: [Section] -> (Item Entry) -> [Section]
 addToSection [] entry = [(getField "section" entry, [entry])]
 addToSection ((sec, es):rest) entry
@@ -217,13 +217,13 @@ sectionContext conf =
   where
     secID = sectionID . itemBody
 
--- Build a function that mas sections keywords to their corresponding titles
+-- Build a function that maps sections keywords to their corresponding titles
 -- by parsing a "sections" field of a conference that has the form
---	  key1=Title Number 1|key2=Title Number Two|none=Default Title
+--	  key1=Title Number 1|key2=Title Number Two|default=Default Title
 sectionTitles :: Item Entry -> String -> String
 sectionTitles entry = case getField "sections" entry of
-    Nothing     -> \_ -> ""
-    Just val    -> \key -> fromMaybe "" . lookup key . convert $ val
+    Nothing     -> \_ -> "Accepted Papers"
+    Just val    -> \key -> fromMaybe "Accepted Papers" . lookup key . convert $ val
     where 
 	  tuplify [x,y] = (x,y)
 	  convert = map tuplify . parseSections
