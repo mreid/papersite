@@ -57,14 +57,14 @@ executable site
   build-depends:     base, papersite
 
 -- The import executable is built as a stand-alone
--- executable import
---  hs-source-dirs:    src/exec
---  default-language:  Haskell2010
---  main-is:           import.hs
---
---  build-depends:
---   base, directory, filepath == 1.3.*, parsec ==3.1.*,
---   bibtex ==0.1.*, latex ==0.1.*
+executable import
+ hs-source-dirs:    src/exec
+ default-language:  Haskell2010
+ main-is:           import.hs
+
+ build-depends:
+  base, directory, filepath == 1.3.*, parsec ==3.1.*,
+  bibtex ==0.1.*, latex ==0.1.*
 
 -- Testing
 test-suite tests
