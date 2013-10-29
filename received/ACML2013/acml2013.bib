@@ -1,0 +1,252 @@
+@proceedings{ACML2013,
+    booktitle = "Asian Conference on Machine Learning",
+    shortname = "ACML",
+    year = "2013",
+    editor = "Ong, Cheng Soon and Ho, Tu Bao",
+    volume = "29"
+}
+
+@inproceedings{Audiffren13,
+title = "Stability of Multi-Task Kernel Regression Algorithms",
+author = "Audiffren, Julien and Kadri, Hachem",
+pages = "1-16",
+abstract = "We study the stability properties of nonlinear multi-task regression in reproducing Hilbert spaces with operator-valued kernels. 
+Such kernels, a.k.a. multi-task kernels, are appropriate for learning problems with nonscalar outputs like multi-task learning and structured output prediction. We show that multi-task kernel regression algorithms are uniformly stable in the general case of infinite-dimensional output spaces.  We then derive under mild assumption on the kernel generalization bounds of such algorithms, and we show their consistency even with non Hilbert-Schmidt operator-valued kernels. We demonstrate how to apply the results to various multi-task kernel regression methods such as vector-valued SVR and functional ridge regression."
+}
+
+@inproceedings{Durrant13,
+title = "Random Projections as Regularizers: Learning a Linear Discriminant Ensemble from Fewer Observations than Dimensions",
+author = "Durrant, Robert and Kaban, Ata",
+pages = "17-32",
+abstract = "We examine the performance of an ensemble of randomly-projected Fisher Linear Discriminant classifiers, focusing on the case when there are fewer training observations than data dimensions. Our ensemble is learned from a sequence of randomly-projected representations of the original high dimensional data and therefore for this approach data can be collected, stored and processed in such a compressed form.
+The specific form and simplicity of this ensemble permits a direct and much more detailed analysis than existing generic tools in previous works. 
+In particular, we are able to derive the exact form of the generalization error of our ensemble, conditional on the training set, and based on this 
+we give theoretical guarantees which directly link the performance of the ensemble to that of the corresponding linear discriminant learned in the full data space. To the best of our knowledge these are the first theoretical results to prove such an explicit link for any classifier and classifier ensemble pair.
+Furthermore we show that the randomly-projected ensemble is equivalent to implementing a sophisticated regularization scheme to the linear discriminant learned in the original data space 
+and this prevents overfitting in conditions of small sample size where pseudo-inverse FLD learned in the data space is provably poor."
+}
+
+@inproceedings{Eyck13,
+title = "Guided Monte Carlo Tree Search for Planning in Learned Environments",
+author = "Eyck, Jelle Van and Ramon, Jan and Guiza, Fabian and MeyFroidt, Geert and Bruynooghe, Maurice and Berghe, Greet Van den",
+pages = "33-47",
+abstract = "Monte Carlo tree search (MCTS) is a sampling and simulation based technique for searching in large search spaces containing both decision nodes and probabilistic events. This technique has recently become popular due to its successful application to games, e.g. Poker and Go. Such games have known rules and the alternation between self-moves and non-deterministic events or opponent moves can be used to prune uninteresting branches. In this paper we study a real-world setting where the processes in the domain have a high degree of uncertainty and the need for longer-term planning implies a sequence of (planning) decisions without any intermediate feedback. Fortunately, unlike the combinatorial complexity in strategic games, many real-world environments can be approximated by efficient algorithms on a short term. This paper proposes an MCTS variant using a new type of prior information based on estimating the effects of part of the world and explores its application to the problem of hospital planning, where machine learning algorithms can be used to predict the length of stay of patients for each of the different stages of their recovery."
+}
+
+@inproceedings{Forouzan13,
+title = "Linear Approximation to ADMM for MAP inference",
+author = "Forouzan, Sholeh and Ihler, Alexander",
+pages = "48-61",
+abstract = "Maximum a posteriori (MAP) inference is one of the fundamental inference tasks in graphical models.  MAP inference is in general NP-hard, making
+approximate methods of interest for many problems. One successful class of approximate inference algorithms is based on linear programming (LP) relaxations. The augmented Lagrangian method can be used to overcome a lack of strict convexity in LP relaxations, and the Alternating Direction Method of Multipliers (ADMM) provides an elegant algorithm for finding the saddle point of the augmented Lagrangian. Here we present an ADMM-based algorithm to solve the primal form of the MAP-LP whose closed form updates are based on a linear approximation technique. Our technique gives efficient, closed form updates that converge to the global optimum of the LP relaxation. We compare our algorithm to two existing ADMM-based MAP-LP methods, showing that our technique is faster on general, non-binary or non-pairwise models."
+}
+
+@inproceedings{Gieseke13,
+title = "Polynomial Runtime Bounds for Fixed-Rank Unsupervised Least-Squares Classification",
+author = "Gieseke, Fabian and Pahikkala, Tapio and Igel, Christian",
+pages = "62-71",
+abstract = "Maximum margin clustering can be regarded as the direct extension of support vector machines to unsupervised learning scenarios. The goal is to partition unlabeled data into two classes such that a subsequent application of a support vector machine would yield the overall best result (with respect to the optimization problem associated with support vector machines). While being very appealing from a conceptual point of view, the combinatorial nature of the induced optimization problem renders a direct application of this concept difficult. In order to obtain efficient optimization schemes, various surrogates of the original problem definition have been proposed in the literature. In this work, we consider one of these variants, called unsupervised regularized least-squares classification, which is based on the square loss, and develop polynomial upper runtime bounds for the induced combinatorial optimization task. In particular, we show that for $n$ patterns and kernel matrix of fixed rank $r$ (with given  eigendecomposition), one can obtain an optimal solution in $\mathcal{O}(n^{r})$ time for $r \leq 2$ and in $\mathcal{O}(n^{r-1})$ time for $r\geq 3$. The algorithmic framework is based on an interesting connection to the field of quadratic zero-one programming and permits the computation of exact solutions for the more general case of non-linear kernel functions in polynomial time."
+}
+
+@inproceedings{Glasmachers13,
+title = "Accelerated Coordinate Descent with Adaptive Coordinate Frequencies",
+author = "Glasmachers, Tobias and Dogan, Urun",
+pages = "72-86",
+abstract = "Coordinate descent (CD) algorithms have become the method of choice for solving a number of machine learning tasks. They are particularly popular for training linear models, including linear support vector machine classification, LASSO regression, and logistic regression.
+We propose an extension of the CD algorithm, called the adaptive coordinate frequencies (ACF) method. This modified CD scheme does not treat all coordinates equally, in that it does not pick all coordinates equally often for optimization. Instead the relative frequencies of coordinates are subject to online adaptation.
+The resulting optimization scheme can result in significant speed-ups. We demonstrate the usefulness of our approach on a number of large scale machine learning problems."
+}
+
+@inproceedings{Jiang13,
+title = "Novel Boosting Frameworks to Improve the Performance of Collaborative Filtering",
+author = "Jiang, Xiaotian and Niu, Zhendong and Guo, Jiamin and Mustafa, Ghulam and Lin, Zihan and Chen, Baomi and Zhou, Qian",
+pages = "87-99",
+abstract = "Recommender systems are often based on collaborative filtering. Previous researches on collaborative filtering mainly focus on one single recommender or formulating hybrid with different approaches. In consideration of the problems of sparsity, recommender error rate, sample weight update, and potential, we adapt AdaBoost and propose two novel boosting frameworks for collaborative filtering. Each of the frameworks combines multiple homogeneous recommenders, which are based on the same collaborative filtering algorithm with different sample weights. We use seven popular collaborative filtering algorithms to evaluate the two frameworks with two MovieLens datasets of different scale. Experimental result shows the proposed frameworks improve the performance of collaborative filtering."
+}
+
+@inproceedings{Komiyama13,
+title = "Multi-armed Bandit Problem with Lock-up Periods",
+author = "Komiyama, Junpei and Sato, Issei and Nakagawa, Hiroshi",
+pages = "116-132",
+abstract = "We investigate a stochastic multi-armed bandit problem in which the forecaster's choice is restricted. In this problem, rounds are divided into lock-up periods and the forecaster must select the same arm throughout a period. While there has been much work on finding optimal algorithms for the stochastic multi-armed bandit problem,  their use under restricted conditions is not obvious. We extend the application ranges of these algorithms by proposing their natural conversion from ones for the stochastic bandit problem (index-based algorithms and greedy algorithms) to ones for the multi-armed bandit problem with lock-up periods. We prove that the regret of the converted algorithms is $O(\log{T} + L_{max} )$, where $T$ is the total number of rounds and $L_{max}$ is the maximum size of the lock-up periods. The regret is preferable, except for the case when the maximum size of the lock-up periods is large. For these cases, we propose a meta-algorithm that results in a smaller regret by using a empirical best arm for large periods. We empirically compare and discuss these algorithms."
+}
+
+@inproceedings{Liu13,
+title = "Linearized Alternating Direction Method with Parallel Splitting and Adaptive Penalty for Separable Convex Programs in Machine Learning",
+author = "Liu, Risheng and Lin, Zhouchen and Su, Zhixun",
+pages = "116-132",
+abstract = "Many problems in statistics and machine learning (e.g., probabilistic graphical model, feature extraction, clustering and classification, etc) can be (re)formulated as linearly constrained separable convex programs. The traditional alternating direction method (ADM) or its linearized version (LADM) is for the two-variable case and \emph{cannot} be naively generalized to solve the multi-variable case. In this paper, we propose LADM with parallel splitting and adaptive penalty (LADMPSAP) to solve multi-variable separable convex programs efficiently. When all the component objective functions have bounded subgradients, we obtain convergence results that are stronger than those of ADM and LADM, e.g., allowing the penalty parameter to be unbounded and proving the \emph{sufficient and necessary conditions} for global convergence. We further propose a simple optimality measure and reveal the convergence \emph{rate} of LADMPSAP in an ergodic sense. For programs with extra convex set constraints, we devise a practical version of LADMPSAP for faster convergence. LADMPSAP is particularly suitable for sparse representation and low-rank recovery problems because its subproblems have closed form solutions and the sparsity and low-rankness of the iterates can be preserved during the iteration. It is also \emph{highly parallelizable} and hence fits for parallel or distributed computing. Numerical experiments testify to the speed and accuracy advantages of LADMPSAP."
+}
+
+@inproceedings{Nguyen13,
+title = "Learning Parts-based Representations with Nonnegative Restricted Boltzmann Machine",
+author = "Nguyen, Tu Dinh and Tran, Truyen and Dinh Phung and Venkatesh, Svetha",
+pages = "133-148",
+abstract = "The success of any machine learning system depends critically on effective representations of data. In many cases, especially those in vision,
+it is desirable that a representation scheme uncovers the parts-based, additive nature of the data. Of current representation learning schemes, restricted Boltzmann machines (RBMs) have proved to be highly effective in unsupervised settings. However, when it comes to parts-based discovery, RBMs do not usually produce satisfactory results. We enhance such capacity of RBMs by introducing nonnegativity into the model weights, resulting in a variant called \emph{nonnegative restricted Boltzmann machine} (NRBM). The NRBM produces not only controllable decomposition of data into interpretable parts but also offers a way to estimate the intrinsic nonlinear dimensionality of data. We demonstrate the capacity of our model on well-known datasets of handwritten digits, faces and documents. The decomposition quality on images is comparable with or better than what produced by the nonnegative matrix factorisation (NMF), and the thematic features uncovered from text are qualitatively interpretable in a similar manner to that of the latent Dirichlet allocation (LDA). However, the learnt features, when used for classification,
+are more discriminative than those discovered by both NMF and LDA and comparable with those by RBM."
+}
+
+@inproceedings{Ohara13,
+title = "Predictive Simulation Framework of Stochastic Diffusion Model for Identifying Top-K Influential Nodes",
+author = "Ohara, Kouzou and Saito, Kazumi and Kimura, Masahiro and Motoda, Hiroshi",
+pages = "149-164",
+abstract = "We address a problem of efficiently estimating the influence of a node in information diffusion over a social network. Since the information diffusion is a stochastic process, the influence degree of a node is quantified by the expectation, which is usually obtained by very time consuming many runs of simulation. Our contribution is that we proposed a framework for predictive simulation based on the leave-$N$-out cross validation technique that well approximates the error from the unknown ground truth for two target problems: one to estimate the influence degree of each node, and the other to identify top-$K$ influential nodes. The method we proposed for the first problem estimates the approximation error of the influence degree of each node, and the method for the second problem estimates the precision of the derived top-$K$ nodes, both without knowing the true influence degree. We experimentally evaluate the proposed methods using the three real world networks, and show that they can serve as a good measure to solve the target problems with far fewer runs of simulation ensuring the accuracy if $N$ is appropriately chosen, and that estimating the top-$K$ nodes is easier than estimating the influence degree, which means one can identify the influential nodes without knowing exactly their influence degree.
+"
+}
+
+@inproceedings{Peltonen13,
+title = "Information Retrieval Perspective to Meta-visualization",
+author = "Peltonen, Jaakko and Lin, Ziyuan",
+pages = "165-180",
+abstract = "In visual data exploration with scatter plots, no single plot is sufficient to analyze complicated high-dimensional data sets. Given numerous visualizations created with different features or methods, meta-visualization is needed to analyze the visualizations together. We solve \emph{how to arrange numerous visualizations onto a meta-visualization display}, so that their similarities and differences can be analyzed. We introduce a machine learning approach to optimize the meta-visualization, based on an information retrieval perspective: two visualizations are similar if the analyst would retrieve similar neighborhoods between data samples from either visualization. Based on the approach, we introduce a nonlinear embedding method for meta-visualization: it optimizes locations of visualizations on a display, so that visualizations giving similar information about data are close to each other."
+}
+
+@inproceedings{Watanabe13,
+title = "Achievability of Asymptotic Minimax Regret in Online and Batch Prediction",
+author = "Watanabe, Kazuho and Roos, Teemu and Myllymäki, Petri",
+pages = "181-196",
+abstract = "The normalized maximum likelihood model achieves the minimax coding (log-loss) regret for data of fixed sample size $n$. However, it is a batch strategy, i.e., it requires that $n$ be known in advance. Furthermore, it is computationally infeasible for most statistical models, and several computationally feasible alternative strategies have been devised. We characterize the achievability of asymptotic minimaxity by batch strategies (i.e., strategies that depend on $n$) as well as online strategies (i.e., strategies independent of $n$). On one hand, we conjecture that for a large class of models, no online strategy can be asymptotically minimax. We prove that this holds under a slightly stronger definition of asymptotic minimaxity. Our numerical experiments support the conjecture about non-achievability by so called last-step minimax algorithms, which are independent of $n$.  On the other hand, we show that in the multinomial model, a Bayes mixture defined by the conjugate Dirichlet prior with a simple dependency on $n$ achieves asymptotic minimaxity for all sequences, thus providing a simpler asymptotic minimax strategy compared to earlier work by Xie and Barron. The numerical results also demonstrate superior finite-sample behavior by a number of novel batch and online algorithms. "
+}
+
+@inproceedings{Wu13,
+title = "Multi-Label Classification with Unlabeled Data: An Inductive Approach",
+author = "Wu, Le and Zhang, Min-Ling",
+pages = "197-212",
+abstract = "The problem of multi-label classification has attracted great interests in the last decade. Multi-label classification refers to the problems where an example that is represented by a \emph{single} instance can be assigned to \emph{more than one} category. Until now, most of the researches on multi-label classification have focused on supervised settings whose assumption is that large amount of labeled training data is available. Unfortunately, labeling training example is expensive and time-consuming, especially when it has more than one label. However, in many cases abundant unlabeled data is easy to obtain. Current attempts toward exploiting unlabeled data for multi-label classification work under the \emph{transductive} setting, which aim at making predictions on existing unlabeled data while can not generalize to new unseen data. In this paper, the problem of \emph{inductive} semi-supervised multi-label classification is studied, where a new approach named \textsl{iMLCU}, i.e. \emph{inductive Multi-Label Classification with Unlabeled data}, is proposed. We formulate the inductive semi-supervised multi-label learning as an optimization problem of learning linear models and ConCave Convex Procedure \textsl{(CCCP)} is applied to optimize the non-convex optimization problem. Empirical studies on twelve diversified real-word multi-label learning tasks clearly validate the superiority of \textsl{iMLCU} against the other well-established multi-label learning approaches."
+}
+
+@inproceedings{Daswani13,
+title = "Q-learning for history-based reinforcement learning",
+author = "Daswani, Mayank and Sunehag, Peter and Hutter, Marcus",
+pages = "213-228",
+abstract = "We extend the Q-learning algorithm from the Markov Decision Process setting to problems where observations are non-Markov and do not reveal the full state of the world i.e.\ to POMDPs. We do this in a natural manner by adding $\ell_0$ regularisation to the pathwise squared Q-learning objective function and then optimise this over both a choice of map from history to states and the resulting MDP parameters. The optimisation procedure involves a stochastic search over the map class nested with classical Q-learning of the parameters. This algorithm fits perfectly into the feature reinforcement learning framework, which chooses maps based on a cost criteria. The cost criterion used so far for feature reinforcement learning has been model-based and aimed at predicting future states and rewards. Instead we directly predict the return, which is what is needed for choosing optimal actions. Our Q-learning criteria also lends itself immediately to a function approximation setting where features are chosen based on the history. This algorithm is somewhat similar to the recent line of work on lasso temporal difference learning which aims at finding a small feature set with which one can perform policy evaluation. The distinction is that we aim directly for learning the Q-function of the optimal policy and we use $\ell_0$ instead of $\ell_1$ regularisation. We perform an experimental evaluation on classical benchmark domains and find improvement in convergence speed as well as in economy of the state representation. We also compare against MC-AIXI on the large Pocman domain and achieve competitive performance in average reward. We use less than half the CPU time and 36 times less memory. Overall, our algorithm hQL provides a better combination of computational, memory and  data efficiency than existing algorithms in this setting."
+}
+
+@inproceedings{Fornoni13,
+title = "Multiclass Latent Locally Linear Support Vector Machines",
+author = "Marco Fornoni and Barbara Caputo and Francesco Orabona",
+pages = "229-244",
+abstract = "Kernelized Support Vector Machines (SVM) have gained the status of off-the-shelf classifiers, able to deliver state of the art performance on almost any problem. Still, their practical use is constrained by their computational and memory complexity, which grows super-linearly with the number of training samples. In order to retain the low training and testing complexity of linear classifiers and the flexibility of non linear ones, a growing, promising alternative is represented by methods that learn non-linear classifiers through local combinations of linear ones.
+In this paper we propose a new multi class local classifier, based on a latent SVM formulation. The proposed classifier makes use of a set of linear models that are linearly combined using sample and class specific weights. Thanks to the latent formulation, the combination coefficients are modeled as latent variables. We allow soft combinations and we provide a closed-form solution for their estimation, resulting in an efficient prediction rule. This novel formulation allows to learn in a principled way the sample specific weights and the linear classifiers, in a unique optimization problem, using a CCCP optimization procedure. Extensive experiments on ten standard UCI machine learning datasets, one large binary dataset, three character and digit recognition databases, and a visual place categorization dataset show the power of the proposed approach."
+}
+
+@inproceedings{Galichet13,
+title = "Exploration vs Exploitation vs Safety: Risk-Aware Multi-Armed Bandits",
+author = "Galichet, Nicolas and Sebag, Michèle and Teytaud, Olivier",
+pages = "245-260",
+abstract = "Motivated by applications in energy management, this paper presents the Multi-Armed Risk-Aware Bandit (MaRaB) algorithm. With the goal of limiting the exploration of risky arms, MaRaB takes as arm quality its conditional value at risk. When the user-supplied risk level goes to 0, the arm quality tends toward the essential infimum of the arm distribution density, and MaRaB tends toward the MIN multi-armed bandit algorithm, aimed at the arm with maximal minimal value. As a first contribution, this paper presents a theoretical analysis of the MIN algorithm under mild assumptions, establishing its robustness comparatively to UCB. The analysis is  supported by extensive experimental validation of MIN and MaRaB compared to UCB and  state-of-art risk-aware MAB algorithms on  artificial and real-world problems.
+"
+}
+
+@inproceedings{Kadri13,
+title = "The Multi-Task Learning View of Multimodal Data",
+author = "Kadri, Hachem and Ayache, Stephane and Capponi, Cécile and Koço, Sokol and Dupé, François-Xavier and Morvant, Emilie",
+pages = "261-276",
+abstract = "We study the problem of learning from multiple views using kernel methods in a supervised setting.  We approach this  problem from a multi-task learning point of view and illustrate how to capture the interesting multimodal structure of the data using multi-task kernels.  Our analysis shows that the multi-task perspective offers the flexibility to design more efficient multiple-source learning algorithms, and hence the ability to exploit multiple descriptions of the data. In particular, we formulate the multimodal learning framework using vector-valued reproducing kernel Hilbert spaces, and we derive specific multi-task kernels that can operate over multiple modalities. Finally,  we analyze the vector-valued regularized least squares algorithm in this context, and demonstrate its potential in a series of experiments with a real-world multimodal data set."
+}
+
+@inproceedings{Koco13,
+title = "On multi-class classification through the minimization of the confusion matrix norm",
+author = "Koço, Sokol and Capponi, Cécile",
+pages = "277-292",
+abstract = "In imbalanced multi-class classification problems, the misclassification rate as an error measure may not be a relevant choice. Several methods have been developed where the performance measure retained richer information than the mere misclassification rate: misclassification costs, ROC-based information, etc. Following this idea of dealing with alternate measures of performance, we propose to address imbalanced classification problems by using a new measure to be optimized: the norm of the confusion matrix.
+Indeed, recent results show that using the norm of the confusion matrix as an error measure can be quite interesting due to the fine-grain informations contained in the matrix, 
+especially in the case of imbalanced classes. Our first contribution then consists in showing that optimizing criterion based on the confusion matrix gives rise to a common background for cost-sensitive methods aimed at dealing with imbalanced classes learning problems. As our second contribution, we propose an extension of a recent multi-class boosting method --- namely AdaBoost.MM --- to the imbalanced class problem, by greedily minimizing  the empirical norm of the confusion matrix. A theoretical analysis of the properties of the proposed method is presented, while experimental results illustrate the behavior of the algorithm and show the relevancy of the approach compared to other methods."
+}
+
+@inproceedings{Le13,
+title = "Generalized Aitchison Embeddings for Histograms",
+author = "Le, Tam and Cuturi, Marco",
+pages = "293-308",
+abstract = "Learning distances that are specifically designed to compare histograms in the probability simplex has recently attracted the attention of the community. Learning such distances is important because most machine learning problems involve bags of features rather than simple vectors. Ample empirical evidence suggests that the Euclidean distance in general and Mahalanobis metric learning in particular may not be suitable to quantify distances between points in the simplex. We propose in this paper a new contribution to address this problem by generalizing a family of embeddings proposed by Aitchison (1982) to map the probability simplex onto a suitable Euclidean space. We provide algorithms to estimate the parameters of such maps, and show that these algorithms lead to representations that outperform alternative approaches to compare histograms."
+}
+
+
+@inproceedings{Louche13,
+title = "Unconfused Ultraconservative Multiclass Algorithms",
+author = "Louche, Ugo and Ralaivola, Liva",
+pages = "309-324",
+abstract = "We tackle the problem of learning linear classifiers from noisy datasets in a multiclass setting. The two-class version of this problem was studied a few years ago by,
+e.g. Bylander (1994) and Blum et al. (1996): in these contributions, the proposed approaches to fight the noise revolve around a Perceptron learning scheme fed with peculiar examples computed through a weighted average of points from the noisy training set. We propose to build upon these approaches and we introduce a new algorithm called \uma (for Unconfused Multiclass additive Algorithm) which may be seen as a generalization to the multiclass setting of the previous approaches. In order to characterize the noise we use the {\em confusion matrix} as a multiclass extension of the classification noise studied in the aforementioned literature. Theoretically well-founded, \uma furthermore displays very good empirical noise robustness, as evidenced by numerical simulations conducted on both synthetic  and real data."
+}
+
+@inproceedings{Lu13,
+title = "Second Order Online Collaborative Filtering",
+author = "Lu, Jing and Hoi, Steven and Wang, Jialei",
+pages = "325-340",
+abstract = "Collaborative Filtering (CF) is one of the most successful learning techniques in building real-world recommender systems. Traditional CF algorithms are often based on batch machine learning methods which suffer from several critical drawbacks, e.g., extremely expensive model retraining cost whenever new samples arrive, unable to capture the latest change of user preferences over time, and high cost and slow reaction to new users or products extension. Such limitations make batch learning based CF methods unsuitable for real-world online applications where data often arrives sequentially and user preferences may change dynamically and rapidly. To address these limitations, we investigate online collaborative filtering techniques for building live recommender systems where the CF model can evolve on-the-fly over time. Unlike the regular first order CF algorithms (e.g., online gradient descent for CF) that converge slowly, in this paper, we present a new framework of second order online collaborative filtering, i.e., Confidence Weighted Online Collaborative Filtering (CWOCF), which applies the second order online optimization methodology to tackle the online collaborative filtering task. We conduct extensive experiments on several large-scale datasets, in which the encouraging results demonstrate that the proposed algorithms obtain significantly lower errors (both RMSE and MAE) than the state-of-the-art first order CF algorithms when receiving the same amount of training data in the online learning process."
+}
+
+@inproceedings{Moustafa13,
+title = "Learning a Metric Space for Neighbourhood Topology Estimation: Application to Manifold Learning",
+author = "Moustafa, Karim Abou- and Schuurmans, Dale and Ferrie, Frank",
+pages = "341-356",
+abstract = "Manifold learning algorithms rely on a neighbourhood graph to provide an estimate of the data's local topology. Unfortunately, current methods for estimating local topology assume local Euclidean geometry and locally uniform data density, which often leads to poor data embeddings. We address these shortcomings by proposing a framework that combines local learning with parametric density estimation for local topology estimation. Given a data set $\mathcal{D} \subset \mathcal{X}$, we first estimate a new metric space $(\mathbb{X},d_{\mathbb{X}})$ that characterizes the varying sample density of $\mathcal{X}$ in $\mathbb{X}$, then use $(\mathbb{X},d_{\mathbb{X}})$ as a new (pilot) input space for the graph construction step of the manifold learning process.
+The proposed framework results in significantly improved embeddings, which we demonstrated objectively by assessing clustering accuracy."
+}
+
+@inproceedings{Neumann13,
+title = "Coinciding Walk Kernels: Parallel Absorbing Random Walks for Learning with Graphs and Few Labels",
+author = "Neumann, Marion and Garnett, Roman and Kersting, Kristian",
+pages = "357-372",
+abstract = "Exploiting autocorrelation for node-label prediction in networked data has led to great success. However, when dealing with sparsely labeled networks, common in present-day tasks, the autocorrelation assumption is difficult to exploit. Taking a step beyond, we propose the coinciding walk kernel (cwk), a novel kernel leveraging label-structure similarity – the idea that nodes with similarly arranged labels in their local neighbourhoods are likely to have the same label – for learning problems on partially labeled graphs. Inspired by the success of random walk based schemes for the construction of graph kernels, cwk is defined in terms of the probability that the labels encountered during parallel random walks coincide. In addition to its intuitive probabilistic interpretation, coinciding walk kernels outperform existing kernel- and walk-based methods on the task of node-label prediction in sparsely labeled graphs with high label-structure similarity. We also show that computing cwks is faster than many state-of-the-art kernels on graphs. We evaluate cwks on several real- world networks, including cocitation and coauthor graphs, as well as a graph of interlinked populated places extracted from the dbpedia knowledge base."
+}
+
+@inproceedings{Premachandra13,
+title = "Aggregating Predictions via Sequential Mini-Trading",
+author = "Premachandra, Mindika and Reid, Mark",
+pages = "373-387",
+abstract = "Prediction markets which trade on contracts representing unknown future outcomes are designed specifically to aggregate expert predictions via the market price. While there are some existing machine learning interpretations for the market price and connections to Bayesian updating under the equilibrium analysis of such markets, there is less of an understanding of what the instantaneous price in sequentially traded markets means. In this paper we show that the prices generated in sequentially traded prediction markets are stochastic approximations to the price given by an equilibrium analysis. We do so by showing the equilibrium price is a solution to a stochastic optimisation problem which is solved by stochastic mirror descent (SMD) by a class of sequential pricing mechanisms. This connection leads us to propose a scheme called “mini-trading” which introduces a parameter related to the learning rate in SMD. We prove several properties of this scheme and show that it can improve the stability of prices in sequentially traded prediction markets."
+}
+
+@inproceedings{Shen13,
+title = "Active Sampling of Pairs and Points for Large-scale Linear Bipartite Ranking",
+author = "Shen, Wei-Yuan and Lin, Hsuan-Tien",
+pages = "388-403",
+abstract = "Bipartite ranking is a fundamental ranking problem that learns to order relevant instances ahead of irrelevant ones. One major approach for bipartite ranking, called the pair-wise approach, tackles an equivalent binary classification problem of whether one instance out of a pair of instances should be ranked higher than the other. Nevertheless, the number of instance pairs constructed from the input data could be quadratic to the size of the input data, which makes pair-wise ranking generally infeasible on large-scale data sets. Another major approach for bipartite ranking, called the point-wise approach, directly solves a binary classification problem between relevant and irrelevant instance points. This approach is feasible for large-scale data sets, but the resulting ranking performance can be inferior. That is, it is difficult to conduct bipartite ranking accurately and efficiently at the same time. In this paper, we develop a novel scheme within the pair-wise approach to conduct bipartite ranking efficiently. The scheme, called Active Sampling, is inspired from the rich field of active learning and can reach a competitive ranking performance while focusing only on a small subset of the many pairs during training. Moreover, we propose a general Combined Ranking and Classification (CRC) framework to accurately conduct bipartite ranking. The framework unifies point-wise and pair-wise approaches and is simply based on the idea of treating each instance point as a pseudo-pair. Experiments on 14 real- word large-scale data sets demonstrate that the proposed algorithm of Active Sampling within CRC, when coupled with a linear Support Vector Machine, usually outperforms state-of-the-art point-wise and pair-wise ranking approaches in terms of both accuracy and efficiency."
+}
+
+@inproceedings{Su13,
+title = "Multilabel Classification through Random Graph Ensembles",
+author = "Su, Hongyu and Rousu, Juho",
+pages = "404-418",
+abstract = "We present new methods for multilabel classification, relying on ensemble learning on a collection of random output graphs imposed on the multilabel and a kernel-based structured output learner as the base classifier. For ensemble learning, differences among the output graphs provide the required base classifier diversity and lead to improved performance in the increasing size of the ensemble. We study different methods of forming the ensemble prediction, including majority voting and two methods that perform inferences over the graph structures before or after combining the base models into the ensemble. We compare the methods against the state-of-the-art machine learning approaches on a set of heterogeneous multilabel benchmark problems, including multilabel AdaBoost, convex multitask feature learning, as well as single target learning approaches represented by Bagging and SVM. In our experiments, the random graph ensembles are very competitive and robust, ranking first or second on most of the datasets. Overall, our results show that random graph ensembles are viable alternatives to flat multilabel and multitask learners."
+}
+
+@inproceedings{Tran13,
+title = "Improving Predictive Specificity of Description Logic Learners by Fortification",
+author = "Tran, An and Dietrich, Jens and Guesgen, Hans and Marsland, Stephen",
+pages = "419-434",
+abstract = "The predictive accuracy of a learning algorithm can be split into specificity and sensitivity, amongst other decompositions. Sensitivity, also known as completeness, is the ratio of true positives to the total number of positive examples, while specificity is the ratio of true negative to the total negative examples. In top-down learning methods of inductive logic programming, there is generally a bias towards sensitivity, since the learning starts from the most general rule (everything is positive) and specialises by excluding some of the negative examples. While this is often useful, it is not always the best choice: for example, in novelty detection, where the negative examples are rare and often varied, they may well be ignored by the learning. In this paper we introduce a method that attempts to remove the bias towards sensitivity by fortifying the model by computing and then including in the model some descriptions of the negative data even if they are considered redundant by the normal learning algorithm. We demonstrate the method on a set of standard datasets for description logic learning and show that the predictive accuracy increases."
+}
+
+@inproceedings{Vanck13,
+title = "Using Hyperbolic Cross Approximation to measure and compensate Covariate Shift",
+author = "Vanck, Thomas and Garcke, Jochen",
+pages = "435-450",
+abstract = "The concept of covariate shift in supervised data analysis describes a difference between the training and test distribution while the conditional distribution remains the same. 
+To improve the prediction performance one can address such a change by using individual weights for each training datapoint, which emphasizes the training points close to the test data set so that these get a higher significance. We propose a new method for calculating such weights by minimizing a Fourier series approximation of distance measures, in particular we consider the total variation distance, the Euclidean distance and Kullback-Leibler divergence. To be able to use the Fourier approach for higher dimensional data, we employ the so-called hyperbolic cross approximation.
+Results show that the new approach can compete with the latest methods and that on real life data an improved performance can be obtained."
+}
+
+@inproceedings{Wang13a,
+title = "Locally-Linear Learning Machines (L3M)",
+author = "Wang, Joseph and Saligrama, Venkatesh",
+pages = "451-466",
+abstract = "We present locally-linear learning machines (L3M) for multi-class classification. We formulate a global convex risk function to jointly learn linear feature space partitions and region-specific linear classifiers. L3M’s features such as: (1) discriminative power similar to Kernel SVMs and Adaboost; (2) tight control on generalization error; (3) low training time cost due to on-line training; (4) low test-time costs due to local linearity; are all potentially well-suited for “big-data” applications. We derive tight convex surrogates for the empirical risk function associated with space partitioning classifiers. These empirical risk functions are non-convex since they involve products of indicator functions. We obtain a global convex surrogate by first embedding empirical risk loss as an extremal point of an optimization problem and then convexifying this resulting problem. Using the proposed convex formulation, we demonstrate improvement in classification performance, test and training time relative to common discriminative learning methods on challenging multiclass data sets."
+}
+
+@inproceedings{Wang13b,
+title = "Co-Training with Insufficient Views",
+author = "Wang, Wei and Zhou, Zhi-Hua",
+pages = "467-482",
+abstract = "Co-training is a famous semi-supervised learning paradigm exploiting unlabeled data with two views. Most previous theoretical analyses on co-training are based on the assumption that each of the views is sufficient to correctly predict the label. However, this assumption can hardly be met in real applications due to feature corruption or various feature noise. In this paper, we present the theoretical analysis on co-training when neither view is sufficient. We define the diversity between the two views with respect to the confidence of prediction and prove that if the two views have large diversity, co-training is able to improve the learning performance by exploiting unlabeled data even with insufficient views. We also discuss the relationship between view insufficiency and diversity, and give some implications for understanding of the difference between co-training and co-regularization."
+}
+
+@inproceedings{Wirth13,
+title = "EPMC: Every Visit Preference Monte Carlo for Reinforcement Learning",
+author = "Wirth, Christian and Fürnkranz, Johannes",
+pages = "483-497",
+abstract = "Reinforcement learning algorithms are usually hard to use for non expert users. It is required to consider several aspects like the definition of state-, action- and reward-space as well as the algorithms hyperparameters. Preference based approaches try to address these problems by omitting the requirement for exact rewards, replacing them with preferences over solutions. Some algorithms have been proposed within this framework, but they are usually requiring parameterized policies which is again a hinderance for their application. Monte Carlo based approaches do not have this restriction and are also model free. Hence, we present a new preference-based reinforcement learning algorithm, utilizing Monte Carlo estimates. The main idea is to estimate the relative Q-value of two actions for the same state within a every-visit framework. This means, preferences are used to estimate the Q-value of state-action pairs within a trajectory, based on the feedback concerning the complete trajectory. The algorithm is evaluated on three common benchmark problems, namely mountain car, inverted pendulum and acrobot, showing its advantage over a closely related algorithm which is also using estimates for intermediate states, but based on a probability theorem. In comparison to SARSA(λ), EPMC converges somewhat slower, but computes policies that are almost as good or better."
+}
