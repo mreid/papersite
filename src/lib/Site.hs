@@ -66,6 +66,10 @@ realMain = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/paper.html" entryContext
         >>= relativizeUrls
 
+  -- match "db/*/*.bib" $ version "bib" $ do
+  --   route $ gsubRoute "db/" (const "")
+  --   compile copyFileCompiler
+
   -- All files (PDFs, Zip, BibTeX)
   match "db/*/*.*" $ do
 	route $ gsubRoute "db/" (const "")
