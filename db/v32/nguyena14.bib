@@ -1,0 +1,6 @@
+@InProceedings{nguyena14,
+  title = {Fast Allocation of Gaussian Process Experts},
+  author = {Trung Nguyen and Edwin Bonilla},
+  pages = {145-153},
+  abstract = {We propose a scalable nonparametric Bayesian regression model based on a mixture of Gaussian process (GP) experts  and the inducing points formalism underpinning sparse GP approximations. Each expert is augmented with a set of inducing points, and the allocation of data points to experts is defined probabilistically based on their proximity to the experts. This allocation mechanism enables a fast variational inference procedure for learning of the inducing inputs and hyperparameters of the experts. When using $K$ experts, our method can  run $K^2$ times faster and use $K^2$ times less memory than popular sparse methods such as the FITC approximation. Furthermore, it is easy to parallelize and handles non-stationarity  straightforwardly. Our experiments show that on medium-sized datasets (of around $10^4$ training points) it  trains up to 5 times faster than FITC while achieving comparable accuracy. On a large dataset  of $10^5$ training points, our method significantly outperforms six  competitive baselines while requiring only a few hours of training.},
+}
