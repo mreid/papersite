@@ -1,0 +1,605 @@
+@Proceedings{ICML-2014,
+  booktitle = {Proceedings of The 31st International Conference on Machine Learning},
+  shortname = {ICML},
+  editor = {Xing, Eric P. and Jebara, Tony},
+  publisher = {JMLR Workshop and Conference Proceedings},
+  volume = {32},
+  number = {1},
+  month = {January},
+  year = {2014}
+}
+
+@InProceedings{samdani14,
+  title = {A Discriminative Latent Variable Model for Online Clustering},
+  author = {Rajhans Samdani and Kai-Wei Chang and Dan Roth},
+  pages = {1-9},
+  abstract = {This paper presents a latent variable structured prediction model for discriminative supervised clustering of items called the Latent Left-linking Model (L3M). We present an online clustering algorithm for L3M based on a feature-based item similarity function. We provide a learning framework for estimating the similarity function and present a fast stochastic gradient-based learning technique. In our experiments on coreference resolution and document clustering, L3 M outperforms several existing online as well as batch supervised clustering techniques.}
+}
+
+@InProceedings{muandet14,
+  title = {Kernel Mean Estimation and Stein Effect},
+  author = {Krikamol Muandet and Kenji Fukumizu and Bharath Sriperumbudur and Arthur Gretton and Bernhard Schoelkopf},
+  pages = {10-18},
+  abstract = {A mean function in reproducing kernel Hilbert space (RKHS), or a kernel mean, is an important part of many algorithms ranging from kernel principal component analysis to Hilbert-space embedding of distributions. Given a finite sample, an empirical average is the standard estimate for the true kernel mean. We show that this estimator can be improved due to a well-known phenomenon in statistics called Stein phenomenon. After consideration, our theoretical analysis reveals the existence of a wide class of estimators that are better than the standard one. Focusing on a subset of this class, we propose efficient shrinkage estimators for the kernel mean. Empirical evaluations on several applications clearly demonstrate that the proposed estimators outperform the standard kernel mean estimator.}
+}
+
+@InProceedings{steeg14,
+  title = {Demystifying Information-Theoretic Clustering},
+  author = {Ver Steeg, Greg and Aram Galstyan and Fei Sha and Simon DeDeo},
+  pages = {19-27},
+  abstract = {We propose a novel method for clustering data which is grounded in information-theoretic principles and requires no parametric assumptions.  Previous attempts to use information theory to define clusters in an assumption-free way are based on maximizing mutual information between data and cluster labels. We demonstrate that this intuition suffers from a fundamental conceptual flaw that causes clustering performance to deteriorate as the amount of data increases. Instead, we return to the axiomatic foundations of information theory to define a meaningful clustering measure based on the notion of consistency under coarse-graining for finite data.}
+}
+
+@InProceedings{zhanga14,
+  title = {Covering Number for Efficient Heuristic-based POMDP Planning},
+  author = {Zongzhang Zhang and David Hsu and Wee Sun Lee},
+  pages = {28-36},
+  abstract = {The difficulty of POMDP planning depends on the size of the search space involved. Heuristics are often used to reduce the search space size and improve computational efficiency; however, there are few theoretical bounds on their effectiveness.  In this paper, we use the covering number to characterize the size of the search space reachable under heuristics and  connect the complexity of POMDP planning to the effectiveness of heuristics. With insights from the theoretical analysis, we have developed  a practical POMDP algorithm, Packing-Guided Value Iteration (PGVI). Empirically, PGVI is competitive with the state-of-the-art point-based POMDP algorithms on 65 small benchmark problems and outperforms them on 4 larger problems.}
+}
+
+@InProceedings{yanga14,
+  title = {The Coherent Loss Function for Classification},
+  author = {Wenzhuo Yang and Melvyn Sim and Huan Xu},
+  pages = {37-45},
+  abstract = {A prediction rule in binary classification that aims to achieve the lowest probability of misclassification involves minimizing over a non-convex, 0-1 loss function, which is typically a computationally intractable optimization problem. To address the intractability, previous methods consider minimizing the cumulative loss -- the sum of convex surrogates of the 0-1 loss of each sample. In this paper, we revisit this paradigm and develop instead an axiomatic framework by proposing a set of salient properties on functions for binary classification and then propose the coherent loss approach, which is a tractable upper-bound of the empirical classification error over the entire sample set. We show that the proposed approach yields a strictly tighter approximation to the empirical classification error than any convex cumulative loss approach while preserving the convexity of the underlying optimization problem, and this approach for binary classification also has a robustness interpretation which builds a connection to robust SVMs. The experimental results show that our approach outperforms the standard SVM when additional constraints are imposed.}
+}
+
+@InProceedings{zhong14,
+  title = {Fast Stochastic Alternating Direction Method of Multipliers},
+  author = {Wenliang Zhong and James Kwok},
+  pages = {46-54},
+  abstract = {We propose a new stochastic alternating direction method of multipliers (ADMM) algorithm, which incrementally approximates the full gradient in the linearized ADMM formulation. Besides having a low per-iteration complexity as existing stochastic ADMM algorithms,  it improves the convergence rate on convex problems from $\mO(1/\sqrt{T})$ to $\mO(1/T)$, where $T$ is the number of iterations. This matches the  convergence rate of the batch ADMM algorithm, but without the need to visit all the samples in each iteration. Experiments on the graph-guided fused lasso demonstrate that the new algorithm is significantly faster than state-of-the-art stochastic and batch ADMM algorithms.}
+}
+
+@InProceedings{chena14,
+  title = {Active Detection via Adaptive Submodularity},
+  author = {Yuxin Chen and Hiroaki Shioi and Cesar Fuentes Montesinos and Lian Pin Koh and Serge Wich and Andreas Krause},
+  pages = {55-63},
+  abstract = {Efficient detection of multiple object instances is one of the fundamental challenges in computer vision. For certain object categories, even the best automatic systems are yet unable to produce high-quality detection results, and fully manual annotation would be an expensive process. How can detection algorithms interplay with human expert annotators? To make the best use of scarce (human) labeling resources, one needs to decide when to invoke the expert, such that the best possible performance can be achieved while requiring a minimum amount of supervision.   In this paper, we propose a principled approach to active object detection, and show that for a rich class of base detectors algorithms, one can derive a natural sequential decision problem for deciding when to invoke expert supervision. We further show that the objective function satisfies adaptive submodularity, which allows us to derive strong performance guarantees for our algorithm. We demonstrate the proposed algorithm on three real-world tasks, including a problem for biodiversity monitoring from micro UAVs in the Sumatra rain forest. Our results show that active detection not only outperforms its passive counterpart; for certain tasks, it also works significantly better than straightforward application of existing active learning techniques. To the best of our knowledge, our approach is the first to rigorously address the active detection problem from both empirical and theoretical perspectives.}
+}
+
+@InProceedings{shalev-shwartz14,
+  title = {Accelerated Proximal Stochastic Dual Coordinate Ascent for Regularized Loss Minimization},
+  author = {Shai Shalev-Shwartz and Tong Zhang},
+  pages = {64-72},
+  abstract = {We introduce a proximal version of the stochastic dual coordinate ascent method and show how to accelerate the method using an inner-outer iteration procedure. We analyze the runtime of the framework and obtain rates that improve state-of-the-art results for various key machine learning optimization problems including SVM,   logistic regression, ridge regression, Lasso, and multiclass SVM. Experiments validate our theoretical findings.}
+}
+
+@InProceedings{lin14,
+  title = {An Adaptive Accelerated Proximal Gradient Method and its Homotopy Continuation for Sparse Optimization},
+  author = {Qihang Lin and Lin Xiao},
+  pages = {73-81},
+  abstract = {We first propose an adaptive accelerated proximal gradient(APG) method for minimizing strongly convex composite functions with unknown convexity parameters. This method incorporates a restarting scheme to automatically estimate the strong convexity parameter and achieves a nearly optimal iteration complexity. Then we consider the ℓ1-regularized least-squares (ℓ1-LS) problem in the high-dimensional setting. Although such an objective function is not strongly convex, it has restricted strong convexity over sparse vectors. We exploit this property by combining the adaptive  APG method with a homotopy continuation scheme, which generates a sparse solution path towards optimality. This method obtains a global linear rate of convergence and its overall iteration complexity has a weaker dependency on the restricted condition number than previous work.}
+}
+
+@InProceedings{pinheiro14,
+  title = {Recurrent Convolutional Neural Networks for Scene Labeling},
+  author = {Pedro Pinheiro and Ronan Collobert},
+  pages = {82-90},
+  abstract = {The goal of the scene labeling task is to assign a class label to each pixel in an image.  To ensure a good visual coherence and a high class accuracy, it is essential for a model to capture long range  pixel) label dependencies in images. In a feed-forward architecture, this can be achieved simply by considering a sufficiently large input context patch, around each pixel to be labeled.  We propose an approach that consists of a recurrent convolutional neural network which allows us to consider a large input context while limiting the capacity of the model. Contrary to most standard approaches, our method does not rely on any segmentation technique nor any task-specific features. The system is trained in an end-to-end manner over raw pixels, and models complex spatial dependencies with low inference cost. As the context size increases with the built-in recurrence, the system identifies and corrects its own errors. Our approach yields state-of-the-art performance on both the Stanford Background Dataset and the SIFT Flow Dataset, while remaining very fast at test time.}
+}
+
+@InProceedings{ma14,
+  title = {A Statistical Perspective on Algorithmic Leveraging},
+  author = {Ping Ma and Michael Mahoney and Bin Yu},
+  pages = {91-99},
+  abstract = {One popular method for dealing with large-scale data sets is sampling. Using the empirical statistical leverage scores as an importance sampling distribution, the method of algorithmic leveraging samples and rescales rows/columns of data matrices to reduce the data size before performing computations on the subproblem. Existing work has focused on algorithmic issues, but none of it addresses statistical aspects of this method.  Here, we provide an effective framework to evaluate the statistical properties of algorithmic leveraging in the context of estimating parameters in a linear regression model.   In particular, for several versions of leverage-based sampling, we derive results for the bias and variance, both conditional and unconditional on the observed data. We show that from the statistical perspective of bias and variance, neither leverage-based sampling nor uniform sampling dominates the other. This result is particularly striking, given the well-known result that, from the algorithmic perspective of worst-case analysis, leverage-based sampling provides uniformly superior worst-case algorithmic results, when compared with uniform sampling. Based on these theoretical results, we propose and analyze two new leveraging algorithms: one constructs a smaller least-squares problem with ``shrinked'' leverage scores (SLEV), and the other solves a smaller and unweighted (or biased) least-squares problem (LEVUNW). The empirical results indicate that our theory is a good predictor of practical performance of existing and new leverage-based algorithms and that the new algorithms achieve improved performance.}
+}
+
+@InProceedings{gopalan14,
+  title = {Thompson Sampling for Complex Online Problems},
+  author = {Aditya Gopalan and Shie Mannor and Yishay Mansour},
+  pages = {100-108},
+  abstract = {We consider stochastic multi-armed bandit problems with complex actions over a set of basic arms, where the decision maker plays a complex action rather than a basic arm in each round. The reward of the complex action is some function of the basic arms' rewards, and the feedback observed may not necessarily be the reward per-arm. For instance, when the complex actions are subsets of the arms, we may only observe the maximum reward over the chosen subset. Thus, feedback across complex actions may be coupled due to the nature of the reward function. We prove a frequentist regret bound for Thompson sampling in a very general setting involving parameter, action and observation spaces and a likelihood function over them. The bound holds for discretely-supported priors over the parameter space and without additional structural properties such as closed-form posteriors, conjugate prior structure or independence across arms. The regret bound scales logarithmically with time but, more importantly, with an improved constant that non-trivially captures the coupling across complex actions due to the structure of the rewards. As applications, we derive improved regret bounds for classes of complex bandit problems involving selecting subsets of arms, including the first nontrivial regret bounds for nonlinear MAX reward feedback from subsets. Using particle filters for computing posterior distributions which lack an explicit closed-form, we present numerical results for the performance of Thompson sampling for subset-selection and job scheduling problems.}
+}
+
+@InProceedings{taieb14,
+  title = {Boosting multi-step autoregressive forecasts},
+  author = {Ben Taieb, Souhaib and Rob Hyndman},
+  pages = {109-117},
+  abstract = {Multi-step forecasts can be produced recursively by iterating a one-step model, or directly using a specific model for each horizon. Choosing between these two strategies is not an easy task since it involves a trade-off between bias and estimation variance over the forecast horizon. Using a nonlinear machine learning model makes the tradeoff even more difficult. To address this issue, we propose a new forecasting strategy which boosts traditional recursive linear forecasts with a direct strategy using a boosting autoregression procedure at each horizon. First, we investigate the performance of the proposed strategy in terms of bias and variance decomposition of the error using simulated time series. Then, we evaluate the proposed strategy on real-world time series from two forecasting competitions. Overall, we obtain excellent performance with respect to the standard forecasting strategies.}
+}
+
+@InProceedings{rajkumar14,
+  title = {A Statistical Convergence Perspective of Algorithms for Rank Aggregation from Pairwise Data},
+  author = {Arun Rajkumar and Shivani Agarwal},
+  pages = {118-126},
+  abstract = {There has been much interest recently in the problem of rank aggregation from pairwise data. A natural question that arises is: under what sorts of statistical assumptions do various rank aggregation algorithms converge to an `optimal' ranking? In this paper, we consider this question in a natural setting where pairwise comparisons are drawn randomly and independently from some underlying probability distribution. We first show that, under a `time-reversibility' or Bradley-Terry-Luce (BTL) condition on the distribution generating the outcomes of the pairwise comparisons, the rank centrality (PageRank) and least squares (HodgeRank) algorithms both converge to an optimal ranking. Next, we show that a matrix version of the Borda count algorithm, and more surprisingly, an algorithm which performs maximal likelihood estimation under a BTL assumption, both converge to an optimal ranking under a `low-noise' condition that is strictly more general than BTL. Finally, we propose a new SVM-based algorithm for rank aggregation from pairwise data, and show that this converges to an optimal ranking under an even more general condition that we term `generalized low-noise'. In all cases, we provide explicit sample complexity bounds for exact recovery of an optimal ranking. Our experiments confirm our theoretical findings and help to shed light on the statistical behavior of various rank aggregation algorithms.}
+}
+
+@InProceedings{mann14,
+  title = {Scaling Up Approximate Value Iteration with Options: Better Policies with Fewer Iterations},
+  author = {Timothy Mann and Shie Mannor},
+  pages = {127-135},
+  abstract = {We show how options, a class of control structures encompassing primitive and temporally extended actions, can play a valuable role in planning in MDPs with continuous state-spaces. Analyzing the convergence rate of Approximate Value Iteration with options reveals that for pessimistic initial value function estimates, options can speed up convergence compared to planning with only primitive actions even when the temporally extended actions are suboptimal and sparsely scattered throughout the state-space. Our experimental results in an optimal replacement task and a complex inventory management task demonstrate the potential for options to speed up convergence in practice. We show that options induce faster convergence to the optimal value function, which implies deriving better policies with fewer iterations.}
+}
+
+@InProceedings{maillard14,
+  title = {Latent Bandits.},
+  author = {Odalric-Ambrym Maillard and Shie Mannor},
+  pages = {136-144},
+  abstract = {We consider a multi-armed bandit problem where the reward distributions are indexed by two sets --one for arms, one for type-- and can be partitioned into a small number of clusters according to the type. First, we consider the setting where all reward distributions are known and all types have the same underlying cluster, the type's identity is, however, unknown. Second, we study the case  where types may come from different classes, which is significantly more challenging. Finally, we tackle the case where the reward distributions are completely unknown. In each setting, we introduce specific algorithms and derive non-trivial regret performance. Numerical experiments show that,  in the most challenging agnostic case, the proposed algorithm  achieves excellent performance in several difficult scenarios.}
+}
+
+@InProceedings{nguyena14,
+  title = {Fast Allocation of Gaussian Process Experts},
+  author = {Trung Nguyen and Edwin Bonilla},
+  pages = {145-153},
+  abstract = {We propose a scalable nonparametric Bayesian regression model based on a mixture of Gaussian process (GP) experts  and the inducing points formalism underpinning sparse GP approximations. Each expert is augmented with a set of inducing points, and the allocation of data points to experts is defined probabilistically based on their proximity to the experts. This allocation mechanism enables a fast variational inference procedure for learning of the inducing inputs and hyperparameters of the experts. When using $K$ experts, our method can  run $K^2$ times faster and use $K^2$ times less memory than popular sparse methods such as the FITC approximation. Furthermore, it is easy to parallelize and handles non-stationarity  straightforwardly. Our experiments show that on medium-sized datasets (of around $10^4$ training points) it  trains up to 5 times faster than FITC while achieving comparable accuracy. On a large dataset  of $10^5$ training points, our method significantly outperforms six  competitive baselines while requiring only a few hours of training.}
+}
+
+@InProceedings{gopal14,
+  title = {Von Mises-Fisher Clustering Models},
+  author = {Siddharth Gopal and Yiming Yang},
+  pages = {154-162},
+  abstract = {This paper proposes a suite of models for clustering high-dimensional data on a unit sphere based on Von Mises-Fisher (vMF) distribution and for discovering more intuitive clusters than existing approaches. The proposed models include  a) A Bayesian formulation of vMF mixture that enables information sharing among clusters,  b) a Hierarchical vMF mixture that provides multi-scale shrinkage and tree structured view of the data and c) a Temporal vMF mixture that captures evolution of clusters in temporal data.  For posterior inference, we develop fast variational methods  as well as collapsed Gibbs sampling techniques for all three models. Our experiments on six datasets provide strong empirical support in favour of vMF based clustering models over other popular tools such as K-means, Multinomial Mixtures and Latent Dirichlet Allocation.}
+}
+
+@InProceedings{chazal14,
+  title = {Convergence rates for persistence diagram estimation in Topological Data Analysis},
+  author = {Frédéric Chazal and Marc Glisse and Catherine Labruère and Bertrand Michel},
+  pages = {163-171},
+  abstract = {Computational topology  has recently seen an important development toward data analysis, giving birth to Topological Data Analysis. Persistent homology appears as a fundamental tool in this field. We show that  the use of persistent homology can be naturally considered in general statistical frameworks. We establish convergence rates of persistence diagrams associated to data randomly sampled from any compact metric space to a well defined limit diagram encoding the topological features of the support of the measure from which the data have been sampled. Our approach relies on a recent and deep stability result for persistence that allows to relate our problem to support estimation problems (with respect to the Gromov-Hausdorff distance). Some numerical experiments are performed in various contexts to illustrate our results.}
+}
+
+@InProceedings{gieseke14,
+  title = {Buffer k-d Trees: Processing Massive Nearest Neighbor Queries on GPUs},
+  author = {Fabian Gieseke and Justin Heinermann and Cosmin Oancea and Christian Igel},
+  pages = {172-180},
+  abstract = {We present a new approach for combining k-d trees and graphics processing units for nearest neighbor search. It is well known that a direct combination of these tools leads to a non-satisfying performance due to conditional computations and suboptimal memory accesses. To alleviate these problems, we propose a variant of the classical k-d tree data structure, called buffer k-d tree, which can be used to reorganize the search. Our experiments show that we can take advantage of both the hierarchical subdivision induced by k-d trees and the huge computational resources provided by today's many-core devices. We demonstrate the potential of our approach in astronomy, where hundreds of million nearest neighbor queries have to be processed.}
+}
+
+@InProceedings{korattikara14,
+  title = {Austerity in MCMC Land: Cutting the Metropolis-Hastings Budget},
+  author = {Anoop Korattikara and Yutian Chen and Max Welling},
+  pages = {181-189},
+  abstract = {Can we make Bayesian posterior MCMC sampling more efficient when faced with very large datasets? We argue that computing the likelihood for N datapoints in the Metropolis-Hastings (MH) test to reach a single binary decision is computationally inefficient. We introduce an approximate MH rule based on a sequential hypothesis test that allows us to accept or reject samples with high confidence using only a fraction of the data required for the exact MH rule. While this method introduces an asymptotic bias, we show that this bias can be controlled and is more than offset by a decrease in variance due to our ability to draw more samples per unit of time.}
+}
+
+@InProceedings{tang14,
+  title = {Understanding the Limiting Factors of Topic Modeling via Posterior Contraction Analysis},
+  author = {Jian Tang and Zhaoshi Meng and Xuanlong Nguyen and Qiaozhu Mei and Ming Zhang},
+  pages = {190-198},
+  abstract = {Topic models such as the latent Dirichlet allocation (LDA) have become a standard staple in the modeling toolbox of machine learning. They have been applied to a vast variety of data sets, contexts, and tasks to varying degrees of success. However, to date there is almost no formal theory explicating the LDA's behavior, and despite its familiarity there is very little systematic analysis of and guidance on the properties of the data that affect the inferential performance of the model. This paper seeks to address this gap, by providing a systematic analysis of factors which characterize the LDA's performance.  We present theorems elucidating the posterior contraction rates of the topics as the amount of data increases, and a thorough supporting empirical study using synthetic and real data sets, including news and web-based articles and tweet messages. Based on these results we provide practical guidance on how to identify suitable data sets for topic models, and how to specify particular model parameters.}
+}
+
+@InProceedings{rabinovich14,
+  title = {The Inverse Regression Topic Model},
+  author = {Maxim Rabinovich and David Blei},
+  pages = {199-207},
+  abstract = {\citet{taddy13mnir} proposed multinomial inverse regression (MNIR) as a new model of annotated text based on the influence of metadata and response variables on the distribution of words in a document. While effective, MNIR has no way to exploit structure in the corpus to improve its predictions or facilitate exploratory data analysis. On the other hand, traditional probabilistic topic models (like latent Dirichlet allocation) capture natural heterogeneity in a collection but do not account for external variables. In this paper, we introduce the inverse regression topic model (IRTM), a mixed-membership extension of MNIR that combines the strengths of both methodologies. We present two inference algorithms for the IRTM: an efficient batch estimation  algorithm and an online variant, which is suitable for large corpora.  We apply these methods to a corpus of 73K Congressional press releases  and another of 150K Yelp reviews, demonstrating that the IRTM  outperforms both MNIR and supervised topic models on the prediction task.  Further, we give examples showing that the IRTM enables systematic  discovery of in-topic lexical variation, which is not possible with previous supervised topic models.}
+}
+
+@InProceedings{chan14,
+  title = {A Consistent Histogram Estimator for Exchangeable Graph Models},
+  author = {Stanley Chan and Edoardo Airoldi},
+  pages = {208-216},
+  abstract = {Exchangeable graph models (ExGM) subsume a number of popular network models. The mathematical object that characterizes an ExGM is  termed a graphon. Finding scalable estimators of graphons, provably consistent, remains an open issue. In this paper, we propose a histogram estimator of a graphon that is provably consistent and numerically efficient. The proposed estimator is based on a sorting-and-smoothing (SAS) algorithm, which first sorts the empirical degree of a graph, then smooths the sorted graph using total variation minimization. The consistency of the SAS algorithm is proved by leveraging  sparsity concepts from compressed sensing.}
+}
+
+@InProceedings{letham14,
+  title = {Latent Variable Copula Inference for Bundle Pricing from Retail Transaction Data},
+  author = {Benjamin Letham and Wei Sun and Anshul Sheopuri},
+  pages = {217-225},
+  abstract = {Bundle discounts are used by retailers in many industries. Optimal bundle pricing requires learning the joint distribution of consumer valuations for the items in the bundle, that is, how much they are willing to pay for each of the items. We suppose that a retailer has sales transaction data, and the corresponding consumer valuations are latent variables. We develop a statistically consistent and computationally tractable inference procedure for fitting a copula model over correlated valuations, using only sales transaction data for the individual items. Simulations and data experiments demonstrate consistency, scalability, and the importance of incorporating correlations in the joint distribution.}
+}
+
+@InProceedings{luo14,
+  title = {Towards Minimax Online Learning with Unknown Time Horizon},
+  author = {Haipeng Luo and Robert Schapire},
+  pages = {226-234},
+  abstract = {We consider online learning when the time horizon is unknown. We apply a minimax analysis, beginning with the fixed horizon case, and then moving on to two unknown-horizon settings, one that assumes the horizon is chosen randomly according to some distribution, and the other which allows the adversary full control over the horizon. For the random horizon setting with restricted losses, we derive a fully optimal minimax algorithm. And for the adversarial horizon setting, we prove a nontrivial lower bound which shows that the adversary obtains strictly more power than when the horizon is fixed and known. Based on the minimax solution of the random horizon setting, we then propose a new adaptive algorithm which ``pretends'' that the horizon is drawn from a distribution from a special family, but no matter how the actual horizon is chosen,  the worst-case regret is of the optimal rate. Furthermore, our algorithm can be combined and applied in many ways, for instance, to online convex optimization, follow the perturbed leader, exponential weights algorithm and first order bounds. Experiments show that our algorithm outperforms many other existing algorithms in an online linear optimization setting.}
+}
+
+@InProceedings{miller14,
+  title = {Factorized Point Process Intensities: A Spatial Analysis of Professional Basketball},
+  author = {Andrew Miller and Luke Bornn and Ryan Adams and Kirk Goldsberry},
+  pages = {235-243},
+  abstract = {We develop a machine learning approach to represent and analyze the underlying spatial structure that governs shot selection among professional basketball players in the NBA.  Typically, NBA players are discussed and compared in an heuristic, imprecise manner that relies on unmeasured intuitions about player behavior.  This makes it difficult to draw comparisons between players and make accurate player specific predictions.  Modeling shot attempt data as a point process, we create a low dimensional representation of offensive player types in the NBA.  Using non-negative matrix factorization (NMF), an unsupervised dimensionality reduction technique, we show that a low-rank spatial decomposition summarizes the shooting habits of NBA players.  The spatial representations discovered by the algorithm correspond to intuitive descriptions of NBA player types, and can be used to model other spatial effects, such as shooting accuracy.}
+}
+
+@InProceedings{ramdas14,
+  title = {Margins, Kernels and Non-linear Smoothed Perceptrons},
+  author = {Aaditya Ramdas and Javier Peña},
+  pages = {244-252},
+  abstract = {We focus on the problem of finding a non-linear classification function that lies in a Reproducing Kernel Hilbert Space (RKHS) both from the primal point of view (finding a perfect separator when one exists) and the dual point of view (giving a certificate of non-existence), with special focus on generalizations of two classical schemes - the Perceptron (primal) and Von-Neumann (dual) algorithms.   We cast our problem as one of maximizing the regularized normalized hard-margin ($\rho$) in an RKHS and use the Representer Theorem to  rephrase it in terms of a Mahalanobis dot-product/semi-norm associated with the kernel's (normalized and signed) Gram matrix. We derive an accelerated smoothed algorithm with a convergence rate of $\tfrac{\sqrt {\log n}}{\rho}$ given $n$ separable points, which is strikingly similar to the classical kernelized Perceptron algorithm whose rate is $\tfrac1{\rho^2}$. When no such classifier exists, we prove a version of Gordan's separation theorem for RKHSs, and give a reinterpretation of negative margins. This allows us to give guarantees for a primal-dual algorithm that halts in $\min\{\tfrac{\sqrt n}{|\rho|}, \tfrac{\sqrt n}{\epsilon}\}$ iterations with a perfect separator in the RKHS if the primal is feasible or a dual $\epsilon$-certificate of near-infeasibility.}
+}
+
+@InProceedings{mei14,
+  title = {Robust RegBayes: Selectively Incorporating First-Order Logic Domain Knowledge into Bayesian Models},
+  author = {Shike Mei and Jun Zhu and Jerry Zhu},
+  pages = {253-261},
+  abstract = {Much research in Bayesian modeling has been done to elicit a prior distribution that incorporates domain knowledge. We present a novel and more direct approach by imposing First-Order Logic (FOL) rules on the posterior distribution. Our approach unifies FOL and Bayesian modeling under the regularized Bayesian framework. In addition, our approach automatically estimates the uncertainty of FOL rules when they are produced by humans, so that reliable rules are incorporated while unreliable ones are ignored. We apply our approach to latent topic modeling tasks and demonstrate that by combining FOL knowledge and Bayesian modeling, we both improve the task performance and discover more structured latent representations in unsupervised and supervised learning.}
+}
+
+@InProceedings{medina14,
+  title = {Learning Theory and Algorithms for revenue optimization in second price auctions with reserve},
+  author = {Andres Munoz Medina and Mehryar Mohri},
+  pages = {262-270},
+  abstract = {Second-price auctions with reserve play a critical role for    modern search engine and popular online sites since the revenue of   these companies often directly depends on the outcome of such   auctions. The choice of the reserve price is the main mechanism   through which the auction revenue can be influenced in these   electronic markets. We cast the problem of selecting the reserve   price to optimize revenue as a learning problem and present a full   theoretical analysis dealing with the complex properties of the   corresponding loss function (it is non-convex and discontinuous). We further give novel algorithms for solving this problem and report the results of encouraging experiments   demonstrating their effectiveness.}
+}
+
+@InProceedings{ermon14,
+  title = {Low-density Parity Constraints for Hashing-Based Discrete Integration},
+  author = {Stefano Ermon and Carla Gomes and Ashish Sabharwal and Bart Selman},
+  pages = {271-279},
+  abstract = {In recent years, a number of probabilistic inference and counting techniques have been proposed that exploit pairwise independent hash functions to infer properties of succinctly defined high-dimensional sets. While providing desirable statistical guarantees, typical constructions of such hash functions are themselves not amenable to efficient inference. Inspired by the success of LDPC codes, we propose the use of low-density parity constraints to make inference more tractable in practice. While not strongly universal, we show that such sparse constraints belong to a new class of hash functions that we call Average Universal. These weaker hash functions retain the desirable statistical guarantees needed by most such probabilistic inference methods. Thus, they continue to provide provable accuracy guarantees while at the same time making a number of algorithms significantly more scalable in practice. Using this technique, we provide new, tighter bounds for challenging discrete integration and model counting problems.}
+}
+
+@InProceedings{seldin14,
+  title = {Prediction with Limited Advice and Multiarmed Bandits with Paid Observations},
+  author = {Yevgeny Seldin and Peter Bartlett and Koby Crammer and Yasin Abbasi-Yadkori},
+  pages = {280-287},
+  abstract = {We study two problems of online learning under restricted information access. In the first problem, \emph{prediction with limited advice}, we consider a game of prediction with expert advice, where on each round of the game we query the advice of a subset of $M$ out of $N$ experts. We present an algorithm that achieves $O(\sqrt{(N/M)T\ln N})$ regret on $T$ rounds of this game. The second problem, the \emph{multiarmed bandit with paid  observations}, is a variant of the adversarial $N$-armed bandit game, where on round $t$ of the game we can observe the reward of any number of arms, but each observation has a cost $c$. We present an algorithm that achieves $O((cN\ln N)^{1/3} T^{2/3} + \sqrt{T \ln N})$ regret on $T$ rounds of this game in the worst case. Furthermore, we present a number of refinements that treat arm- and time-dependent observation costs and achieve lower regret under benign conditions. We present lower bounds that show that, apart from the logarithmic factors, the worst-case regret bounds cannot be improved.}
+}
+
+@InProceedings{nguyenb14,
+  title = {Bayesian Nonparametric Multilevel Clustering with Group-Level Contexts},
+  author = {Tien Vu Nguyen and Dinh Phung and Xuanlong Nguyen and Swetha Venkatesh and Hung Bui},
+  pages = {288-296},
+  abstract = {We present a Bayesian nonparametric framework for multilevel clustering which utilizes group-level context information to simultaneously discover low-dimensional structures of the group contents and partitions groups into clusters. Using the Dirichlet process as the building block, our model constructs a product base-measure with a nested structure to accommodate content and context observations at multiple levels. The proposed model possesses properties that link the nested Dirichlet processes (nDP) and the Dirichlet process mixture models (DPM) in an interesting way: integrating out all contents results in the DPM over contexts, whereas integrating out group-speciﬁc contexts results in the nDP mixture over content variables. We provide a Polya-urn view of the model and an efﬁcient collapsed Gibbs inference procedure. Extensive experiments on real-world datasets demonstrate the advantage of utilizing context information via our model in both text and image domains.}
+}
+
+@InProceedings{lajugie14,
+  title = {Large-Margin Metric Learning for Constrained Partitioning Problems},
+  author = {Rémi Lajugie and Francis Bach and Sylvain Arlot},
+  pages = {297-305},
+  abstract = {We consider unsupervised partitioning problems based explicitly or implicitly on the minimization of Euclidean distortions, such as clustering, image or video segmentation, and other change-point detection problems. We emphasize on cases with specific structure, which include many practical situations ranging from mean-based change-point detection to image segmentation problems. We aim at learning a Mahalanobis metric for these unsupervised problems, leading to feature weighting and/or selection. This is done in a supervised way by assuming the availability of several (partially) labeled datasets that share the same metric. We cast the metric learning problem as a large-margin structured prediction problem, with proper definition of regularizers and losses, leading to a convex optimization problem which can be solved efficiently. Our experiments show how learning the metric can significantly improve performance on bioinformatics, video  or image segmentation problems.}
+}
+
+@InProceedings{solomon14,
+  title = {Wasserstein Propagation for Semi-Supervised Learning},
+  author = {Justin Solomon and Raif Rustamov and Guibas Leonidas and Adrian Butscher},
+  pages = {306-314},
+  abstract = {Probability distributions and histograms are natural representations for product ratings, traffic measurements, and other data considered in many machine learning applications.  Thus, this paper introduces a technique for graph-based semi-supervised learning of histograms, derived from the theory of optimal transportation. Our method has several properties making it suitable for this application; in particular, its behavior can be characterized by the moments and shapes of the histograms at the labeled nodes. In addition, it can be used for histograms on non-standard domains like circles, revealing a strategy for manifold-valued semi-supervised learning. We also extend this technique to related problems such as smoothing distributions on graph nodes.}
+}
+
+@InProceedings{zhangb14,
+  title = {Max-Margin Infinite Hidden Markov Models},
+  author = {Aonan Zhang and Jun Zhu and Bo Zhang},
+  pages = {315-323},
+  abstract = {Infinite hidden Markov models (iHMMs) are nonparametric Bayesian extensions of hidden Markov models (HMMs) with an infinite number of states. Though flexible in describing sequential data, the generative formulation of iHMMs could limit their discriminative ability in sequential prediction tasks. Our paper introduces max-margin infinite HMMs (M2iHMMs), new infinite HMMs that explore the max-margin principle for discriminative learning. By using the theory of Gibbs classifiers and data augmentation, we develop efficient beam sampling algorithms without making restricting mean-field assumptions or truncated approximation. For single variate classification, M2iHMMs reduce to a new formulation of DP mixtures of max-margin machines. Empirical results on synthetic and real data sets show that our methods obtain superior performance than other competitors in both single variate classification and sequential prediction tasks.}
+}
+
+@InProceedings{liua14,
+  title = {Efficient Approximation of Cross-Validation for Kernel Methods using Bouligand Influence Function},
+  author = {Yong Liu and Shali Jiang and Shizhong Liao},
+  pages = {324-332},
+  abstract = {Model selection is one of the key issues both in recent research and application of kernel methods. Cross-validation is a commonly employed and widely accepted model selection criterion. However, it requires multiple times of training the algorithm under consideration, which is computationally intensive. In this paper, we present a novel strategy for approximating the cross-validation based on the Bouligand influence function (BIF), which only requires the solution of the algorithm once. The BIF measures the impact of an infinitesimal small amount of contamination of the original distribution. We first establish the link between the concept of BIF and the concept of cross-validation. The BIF is related to the first order term of a Taylor expansion. Then, we calculate the BIF and higher order BIFs, and apply these theoretical results to approximate the cross-validation error in practice. Experimental results demonstrate that our approximate cross-validation criterion is sound and efficient.}
+}
+
+@InProceedings{singh14,
+  title = {Generalized Exponential Concentration Inequality for Renyi Divergence Estimation},
+  author = {Shashank Singh and Barnabas Poczos},
+  pages = {333-341},
+  abstract = {Estimating divergences between probability distributions in a consistent way is of great importance in many machine learning tasks. Although this is a fundamental problem in nonparametric statistics, to the best of our knowledge there has been no finite sample exponential inequality convergence bound derived for any divergence estimators. The main contribution of our work is to provide such a bound for an estimator of Renyi divergence for a smooth Holder class of densities on the d-dimensional unit cube. We also illustrate our theoretical results with a numerical experiment.}
+}
+
+@InProceedings{chenb14,
+  title = {Boosting with Online Binary Learners for the Multiclass Bandit Problem},
+  author = {Shang-Tse Chen and Hsuan-Tien Lin and Chi-Jen Lu},
+  pages = {342-350},
+  abstract = {We consider the problem of online multiclass prediction in the bandit setting. Compared with the full-information setting, in which the learner can receive the true label as feedback after making each prediction, the bandit setting assumes that the learner can only know the correctness of the predicted label. Because the bandit setting is more restricted, it is difficult to design good bandit learners and currently there are not many bandit learners. In this paper, we propose an approach that systematically converts existing online binary classifiers to promising bandit learners with strong theoretical guarantee. The approach matches the idea of boosting, which has been shown to be powerful for batch learning as well as online learning. In particular, we establish the weak-learning condition on the online binary classifiers, and show that the condition allows automatically constructing a bandit learner with arbitrary strength by combining several of those classifiers. Experimental results on several real-world data sets demonstrate the effectiveness of the proposed approach.}
+}
+
+@InProceedings{soma14,
+  title = {Optimal Budget Allocation: Theoretical Guarantee and Efficient Algorithm},
+  author = {Tasuku Soma and Naonori Kakimura and Kazuhiro Inaba and Ken-ichi Kawarabayashi},
+  pages = {351-359},
+  abstract = {We consider the budget allocation problem over bipartite influence model proposed by Alon et al. This problem can be viewed as the well-known influence maximization problem with budget constraints.     We first show that this problem and its much more general form  fall into a general setting; namely the monotone submodular function maximization over integer lattice subject to a knapsack constraint.  Our framework includes Alon et al.'s model, even with a competitor and with cost.  We then give a (1-1/e)-approximation algorithm for this more general problem. Furthermore, when influence probabilities are nonincreasing, we obtain a faster (1-1/e)-approximation algorithm, which runs essentially in linear time in the number of nodes. This allows us to implement our algorithm up to almost 10M edges (indeed, our experiments tell us that we can implement our algorithm up to 1 billion edges. It would approximately take us only 500 seconds.).}
+}
+
+@InProceedings{soufiani14,
+  title = {Computing Parametric Ranking Models via Rank-Breaking},
+  author = {Hossein Azari Soufiani and David Parkes and Lirong Xia},
+  pages = {360-368},
+  abstract = {Rank breaking is a methodology introduced by Azari Soufiani et al. (2013a) for applying a Generalized Method of Moments (GMM) algorithm to the estimation of parametric ranking models. Breaking takes full rankings and breaks, or splits them up, into counts for pairs of alternatives that occur in particular positions (e.g., first place and second place, second place and third place). GMMs are of interest because they can achieve significant speed-up relative to maximum likelihood approaches and comparable statistical efficiency. We characterize the breakings for which the estimator is consistent for random utility models (RUMs) including Plackett-Luce and Normal-RUM, develop a general sufficient condition for a full breaking to be the only consistent breaking, and provide a trichotomy theorem in regard to single-edge breakings. Experimental results are presented to show the computational efficiency along with statistical performance of the proposed method.}
+}
+
+@InProceedings{abbasi-yadkori14,
+  title = {Tracking Adversarial Targets},
+  author = {Yasin Abbasi-Yadkori and Peter Bartlett and Varun Kanade},
+  pages = {369-377},
+  abstract = {We study linear control problems with quadratic losses and adversarially chosen tracking targets. We present an efficient algorithm for this problem and show that, under standard conditions on the linear system, its regret with respect to an optimal linear policy grows as $O(\log^2 T)$, where $T$ is the number of rounds of the game.  We also study a problem with adversarially chosen transition dynamics; we present an exponentially-weighted average algorithm for this problem, and we give regret bounds that grow as $O(\sqrt T)$.}
+}
+
+@InProceedings{shi14,
+  title = {Online Bayesian Passive-Aggressive Learning},
+  author = {Tianlin Shi and Jun Zhu},
+  pages = {378-386},
+  abstract = {Online Passive-Aggressive (PA) learning is an effective framework for performing max-margin online learning. But the deterministic formulation and estimated single large-margin model could limit its capability in discovering descriptive structures underlying complex data. This paper presents online Bayesian Passive-Aggressive (BayesPA) learning, which subsumes the online PA and extends naturally to incorporate latent variables and perform nonparametric Bayesian inference, thus providing great flexibility for explorative analysis. We apply BayesPA to topic modeling and derive efficient online learning algorithms for max-margin topic models. We further develop nonparametric methods to resolve the number of topics. Experimental results on real datasets show that our approaches significantly improve time efficiency while maintaining comparable results with the batch counterparts.}
+}
+
+@InProceedings{silver14,
+  title = {Deterministic Policy Gradient Algorithms},
+  author = {David Silver and Guy Lever and Nicolas Heess and Thomas Degris and Daan Wierstra and Martin Riedmiller},
+  pages = {387-395},
+  abstract = {In this paper we consider deterministic policy gradient algorithms for reinforcement learning with continuous actions. The deterministic policy gradient has a particularly appealing form: it is the expected gradient of the action-value function. This simple form means that the deterministic policy gradient can be estimated much more efficiently than the usual stochastic policy gradient. To ensure adequate exploration, we introduce an off-policy actor-critic algorithm that learns a deterministic target policy from an exploratory behaviour policy. Deterministic policy gradient algorithms outperformed their stochastic counterparts in several benchmark problems, particularly in high-dimensional action spaces.}
+}
+
+@InProceedings{lian14,
+  title = {Modeling Correlated Arrival Events with Latent Semi-Markov Processes},
+  author = {Wenzhao Lian and Vinayak Rao and Brian Eriksson and Lawrence Carin},
+  pages = {396-404},
+  abstract = {The analysis and characterization of correlated point process data has wide applications, ranging from biomedical research to network analysis. In this work, we model such data as generated by a latent collection of continuous-time binary semi-Markov processes, corresponding to external events appearing and disappearing. A continuous-time modeling framework is more appropriate for multichannel point process data than a binning approach requiring time discretization, and we show connections between our model and recent ideas from the discrete-time literature. We describe an efficient MCMC algorithm for posterior inference, and apply our ideas to both synthetic data and a real-world biometrics application.}
+}
+
+@InProceedings{bardenet14,
+  title = {Towards scaling up Markov chain Monte Carlo: an adaptive subsampling approach },
+  author = {Rémi Bardenet and Arnaud Doucet and Chris Holmes},
+  pages = {405-413},
+  abstract = {Markov chain Monte Carlo (MCMC) methods are often deemed far too computationally intensive to be of any practical use for large datasets. This paper describes a methodology that aims to scale up the Metropolis-Hastings (MH) algorithm in this context. We propose an approximate implementation of the accept/reject step of MH that only requires evaluating the likelihood of a random subset of the data, yet is guaranteed to coincide with the accept/reject step based on the full dataset with a probability superior to a user-specified tolerance level. This adaptive subsampling technique is an alternative to the recent approach developed in (Korattikara et al, ICML'14), and it allows us to establish rigorously that the resulting approximate MH algorithm samples from a perturbed version of the target distribution of interest, whose total variation distance to this very target is controlled explicitly. We explore the benefits and limitations of this scheme on several examples.}
+}
+
+@InProceedings{cicalese14,
+  title = {Diagnosis determination: decision trees optimizing simultaneously worst and expected testing cost},
+  author = {Ferdinando Cicalese and Eduardo Laber and Aline Medeiros Saettler},
+  pages = {414-422},
+  abstract = {In several applications of automatic diagnosis  and active learning a central problem is the evaluation of a discrete function by adaptively querying the values of its variables until the values read uniquely determine the value of the function.   In general reading the value of a variable is done at the expense of some cost (computational or possibly a fee to pay the corresponding experiment). The goal is to design a strategy for evaluating the function incurring little cost (in the worst case or in expectation according to a prior distribution on the possible variables' assignments).  We provide an algorithm that builds a strategy (decision tree) with both expected cost and worst cost which are at most an $O(\log n)$ factor away  from, respectively, the minimum possible expected cost and the minimum possible worst cost.  Our algorithm provides the best possible approximation simultaneously with respect to both criteria. In fact,  there is no algorithm that can guarantee $o(\log n)$ approximation, under the assumption  that ${\cal P} \neq {\cal NP}$.}
+}
+
+@InProceedings{lia14,
+  title = {Condensed Filter Tree for Cost-Sensitive Multi-Label Classification},
+  author = {Chun-Liang Li and Hsuan-Tien Lin},
+  pages = {423-431},
+  abstract = {Different real-world applications of multi-label classification often demand different evaluation criteria. We formalize this demand with a general setup, cost-sensitive multi-label classification (CSMLC), which takes  the evaluation criteria into account during learning. Nevertheless, most existing algorithms can only focus on optimizing a few specific evaluation criteria, and cannot systematically deal with different ones. In this paper, we propose a novel algorithm, called condensed filter tree (CFT), for optimizing any criteria in CSMLC. CFT is derived from reducing CSMLC to the famous filter tree algorithm for cost-sensitive multi-class classification via constructing the label powerset. We successfully cope with the difficulty of having exponentially many extended-classes within the powerset for representation, training and prediction by carefully designing the tree structure and focusing on the key nodes. Experimental results across many real-world datasets validate that CFT is competitive with special purpose algorithms on special criteria and reaches better performance on general criteria.}
+}
+
+@InProceedings{orabona14,
+  title = {On Measure Concentration of Random Maximum A-Posteriori Perturbations},
+  author = {Francesco Orabona and Tamir Hazan and Anand Sarwate and Tommi Jaakkola},
+  pages = {432-440},
+  abstract = {The maximum a-posteriori (MAP) perturbation framework has emerged as a useful approach for inference and learning in high dimensional complex models.  By maximizing a randomly perturbed potential function, MAP perturbations generate unbiased samples from the Gibbs distribution.  Unfortunately, the computational cost of generating so many high-dimensional random variables can be prohibitive.  More efficient algorithms use sequential sampling strategies based on the expected value of low dimensional MAP perturbations. This paper develops new measure concentration inequalities that bound the number of samples needed to estimate such expected values. Applying the general result to MAP perturbations can yield a more efficient algorithm to approximate sampling from the Gibbs distribution.  The measure concentration result is of general interest and may be applicable to other areas involving Monte Carlo estimation of expectations.}
+}
+
+@InProceedings{thomas14,
+  title = {Bias in Natural Actor-Critic Algorithms},
+  author = {Philip Thomas},
+  pages = {441-448},
+  abstract = {We show that several popular discounted reward natural actor-critics, including the popular NAC-LSTD and eNAC algorithms, do not generate unbiased estimates of the natural policy gradient as claimed. We derive the first unbiased discounted reward natural actor-critics using batch and iterative approaches to gradient estimation. We argue that the bias makes the existing algorithms more appropriate for the average reward setting. We also show that, when Sarsa(lambda) is guaranteed to converge to an optimal policy, the objective function used by natural actor-critics is concave, so policy gradient methods are guaranteed to converge to globally optimal policies as well.}
+}
+
+@InProceedings{denis14,
+  title = {Dimension-free Concentration Bounds on Hankel Matrices for Spectral Learning},
+  author = {François Denis and Mattias Gybels and Amaury Habrard},
+  pages = {449-457},
+  abstract = {Learning probabilistic models over strings is an important issue for many applications. Spectral methods propose elegant solutions to the problem of inferring weighted automata from finite samples of variable-length strings drawn from an unknown target distribution. These methods rely on a singular value decomposition of a matrix $H_S$, called the Hankel matrix, that records the frequencies of (some of) the observed strings. The accuracy of the learned distribution depends both on the quantity of information embedded in $H_S$ and on the distance between $H_S$ and its mean $H_r$. Existing concentration bounds seem to indicate that the concentration over $H_r$ gets looser with its size, suggesting to make a trade-off between the quantity of used information and the size of $H_r$. We propose new dimension-free concentration bounds for several variants of Hankel matrices. Experiments demonstrate that these bounds are tight and that they significantly improve existing bounds. These results suggest that the concentration rate of the Hankel matrix around its mean does not constitute an argument for limiting its size.}
+}
+
+@InProceedings{lib14,
+  title = {On Modelling Non-linear Topical Dependencies},
+  author = {Zhixing Li and Siqiang Wen and Juanzi Li and Peng Zhang and Jie Tang},
+  pages = {458-466},
+  abstract = {Probabilistic topic models such as Latent Dirichlet Allocation (LDA) discover latent topics from large corpora by exploiting words' co-occurring relation. By observing the topical similarity between words, we find that some other relations, such as semantic or syntax relation between words, lead to strong dependence between their topics. In this paper, sentences are represented as dependency trees and a Global Topic Random Field (GTRF) is presented to model the non-linear dependencies between words. To infer our model, a new global factor is defined over all edges and the normalization factor of GRF is proven to be a constant. As a result, no independent assumption is needed when inferring our model. Based on it, we develop an efficient expectation-maximization (EM) procedure for parameter estimation. Experimental results on four data sets show that GTRF achieves much lower perplexity than LDA and linear dependency topic models and produces better topic coherence.}
+}
+
+@InProceedings{uria14,
+  title = {A Deep and Tractable Density Estimator},
+  author = {Benigno Uria and Iain Murray and Hugo Larochelle},
+  pages = {467-475},
+  abstract = {The Neural Autoregressive Distribution Estimator (NADE) and its real-valued version RNADE are competitive density models of multidimensional data across a variety of domains. These models use a fixed, arbitrary ordering of the data  dimensions. One can easily condition on variables at the beginning of the ordering, and marginalize out variables at the end of the ordering, however other inference tasks require approximate inference. In this work we introduce an efficient procedure to simultaneously train a NADE model for each possible ordering of the variables, by sharing parameters across all these models. We can thus use the most convenient model for each inference task at hand, and ensembles of such models with different orderings are immediately available. Moreover, unlike the original NADE, our training procedure scales to deep models. Empirically, ensembles of Deep NADE models obtain state of the art density estimation performance.}
+}
+
+@InProceedings{jain14,
+  title = {(Near) Dimension Independent Risk Bounds for Differentially Private Learning},
+  author = {Prateek Jain and Abhradeep Guha Thakurta},
+  pages = {476-484},
+  abstract = {In this paper, we study the problem of differentially private risk minimization where the goal is to provide differentially private algorithms that have small excess risk. In particular we address the following open problem: \emph{Is it possible to design computationally efficient differentially private risk minimizers with  excess risk bounds that do not explicitly depend on dimensionality ($p$) and do not require  structural assumptions like restricted strong convexity?}  In this paper, we answer the question in the affirmative for a variant of the well-known  \emph{output} and \emph{objective} perturbation algorithms [Chaudhuri et al., 2011]. In particular, we show that  in generalized linear model, variants of both output and objective perturbation algorithms have no {\em explicit} dependence on $p$. Our results assume that the underlying loss function is a $1$-Lipschitz convex function and we show that the excess risk depends only on  $L_2$ norm of the true risk minimizer and that of training points.  Next, we present a novel privacy preserving algorithm for risk minimization over simplex in the generalized linear model, where the loss function is  a doubly differentiable convex function. Assuming that the training points have bounded $L_\infty$-norm, our algorithm provides risk bound that has only {\em logarithmic} dependence on $p$. We also apply our technique to the online learning setting and obtain a regret bound with similar logarithmic dependence on $p$. In contrast, the existing differentially private online learning methods incur $O(\sqrt{p})$  dependence.}
+}
+
+@InProceedings{yangb14,
+  title = {Quasi-Monte Carlo Feature Maps for Shift-Invariant Kernels},
+  author = {Jiyan Yang and Vikas Sindhwani and Haim Avron and Michael Mahoney},
+  pages = {485-493},
+  abstract = {We consider the problem of improving the efficiency of randomized Fourier feature maps to accelerate training and testing speed of kernel methods on large datasets. These approximate feature maps arise as Monte Carlo approximations to integral representations of shift-invariant kernel functions (e.g., Gaussian kernel). In this paper, we propose to use Quasi-Monte Carlo (QMC) approximations instead  where the relevant integrands are evaluated on a low-discrepancy sequence of points as opposed to random point sets as in the Monte Carlo approach. We derive a new discrepancy measure called box discrepancy based on theoretical characterizations of the integration error with respect to a given sequence. We then propose to learn QMC sequences adapted to our setting based on explicit box discrepancy minimization. Our theoretical analyses are complemented with empirical results that demonstrate the effectiveness of classical and adaptive QMC techniques for this problem.}
+}
+
+@InProceedings{karampatziakis14,
+  title = {Discriminative Features via Generalized Eigenvectors},
+  author = {Nikos Karampatziakis and Paul Mineiro},
+  pages = {494-502},
+  abstract = {Representing examples in a way that is compatible with the underlying classifier can greatly enhance the performance of a learning system. In this paper we investigate scalable techniques for inducing discriminative features by taking advantage of simple second order structure in the data. We focus on multiclass classification and show that features extracted from the generalized eigenvectors of the class conditional second moments lead to classifiers with excellent empirical performance. Moreover, these features have attractive theoretical properties, such as inducing representations that are invariant to linear transformations of the input. We evaluate classifiers built from these features on three different tasks, obtaining state of the art results.}
+}
+
+@InProceedings{liub14,
+  title = {Forward-Backward Greedy Algorithms for General Convex Smooth Functions over A Cardinality Constraint},
+  author = {Ji Liu and Jieping Ye and Ryohei Fujimaki},
+  pages = {503-511},
+  abstract = {We consider forward-backward greedy algorithms for solving sparse feature selection problems with general convex smooth functions. A state-of-the-art greedy method, the Forward-Backward greedy algorithm (FoBa-obj) requires to solve a large number of optimization problems, thus it is not scalable for large-size problems. The FoBa-gdt algorithm, which uses the gradient information for feature selection at each forward iteration, significantly improves the efficiency of FoBa-obj. In this paper, we systematically analyze the theoretical properties of both algorithms. Our main contributions are: 1) We derive better theoretical bounds than existing analyses regarding FoBa-obj for general smooth convex functions; 2) We show that FoBa-gdt achieves the same theoretical performance as FoBa-obj under the same condition: restricted strong convexity condition. Our new bounds are consistent with the bounds of a special case (least squares) and fills a previously existing theoretical gap for general convex smooth functions; 3) We show that the restricted strong convexity condition is satisfied if the number of independent samples is more than $\bar{k}\log d$ where $\bar{k}$ is the sparsity number and $d$ is the dimension of the variable; 4) We apply FoBa-gdt (with the conditional random field objective) to the sensor selection problem for human indoor activity recognition and our results show that FoBa-gdt outperforms other methods based on forward greedy selection and L1-regularization.}
+}
+
+@InProceedings{dick14,
+  title = {Online Learning in Markov Decision Processes with Changing Cost Sequences},
+  author = {Travis Dick and Andras Gyorgy and Csaba Szepesvari},
+  pages = {512-520},
+  abstract = {In this paper we consider online learning in finite Markov decision processes (MDPs) with changing cost sequences under full and bandit-information.  We propose to view this problem as an instance of online linear optimization.  We propose two methods for this problem: MD^2 (mirror descent with approximate projections) and the continuous exponential weights algorithm with Dikin walks.  We provide a rigorous complexity analysis of these techniques, while providing near-optimal regret-bounds (in particular, we take into account the computational costs of performing approximate projections in MD^2).  In the case of full-information feedback, our results complement existing ones. In the case of bandit-information feedback we consider the online stochastic shortest path problem, a special case of the above MDP problems, and manage to improve the existing results by removing the previous restrictive assumption that the state-visitation probabilities are uniformly bounded away from zero under all policies.}
+}
+
+@InProceedings{combes14,
+  title = {Unimodal Bandits: Regret Lower Bounds and Optimal Algorithms},
+  author = {Richard Combes and Alexandre Proutiere},
+  pages = {521-529},
+  abstract = {We consider stochastic multi-armed bandits where the expected reward is a unimodal function over partially ordered arms. This important class of problems has been recently investigated in (Cope 2009, Yu 2011). The set of arms is either discrete, in which case arms correspond to the vertices of a finite graph whose structure represents similarity in rewards, or continuous, in which case arms belong to a bounded interval. For discrete unimodal bandits, we derive asymptotic lower bounds for the regret achieved under any algorithm, and propose OSUB, an algorithm whose regret matches this lower bound. Our algorithm optimally exploits the unimodal structure of the problem, and surprisingly, its asymptotic regret does not depend on the number of arms. We also provide a regret upper bound for OSUB in non-stationary environments where the expected rewards smoothly evolve over time. The analytical results are supported by numerical experiments showing that OSUB performs significantly better than the state-of-the-art algorithms. For continuous sets of arms, we provide a brief discussion. We show that combining an appropriate discretization of the set of arms with the UCB algorithm yields an order-optimal regret, and in practice, outperforms recently proposed algorithms designed to exploit the unimodal structure.}
+}
+
+@InProceedings{iyer14,
+  title = {Maximum Mean Discrepancy for Class Ratio Estimation: Convergence Bounds and Kernel Selection},
+  author = {Arun Iyer and Saketha Nath and Sunita Sarawagi},
+  pages = {530-538},
+  abstract = {In recent times, many real world applications have emerged that require estimates of class ratios in an unlabeled instance collection as opposed to labels of individual instances in the collection.  In this paper we investigate the use of maximum mean discrepancy (MMD) in a reproducing kernel Hilbert space (RKHS) for estimating such ratios. First, we theoretically analyze the MMD-based estimates. Our analysis establishes that, under some mild conditions, the estimate is statistically consistent. More importantly, it provides an upper bound on the error in the estimate in terms of intuitive geometric quantities like class separation and data spread. Next, we use the insights obtained from the theoretical analysis, to propose a novel convex formulation that automatically learns the kernel to be employed in the MMD-based estimation. We design an efficient cutting plane algorithm for solving this formulation.  Finally, we empirically compare our estimator with several existing methods, and show significantly improved performance under varying datasets, class ratios, and training sizes.}
+}
+
+@InProceedings{khaleghi14,
+  title = {Asymptotically consistent estimation of the number of change points in highly dependent time series},
+  author = {Azadeh Khaleghi and Daniil Ryabko},
+  pages = {539-547},
+  abstract = {The problem of change point estimation is considered in a general framework where the  data are generated by arbitrary unknown stationary ergodic process distributions. This means that the data may have  long-range dependencies of an arbitrary form. In this context the consistent estimation of the number of change points is provably impossible. A formulation is proposed which overcomes this obstacle:   it is possible to find the correct number of change points at the  expense of introducing the additional constraint that the correct number of  process distributions that generate the data is provided. This additional parameter has a natural interpretation  in many real-world applications.  It turns out that in this formulation change point estimation can be reduced to time series clustering. Based on this reduction, an algorithm is proposed that finds the number of change points and locates the changes.  This algorithm is shown to be asymptotically consistent.  The theoretical results are complemented with empirical evaluations.}
+}
+
+@InProceedings{shalit14,
+  title = {Coordinate-descent for learning orthogonal matrices through Givens rotations},
+  author = {Uri Shalit and Gal Chechik},
+  pages = {548-556},
+  abstract = {Optimizing over the set of orthogonal matrices is a central component in problems like sparse-PCA or tensor decomposition. Unfortunately, such optimization is hard since simple operations on orthogonal matrices easily break orthogonality, and correcting orthogonality usually costs a large amount of computation.  Here we propose a framework for optimizing orthogonal matrices, that is the parallel of coordinate-descent in Euclidean spaces. It is based on {\em Givens-rotations}, a fast-to-compute operation that affects a small number of entries in the learned matrix, and preserves orthogonality.  We show two applications of this approach: an algorithm for tensor decompositions used in learning mixture models, and an algorithm for sparse-PCA. We study the parameter regime where a  Givens rotation approach converges faster and achieves a superior model on a genome-wide brain-wide mRNA expression dataset.}
+}
+
+@InProceedings{shrivastava14,
+  title = {Densifying One Permutation Hashing via Rotation for Fast Near Neighbor Search},
+  author = {Anshumali Shrivastava and Ping Li},
+  pages = {557-565},
+  abstract = {The query complexity of {\em locality sensitive hashing (LSH)} based similarity search is dominated by the number of hash evaluations, and this number grows with the data size~\cite{Proc:Indyk_STOC98}. In industrial applications such as search where the data are often high-dimensional and binary (e.g., text $n$-grams),  {\em minwise hashing} is widely adopted, which requires applying a large number  of permutations on the data. This is  costly in computation and energy-consumption.    In this paper, we propose a  hashing technique which generates all the necessary hash evaluations needed for similarity search, using  one single permutation.  The heart of the proposed hash function is a  ``rotation'' scheme which densifies the sparse sketches of {\em one permutation hashing}~\cite{Proc:Li_Owen_Zhang_NIPS12} in an unbiased fashion thereby maintaining the LSH property. This makes the obtained sketches suitable for hash table construction. This idea of rotation presented in this paper could be of independent  interest  for densifying  other types of sparse sketches.     Using our proposed hashing method, the  query time of a $(K,L)$-parameterized LSH is reduced from  the typical $O(dKL)$ complexity to merely $O(KL+dL)$, where $d$ is the  number of nonzeros of the data vector, $K$ is the number of hashes in each hash table, and $L$ is the number of hash tables.  Our experimental evaluation on real data confirms that the proposed scheme significantly reduces the query processing time over minwise hashing without loss in retrieval accuracies.}
+}
+
+@InProceedings{hsieha14,
+  title = {A Divide-and-Conquer Solver for Kernel Support Vector Machines},
+  author = {Cho-Jui Hsieh and Si Si and Inderjit Dhillon},
+  pages = {566-574},
+  abstract = {The kernel support vector machine (SVM) is one of the most widely used classification methods; however, the amount of computation required becomes the bottleneck when facing millions of samples. In this paper, we propose and analyze a novel divide-and-conquer solver for kernel SVMs (DC-SVM). In the division step, we partition the kernel SVM problem into smaller subproblems by clustering the data, so that each subproblem can be solved independently and efficiently. We show theoretically that the support vectors identified by the subproblem solution are likely to be support vectors of the entire kernel SVM problem, provided that the problem is partitioned appropriately by kernel clustering. In the conquer step, the local solutions from the subproblems are used to initialize a global coordinate descent solver, which converges quickly as suggested by our analysis. By extending this idea, we develop a multilevel Divide-and-Conquer SVM algorithm with adaptive clustering and early prediction strategy, which outperforms state-of-the-art methods in terms of training speed, testing accuracy, and memory usage. As an example, on the covtype dataset with half-a-million samples, DC-SVM is 7 times faster than LIBSVM in obtaining the exact SVM solution (to within 10^{-6} relative error) which achieves 96.15\% prediction accuracy. Moreover, with our proposed early prediction strategy, DC-SVM achieves about 96\% accuracy in only 12 minutes, which is more than 100 times faster than LIBSVM.}
+}
+
+@InProceedings{hsiehb14,
+  title = {Nuclear Norm Minimization via Active Subspace Selection},
+  author = {Cho-Jui Hsieh and Peder Olsen},
+  pages = {575-583},
+  abstract = {We describe a novel approach to optimizing matrix problems involving nuclear norm regularization and apply it to the matrix completion problem. We combine methods from non-smooth and smooth optimization. At each step we use the proximal gradient to select an active subspace. We then find a smooth, convex relaxation of the smaller subspace problems and solve these using second order methods. We apply our methods to matrix completion problems including Netflix dataset, and show that they are more than 6 times faster than state-of-the-art nuclear norm solvers. Also, this is the first paper to scale nuclear norm solvers to the Yahoo-Music dataset, and the first time in the literature that the efficiency of nuclear norm solvers can be compared and even compete with non-convex solvers like Alternating Least Squares (ALS).}
+}
+
+@InProceedings{arora14,
+  title = {Provable Bounds for Learning Some Deep Representations},
+  author = {Sanjeev Arora and Aditya Bhaskara and Rong Ge and Tengyu Ma},
+  pages = {584-592},
+  abstract = {We give  algorithms with provable guarantees that learn a class of deep nets in the generative model view popularized by Hinton and others. Our generative model is an n node multilayer neural net that has degree at most $n^{\gamma}$ for some $\gamma < 1$ and each edge has a random edge weight in [-1,1]. Our algorithm learns  almost all networks in this class with polynomial running time. The sample complexity is quadratic or cubic depending upon the details of the model.  The algorithm uses layerwise learning. It is based upon a novel idea of observing correlations among features and using these to infer the underlying edge structure via a global graph recovery procedure. The analysis  of the algorithm reveals interesting structure of  neural nets with random edge weights.}
+}
+
+@InProceedings{yu14,
+  title = {Large-scale Multi-label Learning with Missing Labels},
+  author = {Hsiang-Fu Yu and Prateek Jain and Purushottam Kar and Inderjit Dhillon},
+  pages = {593-601},
+  abstract = {The multi-label classification problem has generated significant interest in recent years. However, existing approaches do not adequately address two key challenges: (a) scaling up to problems with a large number (say millions) of labels, and (b) handling data with missing labels. In this paper, we directly address both these problems by studying the multi-label problem in a generic empirical risk minimization (ERM) framework. Our framework, despite being simple, is surprisingly able to encompass several recent label-compression based methods which can be derived as special cases of our method. To optimize the ERM problem, we develop techniques that exploit the structure of specific loss functions - such as the squared loss function - to obtain efficient algorithms. We further show that our learning framework admits excess risk bounds even in the presence of missing labels. Our bounds are tight and demonstrate better generalization performance for low-rank promoting trace-norm regularization when compared to (rank insensitive) Frobenius norm regularization. Finally, we present extensive empirical results on a variety of benchmark datasets and show that our methods perform significantly better than existing label compression based methods and can scale up to very large datasets such as a Wikipedia dataset that has more than 200,000 labels.}
+}
+
+@InProceedings{tandon14,
+  title = {Learning Graphs with a Few Hubs},
+  author = {Rashish Tandon and Pradeep Ravikumar},
+  pages = {602-610},
+  abstract = {We consider the problem of recovering the graph structure of a ``hub-networked'' Ising model given iid samples, under high-dimensional settings, where number of nodes $p$ could be potentially larger than the number of samples $n$. By a ``hub-networked'' graph, we mean a graph with a few ``hub nodes'' with very large degrees. State of the art estimators for Ising models have a sample complexity that scales polynomially with the maximum node-degree, and are thus ill-suited to recovering such graphs with a few hub nodes. Some recent proposals for specifically recovering hub graphical models do not come with theoretical guarantees, and even empirically provide limited improvements over vanilla Ising model estimators. Here, we show that under such low sample settings, instead of estimating ``difficult'' components such as hub-neighborhoods, we can use quantitative indicators of our inability to do so, and thereby identify hub-nodes. This simple procedure allows us to recover hub-networked graphs with very strong statistical guarantees even under very low sample settings.}
+}
+
+@InProceedings{lacoste14,
+  title = {Agnostic Bayesian Learning of Ensembles},
+  author = {Alexandre Lacoste and Mario Marchand and François Laviolette and Hugo Larochelle},
+  pages = {611-619},
+  abstract = {We propose a method for producing ensembles of predictors based on holdout estimations of their generalization performances. This approach uses a prior directly on the performance of predictors taken from a finite set of candidates and attempts to infer which one is best. Using Bayesian inference, we can thus obtain a posterior that represents our uncertainty about that choice and construct a weighted ensemble of predictors accordingly. This approach has the advantage of not requiring that the predictors be probabilistic themselves, can deal with arbitrary measures of performance and does not assume that the data was actually generated from any of the predictors in the ensemble. Since the problem of finding the best (as opposed to the true) predictor among a class is known as agnostic PAC-learning, we refer to our method as agnostic Bayesian learning. We also propose a method to address the case where the performance estimate is obtained from k-fold cross validation. While being efficient and easily adjustable to any loss function, our experiments confirm that the agnostic Bayes approach is state of the art compared to common baselines such as model selection based on k-fold cross-validation or a linear combination of predictor outputs.}
+}
+
+@InProceedings{azadi14,
+  title = {Towards an optimal stochastic alternating direction method of multipliers},
+  author = {Samaneh Azadi and Suvrit Sra},
+  pages = {620-628},
+  abstract = {We study regularized stochastic convex optimization subject to linear equality constraints. This class of problems was recently also studied by Ouyang et al. (2013) and Suzuki (2013); both introduced similar stochastic alternating direction method of multipliers (SADMM) algorithms. However, the analysis of both papers led to suboptimal convergence rates. This paper presents two new SADMM methods: (i) the first attains the minimax optimal rate of O(1/k) for nonsmooth strongly-convex stochastic problems; while (ii) the second progresses towards an optimal rate by exhibiting an O(1/k^2) rate for the smooth part. We present several experiments with our new methods; the results indicate improved performance over competing ADMM methods.}
+}
+
+@InProceedings{lan14,
+  title = {Spherical Hamiltonian Monte Carlo for Constrained Target Distributions},
+  author = {Shiwei Lan and Bo Zhou and Babak Shahbaba},
+  pages = {629-637},
+  abstract = {Statistical models with constrained probability distributions are abundant in machine learning. Some examples include regression models with norm constraints (e.g., Lasso), probit models, many copula models, and Latent Dirichlet Allocation (LDA) models. Bayesian inference involving probability distributions confined to constrained domains could be quite challenging for commonly used sampling algorithms. For such problems, we propose a novel Markov Chain Monte Carlo (MCMC) method that provides a general and computationally efficient framework for handling boundary conditions. Our method first maps the $D$-dimensional constrained domain of parameters to the unit ball ${\bf B}_0^D(1)$, then augments it to the $D$-dimensional sphere ${\bf S}^D$ such that the original boundary corresponds to the equator of ${\bf S}^D$. This way, our method handles the constraints implicitly by moving freely on sphere generating proposals that remain within boundaries when mapped back to the original space. To improve the computational efficiency of our algorithm, we divide the dynamics into several parts such that the resulting split dynamics has a partial analytical solution as a geodesic flow on the sphere. We apply our method to several examples including truncated Gaussian, Bayesian Lasso, Bayesian bridge regression, and a copula model for identifying synchrony among multiple neurons. Our results show that the proposed method can provide a natural and efficient framework for handling several types of constraints on target distributions.}
+}
+
+@InProceedings{hajiaghayi14,
+  title = {Efficient Continuous-Time Markov Chain Estimation},
+  author = {Monir Hajiaghayi and Bonnie Kirkpatrick and Liangliang Wang and Alexandre Bouchard-Côté},
+  pages = {638-646},
+  abstract = {Many problems of practical interest rely on Continuous-time Markov chains~(CTMCs) defined over combinatorial state spaces, rendering the computation of transition probabilities, and hence probabilistic inference, difficult or impossible with existing methods.  For problems with countably infinite states, where classical methods such as matrix exponentiation are not applicable,  the main alternative has been particle Markov chain Monte Carlo methods imputing both the holding times and sequences of visited states.    We propose a particle-based Monte Carlo approach where the holding times are marginalized analytically.  We demonstrate that in a range of realistic inferential setups, our scheme dramatically reduces the variance of the Monte Carlo approximation and yields more accurate parameter posterior approximations given a fixed computational budget. These experiments are performed on both synthetic and real datasets, drawing from two important examples of CTMCs having combinatorial state spaces: string-valued mutation models in phylogenetics and nucleic acid folding pathways.}
+}
+
+@InProceedings{donahue14,
+  title = {DeCAF: A Deep Convolutional Activation Feature for Generic Visual Recognition},
+  author = {Jeff Donahue and Yangqing Jia and Oriol Vinyals and Judy Hoffman and Ning Zhang and Eric Tzeng and Trevor Darrell},
+  pages = {647-655},
+  abstract = {We evaluate whether features extracted from the activation of a deep convolutional network trained in a fully supervised fashion on a large, fixed set of object recognition tasks can be re-purposed to novel generic tasks.  Our generic tasks may differ significantly from the originally trained tasks and there may be insufficient labeled or unlabeled data to conventionally train or adapt a deep architecture to the new tasks.  We investigate and visualize the semantic clustering of deep convolutional features with respect to a variety of such tasks, including scene recognition, domain adaptation, and fine-grained recognition challenges.  We compare the efficacy of relying on various network levels to define a fixed feature, and report novel results that significantly outperform the state-of-the-art on several important vision challenges.  We are releasing DeCAF, an open-source implementation of these deep convolutional activation features, along with all associated network parameters to enable vision researchers to be able to conduct experimentation with deep representations across a range of visual concept learning paradigms.}
+}
+
+@InProceedings{yogatama14,
+  title = {Making the Most of Bag of Words: Sentence Regularization with Alternating Direction Method of Multipliers},
+  author = {Dani Yogatama and Noah Smith},
+  pages = {656-664},
+  abstract = {In many high-dimensional learning problems, only some parts of an observation are important to the prediction task; for example, the cues to correctly categorizing a document may lie in a handful of its sentences. We introduce a learning algorithm that exploits this intuition by encoding it in a regularizer.  Specifically, we apply the sparse overlapping group lasso with one group for every bundle of features occurring together in a training-data sentence, leading to thousands to millions of overlapping groups. We show how to efficiently solve the resulting optimization challenge using the alternating directions method of multipliers.  We find that the resulting method significantly outperforms competitive baselines (standard ridge, lasso, and elastic net regularizers) on a suite of real-world text categorization problems.}
+}
+
+@InProceedings{denil14,
+  title = {Narrowing the Gap: Random Forests In Theory and In Practice},
+  author = {Misha Denil and David Matheson and De Freitas, Nando},
+  pages = {665-673},
+  abstract = {Despite widespread interest and practical use, the theoretical properties of random forests are still not well understood. In this paper we contribute to this understanding in two ways. We present a new theoreti- cally tractable variant of random regression forests and prove that our algorithm is con- sistent. We also provide an empirical eval- uation, comparing our algorithm and other theoretically tractable random forest models to the random forest algorithm used in prac- tice. Our experiments provide insight into the relative importance of different simplifi- cations that theoreticians have made to ob- tain tractable models for analysis.}
+}
+
+@InProceedings{chenc14,
+  title = {Coherent Matrix Completion},
+  author = {Yudong Chen and Srinadh Bhojanapalli and Sujay Sanghavi and Rachel Ward},
+  pages = {674-682},
+  abstract = {Matrix completion concerns the recovery of a low-rank matrix from a subset of its revealed entries, and nuclear norm minimization has emerged as an effective surrogate for this combinatorial problem.  Here, we show that nuclear norm minimization can recover an arbitrary $n \times n$ matrix of rank r from O(nr log^2(n)) revealed entries, provided that revealed entries are drawn proportionally to the local row and column coherences (closely related to leverage scores) of the underlying matrix.  Our results are order-optimal up to logarithmic factors, and extend existing results for nuclear norm minimization which require strong incoherence conditions on the types of matrices that can be recovered, due to assumed uniformly distributed revealed entries.  We further provide extensive numerical evidence that a proposed two-phase sampling algorithm can perform nearly as well as local-coherence sampling and without requiring a priori knowledge of the matrix coherence structure.  Finally, we apply our results to quantify how weighted nuclear norm minimization can improve on unweighted minimization given an arbitrary set of sampled entries.}
+}
+
+@InProceedings{inouye14,
+  title = {Admixture of Poisson MRFs: A Topic Model with Word Dependencies},
+  author = {David Inouye and Pradeep Ravikumar and Inderjit Dhillon},
+  pages = {683-691},
+  abstract = {This paper introduces a new topic model based on an admixture of Poisson Markov Random Fields (APM), which can model dependencies between words as opposed to previous independent topic models such as PLSA (Hofmann, 1999), LDA (Blei et al., 2003) or SAM (Reisinger et al., 2010). We propose a class of admixture models that generalizes previous topic models and show an equivalence between the conditional distribution of LDA and independent Poissons—suggesting that APM subsumes the modeling power of LDA. We present a tractable method for estimating the parameters of an APM based on the pseudo log-likelihood and demonstrate the benefits of APM over previous models by preliminary qualitative and quantitative experiments.}
+}
+
+@InProceedings{seijen14,
+  title = {True Online TD(lambda)},
+  author = {van Seijen, Harm and Rich Sutton},
+  pages = {692-700},
+  abstract = {TD(lambda) is a core algorithm of modern reinforcement learning. Its appeal comes from its equivalence to a clear and conceptually simple forward view, and the fact that it can be implemented online in an inexpensive manner. However, the equivalence between TD(lambda) and the forward view is exact only for the off-line version of the algorithm (in which updates are made only at the end of each episode). In the online version of TD(lambda) (in which updates are made at each step, which generally performs better and is always used in applications) the match to the forward view is only approximate. In a sense this is unavoidable for the conventional forward view, as it itself presumes that the estimates are unchanging during an episode. In this paper we introduce a new forward view that takes into account the possibility of changing estimates and a new variant of TD(lambda) that exactly achieves it. Our algorithm uses a new form of eligibility trace similar to but different from conventional accumulating and replacing traces. The overall computational complexity is the same as TD(lambda), even when using function approximation. In our empirical comparisons, our algorithm outperformed TD(lambda) in all of its variations. It seems, by adhering more truly to the original goal of TD(lambda)---matching an intuitively clear forward view even in the online case---that we have found a new algorithm that simply improves on classical TD(lambda).}
+}
+
+@InProceedings{si14,
+  title = {Memory Efficient Kernel Approximation},
+  author = {Si Si and Cho-Jui Hsieh and Inderjit Dhillon},
+  pages = {701-709},
+  abstract = {The scalability of kernel machines is a big challenge when facing millions of samples due to storage and computation issues for large kernel matrices, that are usually dense. Recently, many papers have suggested tackling this problem by using a low rank approximation of the kernel matrix. In this paper, we first make the observation that the structure of shift-invariant kernels changes from low-rank to block-diagonal (without any low-rank structure) when varying the scale parameter. Based on this observation, we propose a new kernel approximation algorithm -- Memory Efficient Kernel Approximation (MEKA), which considers both low-rank and clustering structure of the kernel matrix. We show that the resulting algorithm outperforms state-of-the-art low-rank kernel approximation methods in terms of speed, approximation error, and memory usage. As an example, on the MNIST2M dataset with two-million samples, our method takes 550 seconds on a single machine using less than 500 MBytes memory to achieve 0.2313 test RMSE for kernel ridge regression, while standard Nystr\"{o}m approximation takes more than 2700 seconds and uses more than 2 GBytes memory on the same problem to achieve 0.2318 test RMSE.}
+}
+
+@InProceedings{rooshenas14,
+  title = {Learning Sum-Product Networks with Direct and Indirect Variable Interactions},
+  author = {Amirmohammad Rooshenas and Daniel Lowd},
+  pages = {710-718},
+  abstract = {Sum-product networks (SPNs) are a deep probabilistic representation that allows for efficient, exact inference.  SPNs generalize many other tractable models, including thin junction trees, latent tree models, and many types of mixtures.  Previous work on learning SPN structure has mainly focused on using top-down or bottom-up clustering to find mixtures, which capture variable interactions indirectly through implicit latent variables.  In contrast, most work on learning graphical models, thin junction trees, and arithmetic circuits has focused on finding direct interactions among variables.  In this paper, we present ID-SPN, a new algorithm for learning SPN structure that unifies the two approaches. In experiments on 20 benchmark datasets, we find that the combination of direct and indirect interactions leads to significantly better accuracy than several state-of-the-art algorithms for learning SPNs and other tractable models.}
+}
+
+@InProceedings{sohl-dickstein14,
+  title = {Hamiltonian Monte Carlo Without Detailed Balance},
+  author = {Jascha Sohl-Dickstein and Mayur Mudigonda and Michael DeWeese},
+  pages = {719-726},
+  abstract = {We present a method for performing Hamiltonian Monte Carlo that largely eliminates sample rejection.  In situations that would normally lead to rejection, instead a longer trajectory is computed until a new state is reached that can be accepted.  This is achieved using Markov chain transitions that satisfy the fixed point equation, but do not satisfy detailed balance.  The resulting algorithm significantly suppresses the random walk behavior and wasted function evaluations that are typically the consequence of update rejection.  We demonstrate a greater than factor of two improvement in mixing time on three test problems.  We release the source code as Python and MATLAB packages.}
+}
+
+@InProceedings{steinhardt14,
+  title = {Filtering with Abstract Particles},
+  author = {Jacob Steinhardt and Percy Liang},
+  pages = {727-735},
+  abstract = {Using particles, beam search and sequential Monte Carlo can approximate distributions in an extremely flexible manner. However, they can suffer from sparsity and inadequate coverage on large state spaces. We present a new filtering method that addresses this issue  by using “abstract particles” that each represent an entire region of the state space. These abstract particles are combined into a hierarchical decomposition, yielding a  representation that is both compact and flexible. Empirically, our method outperforms beam search and sequential Monte Carlo on both a text reconstruction task and a multiple object tracking task.}
+}
+
+@InProceedings{suzuki14,
+  title = {Stochastic Dual Coordinate Ascent with Alternating Direction Method of Multipliers},
+  author = {Taiji Suzuki},
+  pages = {736-744},
+  abstract = {We propose a new stochastic dual coordinate ascent technique  that can be applied to a wide range of regularized learning problems. Our method is based on  alternating direction method of multipliers (ADMM) to deal with complex regularization functions such as structured regularizations. Although the original ADMM is a batch method,  the proposed method offers a stochastic update rule where each iteration requires only one or few sample observations. Moreover, our method can naturally afford mini-batch update and it gives speed up of convergence. We show that, under mild assumptions, our method converges exponentially. The numerical experiments show that our method actually performs efficiently.}
+}
+
+@InProceedings{zhou14,
+  title = {Deep Supervised and Convolutional Generative Stochastic Network for Protein Secondary Structure Prediction},
+  author = {Jian Zhou and Olga Troyanskaya},
+  pages = {745-753},
+  abstract = {Predicting protein secondary structure is a fundamental problem in protein structure prediction. Here we present a new supervised generative stochastic network (GSN) based method to predict local secondary structure with deep hierarchical representations. GSN is a recently proposed deep learning technique (Bengio \& Thibodeau-Laufer, 2013) to globally train deep generative model. We present the supervised extension of GSN, which learns a Markov chain to sample from a conditional distribution, and applied it to protein structure prediction. To scale the model to full-sized, high-dimensional data, like protein sequences with hundreds of amino-acids, we introduce a convolutional architecture, which allows efficient learning across multiple layers of hierarchical representations. Our architecture uniquely focuses on predicting structured low-level labels informed with both low and high-level representations learned by the model. In our application this corresponds to labeling the secondary structure state of each amino-acid residue. We trained and tested the model on separate sets of non-homologous proteins sharing less than 30\% sequence identity. Our model achieves 66.4\% Q8 accuracy on the CB513 dataset, better than the previously reported best performance 64.9\% (Wang et al., 2011) for this challenging secondary structure prediction problem.}
+}
+
+@InProceedings{hutter14,
+  title = {An Efficient Approach for Assessing Hyperparameter Importance},
+  author = {Frank Hutter and Holger Hoos and Kevin Leyton-Brown},
+  pages = {754-762},
+  abstract = {The performance of many machine learning methods depends critically on hyperparameter settings. Sophisticated Bayesian optimization methods have recently achieved considerable successes in optimizing these hyperparameters, in several cases surpassing the performance of human experts. However, blind reliance on such methods can leave end users without insight into the relative importance of different hyperparameters and their interactions. This paper describes efficient methods that can be used to gain such insight, leveraging random forest models fit on the data already gathered by Bayesian optimization. We first introduce a novel, linear-time algorithm for computing marginals of random forest predictions and then show how to leverage these predictions within a functional ANOVA framework, to quantify the importance of both single hyperparameters and of interactions between hyperparameters. We conducted experiments with prominent machine learning frameworks and state-of-the-art solvers for combinatorial problems. We show that our methods provide insight into the relationship between hyperparameter settings and performance, and demonstrate that—even in very high-dimensional cases—most performance variation is attributable to just a few hyperparameters.}
+}
