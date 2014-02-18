@@ -8,6 +8,7 @@ import Data.Maybe
 import Data.List.HT (replace, segmentBefore, chop, dropWhileRev)
 import Network.HTTP
 import Network.URI
+import System.Directory
 import Text.HandsomeSoup
 import Text.XML.HXT.Core
 import Text.HTML.TagSoup
@@ -23,41 +24,33 @@ data Volume = Volume {
   papers  :: [(PaperKey, LinkType -> Maybe URI)],
   orphans :: [[(LinkType, URI)]]
 }
-instance Show Volume where
-  show (Volume url papers orphans) =
-    "Volume @ " ++ (show url) ++ "\n" ++
-    "Papers:\n" ++ (unlines . map showPaper $ papers) ++ "\n"
-    where
-      showPaper p = 
-        "  " ++ (fst p) ++ ":\n" ++
-        "    Abs:  " ++ (show . snd p $ Abstract) ++ "\n" ++
-        "    PDF:  " ++ (show . snd p $ PDF) ++ "\n" ++
-        "    Supp: " ++ (show . snd p $ Supplementary) ++ "\n"
+
+--------------------------------------------------------------------------------
+-- Constants, etc.
+targetDir  = "db-scraped"
+baseURI    = fromJust . parseAbsoluteURI $ "http://jmlr.org/proceedings/papers/"
+-- baseURI    = fromJust . parseAbsoluteURI $ "http://localhost/"
+baseURIold = fromJust . parseAbsoluteURI $ "http://jmlr.csail.mit.edu/proceedings/papers/"
+
+volumes = map (("v"++) . show) [5]
 
 --------------------------------------------------------------------------------
 -- Main
 main = forM_ volumes $ \vID -> do
   let vURI = fromJust . parseRelativeReference . (++ "/") $ vID
+  putStrLn $ "\nVolume " ++ (show vURI) ++ "\n---------------"
+
+  let volDir = targetDir ++ "/" ++ vID
+  createDirectoryIfMissing True volDir
+
   conf <- parseConf $ vURI `relativeTo` baseURI 
-  putStrLn $ "Volume " ++ (show vURI) ++ "\n---------------"
   forM_ (papers conf) $ \paper -> do
     bib <- parseOne vID paper
-    putStrLn . Bib.entry $ bib
-    let filepath = "testbib/" ++ (Bib.identifier bib) ++ ".bib"
+    putStrLn . Bib.identifier $ bib
+    let filepath = volDir ++ "/" ++ (Bib.identifier bib) ++ ".bib"
     writeFile filepath $ Bib.entry bib
 
--- Testing the representative papers from each volume
--- testReps = forM_ volReps $ \pURL -> do
---   bib <- parseOne .fromJust . parseAbsoluteURI $ pURL
---   putStrLn . Bib.entry $ bib
---   let filepath = "testbib/" ++ (Bib.identifier bib) ++ ".bib"
---   writeFile filepath $ Bib.entry bib
-
---------------------------------------------------------------------------------
--- Constants, etc.
-baseURI    = fromJust . parseAbsoluteURI $ "http://jmlr.org/proceedings/papers/"
-baseURIold = fromJust . parseAbsoluteURI $ "http://jmlr.csail.mit.edu/proceedings/papers/"
-volumes = map (("v"++) . show) [1..27]
+-- ============================================================================
 
 --------------------------------------------------------------------------------
 -- Parse conference page of links
@@ -125,30 +118,21 @@ isLink str = isAbstract str || isPDF str || isSupp str
 -- Get the contents of a given URL
 openURL x = getResponseBody =<< simpleHTTP (getRequest x)
 
+-- Get the raw tags for a paper URI
+-- getTags :: String -> 
+getTags absURL = do
+  parseTags <$> openURL absURL
+
+
 -- Parse a single JMLR abstract page for a paper.
 parseOne vID (pID,links) = do
   let absURL = fromJust . links $ Abstract
-  -- putStrLn $ "Getting " ++ (parseURIReference . fromJust . links $ Abstract) ++ "\n------\n"
-  -- let result = RE.matchSubex ".*/({vID}v\\d+)/({pID}.*)\\.html?" (uriPath url)
-  -- let vID       = fromJust $ lookup "vID" result
-  -- let pID       = fromJust $ lookup "pID" result
-  putStrLn $ "Volume ID: " ++ vID ++ "; Paper ID: " ++ pID
-
   tags <- parseTags <$> openURL (show absURL)
 
   let title    = extract $ findTitle vID tags
   let abstract = deligature . extract . substitute $ findAbstract vID tags
   let (authors,volume,pages,year) = getBibInfo vID $ findInfo vID tags
 
-  let get = maybe "NA" id
-  -- putStrLn $ "Title: " ++ title
-  -- putStrLn $ "Authors: " ++ authors
-  -- putStrLn $ "Volume: " ++ get volume ++
-  --            "; Pages: " ++ (get . fst $ pages) ++ "–" ++ (get . snd $ pages) ++
-  --            "; Year: " ++ (get year) 
-  -- putStrLn $ "Abstract\n--------\n" ++ abstract
-  -- putStrLn "\n======="
-   
   let pdfField = 
         case (links PDF) of
           Just url    -> [("pdf", show url)]
@@ -165,7 +149,7 @@ parseOne vID (pID,links) = do
     Bib.fields      = [
       ("title",    title),
       ("author",   authors),
-      ("pages",    (get . fst $ pages ) ++ "--" ++ (get . snd $ pages)),
+      ("pages",    (fromJust.fst $ pages ) ++ "--" ++ (fromJust.snd $ pages)),
       ("abstract", abstract)
     ] ++ pdfField ++ suppField
   }
@@ -245,7 +229,8 @@ between start end = takeWhile (not . end) . tail . dropWhile (not . start)
 --    Parikshit Gopalan, Adam R. Klivans and Raghu Meka JMLR W&CP 23: 15.1 - 15.10, 2012
 getBibInfo vID tags = (fixAuthors vID authors, volume, pages, year)
   where
-    (authors, info) = RE.split ".+\\s+JMLR\\s*;?" . extract $ tags
+    (authors, info) = RE.split ".+\\s+JMLR\\s*;?" . 
+                        replace "\n\n" "" . extract $ tags
     pat = infoPattern
     result = RE.matchSubex pat info
     volume = lookup "vol" result
