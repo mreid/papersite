@@ -105,7 +105,7 @@ getField' key entry@(Entry t) =
   "firstpage"   -> firstpage
   "lastpage"    -> lastpage
   "url"         -> fmap (toURI "html") $ identifier
-  "pdf"         -> fmap (toURI "pdf") $ identifier
+  "pdf"         -> pdf t
   "rawtitle"    -> lookup "title" . BibTex.fields $ t
   _             -> fmap latexToHtml (lookup key . BibTex.fields $ t)
   where
@@ -113,7 +113,12 @@ getField' key entry@(Entry t) =
     identifier = getField' "identifier" entry
     firstpage = fmap (takeWhile isNumber) pages
     lastpage  = fmap (reverse . takeWhile isNumber . reverse) pages
-    isNumber c = c `elem` ['0'..'9'] ++ ['x','v','i']
+    isNumber c = c `elem` ['0'..'9'] ++ ['x','v','i'] ++ ['.']
+
+-- Use value of "pdf" field in entry if present or construct it from id
+pdf t = case lookup "pdf" . BibTex.fields $ t of
+  Just url  -> Just url
+  Nothing   -> Just . toURI "pdf" $ BibTex.identifier t
 
 toURI :: String -> FilePath -> String
 toURI ext path = (escapeURIString isUnreserved path) ++ "." ++ ext
