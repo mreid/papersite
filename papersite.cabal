@@ -75,7 +75,7 @@ executable scrape
    base, HandsomeSoup ==0.3.*, hxt ==9.3.*, tagsoup ==0.12.*,
    bibtex ==0.1.*, latex ==0.1.*, utility-ht ==0.0.9,
    hxt-regex-xmlschema ==9.1.*, text ==0.11.*,
-   network ==2.4.*, HTTP ==4000.*
+   network ==2.4.*, HTTP ==4000.*, directory ==1.2.*
 
 -- Testing
 test-suite tests
