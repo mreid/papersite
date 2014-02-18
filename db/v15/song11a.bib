@@ -1,0 +1,10 @@
+@InProceedings{song11a,
+  title = {Kernel Belief Propagation},
+  author = {Le Song and Arthur Gretton and Danny Bickson and Yucheng Low and Carlos Guestrin},
+  pages = {707--715},
+  abstract = {We propose a nonparametric generalization of belief propagation, Kernel Belief Propagation (KBP), for pairwise Markov random fields. Messages are represented as functions in a reproducing kernel Hilbert space (RKHS), and message updates are simple linear operations in the RKHS.  KBP makes none of the assumptions commonly required in classical BP algorithms: the variables need not arise from a finite domain or a Gaussian distribution, nor must their relations take any particular parametric form. Rather, the relations between variables are represented implicitly, and are learned nonparametrically from training data. KBP has the advantage that it may be used on any domain where kernels are defined (R^d, strings, groups), even where explicit parametric models are not known, or closed form expressions for the BP updates do not exist.  The computational cost of message updates in KBP is polynomial in the training data size. We also propose a constant time approximate message update procedure by representing messages using a small number of basis functions. In experiments, we apply KBP to image denoising, depth prediction from still images, and protein configuration prediction: KBP is faster than competing classical and nonparametric approaches (by orders of magnitude, in some cases), while providing significantly more accurate results.
+
+[pdf][supplementary]},
+  pdf = {http://jmlr.org/proceedings/papers/v15/song11a/song11a.pdf},
+  supplementary = {Supplementary:http://jmlr.org/proceedings/papers/v15/song11a/song11aSupple.pdf},
+}

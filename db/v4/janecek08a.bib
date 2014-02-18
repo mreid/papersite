@@ -1,7 +1,13 @@
-@inproceedings{janecek08a,
-  author = {Janecek, Andreas and Gansterer, Wilfried and Demel, Michael and Ecker, Gerhard},
+@InProceedings{janecek08a,
   title = {On the Relationship Between Feature Selection and Classification Accuracy},
-  abstract = {Dimensionality reduction and feature subset selection are two techniques for reducing the attribute space of a feature set,
-which is an important component of both supervised and unsupervised classification or regression problems. While in feature subset selection a subset of the original attributes is extracted, dimensionality reduction in general produces linear combinations of the original attribute set.},
-  pages = {90-105},
+  author = {Andreas Janecek and Wilfried Gansterer and Michael Demel and Gerhard Ecker},
+  pages = {90--105},
+  abstract = {Dimensionality reduction and feature subset selection are two techniques for reducing the attribute space of a feature set, which is an important component of both supervised and unsupervised classification or regression problems. While in feature subset selection a subset of the original attributes is extracted, dimensionality reduction in general produces linear combinations of the original attribute set.
+
+In this paper we investigate the relationship between several attribute space reduction techniques and the resulting classification accuracy for two very different application areas. On the one hand, we consider e-mail filtering, where the feature space contains various properties of e-mail messages, and on the other hand, we consider drug discovery problems, where quantitative representations of molecular structures are encoded in terms of information-preserving descriptor values.  
+
+Subsets of the original attributes constructed by filter and wrapper techniques as well as subsets of linear combinations of the original attributes constructed by three different variants of the principle component analysis (PCA) are compared in terms of the classification performance achieved with various machine learning algorithms as well as in terms of runtime performance. We successively reduce the size of the attribute sets and investigate the changes in the classification results. Moreover, we explore the relationship between the variance captured in the linear combinations within PCA and the resulting classification accuracy. 
+
+The results show that the classification accuracy based on PCA is highly sensitive to the type of data and that the variance captured the principal components is not necessarily a vital indicator for the classification performance.},
+  pdf = {http://jmlr.org/proceedings/papers/v4/janecek08a/janecek08a.pdf},
 }

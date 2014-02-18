@@ -1,6 +1,7 @@
-@inproceedings{druck07a,
-  author = {Druck, Gregory and Narasimhan, Mukund and Viola, Paul},
+@InProceedings{druck07a,
   title = {Learning A* underestimates : Using inference to guide inference},
+  author = {Gregory Druck and Mukund Narasimhan and Paul Viola},
+  pages = {99--106},
   abstract = {We present a technique for speeding up inference of structured variables using a prioritydriven search algorithm rather than the more conventional dynamic programing. A priority-driven search algorithm is guaranteed to return the optimal answer if the priority function is an underestimate of the true cost function. We introduce the notion of a probable approximate underestimate, and show that it can be used to compute a probable approximate solution to the inference problem when used as a priority function. We show that we can learn probable approximate underestimate functions which have the functional form of simpler, easy to decode models. These models can be learned from unlabeled data by solving a linear/quadratic optimization problem. As a result, we get a priority function that can be computed quickly, and results in solutions that are (provably) almost optimal most of the time. Using these ideas, discriminative classifiers such as semi-Markov CRFs and discriminative parsers can be sped up using a generalization of the A* algorithm. Further, this technique resolves one of the biggest obstacles to the use of A* as a general decoding procedure, namely that of coming up with a admissible priority function. Applying this technique results in a algorithm that is more than 3 times as fast as the Viterbi algorithm for decoding semi-Markov Conditional Markov Models.},
-  pages = {99-106},
+  pdf = {http://jmlr.org/proceedings/papers/v2/druck07a/druck07a.pdf},
 }

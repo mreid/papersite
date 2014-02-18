@@ -1,6 +1,7 @@
-@inproceedings{lewi07a,
-  author = {Lewi, Jeremy and Butera, Robert and Paninski, Liam},
+@InProceedings{lewi07a,
   title = {Efficient active learning with generalized linear models},
+  author = {Jeremy Lewi and Robert Butera and Liam Paninski},
+  pages = {267--274},
   abstract = {Active learning can significantly reduce the amount of training data required to fit parametric statistical models for supervised learning tasks. Here we present an efficient algorithm for choosing the optimal (most informative) query when the output labels are related to the inputs by a generalized linear model (GLM). The algorithm is based on a Laplace approximation of the posterior distribution of the GLMÂs parameters. The algorithm requires only low-rank matrix manipulations and a single two-dimensional search to choose the optimal query and has complexity $O(n^2)$ (with n the dimension of the feature space), making active learning with GLMs feasible even for high-dimensional feature spaces. In certain cases the twodimensional search may be reduced to a onedimensional search, further improving the algorithmÂs efficiency. Simulation results show that the model parameters can be estimated much more efficiently using the active learning technique than by using randomly chosen queries. We compute the asymptotic posterior covariance semi-analytically and demonstrate that the algorithm empirically achieves this asymptotic convergence rate, which is generally better than the convergence rate in the random-query setting. Finally, we generalize the approach to efficiently handle both output history effects (for applications to time-series models of autoregressive type) and slow, non-systematic drifts in the model parameters},
-  pages = {267-274},
+  pdf = {http://jmlr.org/proceedings/papers/v2/lewi07a/lewi07a.pdf},
 }

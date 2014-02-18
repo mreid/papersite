@@ -1,0 +1,7 @@
+@InProceedings{busa09,
+  title = {Accelerating AdaBoost using UCB},
+  author = {Róbert Busa-Fekete and Balázs Kégl},
+  pages = {111--122},
+  abstract = {This paper explores how multi-armed bandits (MABs) can be applied to accelerate AdaBoost. AdaBoost constructs a strong classifier in a stepwise fashion by adding simple base classifiers to a pool and using their weighted vote to determine the final classification. We model this stepwise base classifier selection as a sequential decision problem, and optimize it with MABs. Each arm represents a subset of the base classifier set. The MAB gradually learns the ``utility'' of the subsets, and selects one of the subsets in each iteration. ADABOOST then searches only this subset instead of optimizing the base classifier over the whole space. The reward is defined as a function of the accuracy of the base classifier. We investigate how the well-known UCB algorithm can be applied in the case of boosted stumps, trees, and products of base classifiers. The KDD Cup 2009 was a large-scale learning task with a limited training time, thus this challenge offered us a good opportunity to test the utility of our approach. During the challenge our best results came in the Up-selling task where our model was within 1\% of the best AUC rate. After more thorough post-challenge validation the algorithm performed as well as the best challenge submission on the small data set in two of the three tasks.},
+  pdf = {http://jmlr.org/proceedings/papers/v7/busa09/busa09.pdf},
+}

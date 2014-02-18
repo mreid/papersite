@@ -1,8 +1,7 @@
-@inproceedings{voortman10a,
-  author = {Voortman, Mark and Dash, Denver and Druzdzel, Marek J.},
-  title = {Learning Causal Models That Make Correct Manipulation Predictions},
-  abstract = {One of the fundamental purposes of causal models is using them to predict the effects of manipulating various components of a system.
-It has been argued by Dash (2005, 2003) that the},
-  pages = {257-266},
-  section = {challenge}
+@InProceedings{voortman10a,
+  title = {Learning Causal Models That Make Correct Manipulation Predictions With Time Series Data},
+  author = {Mark Voortman and Denver Dash and  Marek J. Druzdzel},
+  pages = {257--266},
+  abstract = {One of the fundamental purposes of causal models is using them to predict the effects of manipulating various components of a system. It has been argued by Dash (2005, 2003) that the \emph{Do} operator will fail when applied to an equilibrium model, unless the underlying dynamic system obeys what he calls \emph{Equilibration-Manipulation Commutability}. Unfortunately, this fact renders most existing causal discovery algorithms unreliable for reasoning about manipulations. Motivated by this caveat, in this paper we present a novel approach to causal discovery of dynamic models from time series. The approach uses a representation of dynamic causal models motivated by Iwasaki and Simon (1994), which asserts that all ``causation across time'' occurs because a variable's derivative has been affected instantaneously. We present an algorithm that exploits this representation within a constraint-based learning framework by numerically calculating derivatives and learning instantaneous relationships. We argue that due to numerical errors in higher order derivatives, care must be taken when learning causal structure, but we show that the Iwasaki-Simon representation reduces the search space considerably, allowing us to forego calculating many high-order derivatives. In order for our algorithm to discover the dynamic model, it is necessary that the time-scale of the data is much finer than any temporal process of the system. Finally, we show that our approach can correctly recover the structure of a fairly complex dynamic system, and can predict the effect of manipulations accurately when a manipulation does not cause an instability. To our knowledge, this is the first causal discovery algorithm that has demonstrated that it can correctly predict the effects of manipulations for a system that does not obey the EMC condition.},
+  pdf = {http://jmlr.org/proceedings/papers/v6/voortman10a/voortman10a.pdf},
 }

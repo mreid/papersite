@@ -1,0 +1,8 @@
+@InProceedings{zico12,
+  title = {Approximate Inference in Additive Factorial HMMs with Application to Energy Disaggregation},
+  author = {J. Zico Kolter and Tommi Jaakkola},
+  pages = {1472--1482},
+  abstract = {This paper considers additive factorial hidden Markov models, an extension to HMMs where the state factors into multiple independent chains, and the output is an additive function of all the hidden states.  Although such models are very powerful, accurate inference is unfortunately difficult: exact inference is not computationally tractable, and existing approximate inference techniques are highly susceptible to local optima.  In this paper we propose an alternative inference method for such models, which exploits their additive structure by 1) looking at the observed difference signal of the observation, 2) incorporating a ``robust'' mixture component that can account for unmodeled observations, and 3) constraining the posterior to allow at most one hidden state to change at a time.  Combining these elements we develop a convex formulation of approximate inference that is computationally efficient, has no issues of local optima, and which performs much better than existing approaches in practice.  The method is motivated by the problem of energy disaggregation, the task of taking a whole home electricity signal and decomposing it into its component appliances; applied to this task, our algorithm achieves state-of-the-art performance, and is able to separate many appliances almost perfectly using just the total aggregate signal.},
+  pdf = {http://jmlr.org/proceedings/papers/v22/zico12/zico12.pdf},
+  supplementary = {Supplementary:http://jmlr.org/proceedings/papers/v22/zico12/zico12Supple.tgz},
+}

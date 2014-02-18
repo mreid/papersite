@@ -1,0 +1,9 @@
+@InProceedings{shin12,
+  title = {Complexity of Bethe Approximation},
+  author = {Jinwoo Shin},
+  pages = {1037--1045},
+  abstract = {This paper resolves a common complexity issue in the Bethe approximation of statistical physics and the sum-product Belief Propagation (BP) algorithm of artificial intelligence. The Bethe approximation reduces the problem of computing the partition function in a graphical model to that of solving a set of non-linear equations, so-called the Bethe equation. On the other hand, the BP algorithm is a popular heuristic method for estimating marginal distribution in a graphical model. Although they are inspired and developed from different directions, Yedidia, Freeman and Weiss (2004) established a somewhat surprising connection: the BP algorithm solves the Bethe equation if it converges (however, it often does not). This naturally motivates the following important question to understand their limitations and empirical successes: the Bethe equation is computationally easy to solve?
+
+We present a message passing algorithm solving the Bethe equation in polynomial number of bitwise operations for arbitrary binary graphical models of n nodes where the maximum degree in the underlying graph is O(log n). Our algorithm, an alternative to BP fixing its convergence issue, is the first fully polynomial-time approximation scheme for the BP fixed point computation in such a large class of graphical models. Moreover, we believe that our technique is of broader interest to understand the computational complexity of the cavity method in statistical physics.},
+  pdf = {http://jmlr.org/proceedings/papers/v22/shin12/shin12.pdf},
+}

@@ -1,0 +1,9 @@
+@InProceedings{mcmahan11b,
+  title = {Follow-the-Regularized-Leader and Mirror Descent: Equivalence Theorems and L1 Regularization},
+  author = {Brendan McMahan},
+  pages = {525--533},
+  abstract = {We prove that many mirror descent algorithms for online convex optimization (such as online gradient descent) have an equivalent interpretation as follow-the-regularized-leader (FTRL) algorithms. This observation makes the relationships between many commonly used algorithms explicit, and provides theoretical insight on previous experimental observations.  In particular, even though the FOBOS composite mirror descent algorithm handles L1 regularization explicitly, it has been observed that the FTRL-style Regularized Dual Averaging (RDA) algorithm is even more effective at producing sparsity.  Our results demonstrate that the key difference between these algorithms is how they handle the cumulative L1 penalty. While FOBOS handles the L1 term exactly on any given update, we show that it is effectively using subgradient approximations to the L1 penalty from previous rounds, leading to less sparsity than RDA, which handles the cumulative penalty in closed form.  The FTRL-Proximal algorithm, which we introduce, can be seen as a hybrid of these two algorithms, and significantly outperforms both on a large, real-world dataset.  
+
+[pdf]},
+  pdf = {http://jmlr.org/proceedings/papers/v15/mcmahan11b/mcmahan11b.pdf},
+}
