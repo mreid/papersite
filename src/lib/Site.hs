@@ -7,7 +7,8 @@ import            Author
 import            Control.Applicative ((<$>), (<|>), empty)
 import            Control.Monad       (forM_, liftM, liftM3)
 import			  Data.Char
-import            Data.List           (foldl', intersperse, sortBy, elemIndex)
+import            Data.List           (foldl', intersperse, intercalate, sortBy, 
+                                       elemIndex)
 import            Data.List.HT        (chop, segmentBefore)
 import            Data.Map            (keys, (!))
 import            Data.Maybe
@@ -22,16 +23,17 @@ import            Text.Regex
 import            System.FilePath
 
 --------------------------------------------------------------------------------
-realMain :: IO ()
-realMain = hakyllWith config $ do
-
+realMain :: String -> IO ()
+realMain regex = hakyllWith config $ do
+  let onlyVols = fromRegex regex
+  
   -- Load in the conference details for reference from paper entries
-  match "db/*.bib" $ version "fields" $ do
+  match ("db/*.bib" .&&. onlyVols) $ version "fields" $ do
     compile $ do
       entryCompiler 
 
   -- Compile conference details in, e.g., @db/v31.bib@ to HTML
-  match "db/*.bib" $ version "html" $ do
+  match ("db/*.bib" .&&. onlyVols) $ version "html" $ do
     route $ 
       gsubRoute "db/" (const "") `composeRoutes` 
       gsubRoute ".bib" (const "/index.html")
@@ -55,7 +57,7 @@ realMain = hakyllWith config $ do
         >>= relativizeUrls
 
   -- Papers are in, e.g., @db/v26/reid12b.bib
-  match "db/*/*.bib" $ do
+  match ("db/*/*.bib" .&&. onlyVols) $ do
     route $ 
       gsubRoute "db/" (const "") `composeRoutes` 
       setExtension "html"
@@ -71,7 +73,7 @@ realMain = hakyllWith config $ do
   --   compile copyFileCompiler
 
   -- All files (PDFs, Zip, BibTeX)
-  match "db/*/*.*" $ do
+  match ("db/*/*.*" .&&. onlyVols) $ do
 	route $ gsubRoute "db/" (const "")
 	compile copyFileCompiler
 
@@ -155,16 +157,12 @@ maybeGetField :: String -> (Item Entry) -> Compiler String
 maybeGetField key  
  | key `elem` defaultKeys = maybe (defaultKeyWarning key) return . getField key
  | True                   = maybe empty return . getField key
-
--- These are keys, such as abstracts, that each entry should have by default.
-defaultKeys :: [String]
-defaultKeys = ["abstract"]
-
-defaultKeyWarning :: String -> Compiler String
-defaultKeyWarning key = 
-  debugCompiler ("WARNING: Could not find " ++ key)
-  >> return ("[Not found: " ++ key ++ "]")
-
+  where
+    defaultKeys = ["abstract", "title", "author", "pages"]
+    defaultKeyWarning key = 
+      debugCompiler ("WARNING: Could not find " ++ key)
+      >> return ("[Not found: " ++ key ++ "]")
+      
 -- Compile an entry by parsing its associated BibTeX file
 entryCompiler :: Compiler (Item Entry)
 entryCompiler = getResourceString >>= makeItem . parseEntry . itemBody
