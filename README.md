@@ -26,37 +26,6 @@ for example:
 	$ ln -s dist/build/import/import ./import
 
 
-### Managing Haskell Environments
-
-_Note: This is not needed unless you are developing on more than one branch of this software_.
-
-As various Haskell libraries change over time, it is sometimes necessary to upgrade
-the site generation tools but be able to use older versions to generate and do
-regression tests.
-
-To manage this, I've opted to use [hsenv](https://github.com/tmhedberg/hsenv) as
-follows:
-
-	$ cabal install hsenv
-	$ cd ~/Library/Haskell
-	$ hsenv --name hakyll4.2    # To run against older Hakyll build
-	$ source ~/Library/Haskell/.hsenv_hakyll4.2/bin/activate
-	(A new environment called hakyll4.2 is activated)
-	
-	$ cabal install hakyll-4.2.2.0
-	(Hakyll 4.2.2.0, its dependencies, and others are built in hakyll4.2 environment)
-
-	$ cd ~/path/to/papersite
-	$ cabal build 
-	(Gets dependencies for `site` and builds it)
-
-Now the papersite applications will be built against Hakyll 4.2 and be available
-in the directory `dist_hakyll4.2/build`.
-
-To switch back to your system's usual Haskell build and libraries use
-
-	$ deactivate_hsenv
-
 ## Usage
 
 Using these tools occurs in two steps:
@@ -102,6 +71,22 @@ and then pointing a browser at `http://localhost:8000/`.
 
 If changes are made to entries, just run `./site build` to update without rebuilding
 the entire site.
+
+#### Selectively generating volumes
+
+When tweaking single papers in the database or testing the generation code, it is 
+inconvenient to have to rebuild every volume. To alleviate this it is possible to
+specify which volumes you want previewed or rebuilt via the `only` modifier.
+For example:
+
+	$ ./site rebuild only v1      # Volume 1 only
+	$ ./site rebuild only v[2-7]  # Volumes 2 through 7 inclusive only
+	$ ./site rebuild only v3 v23  # Volumes 3 and 23 only
+
+The `only` extension also works for `build` and `preview`.
+Note that the `v[2-7]` is using a regular expression to match the digits 2 
+through 7. The term `v[10-13]` will **not** match volumes 10 through 13. 
+This is more easily achieved by explicit writing `v10 v11 v12 v13`.
 
 ### Deploying the site
 
