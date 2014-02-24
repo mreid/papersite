@@ -68,13 +68,16 @@ instance Eq Paper where
 instance Ord Paper where
   compare paper paper' = compare (paperID paper) (paperID paper')
 
-parseEntry :: FilePath -> Entry
-parseEntry path =
-  case Parsec.parse BibTex.Parse.file "<BibTeX entry>" path of
+parseEntry :: String -> Entry
+parseEntry entry =
+  case Parsec.parse BibTex.Parse.file ("\n"++src) entry of
     Left err       -> error $ show err
     Right [entry]  -> Entry entry 
-    Right []       -> error $ "Empty BibTeX file: " ++ path
+    Right []       -> error $ "Empty BibTeX file: " ++ entry
     Right _        -> error "BibTeX files must only have a single entry"
+    where
+      -- Add lines numbers to source file for error reporting
+      src = "\n"++(unlines$zipWith ((++) . (++ ": ") . show) [1..] (lines entry))
 
 --------------------------------------------------------------------------------
 -- Get the paper's indentifier
