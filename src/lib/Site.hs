@@ -7,6 +7,7 @@ import            Author
 import            Control.Applicative ((<$>), (<|>), empty)
 import            Control.Monad       (forM_, liftM, liftM3)
 import			  Data.Char
+import            Data.Function       (on)
 import            Data.List           (foldl', intersperse, intercalate, sortBy, 
                                        elemIndex)
 import            Data.List.HT        (chop, segmentBefore)
@@ -28,8 +29,8 @@ realMain regex = hakyllWith config $ do
   let onlyVols = fromRegex regex
   
   -- Load in the conference details for reference from paper entries
-  match ("db/*.bib" .&&. onlyVols) $ version "fields" $ do
-    compile $ do
+  match ("db/*.bib" .&&. onlyVols) $ version "fields" $ 
+    compile  
       entryCompiler 
 
   -- Compile conference details in, e.g., @db/v31.bib@ to HTML
@@ -38,14 +39,14 @@ realMain regex = hakyllWith config $ do
       gsubRoute "db/" (const "") `composeRoutes` 
       gsubRoute ".bib" (const "/index.html")
 
-    compile $ do 
+    compile $
       entryCompiler
         >>= (\conf -> do 
           let confID = itemIdentifier conf
           let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
           papers <- pageSort <$> loadAllSnapshots pattern "test"
 
-          let sectionOrd = comparing $ (flip elemIndex $ (sectionOrder conf)) . fromMaybe "default" .fst
+          let sectionOrd = comparing $ flip elemIndex (sectionOrder conf) . fromMaybe "default" .fst
           let sections = fmap (Item "") . sortBy sectionOrd $ makeSections [] papers
 
           let sectionCtx = sectionContext conf
@@ -62,7 +63,7 @@ realMain regex = hakyllWith config $ do
       gsubRoute "db/" (const "") `composeRoutes` 
       setExtension "html"
 
-    compile $ do
+    compile $ 
       entryCompiler
         >>= saveSnapshot "test"
         >>= loadAndApplyTemplate "templates/paper.html" entryContext
@@ -109,9 +110,9 @@ config = defaultConfiguration
 
 -- FIXME: Make sure this can handle roman (e.g., "xvi") page numbers.
 pageSort :: [Item Entry] -> [Item Entry]
-pageSort = sortBy (\i1 i2 -> compare (page i1) (page i2))
+pageSort = sortBy (compare `on` page) -- (\i1 i2 -> compare (page i1) (page i2))
   where
-	page = (read :: String -> Float) . fromJust . (getField "firstpage")
+	page = (read :: String -> Float) . fromJust . getField "firstpage"
 
 -- Define a context for template fields using a given entry.
 -- This context will look for a matching field in the Entry's BibTeX fields
@@ -144,19 +145,19 @@ toSupps str = undefined
 
 entryContext' :: Context Entry
 entryContext' = Context $ 
-  \key item -> maybeGetField key item >>= return . StringField
+  \key item -> liftM StringField (maybeGetField key item) -- >>= return . StringField
 
 confContext' :: Context Entry
 confContext' = Context $
-  \key item -> conferenceEntry item >>= maybeGetField key >>= return . StringField
+  \key item -> liftM StringField (conferenceEntry item >>= maybeGetField key) -- >>= return . StringField
 
 -- Return a Compiler String for a looked-up value or the empty Compiler
 -- If the key search for is a default key then log a warning and return a
 -- placeholder value if it is missing
-maybeGetField :: String -> (Item Entry) -> Compiler String
+maybeGetField :: String -> Item Entry -> Compiler String
 maybeGetField key  
  | key `elem` defaultKeys = maybe (defaultKeyWarning key) return . getField key
- | True                   = maybe empty return . getField key
+ | otherwise              = maybe empty return . getField key
   where
     defaultKeys = ["abstract", "title", "author", "pages"]
     defaultKeyWarning key = 
@@ -174,13 +175,13 @@ saveEntryCompiler entry = saveSnapshot (entryConfPath entry) entry
 -- Compute the path for the conference BibTeX file given the path for a paper
 -- e.g., this takes "db/ICML/2012/reid12a.bib" to "db/ICML/2012.bib"
 confPath :: FilePath -> FilePath
-confPath path = (takeDirectory path) ++ ".bib"
+confPath path = takeDirectory path ++ ".bib"
 
 entryConfPath :: Item Entry -> FilePath
 entryConfPath = confPath . toFilePath . itemIdentifier 
 
 -- Load the conference entry associated with the paper with the given ID.
-conferenceEntry :: (Item Entry) -> Compiler (Item Entry)
+conferenceEntry :: Item Entry -> Compiler (Item Entry)
 conferenceEntry = load . setVersion (Just "fields") . fromFilePath . entryConfPath
 
 --------------------------------------------------------------------------------
@@ -202,11 +203,11 @@ makeSections = foldl' addToSection
 
 -- Adds an entry to the association list according to its section.
 -- The entry is added to the section "default" if it has no section field.
-addToSection :: [Section] -> (Item Entry) -> [Section]
+addToSection :: [Section] -> Item Entry -> [Section]
 addToSection [] entry = [(getField "section" entry, [entry])]
 addToSection ((sec, es):rest) entry
   | sec == getField "section" entry   = (sec, es ++ [entry]):rest
-  | True                              = (sec, es):(addToSection rest entry)
+  | otherwise                         = (sec, es):addToSection rest entry
 
 -- Build a context for a section using the given titling function.
 --    section = title of section
@@ -214,7 +215,7 @@ addToSection ((sec, es):rest) entry
 sectionContext :: Item Entry -> Context Section
 sectionContext conf =
   field     "sectionid"   (return . secID)              <>
-  field     "section"     (return . (sectionTitles conf) . secID)   <>
+  field     "section"     (return . sectionTitles conf . secID)   <>
   listField' "papers"     entryContext (return . sectionEntries . itemBody)
   where
     secID = sectionID . itemBody
@@ -224,7 +225,7 @@ sectionContext conf =
 --	  key1=Title Number 1|key2=Title Number Two|default=Default Title
 sectionTitles :: Item Entry -> String -> String
 sectionTitles entry = case getField "sections" entry of
-    Nothing     -> \_ -> "Accepted Papers"
+    Nothing     -> const "Accepted Papers"
     Just val    -> \key -> fromMaybe "Accepted Papers" . lookup key . convert $ val
     where 
 	  tuplify [x,y] = (x,y)
@@ -232,7 +233,7 @@ sectionTitles entry = case getField "sections" entry of
 
 -- Get the section IDs from the sections field in the order they appear
 sectionOrder :: Item Entry -> [String]
-sectionOrder = maybe [] (map head . parseSections) . (getField "sections")
+sectionOrder = maybe [] (map head . parseSections) . getField "sections"
 
 parseSections :: String -> [[String]]
 parseSections = map (chop (=='=')) . chop (=='|')
