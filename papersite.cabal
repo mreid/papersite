@@ -34,20 +34,20 @@ library
   exposed-modules:   Site, Paper, Author
   build-depends:       
    base,
-   binary ==0.5.*,
-   containers >=0.4,
+   binary,
+   containers,
    filepath,
-   mtl ==2.1.*,
-   network >=2.3,
-   parsec ==3.1.*,
-   regex-compat ==0.95.*,
-   text ==0.11.*,
-   utility-ht ==0.0.*,
+   mtl,
+   network,
+   parsec,
+   regex-compat,
+   text,
+   utility-ht,
    ---
-   hakyll ==4.3.*,
-   pandoc ==1.11.*,
-   bibtex ==0.1.*,
-   latex ==0.1.*
+   hakyll ==4.4.3.*,
+   pandoc,
+   bibtex,
+   latex
 
 -- The main executable depends only on the library modules
 executable site
@@ -63,8 +63,8 @@ executable import
  main-is:           import.hs
 
  build-depends:
-  base, directory, filepath == 1.3.*, parsec ==3.1.*,
-  bibtex ==0.1.*, latex ==0.1.*
+  base, directory, filepath, parsec,
+  bibtex, latex
 
 executable scrape
   hs-source-dirs:	src/exec
@@ -72,10 +72,10 @@ executable scrape
   main-is:			scrape.hs
 
   build-depends:
-   base, HandsomeSoup ==0.3.*, hxt ==9.3.*, tagsoup ==0.12.*,
-   bibtex ==0.1.*, latex ==0.1.*, utility-ht ==0.0.9,
-   hxt-regex-xmlschema ==9.1.*, text ==0.11.*,
-   network ==2.4.*, HTTP ==4000.*, directory ==1.2.*
+   base, HandsomeSoup, hxt, tagsoup,
+   bibtex, latex, utility-ht,
+   hxt-regex-xmlschema, text,
+   network, HTTP, directory
 
 -- Testing
 test-suite tests
