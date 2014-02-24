@@ -1,7 +1,6 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 module Author
   ( Author (..)
 	, authorURI
@@ -56,11 +55,11 @@ instance Writable Author where
 
 --------------------------------------------------------------------------------
 name :: Author -> String
-name author = (unwords $ firstNames author) ++ lastName author
+name author = unwords (firstNames author) ++ lastName author
 
 authorURI :: Author -> Identifier
 authorURI author = 
-    fromFilePath ("author/" ++ (toFilePath $ authorID author) ++ ".html")
+    fromFilePath ("author/" ++ toFilePath (authorID author) ++ ".html")
 
 authorContext :: Context Author
 authorContext =
@@ -117,11 +116,11 @@ parseLastFirst firstNames lastName =
 -- Hand coded from the Unicode Latin 1 and (parts of) A Supplement table here:
 --   http://en.wikipedia.org/wiki/List_of_Unicode_characters
 cleanUnicode :: String -> String
-cleanUnicode s = map convert s
+cleanUnicode = map convert 
     where
       convert c = case (lookup c mapping) of
-        (Just c') -> c'
-        Nothing   -> c
+        Just c' -> c'
+        Nothing -> c
       mapping = 
         concatMap 
           (\(list,char) -> [(char',char) | char' <- list])

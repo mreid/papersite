@@ -52,15 +52,15 @@ instance Binary BibTex.T where
 
 instance Binary Paper where
   put (Paper entry conf) = do
-    put $ entry
-    put $ conf
+    put entry
+    put conf
 
   get = Paper <$> get <*> get
 
 instance Writable Paper where
   write fp item =
     let Paper entry conf = itemBody item
-    in writeFile fp ((BibTex.Format.entry entry) ++ (BibTex.Format.entry conf))
+    in writeFile fp (BibTex.Format.entry entry ++ BibTex.Format.entry conf)
 
 instance Eq Paper where
   (==) paper paper' = paperID paper == paperID paper'
@@ -77,7 +77,7 @@ parseEntry entry =
     Right _        -> error "BibTeX files must only have a single entry"
     where
       -- Add lines numbers to source file for error reporting
-      src = "\n"++(unlines$zipWith ((++) . (++ ": ") . show) [1..] (lines entry))
+      src = "\n" ++ (unlines$zipWith ((++) . (++ ": ") . show) [1..] (lines entry))
 
 --------------------------------------------------------------------------------
 -- Get the paper's indentifier
@@ -85,7 +85,7 @@ paperID :: Paper -> Identifier
 paperID (Paper entry _) = fromFilePath $ BibTex.identifier entry
 
 paperURI :: Paper -> Identifier
-paperURI paper = fromFilePath ("paper/" ++ (toFilePath $ paperID paper) ++ ".html") 
+paperURI paper = fromFilePath ("paper/" ++ toFilePath (paperID paper) ++ ".html") 
 
 --------------------------------------------------------------------------------
 -- Converts a TeX string into HTML + MathJax
@@ -98,7 +98,7 @@ latexToHtml tex =
     def { writerHTMLMathMethod = MathJax "" } p
 
 --------------------------------------------------------------------------------
-getField :: String -> (Item Entry) -> Maybe String
+getField :: String -> Item Entry -> Maybe String
 getField key = getField' key . itemBody
 
 getField' :: String -> Entry -> Maybe String
@@ -107,7 +107,7 @@ getField' key entry@(Entry t) =
   "identifier"  -> Just $ BibTex.identifier t
   "firstpage"   -> firstpage
   "lastpage"    -> lastpage
-  "url"         -> fmap (toURI "html") $ identifier
+  "url"         -> toURI "html" <$> identifier
   "pdf"         -> pdf t
   "rawtitle"    -> lookup "title" . BibTex.fields $ t
   _             -> fmap latexToHtml (lookup key . BibTex.fields $ t)
@@ -124,4 +124,4 @@ pdf t = case lookup "pdf" . BibTex.fields $ t of
   Nothing   -> Just . toURI "pdf" $ BibTex.identifier t
 
 toURI :: String -> FilePath -> String
-toURI ext path = (escapeURIString isUnreserved path) ++ "." ++ ext
+toURI ext path = escapeURIString isUnreserved path ++ "." ++ ext
