@@ -12,6 +12,7 @@ _cache
 import
 site
 scrape
+update
 tmp
 
 .DS_Store
