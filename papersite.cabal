@@ -77,6 +77,14 @@ executable scrape
    hxt-regex-xmlschema, text,
    network, HTTP, directory
 
+executable update
+  hs-source-dirs:	src/exec
+  default-language: Haskell2010
+  main-is:          update.hs
+  
+  build-depends:
+    base, filepath, directory, parsec, bibtex, hxt
+
 -- Testing
 test-suite tests
   default-language:    Haskell2010
