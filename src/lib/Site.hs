@@ -4,6 +4,8 @@ module Site where
 
 --------------------------------------------------------------------------------
 import            Author
+import            Page
+
 import            Control.Applicative ((<$>), (<|>), empty)
 import            Control.Monad       (forM_, liftM, liftM3)
 import			  Data.Char
@@ -108,11 +110,12 @@ config = defaultConfiguration
         ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/newsite/"
   }
 
--- FIXME: Make sure this can handle roman (e.g., "xvi") page numbers.
+-- Sorts the entries by first page, taking into account roman numerals
+-- indicating prefaces.
 pageSort :: [Item Entry] -> [Item Entry]
 pageSort = sortBy (compare `on` page) -- (\i1 i2 -> compare (page i1) (page i2))
   where
-	page = (read :: String -> Float) . fromJust . getField "firstpage"
+	page = orderValue . fromJust . firstPage . getT . itemBody
 
 -- Define a context for template fields using a given entry.
 -- This context will look for a matching field in the Entry's BibTeX fields

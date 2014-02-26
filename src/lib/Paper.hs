@@ -5,6 +5,7 @@
 module Paper
   ( Paper (..)
   , Entry
+  , getT
   , parseEntry
   , getField
   , getField'
@@ -13,6 +14,7 @@ module Paper
   ) where
 
 --------------------------------------------------------------------------------
+import            Page
 import            Control.Applicative (empty, (<$>), (<*>))
 import            Control.Monad (liftM)
 import            Control.Monad.Error
@@ -34,6 +36,9 @@ import            Text.Pandoc         (
 --------------------------------------------------------------------------------
 newtype Entry = Entry BibTex.T
   deriving (Show, Typeable, Writable, Binary)
+
+getT :: Entry -> BibTex.T
+getT (Entry t) = t
 
 data Paper = Paper { entry :: BibTex.T, conference :: BibTex.T }
   deriving (Show, Typeable)
@@ -114,8 +119,8 @@ getField' key entry@(Entry t) =
   where
     pages = getField' "pages" entry
     identifier = getField' "identifier" entry
-    firstpage = fmap (takeWhile isNumber) pages
-    lastpage  = fmap (reverse . takeWhile isNumber . reverse) pages
+    firstpage = firstPage t
+    lastpage  = lastPage t
     isNumber c = c `elem` ['0'..'9'] ++ ['x','v','i'] ++ ['.']
 
 -- Use value of "pdf" field in entry if present or construct it from id

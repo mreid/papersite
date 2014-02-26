@@ -1,6 +1,6 @@
 module Main where
 
--- import Control.Arrow        (left)
+import Page
 import Control.Monad        (forM_, liftM)
 import Data.AssocList       (addEntry)
 import Data.Char            (toUpper, isDigit)
@@ -28,8 +28,8 @@ main = do
       putStrLn $ 
         "Adding 'section={" ++ section ++ "}' to " ++ vol ++
           " for pages " ++ start ++ "--" ++ end
-      let startPos = parsePage start
-      let endPos   = parsePage end
+      let startPos = orderValue start
+      let endPos   = orderValue end
       
       -- Get list of paths to .bib files for given volume
       files <- addInitPath vol <$> getDirectoryContents vol
@@ -50,7 +50,7 @@ main = do
 
 -- Test whether entry has first page in correct range
 inRange start end entry = pagePos >= start && pagePos < end
-  where pagePos = firstpage entry
+  where pagePos = orderValue . fromJust . firstPage $ entry
 
 -- Parse a single entry given its path
 parseEntry path = either (error "Bad parse") (\ts -> (path, head ts)) <$> 
@@ -62,29 +62,22 @@ addInitPath path = map (joinPath . (\x -> [path,x]))
 --------------------------------------------------------------------------------
 -- Managing entry ordering
 
--- Flag denoting whether entry is in preface or not
-data Location = Preface | Regular deriving (Show, Eq, Ord)
-
--- Compare entries by their first page
-instance Eq T where (==) = (==) `on` firstpage
-instance Ord T where compare = compare `on` firstpage
-
 -- Look up the given key in a BibTeX entry
 get :: String -> T -> Maybe String
 get key = lookup key . fields
 
--- Parse a roman or arabic numeral into a (Location,Int) pair
-parsePage :: String -> (Location, Int)
-parsePage str
-  | isRomanStr str      = (Preface, romanToInt . map toUpper $ str) 
-  | otherwise           = (Regular, read str :: Int)
+-- -- Parse a roman or arabic numeral into a (Location,Int) pair
+-- parsePage :: String -> (Location, Int)
+-- parsePage str
+--   | isRomanStr str      = (Preface, romanToInt . map toUpper $ str) 
+--   | otherwise           = (Regular, read str :: Int)
 
 -- Get the first page, parsing Roman numeral pages into integers
 -- Roman numerals indicate a Preface entry, otherwise it is Regular
-firstpage :: T -> (Location, Int)
-firstpage entry = parsePage pageStr
-  where
-    pageStr = takeWhile isPageDigit . fromJust . get "pages" $ entry
+-- firstpage :: T -> (Location, Int)
+-- firstpage entry = parsePage pageStr
+--   where
+--     pageStr = takeWhile isPageDigit . fromJust . get "pages" $ entry
 
 -- Change the value in an entry's fields
 updateField :: String -> String -> T -> T
