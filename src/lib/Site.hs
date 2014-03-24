@@ -107,7 +107,7 @@ config = defaultConfiguration
 	deployCommand = 
       "rsync --checksum -avz --no-group /tmp/jmlr/* " 
         ++ "mreid@login.csail.mit.edu:"
-        ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/papers/"
+        ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/newsite/"
   }
 
 -- Sorts the entries by first page, taking into account roman numerals
