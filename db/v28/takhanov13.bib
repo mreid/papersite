@@ -1,8 +1,8 @@
-@InProceedings{kolmogorov13,
+@InProceedings{takhanov13,
   number = {3},
   section = {cycle-3},
   title = {Inference algorithms for pattern-based CRFs on sequence data},
-  author = {Kolmogorov, Vladimir and Takhanov, Rustem},
+  author = {Takhanov, Rustem and Kolmogorov, Vladimir},
   pages = {145-153},
   abstract = {We consider {\em Conditional Random Fields (CRFs) with pattern-based potentials}  defined on a chain. In this model the energy of a string (labeling) $x_1\ldots x_n$  is the sum of terms over intervals $[i,j]$ where each term is non-zero only if the substring $x_i\ldots x_j$  equals a prespecified pattern $\alpha$. Such CRFs can be naturally applied to many sequence tagging problems. We present efficient algorithms for the three standard inference tasks in a CRF, namely  computing (i) the partition function, (ii) marginals, and (iii) computing the MAP.  Their complexities are respectively  $O(n L)$, $O(n L \ell_{\max})$ and  $O(n L \min\{|D|,\log (\ell_{\max} + 1)\})$  where $L$ is the combined length of input patterns, $\ell_{\max}$ is the maximum length of a pattern,  and $D$ is the input alphabet.  This improves on the previous algorithms of~\cite{Ye:NIPS09} whose complexities are respectively $O(n L |D|)$,  $O\left(n |\Gamma| L^2 \ell_{\max}^2\right)$ and $O(n L |D|)$,  where $|\Gamma|$ is the number of input patterns. In addition, we give an efficient algorithm for sampling,  and revisit the case of MAP with non-positive weights. Finally, we apply pattern-based CRFs to the problem of the protein dihedral angles prediction.  },
 }
