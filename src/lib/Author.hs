@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveDataTypeable #-}
 module Author
   ( Author (..)
 	, authorURI
