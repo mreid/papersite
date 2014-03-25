@@ -66,19 +66,6 @@ addInitPath path = map (joinPath . (\x -> [path,x]))
 get :: String -> T -> Maybe String
 get key = lookup key . fields
 
--- -- Parse a roman or arabic numeral into a (Location,Int) pair
--- parsePage :: String -> (Location, Int)
--- parsePage str
---   | isRomanStr str      = (Preface, romanToInt . map toUpper $ str) 
---   | otherwise           = (Regular, read str :: Int)
-
--- Get the first page, parsing Roman numeral pages into integers
--- Roman numerals indicate a Preface entry, otherwise it is Regular
--- firstpage :: T -> (Location, Int)
--- firstpage entry = parsePage pageStr
---   where
---     pageStr = takeWhile isPageDigit . fromJust . get "pages" $ entry
-
 -- Change the value in an entry's fields
 updateField :: String -> String -> T -> T
 updateField key value t =
