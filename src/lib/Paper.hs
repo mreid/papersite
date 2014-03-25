@@ -13,7 +13,6 @@ module Paper
   ) where
 
 --------------------------------------------------------------------------------
-import            Config (baseURI)
 import            Page
 
 import            Control.Applicative (empty, (<$>), (<*>))

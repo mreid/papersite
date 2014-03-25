@@ -3,7 +3,6 @@
 module Site where
 
 --------------------------------------------------------------------------------
-import            Config (baseURI)
 import            Author
 import            Page
 
@@ -25,6 +24,9 @@ import qualified  Text.BibTeX.Entry   as BibTex
 import            Text.Pandoc
 import            Text.Regex
 import            System.FilePath
+
+-- Base URI for the W&CP site
+baseURI = "http://jmlr.org/proceedings/papers/"
 
 --------------------------------------------------------------------------------
 realMain :: String -> IO ()
