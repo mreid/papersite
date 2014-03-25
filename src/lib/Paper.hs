@@ -10,11 +10,12 @@ module Paper
   , getField
   , getField'
   , paperID
-  , paperURI
   ) where
 
 --------------------------------------------------------------------------------
+import            Config (baseURI)
 import            Page
+
 import            Control.Applicative (empty, (<$>), (<*>))
 import            Control.Monad (liftM)
 import            Control.Monad.Error
@@ -88,9 +89,6 @@ parseEntry entry =
 -- Get the paper's indentifier
 paperID :: Paper -> Identifier
 paperID (Paper entry _) = fromFilePath $ BibTex.identifier entry
-
-paperURI :: Paper -> Identifier
-paperURI paper = fromFilePath ("paper/" ++ toFilePath (paperID paper) ++ ".html") 
 
 --------------------------------------------------------------------------------
 -- Converts a TeX string into HTML + MathJax
