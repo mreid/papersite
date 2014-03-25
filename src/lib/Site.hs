@@ -107,7 +107,7 @@ config = defaultConfiguration
 	deployCommand = 
       "rsync --checksum -avz --no-group /tmp/jmlr/* " 
         ++ "mreid@login.csail.mit.edu:"
-        ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/papers/"
+        ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/newsite/"
   }
 
 -- Sorts the entries by first page, taking into account roman numerals
@@ -148,11 +148,11 @@ toSupps str = undefined
 
 entryContext' :: Context Entry
 entryContext' = Context $ 
-  \key item -> liftM StringField (maybeGetField key item) -- >>= return . StringField
+  \key item -> liftM StringField (maybeGetField key item) 
 
 confContext' :: Context Entry
 confContext' = Context $
-  \key item -> liftM StringField (conferenceEntry item >>= maybeGetField key) -- >>= return . StringField
+  \key item -> liftM StringField (conferenceEntry item >>= maybeGetField key)
 
 -- Return a Compiler String for a looked-up value or the empty Compiler
 -- If the key search for is a default key then log a warning and return a
