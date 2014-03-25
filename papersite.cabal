@@ -83,7 +83,7 @@ executable update
   main-is:          update.hs
   
   build-depends:
-    base, filepath, directory, parsec, bibtex, hxt
+    base, papersite, filepath, directory, parsec, bibtex, hxt
 
 -- Testing
 test-suite tests
