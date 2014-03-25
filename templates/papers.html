@@ -9,14 +9,18 @@
 	<!-- Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="/css/jmlr.css"/>
 
+	<!-- Fixed position navigation -->
+	<!--#include virtual="/proceedings/css-scroll.txt"-->
+
 	<!-- MathJax -->
 	$partial("templates/mathjax.html")$
-
 
 </head>
 <body>
 
-<div id="fixed"> $partial("templates/nav.html")$ </div>
+<div id="fixed">
+<!--#include virtual="/proceedings/nav-bar.txt"-->
+</div>
 
 <div id="content">
 	<h1>JMLR Workshop and Conference Proceedings</h1>
