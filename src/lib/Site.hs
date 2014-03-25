@@ -3,6 +3,7 @@
 module Site where
 
 --------------------------------------------------------------------------------
+import            Config (baseURI)
 import            Author
 import            Page
 
@@ -124,7 +125,7 @@ pageSort = sortBy (compare `on` page) -- (\i1 i2 -> compare (page i1) (page i2))
 -- and look for the BibTeX field there.
 entryContext :: Context Entry
 entryContext = 
-  constField "baseURI" "http://jmlr.org/proceedings/papers"     -- Base URI
+  constField "baseURI" baseURI     -- Base URI
   <> listField' "authors" authorContext (return . entryAuthors) -- Authors
   <> entryContext'      -- Fields from BibTeX entry
   <> confContext'       -- Fields from parent conference's BibTeX entry
