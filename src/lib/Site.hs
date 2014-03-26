@@ -56,6 +56,7 @@ realMain regex = hakyllWith config $ do
 
           let sectionCtx = sectionContext conf
           let sectionsCtx = listField "sections" sectionCtx (return sections) 
+                            <> listField' "editors" authorContext (return . entryNames "editor")
                             <> entryContext'
           
           loadAndApplyTemplate "templates/papers.html" sectionsCtx conf
@@ -128,9 +129,9 @@ pageSort = sortBy (compare `on` page) -- (\i1 i2 -> compare (page i1) (page i2))
 entryContext :: Context Entry
 entryContext = 
   constField "baseURI" baseURI     -- Base URI
-  <> listField' "authors" authorContext (return . entryAuthors) -- Authors
+  <> listField' "authors" authorContext (return . entryNames "author")
   <> entryContext'      -- Fields from BibTeX entry
-  <> confContext'       -- Fields from parent conference's BibTeX entry
+  <> confContext        -- Fields from parent conference's BibTeX entry
   <> suppContext        -- Fields for entry's supplementary items, if found
 
 suppContext :: Context Entry
@@ -142,8 +143,8 @@ suppContext =
 suppLookup :: (Supplementary -> String) -> Item Entry -> Compiler String
 suppLookup f = maybe empty (return . f) . entrySupplementary
 
-entryAuthors :: Item Entry -> [Item Author]
-entryAuthors = map (Item "") . maybe [] toAuthors . getField "author" 
+entryNames :: String -> Item Entry -> [Item Author]
+entryNames key = map (Item "") . maybe [] toAuthors . getField key
 
 -- FIXME: Parse supplementary string into list of (name,file)
 toSupps :: String -> [(String,FilePath)]
@@ -153,8 +154,8 @@ entryContext' :: Context Entry
 entryContext' = Context $ 
   \key item -> liftM StringField (maybeGetField key item) 
 
-confContext' :: Context Entry
-confContext' = Context $
+confContext :: Context Entry
+confContext = Context $
   \key item -> liftM StringField (conferenceEntry item >>= maybeGetField key)
 
 -- Return a Compiler String for a looked-up value or the empty Compiler
@@ -222,7 +223,7 @@ sectionContext :: Item Entry -> Context Section
 sectionContext conf =
   field     "sectionid"   (return . secID)              <>
   field     "section"     (return . sectionTitles conf . secID)   <>
-  listField' "papers"     entryContext (return . sectionEntries . itemBody)
+  listField' "papers"     entryContext (return . sectionEntries . itemBody) 
   where
     secID = sectionID . itemBody
 
