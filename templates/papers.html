@@ -26,7 +26,11 @@
 	<h1>JMLR Workshop and Conference Proceedings</h1>
 	<h2>Volume $volume$: $booktitle$</h2>
 
-	<p><strong>Editors: $editor$</strong></p>
+	<p><strong>Editors: 
+	$for(editors)$
+		$firstnames$ $surname$$sep$,
+	$endfor$
+	</strong></p>
 
 	<div id='sectionnav'>
 		<p>Contents:</p>
