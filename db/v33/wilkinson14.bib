@@ -1,0 +1,6 @@
+@InProceedings{wilkinson14,
+  title = {{Accelerating ABC methods using Gaussian processes}},
+  author = {Wilkinson, Richard},
+  pages = {1015-1023},
+  abstract = {Approximate Bayesian computation (ABC)  methods are used to approximate  posterior distributions  using simulation rather than likelihood calculations. We introduce Gaussian process (GP) accelerated ABC, which we show can significantly reduce the number of simulations required. As  computational resource is usually the main determinant of accuracy in ABC, GP-accelerated methods can thus enable  more accurate inference in some models.  GP models of the unknown log-likelihood function are  used to exploit continuity and smoothness,  reducing the required computation. We use a sequence of models  that increase in accuracy, using intermediate models to rule out regions of the parameter space as implausible. The methods will not be suitable for all problems, but when they can be used, can result in significant computational savings. For the Ricker model, we are able to achieve accurate approximations to the posterior distribution using a factor of 100 fewer simulator evaluations than comparable Monte Carlo approaches, and for a population genetics model we are able to approximate the exact posterior for the first time.},
+}

@@ -1,0 +1,6 @@
+@InProceedings{ailon14,
+  title = {{Improved Bounds for Online Learning Over the Permutahedron and Other Ranking Polytopes}},
+  author = {Ailon, Nir},
+  pages = {29-37},
+  abstract = {Consider the following game: There is a fixed set $V$ of $n$ items.  At each step an adversary chooses a score function  $s_t:V\mapsto[0,1]$, a learner outputs a  ranking of $V$, and then $s_t$ is revealed.  The learner's loss is the sum over $v\in V$, of $s_t(v)$ times $v$'s  position ($0$th, $1$st, $2$nd, ...) in the ranking.  This problem captures, for example, online systems that iteratively present ranked lists of items to users, who then respond by choosing one (or more) sought items.  The loss measures the users' burden, which increases the further the sought items are from the top.  It also captures a version of online rank aggregation.      We present an algorithm of expected regret  $O(n\sqrt{OPT} + n^2)$, where OPT is the loss of the best (single) ranking in hindsight.   This improves the previously best known  algorithm of Suehiro et. al (2012) by saving a factor of $\Omega(\sqrt{\log n})$.  We also reduce the per-step running time  from $O(n^2)$ to $O(n\log n)$.   We provide matching lower bounds.},
+}

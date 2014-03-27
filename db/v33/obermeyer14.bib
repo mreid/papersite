@@ -1,0 +1,7 @@
+@InProceedings{obermeyer14,
+  supplementary = {Supplementary:obermeyer14-supp.pdf},
+  title = {{Scaling Nonparametric Bayesian Inference via Subsample-Annealing}},
+  author = {Obermeyer, Fritz and Glidden, Jonathan and Jonas, Eric},
+  pages = {696-705},
+  abstract = {We describe an adaptation of the simulated annealing algorithm to nonparametric clustering and related probabilistic models. This new algorithm learns nonparametric latent structure over a growing and constantly churning subsample of training data, where the portion of data subsampled can be interpreted as the inverse temperature β(t) in an annealing schedule. Gibbs sampling at high temperature (i.e., with a very small subsample) can more quickly explore sketches of the final latent state by (a) making longer jumps around latent space (as in block Gibbs) and (b) lowering energy barriers (as in simulated annealing). We prove subsample annealing speeds up mixing time N^2 → N in a simple clustering model and exp(N) → N in another class of models, where N is data size. Empirically subsample-annealing outperforms naive Gibbs sampling in accuracy-per-wallclock time, and can scale to larger datasets and deeper hierarchical models. We demonstrate improved inference on million-row subsamples of US Census data and network log data and a 307-row hospital rating dataset, using a Pitman-Yor generalization of the Cross Categorization model.},
+}

@@ -1,0 +1,6 @@
+@InProceedings{parker14,
+  title = {{Spoofing Large Probability Mass Functions to Improve Sampling Times and Reduce Memory Costs}},
+  author = {Parker, Jon and Engler, Hans},
+  pages = {743-750},
+  abstract = {Sampling from a probability mass function (PMF) has many applications in modern computing.  This paper presents a novel lossy compression method intended for large ($O(10^5)$) dense PMFs that speeds up the sampling process and guarantees high fidelity sampling.  This compression method closely approximates an input PMF P with another PMF Q that is easy to store and sample from.  All samples are drawn from Q as opposed to the original input distribution P.  We say that Q ``spoofs'' P while this switch is difficult to detect with a statistical test.  The lifetime of Q is the sample size required to detect the switch from P to Q.  We show how to compute a single PMF's lifetime and present numeric examples demonstrating compression rates ranging from 62\% to 75\% when the input PMF is not sorted and 88\% to 99\% when the input is already sorted.  These examples have speed ups ranging from 1.47 to 2.82 compared to binary search sampling.},
+}

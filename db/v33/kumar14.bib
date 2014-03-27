@@ -1,0 +1,7 @@
+@InProceedings{kumar14,
+  supplementary = {Supplementary:kumar14-supp.pdf},
+  title = {{Fugue: Slow-Worker-Agnostic Distributed Learning for Big Models on Big Data}},
+  author = {Kumar, Abhimanu and Beutel, Alex and Ho, Qirong and Xing, Eric},
+  pages = {531-539},
+  abstract = {We present a scheme for fast, distributed learning on  big (i.e. high-dimensional) models applied to big datasets.  Unlike algorithms that focus on distributed learning in either the big data or big model setting  (but not both), our scheme partitions both the data and model variables  simultaneously. This not only leads to faster learning on distributed clusters,  but also enables machine learning applications where both data  and model are too large to fit within the memory of a single machine. Furthermore, our scheme  allows worker machines to perform additional updates while waiting for slow workers to finish,  which provides users with a tunable synchronization strategy that can  be set based on learning needs and cluster conditions.  We prove the correctness of such strategies, as well as provide  bounds on the variance of the model variables under our scheme.  Finally, we present empirical results for latent space models such  as topic models, which demonstrate that our method  scales well with large data and model sizes, while beating  learning strategies that fail to take both data and model partitioning into account.},
+}
