@@ -18,6 +18,7 @@ tmp
 .DS_Store
 db/**/*.pdf
 db/**/*.zip
+db/**/*.tgz
 received/**/*.pdf
 received/**/*.zip
 scraped/
