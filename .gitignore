@@ -6,6 +6,7 @@ cabal-dev
 *.chi
 *.chs.h
 .virthualenv
+.hdevtools.sock
 testdata
 _site
 _cache
