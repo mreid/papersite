@@ -1,0 +1,24 @@
+@InProceedings{feldman14a,
+  author = {Feldman, Vitaly and Kothari, Pravesh},
+  title = {Learning Coverage Functions and Private Release of Marginals},
+  pages = {679-702},
+  abstract = {We study the problem of approximating and learning coverage functions. A function $c: 2^{[n]} \rightarrow \mathbf{R}^{+}$
+  is a coverage function, if there exists a universe $U$ with non-negative weights $w(u)$ for each $u \in U$ and subsets
+  $A_1, A_2, \ldots, A_n$ of $U$ such that $c(S) = \sum_{u \in \cup_{i \in S} A_i} w(u)$.
+  Alternatively, coverage functions can be described as non-negative linear combinations of monotone disjunctions.
+  They are a natural subclass of submodular functions and arise in a number of applications.
+
+    We give an algorithm that for any $\gamma,\delta>0$, given random and uniform examples of an unknown coverage function $c$,
+    finds a function $h$ that approximates $c$ within factor $1+\gamma$ on all but $\delta$-fraction of the points in time
+    $poly(n,1/\gamma,1/\delta)$. This is the first fully-polynomial algorithm for learning an interesting class of functions in the
+    demanding PMAC model of Balcan and Harvey (2011). Our algorithms are based on several new structural properties of coverage functions.
+    Using the results in (Feldman and Kothari, 2014), we also show that coverage functions are learnable agnostically with excess $\ell_1$-error
+    $\epsilon$ over all product and symmetric distributions in time $n^{\log(1/\epsilon)}$.
+    In contrast, we show that, without assumptions on the distribution, learning coverage functions is at least as
+    hard as learning polynomial-size disjoint DNF formulas, a class of functions for which the best known algorithm runs
+    in time $2^{\tilde{O}(n^{1/3})}$ (Klivans and Servedio, 2004).
+
+    As an application of our learning results, we give simple differentially-private algorithms for releasing monotone conjunction
+    counting queries with low {\em average} error. In particular, for any $k \leq n$, we obtain private release of $k$-way marginals with average error
+    $\bar{\alpha}$ in time $n^{O(\log(1/\bar{\alpha}))}$. },
+}

@@ -1,0 +1,18 @@
+@InProceedings{ben-david14,
+  author = {Ben-David, Shai and Urner, Ruth},
+  title = {The sample complexity of agnostic learning under deterministic labels},
+  pages = {527-542},
+  abstract = {With the emergence of Machine Learning tools that allow handling data with a huge number of features, it becomes reasonable to assume that,
+ over the full set of features, the true labeling is (almost) fully determined.
+ That is, the labeling function is deterministic, but not necessarily a member of some known  hypothesis class.
+ However, agnostic learning of deterministic labels has so far received little research attention.
+We investigate this setting and show that it
+displays a behavior that is quite different from that of
+the fundamental results of the common (PAC) learning setups.
+First, we show that the sample complexity of learning a binary hypothesis class (with respect to deterministic labeling functions) is not fully determined by the VC-dimension of the class.
+For any $d$, we present classes of VC-dimension $d$ that are learnable from ${\tilde O}(d/\epsilon)$-many samples and classes that require samples of size $\Omega(d/\epsilon^2)$.
+Furthermore, we show that in this setup, there are classes for which any proper learner has suboptimal sample complexity.  While the class can be learned with sample complexity ${\tilde O}(d/\epsilon)$, any \emph{proper} (and therefore, any ERM) algorithm requires $\Omega(d/\epsilon^2)$ samples.
+We provide combinatorial characterizations of both phenomena, and further analyze
+the utility of unlabeled samples in this setting.
+Lastly, we discuss the error rates of nearest neighbor algorithms under deterministic labels and additional niceness-of-data assumptions.},
+}

@@ -1,0 +1,10 @@
+@InProceedings{daskalakis14,
+  author = {Daskalakis, Constantinos and Kamath, Gautam},
+  title = {Faster and Sample Near-Optimal Algorithms for Proper Learning Mixtures of Gaussians},
+  pages = {1183-1213},
+  abstract = {We provide an algorithm for properly learning mixtures of two single-dimensional Gaussians without any separability assumptions. Given $\tilde{O}(1/\varepsilon^2)$ samples from an unknown mixture, our algorithm outputs a mixture that is $\varepsilon$-close in total variation distance, in time $\tilde{O}(1/\varepsilon^5)$. Our sample complexity is optimal up to logarithmic factors, and significantly improves upon both Kalai et al., whose algorithm has a prohibitive dependence on $1/\varepsilon$, and Feldman et al., whose algorithm requires bounds on the mixture parameters and depends pseudo-polynomially in these parameters.
+
+One of our main contributions is an improved and generalized algorithm for selecting a good candidate distribution from among competing hypotheses. Namely, given a collection of $N$ hypotheses containing at least one candidate that is $\varepsilon$-close to an unknown distribution, our algorithm outputs a candidate which is $O(\varepsilon)$-close to the  distribution.
+The algorithm requires ${O}(\log{N}/\varepsilon^2)$ samples from the unknown distribution and ${O}(N \log N/\varepsilon^2)$ time, which improves previous such results (such as the Scheff\'e estimator) from a quadratic dependence of the running time on $N$ to quasilinear. Given the wide use of such results for the purpose of hypothesis selection, our improved algorithm implies immediate improvements to any such use.
+  },
+}

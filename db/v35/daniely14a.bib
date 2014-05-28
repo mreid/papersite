@@ -1,0 +1,26 @@
+@InProceedings{daniely14a,
+  author = {Daniely, Amit and Linial, Nati and Shalev-Shwartz, Shai},
+  title = {The Complexity of Learning Halfspaces using Generalized Linear Methods},
+  pages = {244-286},
+  abstract = {Many popular learning algorithms (E.g. Regression, Fourier-Transform based algorithms, Kernel SVM and Kernel ridge regression) operate by reducing the problem to a convex optimization problem over a set of functions. These methods offer the currently best approach to several central problems such as learning half spaces and learning DNF's. In addition they are widely used in numerous application domains. Despite their importance, there are still very few proof techniques to show limits on the power of these algorithms.
+
+We study the performance of this approach in the problem of
+(agnostically and improperly) learning halfspaces with margin
+$\gamma$. Let $D$ be a distribution over labeled examples. The
+$\gamma$-margin error of a hyperplane $h$ is the probability of an
+example to fall on the wrong side of $h$ or at a distance $\le\gamma$
+from it. The $\gamma$-margin error of the best $h$ is denoted
+$\mathrm{Err}_\gamma(D)$.  An $\alpha(\gamma)$-approximation algorithm
+receives $\gamma,\epsilon$ as input and, using i.i.d. samples of $D$,
+outputs a classifier with error rate $\le
+\alpha(\gamma)\mathrm{Err}_\gamma(D) + \epsilon$.  Such an algorithm is
+efficient if it uses $\mathrm{poly}(\frac{1}{\gamma},\frac{1}{\epsilon})$
+samples and runs in time polynomial in the sample size.
+
+The best approximation ratio achievable by an efficient algorithm is
+$O\left(\frac{1/\gamma}{\sqrt{\log(1/\gamma)}}\right)$ and is achieved
+using an algorithm from the above class. Our main result shows that the
+approximation ratio of every efficient algorithm from this family must be $\ge
+\Omega\left(\frac{1/\gamma}{\mathrm{poly}\left(\log\left(1/\gamma\right)\right)}\right)$,
+essentially matching the best known upper bound.},
+}

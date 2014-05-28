@@ -1,0 +1,18 @@
+@InProceedings{jain14,
+  author = {Jain, Prateek and Oh, Sewoong},
+  title = {Learning Mixtures of Discrete Product Distributions using Spectral Decompositions},
+  pages = {824-856},
+  abstract = {We study the problem of learning a distribution from samples, when the underlying distribution is a mixture of product distributions over discrete domains.
+This problem is motivated by several practical applications such as  crowdsourcing, recommendation systems, and learning Boolean functions.
+The existing solutions either heavily rely on the fact that the number of mixtures is finite or have  sample/time complexity that is exponential in the number of mixtures.
+In this paper, we introduce a polynomial time/sample complexity  method for learning a mixture of $r$ discrete product distributions over $\{1, 2, \dots, \ell\}^n$, for  general $\ell$ and $r$.
+We show that our approach is consistent and further provide finite sample guarantees.
+
+We use recently developed techniques from tensor decompositions for moment matching.
+A crucial step  in these approaches is to construct certain  tensors  with low-rank spectral decompositions.
+These tensors are typically estimated from the sample moments.
+The main challenge in learning mixtures of discrete product distributions is that  the corresponding low-rank tensors cannot be obtained directly from the sample moments.
+Instead, we need to estimate a low-rank matrix using only off-diagonal entries, and estimate a tensor using a few linear measurements.
+We give an alternating minimization based method to estimate the low-rank matrix, and  formulate the tensor estimation problem as a least-squares problem.
+},
+}

@@ -1,0 +1,40 @@
+@InProceedings{warmuth14,
+  author = {Warmuth, Manfred K. and Koolen, Wouter M.},
+  title = {Open Problem: Shifting Experts on Easy Data},
+  pages = {1295-1298},
+  abstract = {A number of online algorithms have been developed that have
+small additional loss (regret) compared to the best
+``shifting expert''. In this model, there is a set of experts and
+the comparator is the best partition of the trial sequence
+into a small number of segments, where the expert of
+smallest loss is chosen in each segment.
+The regret is typically defined for worst-case data / loss sequences.
+
+There has been a recent surge of interest in online algorithms
+that combine good worst-case guarantees with much improved performance on easy data.
+A practically relevant class of easy data is the case
+when the loss of each expert is iid
+and the best and second best experts have a gap
+between their mean loss. In the full information setting, the
+FlipFlop algorithm by
+De Rooij et al. (2014)
+combines the best of the iid
+optimal Follow-The-Leader (FL)
+and the worst-case-safe Hedge algorithms,
+whereas in the bandit information case SAO by
+Bubeck and Slivkins (2012)
+competes with the iid optimal UCB and the worst-case-safe EXP3.
+
+We ask the same question for the shifting expert problem.
+First, we ask what are the simple and efficient algorithms
+for the shifting experts problem when the loss
+sequence in each segment is iid with respect to a fixed but
+unknown distribution. Second, we ask how to efficiently
+unite the performance of such algorithms on easy data with worst-case robustness.
+
+A particular intriguing open problem is the case when
+the comparator shifts within a small subset of experts from a
+large set under the assumption that the losses in each
+segment are iid.},
+  section = {open},
+}

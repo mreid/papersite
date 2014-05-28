@@ -1,0 +1,32 @@
+@InProceedings{kegl14,
+  title = {Open Problem: A (missing) boosting-type convergence result for
+                  \textsc{AdaBoost.MH} with factorized multi-class classifiers},
+  author = {K\'egl, Bal\'azs},
+  pages = {1268-1275},
+  abstract = {In (K\'egl, 2014), we recently showed empirically that
+                  \textsc{AdaBoost.MH} is one of the best multi-class boosting
+                  algorithms when the classical one-against-all base
+                  classifiers, proposed in the seminal paper of Schapire and
+                  Singer~(1999), are replaced by factorized base classifiers
+                  containing a binary classifier and a vote (or code) vector. In
+                  a slightly different setup, a similar factorization coupled
+                  with an iterative optimization of the two factors also proved
+                  to be an excellent approach (Gao and Koller, 2011). The main
+                  algorithmic advantage of our approach over the original setup
+                  of Schapire and Singer~(1999) is that trees can be built in a
+                  straightforward way by using the binary classifier at inner
+                  nodes. In this open problem paper we take a step back to the
+                  basic setup of boosting generic multi-class factorized
+                  (Hamming) classifiers (so no trees), and state the classical
+                  problem of boosting-like convergence of the training
+                  error. Given a vote vector, training the classifier leads to a
+                  standard weighted binary classification problem. The main
+                  difficulty of proving the convergence is that, unlike in
+                  binary \textsc{AdaBoost}, the sum of the weights in this
+                  weighted binary classification problem is less than one, which
+                  means that the lower bound on the edge, coming from the weak
+                  learning condition, shrinks. To show the convergence, we need
+                  a (uniform) lower bound on the sum of the weights in this
+                  derived binary classification problem.},
+  section = {open},
+}

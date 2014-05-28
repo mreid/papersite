@@ -1,0 +1,18 @@
+@InProceedings{li14,
+  title = {Compressed Counting Meets Compressed Sensing},
+  author = {Li, Ping and Zhang, Cun-Hui and Zhang, Tong},
+  pages = {1058-1077},
+  abstract = {Compressed sensing (sparse signal recovery) has been a popular and important research topic in recent years.
+    By observing that natural signals  (e.g., images or network data) are often nonnegative,
+    we propose a framework for nonnegative signal recovery using {\em Compressed Counting (CC)}.
+    CC is a technique built on  {\em maximally-skewed $\alpha$-stable random projections} originally developed
+    for data stream computations (e.g., entropy estimations).  Our recovery procedure is computationally
+    efficient in that it requires only one linear scan of the coordinates.
+
+    In our settings, the signal $\mathbf{x}\in\mathbb{R}^N$ is assumed to be nonnegative, i.e., $x_i\geq 0, \forall \ i$.
+    We prove that, when $\alpha\in(0,\ 0.5]$, it suffices to use  $M=(C_\alpha+o(1)) \epsilon^{-\alpha} \left(\sum_{i=1}^N x_i^\alpha\right)\log N/\delta$
+    measurements so that, with probability $1-\delta$, all coordinates will be recovered within $\epsilon$ additive precision,
+    in one scan of the coordinates. The constant $C_\alpha=1$ when $\alpha\rightarrow0$ and $C_\alpha=\pi/2$ when $\alpha=0.5$.
+    In particular, when $\alpha\rightarrow0$, the required number of measurements is essentially $M=K\log N/\delta$,
+    where $K = \sum_{i=1}^N 1\{x_i\neq 0\}$ is the number of nonzero coordinates of the signal.},
+}

@@ -1,0 +1,12 @@
+@InProceedings{vanerven14,
+  author = {Van Erven, Tim and Kot{\l}owski, Wojciech and Warmuth, Manfred K.},
+  title = {Follow the Leader with Dropout Perturbations},
+  pages = {949-974},
+  abstract = {We consider online prediction with expert advice. Over the course of many trials, the goal of the learning algorithm is to achieve small additional loss (i.e.\ regret) compared to the loss of the best from a set of $K$ experts. The two most popular algorithms are Hedge/Weighted Majority and Follow the Perturbed Leader (FPL). The latter algorithm first perturbs the loss of each expert
+by independent additive noise drawn from a fixed distribution, and then predicts with the expert of minimum perturbed loss (``the leader'') where ties are broken uniformly at random. To achieve the optimal worst-case regret as a function of the loss $L^*$ of the best expert in hindsight, the two types of algorithms need to tune their learning rate or noise magnitude, respectively, as a function of $L^*$.
+
+Instead of perturbing the losses of the experts with additive noise, we randomly set them to $0$ or $1$ before selecting the leader. We show that our perturbations are an instance of dropout --- because experts may be interpreted as features --- although for non-binary losses the dropout probability needs to be made dependent on the losses to get good regret bounds. We show that this simple, tuning-free version of the FPL algorithm achieves two feats: optimal worst-case $O(\sqrt{L^* \ln K} + \ln K)$ regret as a function of $L^*$, and optimal $O(\ln K)$ regret when the loss vectors are drawn i.i.d.\ from a fixed distribution and there is a gap between the expected loss of the best expert and all others.
+
+A number of recent algorithms from the Hedge family (AdaHedge and FlipFlop) also achieve this, but they employ sophisticated tuning regimes. The dropout perturbation of the losses of the experts result in different noise distributions for each expert (because they depend on the expert's total loss) and
+curiously enough no additional tuning is needed: the choice of dropout probability only affects the constants.},
+}

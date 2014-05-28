@@ -1,0 +1,20 @@
+@InProceedings{guha14,
+  author = {Guha, Sudipto and Munagala, Kamesh},
+  title = {Stochastic Regret Minimization via Thompson Sampling},
+  pages = {317-338},
+  abstract = {The Thompson Sampling (TS) policy  is a widely implemented algorithm for the stochastic multi-armed bandit (MAB) problem.
+  Given a prior distribution over possible parameter settings of the underlying reward distributions of the arms, at each time instant,
+  the policy plays an arm with probability equal to the probability that this arm has largest mean reward conditioned on the current posterior
+  distributions of the arms.  This policy generalizes the celebrated ``probability matching'' heuristic which has been experimentally and widely
+  observed in human decision making. However, despite its ubiquity, the Thompson Sampling policy is poorly understood.
+
+  Our goal in this paper is to make progress towards understanding the empirical success of this policy. We proceed using the lens of
+  approximation algorithms and problem definitions from stochastic optimization. We focus on an objective function termed {\em stochastic
+  regret} that captures the expected number of times the policy plays an arm that is not the eventual best arm, where the expectation is
+  over the prior distribution. Given such a definition, we show that TS is a $2$--approximation to the optimal decision policy in two
+  extreme but canonical scenarios. One such scenario is the two-armed bandit problem which is used as a calibration point in all bandit
+  literature. The second scenario is stochastic optimization where the outcome of a random variable is revealed in a single play to a high
+  or low deterministic value. We show that the $2$ approximation is tight in both these scenarios. We provide an uniform analysis framework
+  that in theory is capable of proving our  conjecture that the TS policy is a $2$--approximation to the optimal decision policy for
+  minimizing stochastic regret, for any prior distribution and any time horizon.},
+}

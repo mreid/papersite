@@ -1,0 +1,27 @@
+@InProceedings{harvey14,
+  author = {Harvey, Nick and Samadi, Samira},
+  title = {Near-Optimal Herding},
+  pages = {1165-1182},
+  abstract = {Herding is an algorithm of recent interest in the machine learning community,
+motivated by inference in Markov random fields.
+It solves the following sampling problem:
+given a set $\mathcal{X} \subset \mathbb{R}^d$ with mean $\mu$,
+construct an infinite sequence of points from $\mathcal{X}$ such that,
+for every $t \geq 1$, the mean of the first $t$ points in that sequence
+lies within Euclidean distance $O(1/t)$ of $\mu$.
+The classic Perceptron boundedness theorem implies that such a result
+actually holds for a wide class of algorithms,
+although the factors suppressed by the $O(1/t)$
+notation are exponential in $d$.
+Thus, to establish a non-trivial result for the sampling problem,
+one must carefully analyze the factors suppressed by the $O(1/t)$ error bound.
+
+This paper studies the best error that can be achieved for the sampling problem.
+Known analysis of the Herding algorithm give an error bound that depends on geometric
+properties of $\mathcal{X}$ but, even under favorable conditions, this bound depends linearly on $d$.
+We present a new polynomial-time algorithm that solves the sampling problem
+with error $O\left(\sqrt{d} \log^{2.5}|\mathcal{X}| / t \right)$ assuming that $\mathcal{X}$ is finite.
+Our algorithm is based on recent algorithmic results in \textit{discrepancy theory}.
+We also show that any algorithm for the sampling problem must have error $\Omega( \sqrt{d} / t )$. This implies that our algorithm is optimal to within logarithmic factors.
+},
+}
