@@ -1,0 +1,7 @@
+@InProceedings{wei14,
+  title = {Fast Multi-stage Submodular Maximization},
+  author = {Kai Wei and Rishabh Iyer and Jeff Bilmes},
+  pages = {1494-1502},
+  abstract = {We introduce a new multi-stage algorithmic framework for submodular maximization. We are motivated by extremely large scale machine learning problems, where both storing the whole data for function evaluation and running the standard accelerated greedy algorithm are prohibitive. We propose a multi-stage framework (called MultGreed), where at each stage we apply an approximate greedy procedure to maximize surrogate submodular functions. The surrogates serve as proxies for a target submodular function but require less memory and are easy to evaluate. We theoretically analyze the performance guarantee of the multi-stage framework, and give examples on how to design instances of MultGreed for a broad range of natural submodular functions. We show that MultGreed  performs very close to the standard greedy algorithm, given appropriate surrogate functions, and argue how our framework can easily be integrated with distributive algorithms for optimization. We complement our theory by empirically evaluating on several real world problems, including data subset selection on millions of speech samples, where MultGreed yields at least a thousand times speedup and superior results over the state-of-the-art selection methods.},
+  section = {cycle-2},
+}
