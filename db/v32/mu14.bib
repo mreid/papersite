@@ -1,6 +1,8 @@
 @InProceedings{mu14,
+  supplementary = {Supplementary:mu14-supp.zip},
   title = {Square Deal: Lower Bounds and Improved Relaxations for Tensor Recovery},
   author = {Cun Mu and Bo Huang and John Wright and Donald Goldfarb},
   pages = {73-81},
   abstract = {Recovering a low-rank tensor from incomplete information is a recurring problem in signal processing and machine learning. The most popular convex relaxation of this problem minimizes the sum of the nuclear norms (SNN) of the unfolding matrices of the tensor. We show that this approach can be substantially suboptimal: reliably recovering a $K$-way $n$$\times$$n$$\times$$\cdots$$\times n$ tensor of Tucker rank $(r, r, \ldots, r)$ from Gaussian measurements requires $\Omega( r n^{K-1} )$ observations. In contrast, a certain (intractable) nonconvex formulation needs only $O(r^K + nrK)$ observations. We introduce a simple, new convex relaxation, which partially bridges this gap. Our new formulation succeeds with $O(r^{\lfloor K/2 \rfloor}n^{\lceil K/2 \rceil})$ observations. The lower bound for the SNN model follows from our new result on recovering signals with multiple structures (e.g. sparse, low rank), which indicates the significant suboptimality of the common approach of minimizing the sum of individual sparsity inducing norms (e.g. $\ell_1$, nuclear norm). Our new tractable formulation for low-rank tensor recovery shows how the sample complexity can be reduced by designing convex regularizers that exploit several structures jointly.},
+  section = {cycle-2},
 }

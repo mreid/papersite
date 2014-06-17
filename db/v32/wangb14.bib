@@ -1,6 +1,8 @@
 @InProceedings{wangb14,
+  supplementary = {Supplementary:wangb14-supp.zip},
   title = {A Highly Scalable Parallel Algorithm for Isotropic Total Variation Models},
   author = {Jie Wang and Qingyang Li and Sen Yang and Wei Fan and Peter Wonka and Jieping Ye},
   pages = {235-243},
   abstract = {Total variation (TV) models are among the most popular and successful tools in signal processing. However, due to the complex nature of the TV term, it is challenging to efficiently compute a solution for large-scale problems. State-of-the-art algorithms that are based on the alternating direction method of multipliers (ADMM)  often involve solving large-size linear systems. In this paper, we propose a highly scalable parallel algorithm for TV models that is based on a novel decomposition strategy of the problem domain. As a result, the TV models can be decoupled into a set of small and independent subproblems, which admit closed form solutions. This makes our approach particularly suitable for parallel implementation. Our algorithm is guaranteed to converge to its global minimum. With $N$ variables and n_p processes, the time complexity is O(N/(epsilon n_p)) to reach an epsilon-optimal solution. Extensive experiments demonstrate that our approach outperforms existing state-of-the-art algorithms, especially in dealing with high-resolution, mega-size images.},
+  section = {cycle-2},
 }
