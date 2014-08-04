@@ -1,0 +1,6 @@
+@InProceedings{qiu14,
+  title = {Gibbs Collapsed Sampling for Latent Dirichlet Allocation on Spark},
+  author = {Qiu, Zhuolin and Wu, Bin and Wang, Bai and Yu, Le},
+  pages = {17-28},
+  abstract = {In this paper we implement a collapsed Gibbs sampling method for the widely used latent Dirichlet allocation (LDA) model on Spark. Spark is a fast in-memory cluster computing framework for large-scale data processing, which has been the talk of the Big Data town for a while. It is suitable for iterative and interactive algorithm. Our approach splits the dataset into P*P partitions, shuffles and recombines these partitions into P sub-datasets using rules to avoid conflicts of sampling, where each of P sub-datasets only contains P partitions, and then parallel processes each sub-dataset one by one. Despite increasing the number of iterations, this method reduces data communication overhead, makes good use of Spark's efficient iterative execution and results in significant speedup on large-scale datasets in our experiments.},
+}

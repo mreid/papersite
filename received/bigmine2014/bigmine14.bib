@@ -1,0 +1,119 @@
+@Proceedings{BIGMINE-2014,
+    booktitle = {Proceedings of the 3rd International Workshop on Big Data, Streams and Heterogeneous Source Mining: Algorithms, Systems, Programming Models and Applications},
+    editor = {Wei Fan, Albert Bifet, Qiang Yang and Philip S. Yu},
+    volume = {36},
+    year = {2014},
+    shortname = {BIGMINE}
+}
+
+@InProceedings{fan14,
+    title = {Preface},
+    author = {Fan, Wei and Bifet, Albert and Yang, Qiang and Yu, Philip S.},
+    pages = {i-ix}
+}
+
+@InProceedings{kessl14,
+    title = {Parallel Graph Mining with GPUs},
+    author = {Kessl, Robert and Talukder, Nilothpal and Anchuri, Pranay and Zaki, Mohammed},
+    pages = {1-16},
+    abstract = {Frequent graph mining is an important though computationally hard problem because it requires enumerating possibly an exponential number of candidate subgraph patterns, and checking their presence in a database of graphs. In this paper, we propose a novel approach for parallel graph mining on GPUs, which have emerged as a relatively cheap but powerful architecture for general purpose computing. However, the thread-model for GPUs is different from that of CPUs, which makes the parallelization of graph mining algorithms on GPUs a challenging task. We investigate the major challenges for GPU-based graph mining. We perform extensive experiments on several real-world and synthetic datasets, achieving speedups up to 9 over the sequential algorithm.}
+}
+
+@InProceedings{qiu14,
+    title = {Gibbs Collapsed Sampling for Latent Dirichlet Allocation on Spark},
+    author = {Qiu, Zhuolin and Wu, Bin and Wang, Bai and Yu, Le},
+    pages = {17-28},
+    abstract = {In this paper we implement a collapsed Gibbs sampling method for the widely used latent Dirichlet allocation (LDA) model on Spark. Spark is a fast in-memory cluster computing framework for large-scale data processing, which has been the talk of the Big Data town for a while. It is suitable for iterative and interactive algorithm. Our approach splits the dataset into P*P partitions, shuffles and recombines these partitions into P sub-datasets using rules to avoid conflicts of sampling, where each of P sub-datasets only contains P partitions, and then parallel processes each sub-dataset one by one. Despite increasing the number of iterations, this method reduces data communication overhead, makes good use of Spark's efficient iterative execution and results in significant speedup on large-scale datasets in our experiments.}
+}
+
+@InProceedings{khurana14,
+    title = {FAQ: A Framework for Fast Approximate Query Processing on Temporal Data},
+    author = {Khurana, Udayan and Parthasarathy, Srinivasan and Turaga, Deepak},
+    pages = {29-45},
+    abstract = {Temporal queries on time evolving data are at the heart of a broad range of business and network intelligence applications ranging from consumer behavior analysis, trend analysis, temporal pattern mining, sentiment analysis on social media, cyber security, and network monitoring. In this work, we present an innovative data structure called Fast Approximate Query-able(FAQ) which provides a unified framework for temporal query processing on Big Data. FAQ uses a novel composition of data sketching, wavelet-style differencing for temporal compression, and quantization, and handles diverse kinds of queries including distinct counts, set membership, frequency estimation, top-K, p-norms, empirical entropy, and distance queries such as Histogram $\ell_p$-norm distance (including Euclidean and Manhattan distance), cosine similarity, Jaccard coefficient, and rank correlation. Experiments on a real-life multi dimensional network monitoring data sets demonstrate speedups of 92x achieved by FAQ over a flat representation of data for a mixed temporal query workload.}
+}
+
+@InProceedings{takamatsu14,
+    title = {Reducing Data Loading Bottleneck with Coarse Feature Vectors for Large Scale Learning},
+    author = {Takamatsu, Shingo and Guestrin, Carlos},
+    pages = {46-60},
+    abstract = {In large scale learning, disk I/O for data loading is often the runtime bottleneck. We propose a lossy data compression scheme with a fast decompression to reduce disk I/O, allocating fewer than the standard 32 bits for each real value in the data set. We theoretically show that the estimation error induced by the loss in compression decreases exponentially with the number of the bits used per value. Our experiments show the proposed method achieves excellent performance with a small number of bits and substantial speedups during training.}
+}
+
+@InProceedings{matusevich14,
+    title = {A Clustering Algorithm Merging MCMC and EM Methods Using SQL Queries},
+    author = {Matusevich, David and Ordonez, Carlos},
+    pages = {61-76},
+    abstract = {CClustering is an important problem in Statistics and Machine Learning that is usually solved using Likelihood Maximization Methods, of which the Expectation-Maximization Algorithm (EM) is the most common. In this work we present an SQL implementation of an algorithm merging Markov Chain Monte Carlo methods with the EM algorithm to find qualitatively better solutions for the clustering problem. Even though SQL is not optimized for complex calculations, as it is constrained to work on tables and columns, it is unparalleled in handling all aspects of storage management, security of the information, fault management, etc. Our algorithm makes use of these characteristics to produce portable solutions that are comparable to the results obtained by other algorithms and are more efficient since the calculations are all performed inside the DBMS. To simplify the calculation we use very simple scalar UDFs, of a type that is available in most DBMS. The solution has linear time complexity on the size of the data set and it has a linear speedup with the number of servers in the cluster. This was achieved using sufficient statistics and a simplified model that assigns the data-points to different clusters during the E-step in an incremental manner and the introduction of a Sampling step in order to explore the solution space in a more efficient manner. Preliminary experiments show very good agreement with standard solutions.}
+}
+
+@InProceedings{li14,
+    title = {A Fast Distributed Stochastic Gradient Descent Algorithm for Matrix Factorization},
+    author = {Li, Fanglin and Wu, Bin and Xu, Liutong and Shi, Chuan and Shi, Jing},
+    pages = {77-87},
+    abstract = {The accuracy and effectiveness of matrix factorization technique were well demonstrated in the Netflix movie recommendation contest. Among the numerous solutions for matrix factorization, Stochastic Gradient Descent (SGD) is one of the most widely used algorithms. However, as a sequential approach, SGD algorithm cannot directly be used in the Distributed Cluster Environment (DCE). In this paper, we propose a fast distributed SGD algorithm named FDSGD for matrix factorization, which can run efficiently in DCE. This algorithm solves data sharing problem based on independent storage system to avoid data synchronization which may cause a big influence to algorithm performance, and synchronous operation problem in DCE using a distributed synchronization tool so that distributed cooperation threads can perform in a harmonious environment.}
+}
+
+@InProceedings{ordonez14,
+    title = {The Gamma Operator for Big Data Summarization on an Array DBMS},
+    author = {Ordonez, Carlos  and Zhang, Yiqun and Cabrera, Wellington},
+    pages = {88-103},
+    abstract = {SciDB is a parallel array DBMS that provides multidimensional arrays, a query language and basic ACID  properties. In this paper,we introduce a summarization matrix operator that computes sufficient statistics in one pass and in parallel on an array DBMS. Such sufficient statistics benefit a big family of statistical and machine learning models, including PCA, linear regression and variable selection. Experimental evaluation on a parallel cluster shows our matrix operator exhibits linear time complexity and linear speedup. Moreover, our operator is shown to be an order of magnitude faster than SciDB built-in operators, two orders of magnitude faster than SQL queries on a fast column DBMS and even faster than the R package when the data set fits in RAM. We show SciDB operators and the R package fail due to RAM limitations, whereas our operator does not. We also show PCA and linear regression computation is reduced to a few minutes for large data sets. On the other hand, a Gibbs sampler for variable selection can iterate much faster in the array DBMS than in R, exploiting the summarization matrix.}
+}
+
+@InProceedings{habich14,
+    title = {Towards Optimal Execution of Density-based Clustering on Heterogeneous Hardware},
+    author = {Habich, Dirk and Gahrig, Stefanie and Lehner, Wolfgang},
+    pages = {104-119},
+    abstract = {Data Clustering is an important and highly utilized data mining technique in various application domains. With ever increasing data volumes in the era of big data, the efficient execution of clustering algorithms is a fundamental prerequisite to gain understanding and acquire novel, previously unknown knowledge from data. To establish an efficient execution, the clustering algorithms have to be re-engineered to fully exploit the provided hardware capabilities. Shared-memory multiprocessor systems like graphics processing units (GPUs) provide extremely high parallelism combined with a high bandwidth transfer at low cost. The availability of such computing units increases with upcoming processors, where a common CPU and various computing units, like GPU, are tightly coupled using a unified shared memory hierarchy. In this paper, we consider density-based clustering for such heterogeneous systems. In particular, we optimize the configuration of CUDA-DClust -- a density-based clustering algorithm for GPUs -- and show that our configuration approach enables an efficient and deterministic execution. Our configuration approach is based on data as well as hardware properties, so that we are able to adjust the algorithm execution in both directions. In our evaluation, we show the applicability of our approach and present open challenges which have to be solved next.}
+}
+
+@InProceedings{debatty14,
+    title = {Scalable Graph Building from Text Data},
+    author = {Debatty, Thibault and Michiardi, Pietro and Thonnard, Olivier and Mees, Wim},
+    pages = {120-132},
+    abstract = {In this paper we propose NNCTPH, a new MapReduce algorithm that is able to build an approximate k-NN graph from large text datasets. The algorithm uses a modified version of Context Triggered Piecewise Hashing to bin the input data into buckets, and uses an exhaustive search inside the buckets to build the graph. It also uses multiple stages to join the different unconnected subgraphs. We experimentally test the algorithm on different datasets consisting of the subject of spam emails. Although the algorithm is still at an early development stage, it already proves to be four times faster than a MapReduce implementation of NN-Descent, for the same quality of produced graph.}
+}
+
+@InProceedings{ienco14,
+    title = {High density-focused uncertainty sampling for active learning over evolving stream data},
+    author = {Ienco, Dino and Zliobaite, Indre and Pfahringer, Bernhard},
+    pages = {133-148},
+    abstract = {Data labeling is an expensive and time-consuming task, hence carefully choosing which labels to use for training a model is becoming increasingly important. In the active learning setting, a classifier is trained by querying labels from a small representative fraction of data. While many approaches exist for non-streaming scenarios, few works consider the challenges of the data stream setting. We propose a new active learning method for evolving data streams based on a combination of density and prediction uncertainty (DBALStream). Our approach decides to label an instance or not, considering whether it lies in an high density partition of the data space. This allows focusing labelling efforts in the instance space where more data is concentrated; hence, the benefits of learning a more accurate classifier are expected to be higher. Instance density is approximated in an online manner by a sliding window mechanism, a standard technique for data streams. We compare our method with state-of-the-art active learning strategies over benchmark datasets. The experimental analysis demonstrates good predictive performance of the new approach.}
+}
+
+@InProceedings{qin14,
+    title = {iPARAS: Incremental Construction of Parameter Space for Online Association Mining},
+    author = {Qin, Xiao and Ahsan, Ramoza and Lin, Xika and Rundensteiner, Elke and Ward, Matthew},
+    pages = {149-165},
+    abstract = {Association rule mining is known to be computationally intensive, yet real-time decision-making applications are increasingly intolerant to delays. The state-of-the-art PARAS solution, a parameter space framework for online association mining, enables efficient rule mining by compactly indexing the final ruleset and providing efficient query-time redundancy resolution. Unfortunately, as many association mining models, PARAS was designed for static data. Modern transaction databases undergo regular data updates that quickly invalidating existing rules or introducing new rules for the PARAS index. While reloading the PARAS index from scratch is impractical, as even upon minor data changes, a complete rule inference and redundancy resolution steps would have to be performed. We now propose to tackle this open problem by designing an incremental parameter space construction approach, called iPARAS, that utilizes the previous mining result to minimally adjust the ruleset and associated redundancy relationships. iPARAS features two innovative techniques. First, iPARAS provides an end-to-end solution, composed of three algorithms, to efficiently update the final ruleset in the parameter space. Second, iPARAS designs a compact data structure to maintain the complex redundancy relationships. Overall, iPARAS achieves several times speed-up on parameter space construction for transaction databases comparing to the state-of-the-art online association rule mining system PARAS.}
+}
+
+@InProceedings{ray14,
+    title = {Frequent Subgraph Discovery in Large Attributed Streaming Graphs},
+    author = {Ray, Abhik and Holder, Larry and Choudhury, Sutanay},
+    pages = {166-181},
+    abstract = {The problem of finding frequent subgraphs in large dymanic graphs has so far only considered a dynamic graph to be represented by a series of static snapshots taken at various points in time. This representation of a dynamic graph does not lend itself well to real time processing of real world graphs like social networks or internet traffic which consist of a stream of nodes and edges. In this paper we propose an algorithm that discovers the frequent subgraphs present in a graph represented by a stream of labeled nodes and edges. Our algorithm is efficient and consists of tunable parameters that can be tuned by the user to get interesting patterns from various kinds of graph data. In our model updates to the graph arrive in the form of batches which contain new nodes and edges. Our algorithm continuously reports the frequent subgraphs that are estimated to be found in the entire graph as each batch arrives. We evaluate our system using 5 large dynamic graph datasets: the Hetrec 2011 challenge data, Twitter, DBLP and two synthetic. We evaluate our approach against two popular large graph miners, i.e., SUBDUE and GERM. Our experimental results show that we can find the same frequent subgraphs as a non-incremental approach applied to snapshot graphs, and in less time.}
+}
+
+@InProceedings{hawwash14,
+    title = {From Tweets to Stories: Using Stream-Dashboard to weave the twitter data stream into dynamic cluster models},
+    author = {Hawwash, Basheer and Nasraoui, Olfa},
+    pages = {182-197},
+    abstract = {Social media has recently emerged as an invaluable source of information for decision making. Social media information reflects the interests of virtual communities in a spontaneous and timely manner. The need to understand the massive streams of data generated by social media platforms, such as Twitter and Facebook, has motivated researchers to use machine learning techniques to try to discover knowledge in real time. In this paper, we adapt our recently developed stream cluster mining, tracking and validation framework, Stream-Dashboard, to support detecting and tracking evolving discussion clusters in Twitter. The effectiveness of Stream-Dashboard in telling stories is illustrated by analyzing a couple of stories related to the Louisville Cardinals' basketball championship. We further validate the detected story lines, that are automatically mined from user-generated tweets using as an alternative source, Google Trends, which are based on search queries.}
+}
+
+@InProceedings{duarte14,
+    title = {Ensembles of Adaptive Model Rules from High-Speed Data Streams},
+    author = {Duarte, Joao and Gama, Joao},
+    pages = {198-213},
+    abstract = {The volume and velocity of data is increasing at astonishing rates. In order to extract knowledge from this huge amount of information there is a need for efficient on-line learning algorithms. Rule-based algorithms produce models that are easy to understand and can be used almost offhand. Ensemble methods combine several predicting models to improve the quality of prediction. In this paper, a new on-line ensemble method that combines a set of rule-based models is proposed to solve regression problems from data streams. Experimental results using synthetic and real time-evolving data streams show the proposed method significantly improves the performance of the single rule-based learner, and outperforms two state-of-the-art regression algorithms for data streams.}
+}
+ 
+@InProceedings{bahadori14,
+    title = {Scalable Heterogeneous Transfer Ranking},
+    author = {Bahadori, Mohammad Taha and Chang, Yi and Long, Bo and Liu, Yan},
+    pages = {214-228},
+    abstract = {In this paper, we propose to study the problem of heterogeneous transfer ranking, a transfer learning problem with heterogeneous features in order to utilize the rich large-scale labeled data in popular languages to help the ranking task in less popular languages. We develop a large-margin algorithm, namely LM-HTR, to solve the problem by mapping the input features in both the source domain and target domain into a shared latent space and simultaneously minimizing the feature reconstruction loss and prediction loss. We analyze the theoretical bound of the prediction loss and develop fast algorithms via stochastic gradient descent so that our model can be scalable to large-scale applications. Experiment results on two application datasets demonstrate the advantages of our algorithms over other state-of-the-art methods.}
+}
+

@@ -1,0 +1,6 @@
+@InProceedings{ordonez14,
+  title = {The Gamma Operator for Big Data Summarization on an Array DBMS},
+  author = {Ordonez, Carlos  and Zhang, Yiqun and Cabrera, Wellington},
+  pages = {88-103},
+  abstract = {SciDB is a parallel array DBMS that provides multidimensional arrays, a query language and basic ACID  properties. In this paper,we introduce a summarization matrix operator that computes sufficient statistics in one pass and in parallel on an array DBMS. Such sufficient statistics benefit a big family of statistical and machine learning models, including PCA, linear regression and variable selection. Experimental evaluation on a parallel cluster shows our matrix operator exhibits linear time complexity and linear speedup. Moreover, our operator is shown to be an order of magnitude faster than SciDB built-in operators, two orders of magnitude faster than SQL queries on a fast column DBMS and even faster than the R package when the data set fits in RAM. We show SciDB operators and the R package fail due to RAM limitations, whereas our operator does not. We also show PCA and linear regression computation is reduced to a few minutes for large data sets. On the other hand, a Gibbs sampler for variable selection can iterate much faster in the array DBMS than in R, exploiting the summarization matrix.},
+}
