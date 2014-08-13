@@ -27,7 +27,9 @@
 	<h2>Volume $volume$: $booktitle$</h2>
 
 	<p><strong>Editors: 
-	$editor$
+	$for(editors)$
+		$firstnames$ $surname$$sep$,
+	$endfor$
 	</strong></p>
 
 	<div id='sectionnav'>

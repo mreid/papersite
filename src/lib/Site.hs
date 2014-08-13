@@ -55,8 +55,9 @@ realMain regex = hakyllWith config $ do
           let sections = fmap (Item "") . sortBy sectionOrd $ makeSections [] papers
 
           let sectionCtx = sectionContext conf
+          let editorNames = entryNames "editor" conf
           let sectionsCtx = listField "sections" sectionCtx (return sections) 
-                            <> listField' "editors" authorContext (return . entryNames "editor")
+                            <> listField "editors" authorContext (return editorNames)
                             <> entryContext'
           
           loadAndApplyTemplate "templates/papers.html" sectionsCtx conf
