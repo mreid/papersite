@@ -1,6 +1,6 @@
 @Proceedings{BIGMINE-2014,
     booktitle = {Proceedings of the 3rd International Workshop on Big Data, Streams and Heterogeneous Source Mining: Algorithms, Systems, Programming Models and Applications},
-    editor = {Wei Fan, Albert Bifet, Qiang Yang and Philip S. Yu},
+    editor = {Fan, Wei and Bifet, Albert and Yang, Qiang and Yu, Philip S.},
     volume = {36},
     year = {2014},
     shortname = {BIGMINE}
@@ -9,7 +9,10 @@
 @InProceedings{fan14,
     title = {Preface},
     author = {Fan, Wei and Bifet, Albert and Yang, Qiang and Yu, Philip S.},
-    pages = {i-ix}
+    pages = {i-ix},
+    abstract = {The aim of this workshop is to bring together people from both academia and industry to present their most recent work related to big-data issues, and exchange ideas and thoughts in order to advance this big-data challenge, which has been considered as one of the most exciting opportunities in the past 10 years.
+
+Recent years have witnessed a dramatic increase in our ability to collect data from various sensors, devices, in different formats, from independent or connected applications. This data flood has outpaced our capability to process, analyze, store and understand these datasets. Consider the Internet data. The web pages indexed by Google were around one million in 1998, but quickly reached 1 billion in 2000 and have already exceeded 1 trillion in 2008. This rapid expansion is accelerated by the dramatic increase in acceptance of social networking applications, such as Facebook, Twitter, Weibo, etc., that allow users to create contents freely and amplify the already huge Web volume. Furthermore, with mobile phones becoming the sensory gateway to get real-time data on people from different aspects, the vast amount of data that mobile carrier can potentially process to improve our daily life has significantly outpaced our past CDR (call data record)-based processing for billing purposes only. It can be foreseen that Internet of things (IoT) applications will raise the scale of data to an unprecedented level. People and devices (from home coffee machines to cars, to buses, railway stations and airports) are all loosely connected. Trillions of such connected components will generate a huge data ocean, and valuable information must be discovered from the data to help improve quality of life and make our world a better place. For example, after we get up every morning, in order to optimize our commute time to work and complete the optimization before we arrive at office, the system needs to process information from traffic, weather, construction, police activities to our calendar schedules, and perform deep optimization under the tight time constraints. In all these applications, we are facing significant challenges in leveraging the vast amount of data, including challenges in (1) system capabilities (2) algorithmic design (3) business models.}
 }
 
 @InProceedings{kessl14,
@@ -77,7 +80,7 @@
 
 @InProceedings{ienco14,
     title = {High density-focused uncertainty sampling for active learning over evolving stream data},
-    author = {Ienco, Dino and Zliobaite, Indre and Pfahringer, Bernhard},
+    author = {Ienco, Dino and \v{Z}liobait\.e, Indr\.e and Pfahringer, Bernhard},
     pages = {133-148},
     abstract = {Data labeling is an expensive and time-consuming task, hence carefully choosing which labels to use for training a model is becoming increasingly important. In the active learning setting, a classifier is trained by querying labels from a small representative fraction of data. While many approaches exist for non-streaming scenarios, few works consider the challenges of the data stream setting. We propose a new active learning method for evolving data streams based on a combination of density and prediction uncertainty (DBALStream). Our approach decides to label an instance or not, considering whether it lies in an high density partition of the data space. This allows focusing labelling efforts in the instance space where more data is concentrated; hence, the benefits of learning a more accurate classifier are expected to be higher. Instance density is approximated in an online manner by a sliding window mechanism, a standard technique for data streams. We compare our method with state-of-the-art active learning strategies over benchmark datasets. The experimental analysis demonstrates good predictive performance of the new approach.}
 }
@@ -93,7 +96,7 @@
     title = {Frequent Subgraph Discovery in Large Attributed Streaming Graphs},
     author = {Ray, Abhik and Holder, Larry and Choudhury, Sutanay},
     pages = {166-181},
-    abstract = {The problem of finding frequent subgraphs in large dymanic graphs has so far only considered a dynamic graph to be represented by a series of static snapshots taken at various points in time. This representation of a dynamic graph does not lend itself well to real time processing of real world graphs like social networks or internet traffic which consist of a stream of nodes and edges. In this paper we propose an algorithm that discovers the frequent subgraphs present in a graph represented by a stream of labeled nodes and edges. Our algorithm is efficient and consists of tunable parameters that can be tuned by the user to get interesting patterns from various kinds of graph data. In our model updates to the graph arrive in the form of batches which contain new nodes and edges. Our algorithm continuously reports the frequent subgraphs that are estimated to be found in the entire graph as each batch arrives. We evaluate our system using 5 large dynamic graph datasets: the Hetrec 2011 challenge data, Twitter, DBLP and two synthetic. We evaluate our approach against two popular large graph miners, i.e., SUBDUE and GERM. Our experimental results show that we can find the same frequent subgraphs as a non-incremental approach applied to snapshot graphs, and in less time.}
+    abstract = {The problem of finding frequent subgraphs in large dynamic graphs has so far only considered a dynamic graph as being represented by a series of static snapshots taken at various points in time. This representation of a dynamic graph does not lend itself well to real time processing of real world graphs like social networks or internet traffic which consist of a stream of nodes and edges. In this paper we propose an algorithm that discovers the frequent subgraphs present in a graph represented by a stream of labeled nodes and edges. Our algorithm is efficient and is easily tuned by the user to produce interesting patterns from various kinds of graph data. In our model, updates to the graph arrive in the form of batches which contain new nodes and edges. Our algorithm continuously reports the frequent subgraphs that are estimated to be found in the entire graph as each batch arrives. We evaluate our system using five large dynamic graph datasets: the Hetrec 2011 challenge data, Twitter, DBLP and two synthetic. We evaluate our approach against two popular large graph miners, i.e., SUBDUE and GERM. Our experimental results show that we can find the same frequent subgraphs as a non-incremental approach applied to snapshot graphs, and in less time.}
 }
 
 @InProceedings{hawwash14,
@@ -105,7 +108,7 @@
 
 @InProceedings{duarte14,
     title = {Ensembles of Adaptive Model Rules from High-Speed Data Streams},
-    author = {Duarte, Joao and Gama, Joao},
+    author = {Duarte, Jo\~ao and Gama, Jo\~ao},
     pages = {198-213},
     abstract = {The volume and velocity of data is increasing at astonishing rates. In order to extract knowledge from this huge amount of information there is a need for efficient on-line learning algorithms. Rule-based algorithms produce models that are easy to understand and can be used almost offhand. Ensemble methods combine several predicting models to improve the quality of prediction. In this paper, a new on-line ensemble method that combines a set of rule-based models is proposed to solve regression problems from data streams. Experimental results using synthetic and real time-evolving data streams show the proposed method significantly improves the performance of the single rule-based learner, and outperforms two state-of-the-art regression algorithms for data streams.}
 }
