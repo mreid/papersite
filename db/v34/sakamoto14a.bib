@@ -1,0 +1,26 @@
+@InProceedings{sakamoto14a,
+  author = {Sakamoto, Hiroshi},
+  title = {Grammar Compression: Grammatical Inference by Compression and Its Application to Real Data
+},
+  pages = {3-20},
+  abstract = {A grammatical inference algorithm tries to find as a small grammar as possible representing 
+a potentially infinite sequence of strings.
+Here, let us consider a simple restriction: the input is a finite sequence or it might be a singleton set.
+Then the restricted problem is called the {\em grammar compression} to find the smallest CFG generating just the input.
+In the last decade many researchers have tackled this problem because of its scalable applications, e.g.,
+expansion of data storage capacity, speeding-up information retrieval, DNA sequencing, frequent pattern mining, 
+and similarity search.
+We would review the history of grammar compression and its wide applications together with an important future work.
+The study of grammar compression has begun with the bad news: the smallest CFG problem is NP-hard.
+Hence, the first question is: Can we get a near-optimal solution in a polynomial time? 
+(Is there a reasonable approximation algorithm?)
+And the next question is: Can we minimize the costs of time and space?
+(Does a linear time algorithm exist within an optimal working space?)
+The recent results produced by the research community answer affirmatively the questions.
+We introduce several important results and typical applications to a huge text collection.
+On the other hand, the shrinkage of the advantage of grammar compression is caused by the data explosion,
+since there is no working space for storing the whole data supplied from data stream.
+The last question is: How can we handle the stream data?
+For this question, we propose the framework of {\em stream grammar compression}
+for the next generation and its attractive application to fast data transmission.},
+}

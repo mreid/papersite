@@ -1,0 +1,22 @@
+@InProceedings{shibata14a,
+  author = {Shibata, Chihiro},
+  title = {Inferring (k,l)-context-sensitive probabilistic context-free grammars using hierarchical Pitman-Yor processes},
+  pages = {153-166},
+  abstract = {Motivated by the idea of applying nonparametric Bayesian models to dual approaches for distributional learning,
+we define $(k,l)$-context-sensitive probabilistic context-free grammars (PCFGs) using hierarchical Pitman-Yor processes (PYPs).
+The data sparseness problem that occurs when inferring context-sensitive probabilities for rules
+is handled by the smoothing effect of hierarchical PYPs.
+Many possible definitions or constructions of PYP hierarchies can be used to represent
+the context sensitivity of derivations of CFGs in Chomsky normal form.
+In this study, we use a definition that is considered to be the most natural as an extension of infinite PCFGs defined in previous studies.
+A Markov Chain Monte Carlo method called blocked Metropolis-Hastings (MH) sampling is known to be effective for inferring PCFGs from unsupervised sentences.
+Blocked MH sampling is applicable to $(k,l)$-context-sensitive PCFGs by modifying their so-called inside probabilities.
+We show that the computational cost of blocked MH sampling for $(k,l)$-context-sensitive PCFGs is $O(|V|^{l+3}|s|^3)$
+for each sentence $s$, where $V$ is a set of nonterminals.
+This cost is too high to iterate sufficient sampling times, especially when $l \neq 0$,
+thus we propose an alternative sampling method
+that separates the sampling procedure into pointwise sampling for nonterminals and
+blocked sampling for rules.
+The computational cost of this sampling method is $O(\min\{|s|^{l},|V|^{l}\} (|V||s|^2+|s|^3) )$.
+},
+}

@@ -1,0 +1,19 @@
+@InProceedings{isberner14a,
+  author = {Isberner, Malte and  Steffen, Bernhard},
+  title = {An Abstract Framework for Counterexample Analysis in Active Automata Learning},
+  pages = {79-93},
+  abstract = {Counterexample analysis has emerged as one of the key challenges in Angluin-style
+active automata learning.  Rivest and Schapire (1993) showed for the $\mathrm{L}^*$ algorithm that
+a single suffix of the counterexample was sufficient to ensure progress. 
+This suffix can be obtained in a binary search fashion, requiring $\Theta(\log m)$ membership queries
+for a counterexample of length $m$. Correctly implementing this algorithm can be quite tricky,
+and its correctness sometimes even has been disputed. In this paper, we establish an abstract
+framework for counterexample analysis, which basically reduces the problem of finding a suffix
+to finding distinct neighboring elements in a $0/1$ sequence, where the first element is $0$
+and the last element is $1$. We demonstrate the conciseness and simplicity of our framework
+by using it to present new counterexample analysis algorithms, which, while maintaining
+the worst-case complexity of $O(\log m)$, perform significantly better in practice. Furthermore,
+we contribute---in a second instantiation of our framework, highlighting its generality---the
+first sublinear counterexample analysis procedures for the algorithm due to
+Kearns and Vazirani (1994).},
+}
