@@ -33,12 +33,11 @@
 	$for(authors)$
 		$firstnames$ $surname$$sep$,
 	$endfor$
-	</div>;
+	<br/>
+	</div>
 	<div id="info">
-		JMLR W&amp;CP $volume$ 
-		$if(number)$ ($number$) $endif$
-		: 
-		$firstpage$–$lastpage$, $year$
+		$booktitle$,
+		pp. $firstpage$–$lastpage$, $year$
 	</div> <!-- info -->
 
 	$if(note)$ 
