@@ -1,0 +1,7 @@
+@InProceedings{anderson15,
+  supplementary = {Supplementary:anderson15-supp.pdf},
+  title = {{Spectral Gap Error Bounds for Improving CUR Matrix Decomposition and the Nystr\"{o}m Method}},
+  author = {Anderson, David and Du, Simon and Mahoney, Michael and Melgaard, Christopher and Wu, Kunming and Gu, Ming},
+  pages = {19-27},
+  abstract = {The CUR matrix decomposition and the related Nystr\"{o}m  method build low-rank approximations of data matrices by selecting a small number of representative rows and columns of the data.  Here, we introduce novel \emph{spectral gap error bounds} that judiciously exploit the potentially rapid spectrum decay in the input matrix, a most common occurrence in machine learning and data analysis. Our error bounds are much tighter than existing ones for matrices with rapid spectrum decay, and they justify the use of a constant amount of oversampling relative to the rank parameter $k$, i.e, when the number of columns/rows is $\ell=k+ O(1)$.  We demonstrate our analysis on a novel deterministic algorithm, \emph{StableCUR}, which additionally eliminates a previously unrecognized source of potential instability in CUR decompositions.  While our algorithm accepts any method of row and column selection, we implement it with a recent column selection scheme with strong singular value bounds.  Empirical results on various classes of real world data matrices demonstrate that our algorithm is as efficient as and often outperforms competing algorithms.},
+}

@@ -1,0 +1,7 @@
+@InProceedings{chen15b,
+  supplementary = {Supplementary:chen15b-supp.pdf},
+  title = {{Efficient Second-Order Gradient Boosting for Conditional Random Fields}},
+  author = {Chen, Tianqi and Singh, Sameer and Taskar, Ben and Guestrin, Carlos},
+  pages = {147-155},
+  abstract = {Conditional random fields (CRFs) are an important class of models for accurate structured prediction, but effective design of the feature functions is a major challenge when applying CRF models to real world data. Gradient boosting, which is used to automatically induce and select feature functions, is a natural candidate solution to the problem.  However, it is non-trivial to derive gradient boosting algorithms for CRFs due to the dense Hessian matrices introduced by variable dependencies. Existing approaches thus use only first-order information when optimizing likelihood, and hence face convergence issues. We incorporate second-order information by deriving a Markov Chain mixing rate bound to quantify the dependencies, and introduce a gradient boosting algorithm that iteratively optimizes an adaptive upper bound of the objective function.  The resulting algorithm induces and selects features for CRFs via functional space optimization, with provable convergence guarantees.  Experimental results on three real world datasets demonstrate that the mixing rate based upper bound is effective for learning CRFs with non-linear potentials.},
+}

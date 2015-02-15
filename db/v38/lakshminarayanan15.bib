@@ -1,0 +1,7 @@
+@InProceedings{lakshminarayanan15,
+  supplementary = {Supplementary:lakshminarayanan15-supp.pdf},
+  title = {{Particle Gibbs for Bayesian Additive Regression Trees}},
+  author = {Lakshminarayanan, Balaji and Roy, Daniel and Teh, Yee Whye},
+  pages = {553-561},
+  abstract = {Additive regression trees are flexible non-parametric models and popular off-the-shelf tools for real-world non-linear regression. In application domains, such as bioinformatics, where there is also demand for probabilistic predictions with measures of uncertainty, the Bayesian additive regression trees (BART) model, introduced by Chipman et al. (2010), is increasingly popular. As data sets have grown in size, however, the standard Metropolis–Hastings algorithms used to per- form inference in BART are proving inadequate. In particular, these Markov chains make local changes to the trees and suffer from slow mixing when the data are high- dimensional or the best-fitting trees are more than a few layers deep. We present a novel sampler for BART based on the Particle Gibbs (PG) algorithm (Andrieu et al., 2010) and a top-down particle filtering algorithm for Bayesian decision trees (Lakshminarayanan et al., 2013). Rather than making local changes to individual trees, the PG sampler proposes a complete tree to fit the residual. Experiments show that the PG sampler outperforms existing samplers in many settings.},
+}

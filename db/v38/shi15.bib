@@ -1,0 +1,6 @@
+@InProceedings{shi15,
+  title = {{Learning Where to  Sample in Structured Prediction}},
+  author = {Shi, Tianlin and Steinhardt, Jacob and Liang, Percy},
+  pages = {875-884},
+  abstract = {In structured prediction, most inference algorithms allocate a homogeneous amount of computation to all parts of the output, which can be wasteful when different parts vary widely in terms of difficulty. In this paper, we propose a heterogeneous approach that dynamically allocates computation to the different parts. Given a pre-trained model, we tune its inference algorithm (a sampler) to increase test-time throughput. The inference algorithm is parametrized by a meta-model and trained via reinforcement learning, where actions correspond to sampling candidate parts of the output, and rewards are log-likelihood improvements. The meta-model is based on a set of domain-general meta-features capturing the progress of the sampler. We test our approach on five datasets and show that it attains the same accuracy as Gibbs sampling but is 2 to 5 times faster.},
+}

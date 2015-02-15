@@ -1,0 +1,7 @@
+@InProceedings{neufeld15,
+  supplementary = {Supplementary:neufeld15-supp.pdf},
+  title = {{Variance Reduction via Antithetic Markov Chains}},
+  author = {Neufeld, James and Schuurmans, Dale and Bowling, Michael},
+  pages = {708-716},
+  abstract = {We present a Monte Carlo integration method, antithetic Markov chain sampling (AMCS), that incorporates local Markov transitions in an underlying importance sampler. Like sequential Monte Carlo sampling, the proposed method uses a sequence of Markov transitions to adapt the sampling to favour more influential regions of the integrand (modes). However, AMCS differs in the type of transitions that may be used, the number of Markov chains, and the method of chain termination. In particular, from each point sampled from an initial proposal, AMCS collects a sequence of points by simulating two independent, but antithetic, Markov chains, each terminated by a sample-dependent stopping rule. This approach provides greater flexibility for targeting influential areas while eliminating the need to fix the length of the Markov chain a priori. We show that the resulting estimator is unbiased and can reduce variance on peaked multi-modal integrands that challenge existing methods.},
+}
