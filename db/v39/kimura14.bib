@@ -1,0 +1,27 @@
+@INPROCEEDINGS{kimura14,
+  author = {Kimura, Keigo and Tanaka, Yuzuru and Kudo, Mineichi},
+  title = {A Fast Hierarchical Alternating Least Squares Algorithm for Orthogonal
+	Nonnegative Matrix Factorization},
+  pages = {129-141},
+  abstract = {Nonnegative Matrix Factorization (NMF) is a popular technique in a
+	variety of fields due to its component-based representation with
+	physical interpretablity. NMF finds a nonnegative hidden structures
+	as oblique bases and coefficients. Recently, Orthogonal NMF (ONMF),
+	imposing an orthogonal constraint into NMF, has been gathering a
+	great deal of attention. ONMF is more appropriate for the clustering
+	task because the resultant constrained matrix consisting of the coefficients
+	can be considered as an indicator matrix. All traditional ONMF algorithms
+	are based on multiplicative update rules or project gradient descent
+	method. However, these algorithms are slow in convergence compared
+	with the state-of-the-art algorithms used for regular NMF. This is
+	because they update a matrix in each iteration step. In this paper,
+	therefore, we propose to update the current matrix column-wisely
+	using Hierarchical Alternating Least Squares algorithm (HALS) that
+	is typically used for NMF. The orthogonality and nonnegativity constraints
+	are both utilized efficiently in the column-wise update procedure.
+	Through theoretical analysis and experiments on six real-life datasets,
+	it was shown that the proposed algorithm converges faster than the
+	other conventional ONMF algorithms due to a smaller number of iterations,
+	although the theoretical complexity is the same. It was also shown
+	that the orthogonality is also attained in an earlier stage.},
+}

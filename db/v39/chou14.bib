@@ -1,0 +1,30 @@
+@INPROCEEDINGS{chou14,
+  author = {Chou, Ku-Chun and Lin, Hsuan-Tien and Chiang, Chao-Kai and Lu, Chi-Jen},
+  title = {Pseudo-reward Algorithms for Contextual Bandits with Linear Payoff
+	Functions},
+  pages = {344-359},
+  abstract = {We study the contextual bandit problem with linear payoff functions,
+	which is a generalization of the traditional multi-armed bandit problem.
+	In the contextual bandit problem, the learner needs to iteratively
+	select an action based on an observed context, and receives a linear
+	score on only the selected action as the reward feedback. Motivated
+	by the observation that better performance is achievable if the other
+	rewards on the non-selected actions can also be revealed to the learner,
+	we propose a new framework that feeds the learner with pseudo-rewards,
+	which are estimates of the rewards on the non-selected actions. We
+	argue that the pseudo-rewards should better contain over-estimates
+	of the true rewards, and propose a forgetting mechanism to decrease
+	the negative influence of the over-estimation in the long run. Then,
+	we couple the two key ideas above with the linear upper confidence
+	bound (LinUCB) algorithm to design a novel algorithm called linear
+	pseudo-reward upper confidence bound (LinPRUCB). We prove that LinPRUCB
+	shares the same order of regret bound to LinUCB, while enjoying the
+	practical observation of faster reward-gathering in the earlier iterations.
+	Experiments on artificial and real-world data sets justify that LinPRUCB
+	is competitive to and sometimes even better than LinUCB. Furthermore,
+	we couple LinPRUCB with a special parameter to formalize a new algorithm
+	that yields faster computation in updating the internal models while
+	keeping the promising practical performance. The two properties match
+	the real-world needs of the contextual bandit problem and make the
+	new algorithm a favorable choice in practice.},
+}

@@ -1,0 +1,20 @@
+@INPROCEEDINGS{canevet14a,
+  author = {Canevet, Olivier and Fleuret, Francois},
+  title = {Efficient Sample Mining for Object Detection},
+  pages = {48-63},
+  abstract = {Object detectors based on the sliding window technique are usually
+	trained in two successive steps: first, an initial classifier is
+	trained on a population of positive samples (i.e. images of the object
+	to detect) and negative samples randomly extracted from scenes which
+	do not contain the object to detect. Then, the scenes are scanned
+	with that initial classifier to enrich the initial set with negative
+	samples incorrectly classified as positive. This bootstrapping process
+	provides the learning algorithm with "hard" samples, which help to
+	improve the decision boundary. Little work has been done on how to
+	efficiently enrich the training set. While the standard bootstrapping
+	approach densely visits the scenes, we propose to evaluate which
+	regions of scenes can be discarded without any further computation
+	to concentrate the search on promising areas. We apply our method
+	to two standard object detection settings, pedestrian and face detection,
+	and show that it provides a multi-fold speed up.},
+}
