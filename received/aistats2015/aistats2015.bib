@@ -748,157 +748,150 @@
   abstract = {Modeling of a product or service’s attractiveness as a function of its own attributes (e.g., price and quality) is one of the foundations in econometric forecasts, which have been provided with an assumption that each human rationally has a consistent preference order among his choice decisions. Yet the preference orders by real humans become irrationally reversed, when the choice set of available options is manipulated. In order to accurately predict choice decisions involving preference reversals, which existing econometric methods have failed to incorporate, the authors introduce a new cognitive choice model whose parameters are efficiently fitted with a global convex optimization algorithm. The proposed model captures each human as a Bayesian decision maker facing a mental conflict between objective evaluation samples and a subjective prior, where the underlying objective evaluation function is rationally independent from contexts while the subjective prior is irrationally determined by each choice set. As the key idea to analytically handle the irrationality and to yield the convex optimization, the Bayesian decision mechanism is implemented as a closed-form Gaussian process regression using similarities among the available options in each context. By explaining the irrational decisions as a consequence of averting uncertainty, the proposed model outperformed the existing econometric models in predicting the irrational choice decisions recorded in real-world datasets.}
 }
 
-@InProceedings{tang15,
-  title = {{Exact Hybrid Covariance Thresholding for Joint Graphical Lasso}},
-  author = {Tang, Qingming and Yang, Chao and Ma, Jianzhu and Peng, Jian and Xu, Jinbo},
-  pages = {968-976},
-  abstract = {This paper considers the problem of estimating multiple related Gaussian graphical models from a p-dimensional dataset consisting of different classes. Our work is based upon the formulation of this problem as group graphical lasso. This paper proposes a novel hybrid covariance thresholding algorithm that can effectively identify zero entries in the precision matrices and then split a large joint graphical lasso problem into small subproblems. Our hybrid covariance thresholding method is superior to existing uniform thresholding methods in that our method can split the precision matrix of each individual class using different partition schemes and thus, split group graphical lasso into much smaller subproblems, each of which can be solved very fast. In addition, this paper also establishes necessary and sufficient conditions for our hybrid covariance thresholding algorithm. The superior performance of our thresholding method is analyzed theoretically and illustrated by a few experiments on simulated data and real gene expression data.}
-}
-
 @InProceedings{tank15,
   title = {{Streaming Variational Inference for Bayesian Nonparametric Mixture Models}},
   author = {Tank, Alex and Foti, Nicholas and Fox, Emily},
-  pages = {977-985},
+  pages = {968-976},
   abstract = {In theory, Bayesian nonparametric (BNP) models are well suited to streaming data scenarios due to their ability to adapt model complexity based on the amount of data observed. Unfortunately, such benefits have not been fully realized in practice; existing inference algorithms either are not applicable to streaming applications or are not extensible to nonparametric models.  For the special case of Dirichlet processes, streaming inference has been considered.  However, there is growing interest in more flexible BNP models, in particular building on the class of normalized random measures (NRMs).  We work within this general framework and present a streaming variational inference algorithm for NRM mixture models based on assumed density filtering.  Extensions to expectation propagation algorithms are possible in the batch data setting.  We demonstrate the efficacy of the algorithm on clustering documents in large, streaming text corpora.}
 }
 
 @InProceedings{tian15,
   title = {{Missing at Random in Graphical Models}},
   author = {Tian, Jin},
-  pages = {986-994},
+  pages = {977-985},
   abstract = {The notion of missing at random (MAR) plays a central role in the theory underlying current methods for handling missing data. However the standard definition of MAR is difficult to interpret in practice. In this paper, we assume the missing data model is  represented as a directed acyclic graph that not only encodes the dependencies among the variables but also explicitly portrays  the causal mechanisms responsible for the missingness process. We introduce an intuitively appealing notion of MAR in such graphical models, and establish its relation with the standard MAR and a few versions of MAR used in the literature. We address the question of whether MAR is testable, given that data are corrupted by missingness, by proposing a general method for identifying testable implications imposed by the graphical structure on the observed data.}
 }
 
 @InProceedings{vandemeent15,
   title = {{Particle Gibbs with Ancestor Sampling for Probabilistic Programs}},
   author = {van de Meent, Jan-Willem and Yang, Hongseok and Mansinghka, Vikash and Wood, Frank},
-  pages = {995-1003},
+  pages = {986-994},
   abstract = {Particle Markov chain Monte Carlo techniques rank among current state-of-the-art methods for probabilistic program inference. A drawback of these techniques is that they rely on importance resampling, which results in degenerate particle trajectories and a low effective sample size for variables sampled early in a program. We here develop a formalism to adapt ancestor resampling, a technique that mitigates particle degeneracy, to the probabilistic programming setting. We present empirical results that demonstrate nontrivial performance gains.}
 }
 
 @InProceedings{vanhoof15,
   title = {{Learning of Non-Parametric Control Policies with High-Dimensional State Features}},
   author = {Van Hoof, Herke and Peters, Jan and Neumann, Gerhard},
-  pages = {1004-1012},
+  pages = {995-1003},
   abstract = {Learning complex control policies from high-dimensional sensory input is a challenge for reinforcement learning algorithms. Kernel methods that approximate values functions or transition models can address this problem. Yet, many current approaches rely on instable greedy maximization. In this paper, we develop a policy search algorithm  that integrates robust policy updates and kernel embeddings. Our method can learn non-parametric control policies for infinite horizon continuous MDPs with high-dimensional sensory representations. We show that our method outperforms related approaches, and that our algorithm can learn an underpowered swing-up task task directly from high-dimensional image data.}
 }
 
 @InProceedings{versteeg15,
   title = {{Maximally Informative Hierarchical Representations of High-Dimensional Data}},
   author = {Ver Steeg, Greg and Galstyan, Aram},
-  pages = {1013-1021},
+  pages = {1004-1012},
   abstract = {We consider a set of probabilistic functions of some input variables as a representation of the inputs.  We present bounds on how informative a representation is about input data.  We extend these bounds to hierarchical representations so that we can quantify the contribution of each layer towards capturing the information in the original data.  The special form of these bounds leads to a simple, bottom-up optimization procedure to construct hierarchical representations that are also maximally informative about the data. This optimization has linear computational complexity and constant sample complexity in the number of variables.   These results establish a new approach to unsupervised learning of deep representations that is both principled and practical.  We demonstrate the usefulness of the approach on both synthetic and real-world data.}
 }
 
 @InProceedings{wang15a,
   title = {{Falling Rule Lists}},
   author = {Wang, Fulton and Rudin, Cynthia},
-  pages = {1022-1031},
+  pages = {1013-1022},
   abstract = {Falling rule lists are classification models consisting of an ordered list of if-then rules, where (i) the order of rules determines which example should be classified by each rule, and (ii) the estimated probability of success decreases monotonically down the list. These kinds of rule lists are inspired by healthcare applications where patients would be stratified into risk sets and the highest at-risk patients should be considered first. We provide a Bayesian framework for learning falling rule lists that does not rely on traditional greedy decision tree learning methods.}
 }
 
 @InProceedings{wang15b,
   title = {{Multi-Manifold Modeling in Non-Euclidean spaces}},
   author = {Wang, Xu and Slavakis, Konstantinos and Lerman, Gilad},
-  pages = {1032-1041},
+  pages = {1023-1032},
   abstract = {This paper advocates a novel framework for segmenting a dataset on a Riemannian manifold $M$ into clusters lying around low-dimensional submanifolds of $M$. Important examples of $M$, for which the proposed algorithm is computationally efficient, include the sphere, the set of positive definite matrices, and the Grassmannian. The proposed algorithm constructs a data-affinity matrix by thoroughly exploiting the intrinsic geometry and then applies spectral clustering. Local geometry is encoded by sparse coding and directional information of local tangent spaces and geodesics, which is important in resolving intersecting clusters and establishing the theoretical guarantees for a simplified variant of the algorithm. To avoid complication, these guarantees assume that the underlying submanifolds are geodesic.  Extensive validation on synthetic and real data demonstrates the resiliency of the proposed method against deviations from the theoretical (geodesic) model as well as its superior performance over state-of-the-art techniques.}
 }
 
 @InProceedings{wang15c,
   title = {{Column Subset Selection with Missing Data via Active Sampling}},
   author = {Wang, Yining and Singh, Aarti},
-  pages = {1042-1050},
+  pages = {1033-1041},
   abstract = {Column subset selection of massive data matrices has found numerous applications in real-world data systems. In this paper, we propose and analyze two sampling based algorithms for column subset selection without access to the complete input matrix. To our knowledge, these are the first algorithms for column subset selection with missing data that are provably correct. The proposed methods work for row/column coherent matrices by employing the idea of adaptive sampling. Furthermore, when the input matrix has a noisy low-rank structure, one algorithm enjoys a relative error bound.}
 }
 
 @InProceedings{wang15d,
   title = {{Trend Filtering on Graphs}},
   author = {Wang, Yu-Xiang and Sharpnack, James and Smola, Alex and Tibshirani, Ryan},
-  pages = {1051-1059},
+  pages = {1042-1050},
   abstract = {We introduce a family of adaptive estimators on graphs, based on penalizing the $\ell_1$ norm of discrete graph differences. This generalizes the idea of trend filtering (Kim et al., 2009, Tibshirani, 2014) used for univariate nonparametric regression, to graphs. Analogous to the univariate case, graph trend filtering exhibits a level of local adaptivity unmatched by the usual $\ell_2$-based graph smoothers.  It is also defined by a convex minimization problem that is readily solved (e.g., by fast ADMM or Newton algorithms).  We demonstrate the merits of graph trend filtering through examples and theory.}
 }
 
 @InProceedings{wauthier15,
   title = {{A Greedy Homotopy Method for Regression with Nonconvex Constraints}},
   author = {Wauthier, Fabian and Donnelly, Peter},
-  pages = {1060-1069},
+  pages = {1051-1060},
   abstract = {The goal of this paper is to estimate sparse linear regression models, where for a given partition $\mathcal{G}$ of input variables, the selected variables are chosen from a {\it diverse} set of groups in $\mathcal{G}$. We consider a novel class of nonconvex constraint functions, and develop RepLasso, a greedy homotopy method that exploits geometrical properties of the constraint functions to build a sequence of suitably adapted convex surrogate problems. We prove that in some situations RepLasso recovers the global minima path of the nonconvex problem. Moreover, even if it does not recover the global minima, we prove that it will often do no worse than the Lasso in terms of (signed) support recovery, while in practice outperforming it. We show empirically that the strategy can also be used to improve over various other Lasso-style algorithms. Finally, a GWAS of ankylosing spondylitis highlights our method's practical utility.}
 }
 
 @InProceedings{weller15,
   title = {{Revisiting the Limits of MAP Inference by MWSS on Perfect Graphs}},
   author = {Weller, Adrian},
-  pages = {1070-1078},
+  pages = {1061-1069},
   abstract = {A recent, promising approach to identifying a configuration of a discrete graphical model with highest probability (termed MAP inference) is to reduce the problem to finding a maximum weight stable set (MWSS) in a derived weighted graph, which, if perfect, allows a solution to be found in polynomial time.  Weller and Jebara (2013) investigated the class of binary pairwise models where this method may be applied. However, their analysis made a seemingly innocuous assumption which simplifies analysis but led to only a subset of possible reparameterizations being considered. Here we introduce novel techniques and consider all cases, demonstrating that this greatly expands the set of tractable models. We provide a simple, exact characterization of the new, enlarged set and show how such models may be efficiently identified, thus settling the power of the approach on this class.}
 }
 
 @InProceedings{wu15,
   title = {{Understanding and Evaluating Sparse Linear Discriminant Analysis}},
   author = {Wu, Yi and Wipf, David and Yun, Jeong-Min},
-  pages = {1079-1087},
+  pages = {1070-1078},
   abstract = {Linear discriminant analysis (LDA) represents a simple yet powerful technique for partitioning a p-dimensional feature vector into one of K classes based on a linear projection learned from N labeled observations. However, it is well-established that in the high-dimensional setting (p > N) the underlying projection estimator degenerates. Moreover, any linear discriminate function involving a large number of features may be difficult to interpret. To ameliorate these issues, two general categories of sparse LDA modifications have been proposed, both to reduce the number of active features and to stabilize the resulting projections. The first, based on optimal scoring, is more straightforward to implement and analyze but has been heavily criticized for its ambiguous connection with the original LDA formulation. In contrast, a second strategy applies sparse penalty functions directly to the original LDA objective but requires additional heuristic trade-off parameters, has unknown global and local minima properties, and requires a greedy sequential optimization procedure. In all cases the choice of sparse regularizer can be important, but no rigorous guidelines have been provided regarding which penalty might be preferable. Against this backdrop, we winnow down the broad space of candidate sparse LDA algorithms and promote a specific selection based on optimal scoring coupled with a particular, complementary sparse regularizer. This overall process ultimately progresses our understanding of sparse LDA in general, while leading to targeted modifications of existing algorithms that produce superior results in practice on three high-dimensional gene data sets.}
 }
 
 @InProceedings{xu15,
   title = {{Stochastic Block Transition Models for Dynamic Networks}},
   author = {Xu, Kevin},
-  pages = {1088-1096},
+  pages = {1079-1087},
   abstract = {There has been great interest in recent years on statistical models for dynamic networks. In this paper, I propose a stochastic block transition model (SBTM) for dynamic networks that is inspired by the well-known stochastic block model (SBM) for static networks and previous dynamic extensions of the SBM. Unlike most existing dynamic network models, it does not make a hidden Markov assumption on the edge-level dynamics, allowing the presence or absence of edges to directly influence future edge probabilities while retaining the interpretability of the SBM. I derive an approximate inference procedure for the SBTM and demonstrate that it is significantly better at reproducing durations of edges in real social network data.}
 }
 
 @InProceedings{yang15a,
   title = {{Majorization-Minimization for Manifold Embedding}},
   author = {Yang, Zhirong and Peltonen, Jaakko and Kaski, Samuel},
-  pages = {1097-1106},
+  pages = {1088-1097},
   abstract = {Nonlinear dimensionality reduction by manifold embedding has become a popular and powerful approach both for visualization and as preprocessing for predictive tasks, but more efficient optimization algorithms are still crucially needed.  Majorization-Minimization (MM) is a promising approach that monotonically decreases the cost function, but it remains unknown how to tightly majorize the manifold embedding objective functions such that the resulting MM algorithms are efficient and robust. We propose a new MM procedure that yields fast MM algorithms for a wide variety of manifold embedding problems. In our majorization step, two parts of the cost function are respectively upper bounded by quadratic and Lipschitz surrogates, and the resulting upper bound can be minimized in closed form. For cost functions amenable to such QL-majorization, the MM yields monotonic improvement and is efficient: in experiments the newly developed MM algorithms outperform five state-of-the-art optimization approaches in manifold embedding tasks.}
 }
 
 @InProceedings{yang15b,
   title = {{A la Carte -- Learning Fast Kernels}},
   author = {Yang, Zichao and Wilson, Andrew and Smola, Alex and Song, Le},
-  pages = {1107-1115},
+  pages = {1098-1106},
   abstract = {Kernel methods have great promise for learning rich statistical representations of large modern datasets. However, compared to neural networks, kernel methods have been perceived as lacking in scalability and flexibility. We introduce a family of fast, flexible, general purpose, and lightly parametrized kernel learning methods, derived from Fastfood basis function expansions. We provide mechanisms to learn the properties of groups of spectral frequencies in these expansions, which require only O(m log d) time and O(m) memory, for m basis functions and d input dimensions. We show that the proposed methods can learn a wide class of kernels, outperforming the alternatives in accuracy, speed, and memory consumption.}
 }
 
 @InProceedings{yu15,
   title = {{Minimizing Nonconvex Non-Separable Functions}},
   author = {Yu, Yaoliang and Zheng, Xun and Marchetti-Bowick, Micol and Xing, Eric},
-  pages = {1116-1124},
+  pages = {1107-1115},
   abstract = {Regularization has played a key role in deriving sensible estimators in high dimensional statistical inference. A substantial amount of recent works has argued for nonconvex regularizers in favor of their superior theoretical properties and excellent practical performances. In a different but analogous vein, nonconvex loss functions are promoted because of their robustness against "outliers". However, these nonconvex formulations are computationally more challenging, especially in the presence of nonsmoothness and non-separability. To address this issue, we propose a new proximal gradient meta-algorithm by rigorously extending the proximal average to the nonconvex setting. We formally prove its nice convergence properties, and illustrate its effectiveness on two applications: multi-task graph-guided fused lasso and robust support vector machines. Experiments demonstrate that our method compares favorably against other alternatives.}
 }
 
 @InProceedings{zhang15,
   title = {{A Simple Homotopy Algorithm for Compressive Sensing}},
   author = {Zhang, Lijun and Yang, Tianbao and Jin, Rong and Zhou, Zhi-Hua},
-  pages = {1125-1133},
+  pages = {1116-1124},
   abstract = {In this paper, we consider the problem of recovering the $s$ largest elements of an arbitrary vector from noisy measurements. Inspired by previous work, we develop an homotopy algorithm which solves the $\ell_1$-regularized least square problem for a sequence of decreasing values of the regularization parameter. Compared to the previous method, our algorithm is more efficient in the sense it only updates the solution once for each intermediate problem, and more practical in the sense it has a simple stopping criterion by checking the sparsity of the intermediate solution. Theoretical analysis reveals that our method enjoys a linear convergence rate in reducing the recovery error. Furthermore, our guarantee for recovering the top $s$ elements of the target vector is tighter than previous results, and that for recovering the target vector itself matches the state of the art in compressive sensing.}
 }
 
 @InProceedings{zhe15,
   title = {{Scalable Nonparametric Multiway Data Analysis}},
   author = {Zhe, Shandian and Xu, Zenglin and Chu, Xinqi and Qi, Yuan and Park, Youngja},
-  pages = {1134-1143},
+  pages = {1125-1134},
   abstract = {Multiway data analysis deals with multiway arrays, i.e., tensors, and the goal is twofold: predicting missing entries by modeling the interactions between array elements and discovering hidden patterns, such as clusters or communities in each mode. Despite the success of existing tensor factorization approaches, they are either unable to capture nonlinear interactions, or computationally expensive to handle massive data. In addition, most of the existing methods lack a principled way to discover latent clusters, which is important for better understanding of the data. To address these issues, we propose a scalable nonparametric tensor decomposition model. It employs Dirichlet process mixture (DPM) prior to model the latent clusters; it uses local Gaussian processes (GPs) to capture nonlinear relationships and to improve scalability. An efficient online variational Bayes Expectation-Maximization algorithm is proposed to learn the model. Experiments on both synthetic and real-world data show that the proposed model is able to discover latent clusters with higher prediction accuracy than competitive methods. Furthermore, the proposed model obtains significantly better predictive performance than the state-of-the-art large scale tensor decomposition algorithm, GigaTensor, on two large datasets with billions of entries.}
 }
 
 @InProceedings{zhou15a,
   title = {{Infinite Edge Partition Models for Overlapping Community Detection and Link Prediction}},
   author = {Zhou, Mingyuan},
-  pages = {1144-1152},
+  pages = {1135-1143},
   abstract = {A hierarchical gamma process infinite edge partition model is proposed to factorize the binary adjacency matrix of an unweighted undirected relational network under a  Bernoulli-Poisson link. The model describes  both homophily and stochastic equivalence, and is scalable to  big sparse networks by focusing its computation on  pairs of linked nodes. It can not only discover overlapping communities and inter-community interactions, but also predict missing edges. A simplified version omitting inter-community interactions is also provided and we reveal its  interesting connections to existing models. The number of communities is automatically inferred in a nonparametric Bayesian manner, and efficient  inference via Gibbs sampling is derived using novel data augmentation techniques. Experimental results on four real networks demonstrate the models' scalability and state-of-the-art performance.}
 }
 
 @InProceedings{zhou15b,
   title = {{Power-Law Graph Cuts}},
   author = {Zhou, Xiangyang and Zhang, Jiaxin and Kulis, Brian},
-  pages = {1153-1161},
+  pages = {1144-1152},
   abstract = {Algorithms based on spectral graph cut objectives such as normalized cuts, ratio cuts and ratio association have become popular in recent years because they are widely applicable and simple to implement via standard eigenvector computations. Despite strong performance for a number of clustering tasks, spectral graph cut algorithms still suffer from several limitations: first, they require the number of clusters to be known in advance, but this information is often unknown a priori; second, they tend to produce clusters with uniform sizes. In some cases, the true clusters exhibit a known size distribution; in image segmentation, for instance, human- segmented images tend to yield segment sizes that follow a power-law distribution. In this paper, we propose a general framework of power-law graph cut algorithms that produce clusters whose sizes are power-law distributed, and also does not fix the number of clusters upfront. To achieve our goals, we treat the Pitman-Yor exchangeable partition probability function (EPPF) as a regularizer to graph cut objectives. Because the result- ing objectives cannot be solved by relaxing via eigenvectors, we derive a simple iterative algorithm to locally optimize the objectives. Moreover, we show that our proposed algorithm can be viewed as performing MAP inference on a particular Pitman-Yor mixture model. Our experiments on various data sets show the effectiveness of our algorithms.}
 }
 
 @InProceedings{zhu15,
   title = {{The Log-Shift Penalty for Adaptive Estimation of Multiple Gaussian Graphical Models}},
   author = {Zhu, Yuancheng and Foygel Barber, Rina},
-  pages = {1162-1170},
+  pages = {1153-1161},
   abstract = {Sparse Gaussian graphical models characterize sparse dependence relationships between random variables in a network. To estimate multiple related Gaussian graphical models on the same set of variables, we formulate a hierarchical model, which leads to an optimization problem with a nonconvex log-shift penalty function. We show that under mild conditions the optimization problem is convex despite the inclusion of a nonconvex penalty, and derive an efficient optimization algorithm. Experiments on both synthetic and real data show that the proposed method is able to achieve good selection and estimation performance simultaneously, because the nonconvexity of the log-shift penalty allows for weak signals to be thresholded to zero without excessive shrinkage on the strong signals.}
 }
 
