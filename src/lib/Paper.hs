@@ -3,13 +3,13 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 module Paper
-  ( Paper (..)
-  , Entry
+  ( -- Paper (..)
+  Entry
   , getT
   , parseEntry
   , getField
   , getField'
-  , paperID
+  , -- paperID
   ) where
 
 --------------------------------------------------------------------------------
@@ -40,8 +40,8 @@ newtype Entry = Entry BibTex.T
 getT :: Entry -> BibTex.T
 getT (Entry t) = t
 
-data Paper = Paper { entry :: BibTex.T, conference :: BibTex.T }
-  deriving (Show, Typeable)
+-- data Paper = Paper { entry :: BibTex.T, conference :: BibTex.T }
+--   deriving (Show, Typeable)
 
 instance Writable BibTex.T where
   write fp item =
@@ -54,24 +54,6 @@ instance Binary BibTex.T where
     put $ BibTex.fields t
 
   get = BibTex.Cons <$> get <*> get <*> get
-
-instance Binary Paper where
-  put (Paper entry conf) = do
-    put entry
-    put conf
-
-  get = Paper <$> get <*> get
-
-instance Writable Paper where
-  write fp item =
-    let Paper entry conf = itemBody item
-    in writeFile fp (BibTex.Format.entry entry ++ BibTex.Format.entry conf)
-
-instance Eq Paper where
-  (==) paper paper' = paperID paper == paperID paper'
-
-instance Ord Paper where
-  compare paper paper' = compare (paperID paper) (paperID paper')
 
 parseEntry :: String -> Entry
 parseEntry entry =
@@ -86,8 +68,8 @@ parseEntry entry =
 
 --------------------------------------------------------------------------------
 -- Get the paper's indentifier
-paperID :: Paper -> Identifier
-paperID (Paper entry _) = fromFilePath $ BibTex.identifier entry
+-- paperID :: Paper -> Identifier
+-- paperID (Paper entry _) = fromFilePath $ BibTex.identifier entry
 
 --------------------------------------------------------------------------------
 -- Converts a TeX string into HTML + MathJax

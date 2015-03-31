@@ -6,35 +6,37 @@ module Site where
 import            Author
 import            Page
 
-import            Control.Applicative ((<$>), (<|>), empty)
-import            Control.Monad       (forM_, liftM, liftM3)
+import            Control.Applicative ((<$>), empty)
+import            Control.Monad       (liftM)
 import			  Data.Char
 import            Data.Function       (on)
-import            Data.List           (foldl', intersperse, intercalate, sortBy, 
-                                       elemIndex)
-import            Data.List.HT        (chop, segmentBefore)
-import            Data.Map            (keys, (!))
+import            Data.List           (foldl', sortBy, elemIndex)
+import            Data.List.HT        (chop)
 import            Data.Maybe
-import            Data.Monoid         (mappend, (<>), mconcat)
+import            Data.Monoid         ((<>))
 import            Data.Ord            (comparing)
-import            Data.String         (fromString)
+import            Data.Time.Format    (formatTime, parseTime)
+import            Data.Time.Calendar  (Day)
 import            Hakyll
 import            Paper
-import qualified  Text.BibTeX.Entry   as BibTex
-import            Text.Pandoc
 import            Text.Regex
 import            System.FilePath
+import            System.Locale       (defaultTimeLocale)
 
 -- Base URI for the W&CP site
+baseURI :: String
 baseURI = "http://jmlr.org/proceedings/papers/"
+
+createCompiler :: Compiler (Item String)
+createCompiler = makeItem ""
 
 --------------------------------------------------------------------------------
 realMain :: String -> IO ()
 realMain regex = hakyllWith config $ do
   let onlyVols = fromRegex regex
-  
+
   -- Load in the conference details for reference from paper entries
-  match ("db/*.bib" .&&. onlyVols) $ version "fields" $ 
+  match ("db/*.bib" .&&. onlyVols) $ version "volume" $ 
     compile  
       entryCompiler 
 
@@ -46,6 +48,7 @@ realMain regex = hakyllWith config $ do
 
     compile $
       entryCompiler
+        >>= saveSnapshot "volumes"
         >>= (\conf -> do 
           let confID = itemIdentifier conf
           let pattern = fromGlob $ (dropExtension . toFilePath $ confID) ++ "/*.bib"
@@ -76,14 +79,14 @@ realMain regex = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/paper.html" entryContext
         >>= relativizeUrls
 
-  -- match "db/*/*.bib" $ version "bib" $ do
-  --   route $ gsubRoute "db/" (const "")
-  --   compile copyFileCompiler
+  -- -- match "db/*/*.bib" $ version "bib" $ do
+  -- --   route $ gsubRoute "db/" (const "")
+  -- --   compile copyFileCompiler
 
-  -- All files (PDFs, Zip, BibTeX)
-  match ("db/*/*.*" .&&. onlyVols) $ do
-	route $ gsubRoute "db/" (const "")
-	compile copyFileCompiler
+  -- -- All files (PDFs, Zip, BibTeX)
+  -- -- match ("db/*/*.*" .&&. onlyVols) $ do
+	-- -- route $ gsubRoute "db/" (const "")
+	-- -- compile copyFileCompiler
 
   -- Templates
   match "templates/**" $ 
@@ -103,16 +106,28 @@ realMain regex = hakyllWith config $ do
   match "static/img/*" $ do
     route (gsubRoute "static/" (const ""))
     compile copyFileCompiler
+   
+  -- Top level index of all volumes
+  create ["index.html"] $ do
+    route idRoute
+    compile $ do
+      volumes <- sortBy (compare `on` getField "published") 
+                 <$> loadAll ("db/*.bib" .&&. hasVersion "volume")
 
+      let volumeCtx = listField "volumes" volumeContext (return volumes)
+      createCompiler
+        >>= loadAndApplyTemplate "templates/index.html" volumeCtx
+        >>= relativizeUrls
+  
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
   { destinationDirectory = "/tmp/jmlr/",
     storeDirectory       = "/tmp/hakyll_cache/jmlr/",
 	deployCommand = 
-      "rsync --checksum -avz --no-group /tmp/jmlr/* " 
-        ++ "mreid@login.csail.mit.edu:"
-        ++ "/afs/csail.mit.edu/group/jmlr/docroot/proceedings/papers/"
+      "rsync --checksum -avz --exclude '*.pdf' --exclude '*.zip' --exclude '*.gz' --rsh='ssh -p1022 -i /Users/mreid/.ssh/id_rsa ' --no-group /tmp/jmlr/* " 
+        ++ "confla@mark.reid.name:"
+        ++ "/home/confla/www/pmlr.cc/"
   }
 
 -- Sorts the entries by first page, taking into account roman numerals
@@ -130,7 +145,7 @@ pageSort = sortBy (compare `on` page) -- (\i1 i2 -> compare (page i1) (page i2))
 entryContext :: Context Entry
 entryContext = 
   constField "baseURI" baseURI     -- Base URI
-  <> listField' "authors" authorContext (return . entryNames "author")
+  <> listFieldWith "authors" authorContext (return . entryNames "author")
   <> entryContext'      -- Fields from BibTeX entry
   <> confContext        -- Fields from parent conference's BibTeX entry
   <> suppContext        -- Fields for entry's supplementary items, if found
@@ -140,6 +155,16 @@ suppContext =
   field "supp-url"    (suppLookup filename)   <>
   field "supp-kind"   (suppLookup kind)       <>
   field "supp-name"   (suppLookup suppID)
+
+-- Get entry fields for a Volume plus a human readable published date.
+-- TODO: Fix hacky code for parsing and formatting date
+volumeContext :: Context Entry
+volumeContext =
+  entryContext'
+  <> field "vol-published"   (return . formatter . fromJust . getField "published")
+  where
+    formatter = (formatTime defaultTimeLocale "%e %B %Y") . fromJust .  
+                (parseTime defaultTimeLocale "%F" :: String -> Maybe Day)
 
 suppLookup :: (Supplementary -> String) -> Item Entry -> Compiler String
 suppLookup f = maybe empty (return . f) . entrySupplementary
@@ -153,11 +178,11 @@ toSupps str = undefined
 
 entryContext' :: Context Entry
 entryContext' = Context $ 
-  \key item -> liftM StringField (maybeGetField key item) 
+  \key _ item -> liftM StringField (maybeGetField key item)
 
 confContext :: Context Entry
 confContext = Context $
-  \key item -> liftM StringField (conferenceEntry item >>= maybeGetField key)
+  \key _ item -> liftM StringField (conferenceEntry item >>= maybeGetField key)
 
 -- Return a Compiler String for a looked-up value or the empty Compiler
 -- If the key search for is a default key then log a warning and return a
@@ -168,10 +193,12 @@ maybeGetField key
  | otherwise              = maybe empty return . getField key
   where
     defaultKeys = ["abstract", "title", "author", "pages"]
-    defaultKeyWarning key = 
-      debugCompiler ("WARNING: Could not find " ++ key)
-      >> return ("[Not found: " ++ key ++ "]")
-      
+    defaultKeyWarning key' = 
+      debugCompiler ("WARNING: Could not find " ++ key')
+      >> return ("[Not found: " ++ key' ++ "]")
+
+maybeFieldWith :: String -> 
+
 -- Compile an entry by parsing its associated BibTeX file
 entryCompiler :: Compiler (Item Entry)
 entryCompiler = getResourceString >>= makeItem . parseEntry . itemBody
@@ -190,7 +217,7 @@ entryConfPath = confPath . toFilePath . itemIdentifier
 
 -- Load the conference entry associated with the paper with the given ID.
 conferenceEntry :: Item Entry -> Compiler (Item Entry)
-conferenceEntry = load . setVersion (Just "fields") . fromFilePath . entryConfPath
+conferenceEntry = load . setVersion (Just "volume") . fromFilePath . entryConfPath
 
 --------------------------------------------------------------------------------
 -- Sections in the proceedings
@@ -222,9 +249,9 @@ addToSection ((sec, es):rest) entry
 --    papers  = rendered list of papers
 sectionContext :: Item Entry -> Context Section
 sectionContext conf =
-  field     "sectionid"   (return . secID)              <>
-  field     "section"     (return . sectionTitles conf . secID)   <>
-  listField' "papers"     entryContext (return . sectionEntries . itemBody) 
+  field         "sectionid"   (return . secID)              <>
+  field         "section"     (return . sectionTitles conf . secID)   <>
+  listFieldWith "papers"     entryContext (return . sectionEntries . itemBody) 
   where
     secID = sectionID . itemBody
 
@@ -253,13 +280,15 @@ data Supplementary = Supplementary {
   filename :: FilePath
 } deriving (Show, Eq)
 
+kind :: Supplementary -> String
 kind supp = map toUpper (tail . takeExtension . filename $ supp)
 
+suppDefRegex :: Regex
 suppDefRegex = mkRegex "^[ ]*([a-z|A-Z|0-9]+):(.*)[ ]*$"
 
 parseSupplementary :: String -> Maybe Supplementary
 parseSupplementary str = case matchRegex suppDefRegex str of
-  Just [name, filename]	  -> Just (Supplementary name filename)
+  Just [suppname, file]	  -> Just (Supplementary suppname file)
   Just _				  -> Nothing
   Nothing				  -> Nothing
 
@@ -270,8 +299,8 @@ entrySupplementary item =
 --------------------------------------------------------------------------------
 -- Miscellaneous functions
 -- listField' should really be part of the Hakyll library.
-listField' :: String -> Context a -> (Item b -> Compiler [Item a]) -> Context b
-listField' key c value = field' key $ fmap (ListField c) . value
+-- listField' :: String -> Context a -> (Item b -> Compiler [Item a]) -> Context b
+-- listField' key c value = field' key $ fmap (ListField c) . value
 
-field' :: String -> (Item a -> Compiler ContextField) -> Context a
-field' key value = Context $ \k i -> if k == key then value i else empty
+-- field' :: String -> (Item a -> Compiler ContextField) -> Context a
+-- field' key value = Context $ \k i -> if k == key then value i else empty
