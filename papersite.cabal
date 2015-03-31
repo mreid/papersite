@@ -2,15 +2,15 @@
 -- There is a good introduction to writing Cabal files on StackExchange:
 --   http://stackoverflow.com/questions/12305970/how-to-make-a-haskell-cabal-project-with-libraryexecutables-that-still-run-with
 name:                papersite
-version:             0.2.0.0
-synopsis:            Site generation tool for JMLR proceedings.
+version:             0.2.1.0
+synopsis:            Site generation tool for PMLR proceedings.
 
 -- A longer description of the package.
 description:         
   A Hakyll-based static website generation tool that takes 
   BibTeX descriptions of a conference or workshop proceedings
   and generates a collection of MathJax-enabled pages that
-  can be uploaded to http://jmlr.org/proceedings/ .
+  can be uploaded to http://pmlr.cc/ .
 
 -- URL for the project homepage or repository.
 homepage:            https://github.com/mreid/papersite
@@ -20,7 +20,7 @@ author:              Mark Reid
 maintainer:          mark.reid@gmail.com
 category:            Web
 build-type:          Simple
-cabal-version:       >=1.10
+cabal-version:       >=1.18
 
 -- Source at GitHub
 source-repository head
@@ -39,12 +39,15 @@ library
    filepath,
    mtl,
    network,
+   network-uri,
+   old-locale,
    parsec,
    regex-compat,
    text,
+   time,
    utility-ht,
    ---
-   hakyll ==4.4.3.*,
+   hakyll >=4.6.6.0,
    pandoc,
    bibtex,
    latex
@@ -75,7 +78,7 @@ executable scrape
    base, HandsomeSoup, hxt, tagsoup,
    bibtex, latex, utility-ht,
    hxt-regex-xmlschema, text,
-   network, HTTP, directory
+   network, network-uri, HTTP, directory
 
 executable update
   hs-source-dirs:	src/exec
