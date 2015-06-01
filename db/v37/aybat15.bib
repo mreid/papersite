@@ -1,0 +1,6 @@
+@InProceedings{aybat15,
+  title = {An Asynchronous Distributed Proximal Gradient Method for Composite Convex Optimization},
+  author = {Necdet Aybat and Zi Wang and Garud Iyengar},
+  pages = {2435-2443},
+  abstract = {We propose a distributed first-order augmented Lagrangian (DFAL) algorithm to minimize the sum of composite convex functions, where each term in the sum is a private cost function belonging to a node, and only nodes connected by an edge can directly communicate with each other. This optimization model abstracts a number of applications in distributed sensing and machine learning. We show that any limit point of DFAL iterates is optimal; and for any eps > 0, an eps-optimal and eps-feasible solution can be computed within O(log(1/eps)) DFAL iterations, which require $O(\psi_\text{max}^{1.5}/d_\text{min} \cdot 1/\epsilon)$ proximal gradient computations and communications per node in total, where $\psi_\text{max}$ denotes the largest eigenvalue of the graph Laplacian, and $d_\text{min}$ is the minimum degree of the graph. We also propose an asynchronous version of DFAL by incorporating randomized block coordinate descent methods; and demonstrate the efficiency of DFAL on large scale sparse-group LASSO problems.},
+}

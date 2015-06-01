@@ -1,0 +1,7 @@
+@InProceedings{hana15,
+  supplementary = {Supplementary:hana15-supp.zip},
+  title = {Large-scale log-determinant computation through stochastic Chebyshev expansions},
+  author = {Insu Han and Dmitry Malioutov and Jinwoo Shin},
+  pages = {889-898},
+  abstract = {Logarithms of determinants of large positive definite matrices appear ubiquitously in machine learning applications including Gaussian graphical and Gaussian process models, partition functions of discrete graphical models, minimum-volume ellipsoids and metric and kernel learning. Log-determinant computation involves the Cholesky decomposition at the cost cubic in the number of variables (i.e., the matrix dimension), which makes it prohibitive for large-scale applications. We propose a linear-time randomized algorithm to approximate log-determinants for very large-scale positive definite and general non-singular matrices using a stochastic trace approximation, called the Hutchinson method, coupled with Chebyshev polynomial expansions that both rely on efficient matrix-vector multiplications. We establish rigorous additive and multiplicative approximation error bounds depending on the condition number of the input matrix. In our experiments, the proposed algorithm can provide very high accuracy solutions at orders of magnitude faster time than the Cholesky decomposition and Shur completion, and enables us to compute log-determinants of matrices involving tens of millions of variables.},
+}
