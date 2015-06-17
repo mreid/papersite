@@ -1,0 +1,17 @@
+@InProceedings{Foster15,
+  author = {Foster, Dean and Karloff, Howard and Thaler, Justin},
+  title = {Variable Selection is Hard},
+  pages = {696-709},
+  abstract = {Variable selection for sparse linear regression is the problem of finding,
+given an $m\times p$  matrix $B$ and a target vector $\bfy$,  a sparse vector $\bfx$ such that $B\bfx$ approximately equals $\bfy$.
+Assuming a standard complexity hypothesis, we show that no polynomial-time algorithm can find
+a $k'$-sparse $\bfx$ with $\|B\bfx-\bfy\|^2\le h(m,p)$,
+where $k'=k\cdot 2^{\log ^{1-\delta} p}$ and $h(m,p)= p^{C_1} m^{1-C_2}$, where $\delta>0,C_1>0,C_2>0$ are arbitrary.
+This is true even under the promise that
+there is an unknown $k$-sparse vector $\bfx^*$ satisfying $B\bfx^*=\bfy$.
+We prove a similar
+result for a statistical version of the problem in which the data are corrupted by noise.
+
+To the authors' knowledge, these are the first hardness results for sparse regression that apply when the algorithm simultaneously has $k'>k$
+and $h(m,p)>0$.},
+}

@@ -1,0 +1,33 @@
+@InProceedings{Frostig15,
+  author = {Frostig, Roy and Ge, Rong and Kakade, Sham M. and Sidford, Aaron},
+  title = {Competing with the Empirical Risk Minimizer in a Single Pass},
+  pages = {728-763},
+  abstract = {In many estimation problems, e.g.\ linear and logistic regression, we
+wish to minimize an unknown objective given only unbiased samples
+of the objective function. Furthermore, we aim to achieve this using as few samples as
+possible.  In the absence of computational constraints, the
+minimizer of a sample average of observed data~-- commonly referred
+to as either the empirical risk minimizer (ERM) or the $M$-estimator~--
+is widely regarded as the estimation strategy of choice due to
+its desirable statistical convergence properties. Our goal in this work is to perform
+as well as the ERM, on \emph{every} problem,
+while minimizing the use of computational resources such as running
+time and space usage.
+
+We provide a simple streaming algorithm which, under
+standard regularity assumptions on the underlying problem, enjoys
+the following properties:
+\begin{enumerate}
+\item The algorithm can be implemented in linear time with a single
+pass of the observed data, using space linear in the size of a
+single sample.
+\item The algorithm achieves the same statistical rate of
+convergence as the empirical risk minimizer on every problem, even
+considering constant factors.
+\item The algorithm's performance depends on the initial error at a
+rate that decreases super-polynomially.
+\item The algorithm is easily parallelizable.
+\end{enumerate}
+Moreover, we quantify the (finite-sample) rate at which the
+algorithm becomes competitive with the ERM.},
+}

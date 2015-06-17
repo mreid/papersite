@@ -1,0 +1,29 @@
+@InProceedings{Simon15a,
+  author = {Simon, Hans U.},
+  title = {An Almost Optimal PAC Algorithm},
+  pages = {1552-1563},
+  abstract = {The best currently known general lower and upper bounds on the number
+of labeled examples needed for learning a concept class in the PAC
+framework (the realizable case) do not perfectly match: they leave a gap
+of order $\log(1/\epsilon)$ (resp.~a gap which is logarithmic in another
+one of the relevant parameters). It is an unresolved question whether
+there exists an ``optimal PAC algorithm'' which establishes a general
+upper bound with precisely the same order of magnitude as the general
+lower bound. According to a result of Auer and Ortner, there is no way
+for showing that arbitrary consistent algorithms are optimal because
+they can provably differ from optimality by factor $\log(1/\epsilon)$.
+In contrast to this result, we show that every consistent algorithm $L$
+(even a provably suboptimal one) induces a family $(L_K)_{K\ge1}$ of
+PAC algorithms (with $2K-1$ calls of $L$ as a subroutine) which come
+very close to optimality: the number of labeled examples needed by $L_K$
+exceeds the general lower bound only by factor $\ell_K(1/\epsillon)$
+where $\ell_K$ denotes (a truncated version of) the $K$-times
+iterated logarithm. Moreover, $L_K$ is applicable to any concept
+class $C$ of finite VC-dimension and it can be implemented efficiently
+whenever the consistency problem for $C$ is feasible. We show furthermore
+that, for every consistent algorithm $L$, $L_2$ is an optimal PAC
+algorithm for precisely the same concept classes which were used
+by Auer and Ortner for showing the existence of suboptimal consistent
+algorithms.  This can be seen as an indication that $L_K$ may have an
+even better performance than it is suggested by our worstcase analysis.},
+}

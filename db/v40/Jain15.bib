@@ -1,0 +1,10 @@
+@InProceedings{Jain15,
+  author = {Jain, Prateek and Netrapalli, Praneeth},
+  title = {Fast Exact Matrix Completion with Finite Samples},
+  pages = {1007-1034},
+  abstract = {Matrix completion is the problem of recovering a low rank matrix by observing a small fraction of its entries. A series of recent works (Keshavan 2012),(Jain et al. 2013) and (Hardt, 2013) have proposed fast non-convex optimization based iterative algorithms to solve this problem. However, the sample complexity in all these results is sub-optimal in its dependence on the rank, condition number and the desired accuracy.
+
+In this paper, we present a fast iterative algorithm that solves the matrix completion problem by observing $O\left(nr^5 \log^3 n\right)$ entries, which is independent of the condition number and the desired accuracy. The run time of our algorithm is $O\left( nr^7\log^3 n\log 1/\epsilon \right)$ which is near linear in the dimension of the matrix. To the best of our knowledge, this is the first near linear time algorithm for exact matrix completion with finite sample complexity (i.e. independent of $\epsilon$).
+Our algorithm is based on a well known projected gradient descent method, where the projection is onto the (non-convex) set of low rank matrices. There are two key ideas in our result: 1) our argument is based on a $\ell_\infty$ norm potential function (as opposed to the spectral norm) and provides a novel way to obtain perturbation bounds for it. 2) we prove and use a natural extension of the Davis-Kahan theorem to obtain perturbation bounds on the best low rank approximation of matrices with good eigen gap. Both of these ideas may be of independent interest.
+},
+}

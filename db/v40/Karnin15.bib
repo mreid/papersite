@@ -1,0 +1,6 @@
+@InProceedings{Karnin15,
+  author = {Karnin, Zohar and Liberty, Edo},
+  title = {Online \mbox{PCA} with Spectral Bounds},
+  pages = {1129-1140},
+  abstract = {This paper revisits the online PCA problem. Given a stream of $n$ vectors $x_t \in \mathbb{R}^d$ (columns of $X$) the algorithm must output $y_t \in \mathbb{R}^\ell$  (columns of $Y$) before receiving $x_{t+1}$. The goal of online PCA is to simultaneously minimize the target dimension $\ell$ and the error $\|X - (XY^{{\scriptstyle{  \textrm +}}})Y\|^2$. We describe two simple and deterministic algorithms. The first, receives a parameter $\Delta$ and guarantees that $\|X - (XY^{{\scriptstyle{  \textrm +}}})Y\|^2$ is not significantly larger than $\Delta$. It requires a target dimension of $\ell = O(k/\epsilon)$ for any $k,\epsilon$ such that $\Delta \ge \epsilon\sigma_1^2 + \sigma_{k+1}^2$, with $\sigma_i$ being the $i$'th singular value of $X$. The second receives $k$ and $\epsilon$ and guarantees that $\|X - (XY^{{\scriptstyle{  \textrm +}}})Y\|^2 \le \epsilon\sigma_1^2 + \sigma_{k+1}^2$. It requires a target dimension of $O( k\log n/\epsilon^2)$. Different models and algorithms for Online PCA were considered in the past. This is the first that achieves a bound on the spectral norm of the residual matrix. },
+}

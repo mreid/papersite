@@ -1,0 +1,24 @@
+@InProceedings{Feige15,
+  author = {Feige, Uriel and  Mansour, Yishay and  Schapire, Robert},
+  title = {Learning and inference in the presence of corrupted inputs},
+  pages = {637-657},
+  abstract = {We consider a model where given an uncorrupted input an adversary can corrupt it to one out of $m$ corrupted inputs.
+We model the classification and inference problems as a zero-sum game between a learner, minimizing the expected error,
+and an adversary, maximizing the expected error. The value of this game is the optimal error rate achievable.
+
+For learning using a limited hypothesis class $\mathcal{H}$ over corrupted inputs, we give an efficient algorithm
+that given an uncorrupted sample returns a hypothesis $h\in \mathcal{H}$ whose error on adversarially corrupted inputs is near optimal. Our algorithm uses as a blackbox an oracle that solves the ERM problem for the hypothesis class $\mathcal{H}$.
+We provide a generalization bound for our setting,
+showing that for a sufficiently large sample, the performance on the sample and future unseen corrupted inputs will be similar.
+This gives an efficient learning algorithm for our adversarial setting,
+based on an ERM oracle.
+
+We also consider an inference related setting of the problem, where given a corrupted input, the learner queries the  target function on
+various uncorrupted inputs and generates a prediction regarding the given corrupted input.
+There is no limitation on the prediction function the learner may generate, so implicitly the hypothesis class includes all possible hypotheses.
+In this setting we
+characterize the optimal
+learner policy as a minimum vertex cover in a given bipartite graph, and the optimal adversary policy as a maximum matching in the same bipartite graph.
+We design efficient local algorithms for approximating minimum vertex cover in bipartite graphs,
+which implies an efficient near optimal algorithm for the learner.},
+}

@@ -1,0 +1,34 @@
+@InProceedings{Deshpande15,
+  author = {Deshpande, Yash and Montanari, Andrea},
+  title = {Improved Sum-of-Squares Lower Bounds for Hidden Clique
+and Hidden Submatrix Problems},
+  pages = {523-562},
+  abstract = {Given a large data matrix $A\in\mathbb{R}^{n\times n}$, we consider the problem of determining
+whether its entries are i.i.d. from some known marginal distribution
+$A_{ij}\sim P_0$,
+or instead $A$ contains a principal submatrix $A_{{\sf Q},{\sf Q}}$ whose entries
+have marginal distribution $A_{ij}\sim P_1\neq P_0$. As a special
+case, the hidden (or planted) clique problem is finding a planted
+clique in an otherwise uniformly random graph.
+
+Assuming unbounded computational resources, this hypothesis testing
+problem is statistically solvable  provided $|{\sf Q}|\ge C \log n$
+for a suitable constant $C$. However, despite substantial effort, no
+polynomial time algorithm is known that succeeds with high probability
+when $|{\sf Q}| = o(\sqrt{n})$.  Recently,
+\cite{meka2013association} proposed a method to establish lower bounds
+for the hidden clique problem
+within the Sum of Squares (SOS)
+semidefinite hierarchy.
+
+Here we consider the degree-$4$ SOS relaxation, and study the
+construction of \cite{meka2013association} to prove that SOS
+fails unless $k\ge C\, n^{1/3}/\log n$.
+An argument presented by \cite{BarakLectureNotes}
+implies that this lower bound cannot be substantially  improved unless  the witness
+construction is changed in the proof. Our proof uses the moment method
+to bound the spectrum of a certain random association scheme, i.e.
+a symmetric random matrix whose rows and columns are indexed by the
+edges of an Erd\"os-Renyi random graph.
+},
+}

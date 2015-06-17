@@ -1,0 +1,25 @@
+@InProceedings{Awasthi15a,
+  author = {Awasthi, Pranjal and Charikar, Moses and Lai, Kevin A and Risteski, Andrej},
+  title = {Label optimal regret bounds for online local learning},
+  pages = {150-166},
+  abstract = {We resolve an open question from Christiano (2014b) posed in COLT'14 regarding the optimal
+dependency of the regret achievable for online local learning on the size of the label set. In this
+framework, the algorithm is shown a pair of items at each step, chosen from a set of $n$ items. The
+learner then predicts a label for each item, from a label set of size $L$ and receives a real valued
+payoff. This is a natural framework which captures many interesting scenarios such as online
+gambling and online max cut. Christiano (2014a) designed an efficient online learning algorithm
+for this problem achieving a regret of $O(\sqrt{nL^3 T})$, where $T$ is the number of rounds. Information
+theoretically, one can achieve a regret of $O(\sqrt{n \log L T})$. One of the main open questions left in
+this framework concerns closing the above gap.
+In this work, we provide a complete answer to the question above via two main results. We
+show, via a tighter analysis, that the semi-definite programming based algorithm of Christiano
+(2014a) in fact achieves a regret of $O(\sqrt{nLT})$.
+Second, we show a matching computational lower bound. Namely, we show that a polynomial
+time algorithm for online local learning with lower regret would imply a polynomial time algorithm
+for the planted clique problem which is widely believed to be hard. We prove a similar hardness
+result under a related conjecture concerning planted dense subgraphs that we put forth. Unlike
+planted clique, the planted dense subgraph problem does not have any known quasi-polynomial
+time algorithms.
+Computational lower bounds for online learning are relatively rare, and we hope that the ideas
+developed in this work will lead to lower bounds for other online learning scenarios as well.},
+}

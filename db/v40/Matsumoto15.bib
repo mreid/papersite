@@ -1,0 +1,37 @@
+@InProceedings{Matsumoto15,
+  author = {Matsumoto, Issei and Hatano, Kohei and Takimoto, Eiji},
+  title = {Online Density Estimation of Bradley-Terry Models},
+  pages = {1343-1359},
+  abstract = {We consider an online density estimation problem for the Bradley-Terry model,
+where each model parameter defines the probability of a match result between
+any pair in a set of $n$ teams.
+The problem is hard because the loss function (i.e., the negative
+log-likelihood function in our problem setting) is not convex.
+To avoid the non-convexity, we can change parameters so that
+the loss function becomes convex with respect to the new parameter.
+But then the radius $K$ of the reparameterized domain may be infinite,
+where $K$ depends on the outcome sequence.
+So we put a mild assumption that guarantees that $K$ is finite.
+We can thus employ standard online convex optimization algorithms,
+namely OGD and ONS, over the reparameterized domain,
+and get regret bounds
+$O(n^{\frac{1}{2}}(\ln K)\sqrt{T})$ and $O(n^{\frac{3}{2}}K\ln T)$,
+respectively, where $T$ is the horizon of the game.
+The bounds roughly means that OGD is better when $K$ is large while
+ONS is better when $K$ is small.
+But how large can $K$ be?
+We show that $K$ can be as large as $\Theta(T^{n-1})$, which implies
+that the worst case regret bounds of OGD and ONS are
+$O(n^{\frac{3}{2}}\sqrt{T}\ln T)$ and $\tilde{O}(n^{\frac{3}{2}}(T)^{n-1})$,
+respectively.
+
+We then propose a version of Follow the Regularized Leader,
+whose regret bound is close to the minimum of those of OGD and ONS.
+In other words, our algorithm is competitive with both for a
+wide range of values of $K$.
+In particular, our algorithm achieves the worst case regret bound
+$O(n^{\frac{5}{2}}T^{\frac{1}{3}} \ln T)$, which is slightly better than
+OGD with respect to $T$.
+In addition, our algorithm works without the knowledge $K$,
+which is a practical advantage.},
+}

@@ -1,0 +1,28 @@
+@InProceedings{Koolen15a,
+  author = {Koolen, Wouter M. and Van Erven, Tim},
+  title = {Second-order Quantile Methods for Experts and Combinatorial Games},
+  pages = {1155-1175},
+  abstract = {We aim to design strategies for sequential decision making that
+adjust to the difficulty of the learning problem. We study this
+question both in the setting of prediction with expert advice,
+and for more general combinatorial decision tasks. We are not
+satisfied with just guaranteeing minimax regret rates, but we
+want our algorithms to perform significantly better on easy
+data. Two popular ways to formalize such adaptivity are
+second-order regret bounds and quantile bounds. The underlying
+notions of `easy data', which may be paraphrased as ``the
+learning problem has small variance'' and ``multiple decisions
+are useful'', are synergetic. But even though there are
+sophisticated algorithms that exploit one of the two, no
+existing algorithm is able to adapt to both.
+
+The difficulty in combining the two notions lies in tuning a
+parameter called the learning rate, whose optimal value behaves
+non-monotonically.  We introduce a potential function for
+which (very surprisingly!) it is sufficient to simply put a
+prior on learning rates; an approach that does not work for any
+previous method. By choosing the right prior we construct
+efficient algorithms and show that they reap both benefits by
+proving the first bounds that are both second-order and
+incorporate quantiles.},
+}

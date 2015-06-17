@@ -1,0 +1,8 @@
+@InProceedings{Belloni15,
+  author = {Belloni, Alexandre and Liang, Tengyuan and Narayanan, Hariharan and Rakhlin, Alexander},
+  title = {Escaping the Local Minima via Simulated Annealing: Optimization of Approximately Convex Functions},
+  pages = {240-265},
+  abstract = {We consider the problem of optimizing an approximately convex function over a bounded convex set in $\mathbb{R}^n$  using only function evaluations. The problem is reduced to sampling from an \emph{approximately} log-concave distribution using the Hit-and-Run method, which is shown to have the same $\mathcal{O}^*$ complexity as sampling from log-concave distributions. In addition to extend the analysis for log-concave distributions to approximate log-concave distributions, the implementation of the 1-dimensional sampler of the Hit-and-Run walk requires new methods and analysis. The algorithm then is based on simulated annealing which does not relies on first order conditions which makes it essentially immune to local minima.
+
+We then apply the method to different motivating problems. In the context of zeroth order stochastic convex optimization, the proposed method produces an $\epsilon$-minimizer after $\mathcal{O}^*(n^{7.5}\epsilon^{-2})$ noisy function evaluations  by inducing a $\mathcal{O}(\epsilon/n)$-approximately log concave distribution. We also consider in detail the case when the ``amount of non-convexity'' decays towards the optimum of the function. Other applications of the method discussed in this work include private computation of empirical risk minimizers, two-stage stochastic programming, and approximate dynamic programming for online learning.},
+}
