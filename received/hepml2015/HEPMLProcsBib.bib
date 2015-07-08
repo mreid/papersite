@@ -1,0 +1,99 @@
+%% This BibTeX bibliography file was created using BibDesk.
+%% http://bibdesk.sourceforge.net/
+
+
+%% Created for cecile at 2015-06-22 17:29:53 +0200 
+
+
+%% Saved with string encoding Unicode (UTF-8) 
+
+
+
+@proceedings{HEPML14,
+	Editor = {Cowan, Glen and Germain, C\'{e}cile and Guyon,  Isabelle and K\'{e}gl, Bal\`{a}zs and Rousseau, David },
+	Booktitle = {NIPS 2014 Workshop on High-energy Physics and Machine Learning},
+	Shortname={HEPML},
+	Volume = {42},
+	Year = {2014}}
+
+
+@inproceedings{edit14b,
+Title={Preface},
+Author={Editors, The},
+pages={\textit{i}-\texit{v}},
+abstract={This is the preface}
+}
+
+@inproceedings{glig14,
+Title={Real-time data analysis at the LHC: present and future},
+Author={Gligorov, Vladimir},
+pages={1-18},
+abstract={The Large Hadron Collider (LHC), which collides protons at an energy of 14 TeV, produces hundreds of exabytes of data per year,
+making it one of the largest sources of data in the world today. At present it is not possible to even transfer most of this
+data from the four main particle detectors at the LHC to ``offline'' data facilities, much less to permanently store it for future processing.
+For this reason the LHC detectors are equipped with real-time analysis systems, called triggers, which process this volume of
+data and select the most interesting proton-proton ($pp$) collisions. The LHC experiment triggers reduce the data produced by
+the LHC by between 1/1000 and 1/100000, to tens of petabytes per year, allowing its economical storage and further analysis.
+The bulk of the data-reduction is performed by custom electronics which ignores most of the data in its decision making,
+and is therefore unable to exploit the most powerful known data analysis strategies. I cover the present
+status of real-time data analysis at the LHC, before explaining why the future upgrades of the LHC experiments will increase
+the volume of data which can be sent off the detector and into off-the-shelf data processing facilities (such as CPU or GPU farms)
+to tens of exabytes per year. This development will simultaneously enable a vast expansion of the physics programme of the
+LHC's detectors, and make it mandatory to develop and implement a new generation of real-time multivariate analysis tools in
+order to fully exploit this new potential of the LHC. I explain what work is ongoing in this direction and
+motivate why more effort is needed in the coming years.}
+}
+
+@inproceedings{cowa14,
+Title={The {H}iggs boson machine learning challenge},
+Author={Adam-Bourdarios, Claire and Cowan, Glen and Germain, C\'{e}cile and Guyon,  Isabelle and K\'{e}gl, Bal\`{a}zs and Rousseau, David},
+pages={19-55},
+abstract={The Higgs Boson Machine Learning Challenge (HiggsML or the Challenge for short) was organized to promote collaboration between high energy physicists and data scientists. The ATLAS experiment at CERN provided simulated data that has been used by physicists in a search for the Higgs boson. The Challenge was organized by a small group of ATLAS physicists and data scientists. It was hosted 
+by Kaggle at \url{https://www.kaggle.com/c/higgs-boson}; the challenge data is now available on \url{\opendataLink}. This paper provides the physics background and explains the challenge setting, the challenge design, and analyzes its results.}
+}
+
+@inproceedings{meli14,
+Title={Dissecting the Winning Solution of the HiggsML Challenge},
+Author={Melis, G\'{a}bor},
+pages={57-67},
+abstract={The recent Higgs Machine Learning Challenge pitted one of the largest crowds seen in machine learning contests against one another. In this paper, we present the winning solution and investigate the effect of extra features, the choice of neural network activation function, regularization and data set size. We demonstrate improved classification accuracy using a very similar network architecture on the permutation invariant MNIST benchmark. Furthermore, we advocate the use of a simple method that lies on the boundary between bagging and cross-validation to both estimate the generalization error and improve accuracy.}
+}
+
+@inproceedings{chen14,
+Title={Higgs {B}oson {D}iscovery with {B}oosted {T}rees},
+Author={Chen,Tianqi. and He, Tong},
+pages={69-80-},
+abstract={The discovery of the Higgs boson is remarkable for its importance in modern Physics research. The next step for physicists is to discover more about the Higgs boson from the data of the Large Hadron Collider~(LHC). A fundamental and challenging task is to extract the signal of Higgs boson from background noises. The machine learning technique is one important component in solving this problem.
+In this paper, we propose to solve the Higgs boson classification problem with a gradient boosting approach. Our model learns ensemble of boosted trees that makes careful tradeoff between classification error and model complexity. Physical meaningful features are further extracted to improve the classification accuracy. Our final solution obtained an \emph{AMS} of 3.71885 on the private leaderboard, making us the top 2\% in the Higgs boson challenge.}
+}
+
+@inproceedings{sado14,
+Title={Deep Learning, Dark Knowledge, and Dark Matter},
+Author={Sadowski, Peter and Collado, Julian and Whiteson, Daniel and Baldi, Pierre},
+pages={81-87},
+abstract={Particle colliders are the primary experimental instruments of high-energy physics. By creating conditions that have not occurred naturally since the Big Bang, collider experiments aim to probe the most fundamental properties of matter and the universe. These costly experiments generate very large amounts of noisy data, creating important challenges and opportunities for machine learning. In this work we use \emph{deep learning} to greatly improve the statistical power on three benchmark problems involving: (1) Higgs bosons; (2) supersymmetric particles; and (3) Higgs boson decay modes. This approach increases the expected discovery significance over traditional shallow methods, by 50\%, 2\%, and 11\% respectively. In addition, we explore the use of model compression to transfer information (\emph{dark knowledge}) from deep networks to shallow networks.}
+}
+
+@inproceedings{kotl14,
+Title={Consistent optimization of AMS by logistic loss minimization},
+Author={Kot{\l}owski, Wojciech},
+pages={99-108},
+abstract={In this paper, we theoretically justify an approach popular among participants of the Higgs Boson Machine Learning Challenge to optimize approximate median significance (AMS). The approach is based on the following two-stage procedure. First, a real-valued function $f$ is learned by minimizing a surrogate loss for binary classification, such as logistic loss, on the training sample. Then, given $f$, a threshold $\hat{\theta}$ is tuned on a separate validation sample, by direct optimization of AMS.
+We show that the regret of the resulting classifier (obtained from thresholding $f$ on $\hat{\theta}$) measured with respect to the squared AMS, is upperbounded by the regret of $f$ measured with respect to the logistic loss. Hence, we prove that minimizing logistic surrogate is a consistent method of optimizing AMS. }
+}
+
+@inproceedings{diaz14,
+Title={Optimization of AMS using Weighted AUC optimized models},
+Author={D\'{i}az-Morales, Roberto and Navia-V\'{a}zquez, \'{A}ngel},
+pages={109-127},
+abstract={In this paper, we present an approach to deal with the maximization of the approximate median discovery significance (AMS) in high energy physics. This paper proposes the maximization of the Weighted AUC as a criterion to train different models and the subsequent creation of an ensemble that maximizes the AMS.
+The algorithm described in this paper was our solution for the Higgs Boson Machine Learning Challenge and we complement this paper describing the preprocessing of the dataset, the training procedure and the experimental results that our model obtained in the challenge. This approach has proven its good performance finishing in ninth place among the solutions of 1785 teams.}
+}
+
+@inproceedings{mack14,
+Title={Weighted Classification Cascades for Optimizing Discovery Significance in the HiggsMLChallenge},
+Author={Mackey, Lester. and Bryan, Jordan and Mo, Man Yue},
+pages={129-134},
+abstract={We introduce a minorization-maximization approach to optimizing common measures of discovery significance in high energy physics. The approach alternates between solving a weighted binary classification problem and updating class weights in a simple, closed-form manner. Moreover, an argument based on convex duality shows that an improvement in weighted classification error on any round yields a commensurate improvement in discovery significance. We complement our derivation with experimental results from the 2014 Higgs boson machine learning challenge.}
+}
+
