@@ -1,0 +1,7 @@
+@inproceedings{kotl14,
+  title = {Consistent optimization of AMS by logistic loss minimization},
+  author = {Kot{\l}owski, Wojciech},
+  pages = {99-108},
+  abstract = {In this paper, we theoretically justify an approach popular among participants of the Higgs Boson Machine Learning Challenge to optimize approximate median significance (AMS). The approach is based on the following two-stage procedure. First, a real-valued function $f$ is learned by minimizing a surrogate loss for binary classification, such as logistic loss, on the training sample. Then, given $f$, a threshold $\hat{\theta}$ is tuned on a separate validation sample, by direct optimization of AMS.
+We show that the regret of the resulting classifier (obtained from thresholding $f$ on $\hat{\theta}$) measured with respect to the squared AMS, is upperbounded by the regret of $f$ measured with respect to the logistic loss. Hence, we prove that minimizing logistic surrogate is a consistent method of optimizing AMS. },
+}
