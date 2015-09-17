@@ -1,0 +1,25 @@
+@InProceedings{ormandi15,
+  title = {Scalable Multidimensional Hierarchical Bayesian Modeling on Spark},
+  author = {Ormandi, Robert and Yang, Hongxia and Lu, Quan},
+  pages = {33-48},
+  abstract = {We consider the problem of estimating occurrence rates of rare events for
+extremely sparse data using pre-existing hierarchies and selected features to
+perform inference along multiple dimensions. In particular, we focus on the
+problem of estimating click rates for \{Advertiser, Publisher, User\} tuples
+where both the Advertisers and the Publishers are organized as hierarchies that 
+capture broad contextual information at different levels of granularities. 
+Typically, the click rates are low and the coverage of the hierarchies and
+dimensions is sparse. To overcome these difficulties, we decompose the joint
+prior of the three-dimensional  Click-Through-Rate (CTR) using tensor
+decomposition and propose a Multidimensional 
+Hierarchical Bayesian framework (abbreviated as MadHab).
+We set up a specific  framework of each dimension to model dimension-specific
+characteristics. More specifically, we consider the hierarchical beta process prior for the
+Advertiser dimension and for the Publisher
+dimension  respectively and a feature-dependent mixture model for the User dimension. 
+Besides the centralized implementation, we propose a distributed algorithm
+through Spark for inference which make the model highly scalable and suited for large scale
+data mining applications.
+We demonstrate that on a real world ads campaign platform our framework can 
+effectively discriminate extremely rare events in terms of their click propensity.},
+}

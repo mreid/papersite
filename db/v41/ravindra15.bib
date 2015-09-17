@@ -1,0 +1,14 @@
+@InProceedings{ravindra15,
+  title = {Shared Execution of Clustering Tasks},
+  author = {Ravindra, Padmashree and Gupta, Rajeev  and Anyanwu, Kemafor},
+  pages = {81-96},
+  abstract = {Clustering is a central problem in non-relational data analysis, with $k$-means being the most popular clustering 
+    technique. In various scenarios, it may be necessary to perform clustering over the same input data multiple times -- with 
+    different values of $k$, different clustering attributes, or different initial centroids -- before arriving at the final solution. 
+    In this paper, we propose algorithms for parallel execution of multiple runs of $k$-means clustering in a way that achieves
+    substantial savings of IO and processing resources. Proposed algorithms can easily be implemented over Hadoop/MapReduce, Spark, 
+    etc., with savings in \textit{map} and \textit{reduce} phases. Extensive performance evaluation using real-world datasets show 
+    that the proposed algorithms result in up to 40\% savings in response times when compared to other optimization techniques 
+    proposed in literature as well as open-source implementations. The algorithms scale well with increasing data sizes, values 
+    of $k$, and number of clustering tasks.},
+}

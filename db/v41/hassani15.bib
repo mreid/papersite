@@ -1,0 +1,22 @@
+@InProceedings{hassani15,
+  title = {Adaptive Stream Clustering Using Incremental Graph Maintenance},
+  author = {Hassani, Marwan and Spaus, Pascal and Cuzzocrea, Alfredo and Seidl, Thomas},
+  pages = {49-64},
+  abstract = {Challenges for clustering streaming data are getting continuously more sophisticated. 
+    This trend is driven by the the emerging requirements of the application where those algorithms
+    are used and the properties of the stream itself. Some of these properties are the continuous data
+    arrival, the time-critical processing of objects, the evolution of the data streams, the presence 
+    of outliers and the varying densities of the data. Due to the fact that the stream evolves continuously 
+    in the process of its existence, it is crucial that the algorithm autonomously detects clusters of 
+    arbitrary shape, with different densities, and varying number of clusters.
+    Recently, the first hierarchical density-based stream clustering algorithm based on cluster stability, 
+    called HASTREAM, was proposed. Although the algorithm was able to meet the above mentioned requirements, 
+    it inherited the main drawback of density-based hierarchical clustering algorithms, namely the efficiency issues.
+    In this paper we propose \textit{I-HASTREAM}, a first density-based hierarchical clustering algorithm that has
+    considerably less computational time than HASTREAM. Our proposed method utilizes and introduces techniques from 
+    the graph theory domain to devise an incremental update of the underlying model instead of repeatedly performing 
+    the expensive calculations of the huge graph. Specifically the Prim's algorithm for constructing the minimal spanning tree
+    is adopted by introducing novel, incremental maintenance of the tree by vertex and edge insertion and deletion.
+    The extensive experimental evaluation study on real world datasets shows that I-HASTREAM is considerably faster 
+    than a state-of-the-art hierarchical density-based stream clustering approach while delivering almost the same clustering quality.},
+}
