@@ -1,0 +1,79 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1>Proceedings of Machine Learning Research</h1>
+  <h2>Volume {{ site.volume }}: {{ site.conference }} {{ site.start | date: "%b %-d" }} to {{ site.end | date: "%b %-d, %Y" }}, {{ site.address }}</h2>
+
+  
+  <p><strong>Editors:
+      {% for editor in site.editors %}
+      {{ editor.firstname }} {{ editor.lastname }}
+      {% endfor %}
+  </strong></p>
+
+  <div id="sectionnav">
+    <p>Contents:</p>
+    <ul>
+      {% for section in site.sections %}
+      <li><a href="#{{ section.name }}">{{ section.title }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <label for="search-authors">Filter Authors:</label>
+    <input type="search" name="filter-authors" id="search-authors" value />
+    <label for="search-titles">Filter Titles:</label>
+    <input type="search" name="filter-titles" id="search-titles" value />
+  </div>
+  {% if site.sections %}
+  {% for section in site.sections %}
+  <h3 id="{{ section.name }}">{{ section.title }}</h3>
+    {% for post in site.posts %}
+    {% if section.name == {{ post.section }} %}
+    <div class="paper">
+      <p class="title">{{ post.title }}</p>
+      <p class="details">
+	<span class="authors">
+	  {% for author in post.authors %}
+	  {{ author.firstname }} {{ author.lastname }},
+	  {% endfor %}
+	</span>
+      </p>
+      <p class="links">
+	[<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">abs</a>]
+	[<a href="{{ post.pdf }}">pdf</a>]
+      </p>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </dl>
+  {% endfor %}
+  {% endif %}
+  <dl>
+  {% for post in site.posts %}
+  {% unless post.section %} 
+  <div class="paper">
+    <p class="title">{{ post.title }}</p>
+    <p class="details">
+      <span class="authors">
+	{% for author in post.authors %}
+	{{ author.firstname }} {{ author.lastname }},
+	{% endfor %}
+      </span>
+    </p>
+    <p class="links">
+      [<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">abs</a>]
+      [<a href="{{ post.pdf }}">pdf</a>]
+    </p>
+  </div>
+  {% endunless %}
+  {% endfor %}
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  
+</div>
+<!-- Search Widget -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="../js/search.js"></script>
