@@ -1,7 +1,7 @@
 .authors, #authors { font-weight: bold; font-style: italic; display: inline; }
 .info, #info { display: inline; }
 .details, .links { margin-left: 2em; }
-#note { font-weight: bold; color: blue; padding-top: 1em; }
+#note { font-weight: bold; color: #444477; }
 #footer { border-top: 1px solid gray; padding-top: 1em; margin-top: 1em; font-size: smaller; }
 {font-family:verdana,helvetica,sans-serif}
 a {text-decoration:none;color:#3030a0}
