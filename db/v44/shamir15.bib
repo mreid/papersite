@@ -1,0 +1,23 @@
+@InProceedings{shamir15,
+  title = {Minimum description length ({MDL}) regularization for online learning},
+  author = {Shamir, Gil I.},
+  pages = {260-276},
+  abstract = {An approach inspired by the \emph{Minimum Description Length (MDL)}
+principle is proposed for adaptively selecting features during online
+learning based on their usefulness in improving the objective.
+The approach eliminates noisy or useless features from the
+optimization process, leading to improved loss.
+Several algorithmic variations on the approach are presented.  They
+are based on using a Bayesian mixture in each of the dimensions of the feature space.  By
+utilizing the MDL principle, the mixture reduces the dimensionality
+of the feature space to its subspace with the lowest loss.  Bounds on the loss, derived, show that
+the loss for that subspace is essentially achieved.
+The approach can be tuned for trading off between model size and the loss incurred.
+Empirical results on large scale real-world systems demonstrate how it improves such tradeoffs.
+Huge model size reductions can be achieved with no loss
+in performance relative to standard techniques, while moderate loss
+improvements (translating to large regret
+improvements) are achieved with moderate size reductions.
+The results also demonstrate that overfitting is eliminated by this
+approach.},
+}
