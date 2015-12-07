@@ -1,0 +1,231 @@
+@Proceedings{FE-2015,
+    booktitle = {Proceedings of The 1st International Workshop ``Feature Extraction: Modern Questions and Challenges", NIPS},
+    editor = {Dmitry Storcheus, Afshin Rostamizadeh, Sanjiv Kumar, Neil Lawrence},
+    volume = {44},
+    year = {2015},
+    shortname = {FE}
+}
+
+@InProceedings{storcheus2015survey,
+    title = {A Survey of Modern Questions and Challenges in Feature Extraction},
+    author = {Storcheus, Dmitry and Rostamizadeh, Afshin and  Kumar, Sanjiv},
+    pages = {1-18},
+    abstract = {The problem of extracting features from given data is of critical
+importance for successful application of machine learning. Feature
+extraction, as usually understood, seeks an optimal transformation
+from input data into a (typically real-valued) feature vector that can be used as an input for a learning algorithm. Over time, this problem has
+been attacked using a growing number of diverse techniques that
+originated in separate research communities, including feature
+selection, dimensionality reduction, manifold learning, distance
+metric learning and representation learning. The goal of this paper is
+to contrast and compare feature extraction techniques coming from
+different machine learning areas, discuss the modern challenges and
+open problems in feature extraction and suggest novel solutions to
+some of them.}
+}
+
+@InProceedings{Ashtiani2015,
+    title = {A Dimension-Independent Generalization Bound for Kernel Supervised Principal Component Analysis},
+    author = {Ashtiani, Hassan and Ghodsi, Ali},
+    pages = {19-29},
+    abstract = {Kernel supervised principal component analysis (KSPCA) is a computationally efficient supervised feature extraction method that can learn non-linear transformations. We start the study of the statistical properties of KSPCA, providing the first bound on its sample complexity. This bound is dimension-independent, which justifies the good performance of KSPCA on high-dimensional data. Another observation is that in the kernelized version, the number of parameters of KSPCA grows linearly with the sample size. While this potentially increases the risk of over-fitting, KSPCA works well in practice. In this work, we justify this compelling characteristic of KSPCA by providing a guarantee indicating that KSPCA generalizes well even when the number of parameters is large, as long as they have small norms.}
+}
+
+@InProceedings{atzmon2015,
+    title = {Learning Sparse Metrics, One Feature at a Time},
+    author = {Atzmon, Yuval, and Shalit, Uri and Chechik, Gal},
+    pages = {30-48},
+    abstract = {Learning distance metrics from data is a fundamental problem in machine learning and useful way to extract data-driven features by using the matrix root of a distance matrix. Finding a proper metric amounts to optimization over the cone of positive definite (PD) matrices. This optimization is difficult since restricting optimization to remain within the PD cone or repeatedly projecting to the cone is prohibitively costly.
+
+Here we describe COMET, a block-coordinate descent procedure, which efficiently keeps the search within the PD cone, avoiding both costly projections and unnecessary computation of full gradients. COMET also continuously maintains the Cholesky root of the matrix, providing feature extraction and embedding of samples in a metric space. We further develop a structurally sparse variant of COMET, where only a small number of features interacts with other features. Sparse-COMET significantly accelerates both training and inference while improving interpretability.
+ 
+As a block-coordinate descent procedure, COMET has fast convergence bounds showing linear convergence with high probability. When tested on benchmark datasets in a task of retrieving similar images and similar text documents, COMET has significantly better precision than competing projection-free methods. Furthermore, sparse-COMET achieves almost identical precision as dense-COMET in document classification, while running 4.5 times faster, maintaining a 0.5\% sparsity level, and outperforming competing methods both in precision and in run time. }
+}
+
+@InProceedings{Barshan2015,
+    title = {Stage-wise Training: An Improved Feature Learning Strategy for Deep Models},
+    author = {Barshan, Elnaz and Fieguth, Paul},
+    pages = {49-59},
+    abstract = {Deep neural networks currently stand at the state of the art for many machine learning applications, yet there still remain limitations in the training of such networks because of their very high parameter dimensionality. In this paper we show that network training performance can be improved using a stage-wise learning strategy, in which the learning process is broken down into a number of related sub-tasks that are completed stage-by-stage. The idea is to inject the information to the network \textit{gradually} so that in the early stages of training the ``coarse-scale'' properties of the data are captured while the ``finer-scale'' characteristics are learned in later stages. Moreover, the solution found in each stage serves as a prior to the next stage, which produces a regularization effect and enhances the generalization of the learned representations. We show that decoupling the classifier layer from the feature extraction layers of the network is necessary, as it alleviates the diffusion of gradient and over-fitting problems.  Experimental results in the context of image classification support these claims.}
+}
+
+@InProceedings{chen15learning,
+  title={Learning Multi-channel Deep Feature Representations for Face Recognition},
+  author={Chen, Xue-wen and Aslan, Melih and Zhang, Kunlei and Huang, Thomas},
+  pages={60-71},
+  abstract={Deep learning provides a natural way to obtain feature representations from data without relying on hand-crafted descriptors. In this paper, we propose to learn deep feature representations using unsupervised and supervised learning in a cascaded fashion to produce generically descriptive yet class specic features. The proposed method can take full advantage of the availability of large-scale unlabeled data and learn discriminative features (supervised) from generic features (unsupervised). It is then applied to multiple essential facial regions to obtain multi-channel deep facial representations for face recognition. The effecacy of the proposed feature representations is validated on both controlled (i.e., extended Yale- B, Yale, and AR) and uncontrolled (PubFig) benchmark face databases. Experimental results show its effectiveness.}
+}
+
+@InProceedings{cortes15a,
+    title = {Kernel Extraction via Voted Risk Minimization},
+    author = {Cortes, Corinna and Goyal, Prasoon and Kuznetsov, Vitaly and Mohri, Mehryar},
+    pages = {72-89},
+    abstract = {This paper studies a new framework for learning a predictor
+  in the
+  presence of multiple kernel functions where the learner selects or
+  extracts several kernel functions from potentially complex
+  families and finds an accurate predictor defined in terms of these
+  functions.  We present an algorithm, Voted Kernel Regularization,
+  that provides
+  the flexibility of using very complex kernel functions such as
+  predictors based on high-degree polynomial kernels or narrow
+  Gaussian kernels, while benefitting from strong learning
+  guarantees. We show that our algorithm benefits from strong learning
+  guarantees suggesting a new regularization penalty depending on the
+  Rademacher complexities of the families of kernel functions
+  used. Our algorithm admits several other favorable properties: its
+  optimization problem is convex, it allows for learning with non-PDS
+  kernels, and the solutions are highly sparse, resulting in improved
+  classification speed and memory requirements.  We report the results
+  of some preliminary experiments comparing the performance of our
+  algorithm to several baselines.
+}
+}
+
+@InProceedings{CuiLuPeng15,
+    title = {A Computationally Efficient Method for Estimating Semi Parametric Regression Functions},
+    author = {Cui, Xia and Lu, Ying and Peng, Heng},
+    pages = {90-102},
+    abstract = {Bias reduction is an important condition for effective feature extraction. Utilizing recent theoretical results in high dimensional statistical modeling, we propose a model-free yet computationally simple approach to estimate the partially linear model $Y=X\beta+g(Z)+\varepsilon$. Based on partitioning the support of $Z$, a simple local average is used to  approximate the response surface $g(Z)$. The model can be estimated via least squares and no tuning parameter is needed. The proposed method seeks to strike a balance between computation
+burden and efficiency of the estimators while minimizing model bias. The desired theoretical properties of the proposed estimators are established.  Moreover, since the proposed method bypasses data-driven bandwith selection of traditional nonparametric methods, it avoids the further efficiency loss due to computation burden.}
+}
+
+@InProceedings{giannakis15,
+    title = {Spatiotemporal Feature Extraction with Data-Driven Koopman Operators},
+    author = {Giannakis, Dimitrios and Slawinska, Joanna and Zhao, Zhizhen},
+    pages = {103-115},
+    abstract = {We present a framework for feature extraction and mode decomposition of spatiotemporal data generated by ergodic dynamical systems. Unlike feature extraction techniques based on kernel operators, our approach is to construct feature maps using eigenfunctions of the Koopman group of unitary operators governing the dynamical evolution of observables and probability measures. We compute the eigenvalues and eigenfunctions of the Koopman group through a Galerkin scheme applied to time-ordered data without requiring a priori knowledge of the dynamical evolution equations. This scheme employs a data-driven set of basis functions on the state space manifold, computed through the diffusion maps algorithm and a variable-bandwidth kernel designed to enforce orthogonality with respect to the invariant measure of the dynamics. The features extracted via this approach have strong timescale separation, favorable predictability properties, and high smoothness on the state space manifold. The extracted features are also invariant under weakly restrictive changes of observation modality. We apply this scheme to a synthetic dataset featuring superimposed traveling waves in a one-dimensional periodic domain and satellite observations of organized convection in the tropical atmosphere.}
+}
+
+@InProceedings{huang15convolutional,
+    title = {Convolutional Dictionary Learning through Tensor Factorization},
+    author = {Huang, Furong and Anandkumar, Animashree},
+    pages = {116-129},
+    abstract = {Tensor methods have emerged as a powerful paradigm for consistent learning of many latent variable models such as topic models,  independent component analysis and dictionary learning. Model parameters are estimated via CP decomposition of the observed higher order input moments. In this paper, we extend tensor decomposition framework to models with invariances, such as convolutional dictionary models.    Our tensor decomposition algorithm is based on the popular alternating least squares (ALS) method, but with additional shift invariance constraints on the factors. We demonstrate that each ALS update can be computed efficiently using simple operations such as fast Fourier transforms and matrix multiplications. Our algorithm converges to models with better reconstruction error and is much faster, compared to the popular alternating minimization heuristic, where the filters  and activation maps are alternately updated.}
+}
+
+@InProceedings{janzamin2015,
+  title={{FEAST at Play: Feature ExtrAction using Score function Tensors}},
+  author={Janzamin, Majid and Sedghi, Hanie and Niranjan, U.N. and Anandkumar, Animashree},
+   pages = {130-144},
+    abstract = {Feature learning forms the cornerstone for tackling challenging learning problems in domains such as speech, computer vision and natural language processing. In this paper, we build upon a novel framework called FEAST(Feature ExtrAction using Score function Tensors) which incorporates   generative models  for discriminative learning. FEAST considers a novel class of matrix and tensor-valued feature transform, which can be pre-trained using unlabeled samples. It uses an efficient algorithm for extracting discriminative information, given these pre-trained features and labeled samples for any related task. The class of   features it adopts are based on higher-order score functions, which capture local variations in the probability density function of the input.  We employ efficient spectral decomposition algorithms (on matrices and tensors) for extracting discriminative components. The advantage of employing tensor-valued features is that we can extract richer discriminative information in the form of overcomplete representations (where number of discriminative features is greater than input dimension). In this paper, we provide preliminary experiment results on real datasets.}
+}
+
+@InProceedings{kandemir15jmlr,
+  title = {The Deep Feed-Forward Gaussian Process: An Effective Generalization to Covariance Priors},
+  author = {Kandemir, Melih and Hamprecht, Fred A.},
+  pages={145-159},
+abstract{We explore ways of applying a prior on the covariance matrix of a Gaussian Process (GP)
+in order to increase its expressive power. We show that two well-known covariance priors,
+Wishart Process and Inverse Wishart Process, boil down to a two-layer feed-forward net-
+work of GPs with a particular kernel function on the neuron at the output layer. Both
+of these models perform supervised manifold learning and target prediction jointly. Also,
+the resultant kernel functions of both of these priors lead to feature maps of finite dimen-
+sionality. Motivated by this fact, we promote replacing these kernels with the Radial Basis
+Function (RBF), which gives an infinite dimensional feature map, enhancing the model flex-
+ibility. We demonstrate on one benchmark task and two challenging medical image analysis
+tasks that our GP network with RBF kernel largely outperforms the earlier two covariance
+priors. We show also that it straightforwardly allows non-linear combination of different
+data views, leading to state-of-the-art multiple kernel learning only as a by-product.}
+}
+
+@InProceedings{kim2015a,
+    title = {Deep Clustered Convolutional Kernels},
+    author = {Kim, Minyoung and Rigazio, Luca},
+    pages = {160-172},
+    abstract = {Deep neural networks have recently achieved state of the art performance thanks to new training algorithms for rapid parameter estimation and new regularizations to reduce over- fitting. However, in practice the network architecture has to be manually set by domain experts, generally by a costly trial and error procedure, which often accounts for a large portion of the final system performance. We view this as a limitation and propose a novel training algorithm that automatically optimizes network architecture, by progressively increasing model complexity and then eliminating model redundancy by selectively removing parameters at training time. For convolutional neural networks, our method relies on iterative split/merge clustering of convolutional kernels interleaved by stochastic gradient descent. We present a training algorithm and experimental results on three different vision tasks, showing improved performance compared to similarly sized hand-crafted architec- tures.}
+}
+
+@InProceedings{LeiBinDogKlo15,
+    title = {Theory and Algorithms for the Localized Setting of Learning Kernels},
+    author = {Lei, Yunwen and Binder, Alexander and Dogan, \"Ur\"un and Kloft, Marius},
+    pages = {173-195},
+    abstract = {We analyze the localized setting of learning kernels also known as localized multiple kernel learning.
+    This problem has been addressed in the past using rather heuristic approaches based on approximately optimizing non-convex problem formulations,
+    of which up to now no theoretical learning bounds are known.
+    In this paper, we show generalization error bounds for learning localized kernel classes where the localities are 
+    coupled using graph-based regularization. We propose a novel learning localized kernels algorithm based on this hypothesis 
+    class that is formulated as a convex optimization problem using a pre-obtained cluster structure of the data.
+    We derive dual representations using Fenchel conjugation theory, based on which we give a simple yet efficient wrapper-based optimization algorithm.
+    We apply the method to problems involving multiple heterogeneous data sources, taken from domains of computational biology and computer vision.
+    The results show that the proposed convex approach to learning localized kernels can achieve higher prediction accuracies than its global and non-convex local counterparts.}
+}
+
+@InProceedings{li15convergent,
+    title = {Convergent Learning: Do different neural networks learn the same representations?},
+    author = {Li, Yixuan and Yosinski, Jason and Clune, Jeff and Lipson, Hod and Hopcroft, John},
+    pages = {196-212},
+    abstract = {Recent successes in training large, deep neural networks (DNNs) have prompted active investigation into the underlying representations learned on their intermediate layers. Such research is difficult because it requires making sense of non-linear computations performed by millions of learned parameters. However, despite the difficulty, such research is valuable because it increases our ability to understand current models and training algorithms and thus create improved versions of them. We argue for the value of investigating whether neural networks exhibit what we call convergent learning, which is when separately trained DNNs learn features that converge to span similar spaces. We further begin research into this question by introducing two techniques to approximately align neurons from two networks: a bipartite matching approach that makes one-to-one assignments between neurons and a spectral clustering approach that finds many-to-many mappings. Our initial approach to answering this question reveals many interesting, previously unknown properties of neural networks, and we argue that future research into the question of convergent learning will yield many more. The insights described here include (1) that some features are learned reliably in multiple networks, yet other features are not consistently learned; and (2) that units learn to span low-dimensional subspaces and, while these subspaces are common to multiple networks, the specific basis vectors learned are not; (3) that the  average activation values of neurons vary considerably within a network, yet the mean activation values across different networks converge to an almost identical distribution.}
+}
+
+@InProceedings{lore15,
+   title = {Hierarchical Feature Extraction for Efficient Design of Microfluidic Flow Patterns},
+   author = {Lore, Kin Gwn and Stoecklein, Daniel and Davies, Michael and Ganapathysubramanian, Baskar and Sarkar, Soumik},
+   pages = {213-225},
+   abstract = {Deep neural networks are being widely used for feature representation learning in diverse problem areas ranging from object recognition and speech recognition to robotic perception and human disease prediction. We demonstrate a novel, perhaps the first application of deep learning in mechanical design, specifically to learn complex microfluidic flow patterns in order to solve inverse problems in fluid mechanics. A recent discovery showed the ability to control the fluid deformations in a microfluidic channel by placing a sequence of pillars. This provides a fundamental tool for numerous material science, manufacturing and biological applications. However, designing pillar sequences for user-defined deformations is practically infeasible as the current process requires laborious and time-consuming design iterations in a very large, highly nonlinear design space that can have as large as $10^{15}$ possibilities. We demonstrate that hierarchical feature extraction can potentially lead to a scalable design tool via learning semantic representations from a relatively small number of flow pattern examples. The paper compares the performances of pre-trained deep neural networks and deep convolutional neural networks as well as their learnt features. We show that a balanced training data generation process with respect to a metric on the output space improves the feature extraction performance. Overall, the deep learning based design process is shown to expedite the current state-of-the-art design approaches by more than $600$ times.}
+}
+
+
+@InProceedings{mohri2015generalization,
+    title = {Generalization Bounds for Supervised Dimensionality Reduction},
+    author = {Mohri, Mehryar and Rostamizadeh, Afshin and Storcheus, Dmitry},
+    pages = {226-241},
+    abstract = {We introduce and study the learning scenario of \emph{supervised
+    dimensionality reduction}, which couples dimensionality
+  reduction and a subsequent supervised learning step.  We present new
+  generalization bounds for this scenario based on a careful analysis
+  of the empirical Rademacher complexity of the relevant hypothesis
+  set. In particular, we show an upper bound on the Rademacher
+  complexity that is in $\widetilde O(\sqrt{{\Lambda_{(r)}}/m})$, where $m$ is the
+  sample size and ${\Lambda_{(r)}}$ the upper bound on the Ky-Fan $r$-norm of
+  the operator that defines the dimensionality reduction projection. We give both upper and lower
+  bound guarantees in terms of that Ky-Fan $r$-norm, which strongly
+  justifies the definition of our hypothesis set. To the best of our
+  knowledge, these are the first learning guarantees for the problem
+  of supervised dimensionality reduction with a \emph{learned} kernel-based mapping. Our analysis and learning
+  guarantees further apply to several special cases, such as that
+  of using a fixed kernel with supervised dimensionality reduction or
+  that of unsupervised learning of a kernel for dimensionality
+  reduction followed by a supervised learning algorithm.}
+}
+
+@InProceedings{reeve15a,
+title = {Modular Autoencoders for Ensemble Feature Extraction},
+author = {Reeve, Henry and Brown, Gavin},
+pages = {242-259},
+abstract = {We introduce the concept of a Modular Autoencoder (MAE), capable of learning a set of diverse but complementary representations from unlabelled data, that can later be used for supervised tasks. The learning of the representations is controlled by a trade-off parameter, and we show on six benchmark datasets the optimum lies between two extremes: a set of smaller, independent autoencoders each with low capacity, versus a single monolithic encoding, outperforming an appropriate baseline. In the present paper we explore the special case of linear MAE, and derive an SVD-based algorithm which converges several orders of magnitude faster than gradient descent.}
+}
+
+@InProceedings{shamir15,
+    title = {Minimum description length ({MDL}) regularization for online learning},
+    author = {Shamir, Gil I.},
+    pages = {260-276},
+    abstract = {An approach inspired by the \emph{Minimum Description Length (MDL)\/}
+principle is proposed for adaptively selecting features during online
+learning based on their usefulness in improving the objective.
+The approach eliminates noisy or useless features from the
+optimization process, leading to improved loss.
+Several algorithmic variations on the approach are presented.  They
+are based on using a Bayesian mixture in each of the dimensions of the feature space.  By
+utilizing the MDL principle, the mixture reduces the dimensionality
+of the feature space to its subspace with the lowest loss.  Bounds on the loss, derived, show that
+the loss for that subspace is essentially achieved.
+The approach can be tuned for trading off between model size and the loss incurred.
+Empirical results on large scale real-world systems demonstrate how it improves such tradeoffs.
+Huge model size reductions can be achieved with no loss
+in performance relative to standard techniques, while moderate loss
+improvements (translating to large regret
+improvements) are achieved with moderate size reductions.
+The results also demonstrate that overfitting is eliminated by this
+approach.}
+}
+
+@InProceedings{Williams2015,
+   title = {Covariance Selection in the Linear Mixed Effect Mode},
+   author = {Williams, Jonathan P. and Lu, Ying},
+   pages = {277-291},
+   abstract = {This paper improves and extends the two-step penalized iterative estimation procedure for the linear mixed effect model (LMM) by explicitly penalizing the off-diagonal components of the covariance matrix of random effects. To explicitly penalize the off-diagonal terms in the covariance matrix of random effects, glasso is incorporated in the penalized LMM approach. The paper also provides theoretical justification and a computational algorithm for the provided approach. Empirical analysis using random simulated data shows that explicitly penalizing the off-diagonal covariance components can greatly improve the model selection procedure.
+}
+
+
+
