@@ -1,0 +1,13 @@
+@InProceedings{Horev15,
+  title = {Geometry-Aware Principal Component Analysis for Symmetric Positive Definite Matrices},
+  author = {Horev, Inbal and Yger, Florian  and Sugiyama, Masashi},
+  pages = {1-16},
+  abstract = {Symmetric positive definite (SPD) matrices, e.g. covariance matrices, are ubiquitous in machine learning applications.
+However, because their size grows as $n^2$ (where $n$ is the number of variables) their high-dimensionality is a crucial point when working with them.
+Thus, it is often useful to apply to them dimensionality reduction techniques.
+Principal component analysis (PCA) is a canonical tool for dimensionality reduction, which for vector data reduces the dimension of the input data while maximizing the preserved variance.
+Yet, the commonly used, naive extensions of PCA to matrices result in sub-optimal variance retention.
+Moreover, when applied to SPD matrices, they ignore the geometric structure of the space of SPD matrices, further degrading the performance.
+In this paper we develop a new Riemannian geometry based formulation of PCA for SPD matrices that i) preserves more data variance by appropriately extending PCA to matrix data, and ii) extends the standard definition from the Euclidean to the Riemannian geometries.
+We experimentally demonstrate the usefulness of our approach as pre-processing for EEG signals.},
+}

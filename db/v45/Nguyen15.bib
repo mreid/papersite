@@ -1,0 +1,24 @@
+@InProceedings{Nguyen15,
+  title = {Continuous Target Shift Adaptation in Supervised Learning},
+  author = {Nguyen, Tuan Duong and Christoffel, Marthinus and Sugiyama, Masashi},
+  pages = {285-300},
+  abstract = {Supervised learning in machine learning concerns inferring an underlying
+relation between covariate $\bx$ and target $y$ based on training
+covariate-target data. It is traditionally assumed that training data and test data, on which the
+generalization performance of a learning algorithm is measured, follow the same
+probability distribution. However, this standard assumption is often violated in
+many real-world applications such as computer vision, natural language
+processing, robot control, or survey design, due to intrinsic non-stationarity
+of the environment or inevitable sample selection bias. This situation is
+called \emph{dataset shift} and has attracted a great deal of attention
+recently. In the paper, we consider supervised learning problems under the
+\emph{target shift} scenario, where the target marginal distribution $p(y)$
+changes between the training and testing phases, while the target-conditioned
+covariate distribution $p(\bx|y)$ remains unchanged. Although various methods
+for mitigating target shift in classification (a.k.a. \emph{class prior change})
+have been developed so far, few methods can be applied to continuous targets. In
+this paper, we propose methods for continuous target shift adaptation in
+regression and conditional density estimation. More specifically, our
+contribution is a novel importance weight estimator for continuous targets.
+Through experiments, the usefulness of the proposed method is demonstrated.},
+}

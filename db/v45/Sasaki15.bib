@@ -1,0 +1,26 @@
+@InProceedings{Sasaki15,
+  title = {Sufficient Dimension Reduction via Direct Estimation
+of the Gradients of Logarithmic Conditional Densities},
+  author = {Sasaki, Hiroaki and Tangkaratt, Voot and Sugiyama, Masashi},
+  pages = {33-48},
+  abstract = {Sufficient dimension reduction (SDR) is a framework of supervised
+ linear dimension reduction, and is aimed at finding a low-dimensional
+ orthogonal projection matrix for input data such that the projected
+ input data retains maximal information on output data. A
+ computationally efficient approach employs gradient estimates of the
+ conditional density of the output given input data to find an
+ appropriate projection matrix. However, since the gradients of the
+ conditional densities are typically estimated by a local linear
+ smoother, it does not perform well when the input dimensionality is
+ high. In this paper, we propose a novel estimator of the gradients of
+ logarithmic conditional densities called the \emph{least-squares
+ logarithmic conditional density gradients} (LSLCG), which fits a
+ gradient model \emph{directly} to the true gradient without conditional
+ density estimation under the squared loss. Thanks to the simple
+ least-squares formulation, LSLCG gives a closed-form solution that can
+ be computed efficiently. In addition, all the parameters can be
+ automatically determined by cross-validation. Through experiments on a
+ large variety of artificial and benchmark datasets, we demonstrate that
+ the SDR method based on LSLCG outperforms existing SDR methods both in
+ estimation accuracy and computational efficiency.},
+}

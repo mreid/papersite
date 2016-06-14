@@ -1,0 +1,19 @@
+@InProceedings{Kondo15,
+  title = {Bayesian Masking: Sparse Bayesian Estimation with Weaker Shrinkage Bias},
+  author = {Kondo, Yohei and Maeda, Shin-ichi and Hayashi, Kohei},
+  pages = {49-64},
+  abstract = {A common strategy for sparse linear regression is to introduce regularization,
+ which eliminates irrelevant features by letting the
+  corresponding weights be zeros.
+  However, regularization often shrinks the estimator for
+  relevant features, which leads to incorrect feature selection.
+  
+  Motivated by the above-mentioned issue, we propose Bayesian masking (BM), a sparse estimation method which
+  imposes no regularization on the weights. 
+  The key concept of BM is to introduce binary latent variables that randomly mask features.
+  Estimating the masking rates determines the relevance of the features automatically.
+  We derive a variational Bayesian inference algorithm that maximizes the lower bound of
+  the factorized information criterion (FIC), which is a recently developed asymptotic criterion for evaluating the marginal log-likelihood.
+  In addition, we propose reparametrization to accelerate the convergence of the derived algorithm.
+  Finally, we show that BM outperforms Lasso and automatic relevance determination (ARD) in terms of the sparsity-shrinkage trade-off. },
+}
