@@ -1,0 +1,34 @@
+@InProceedings{diakonikolas16b,
+  author = {I. Diakonikolas and D. M. Kane and A. Stewart},
+  title = {Properly Learning Poisson Binomial Distributions in Almost Polynomial Time},
+  pages = {850-878},
+  abstract = {We give an algorithm for properly learning Poisson binomial distributions.
+A Poisson binomial distribution (PBD) of order $n \in \mathbb{Z}_+$
+is the discrete probability distribution of the sum of $n$ mutually independent Bernoulli random variables.
+Given $\widetilde{O}(1/\epsilon^2)$ samples from an unknown PBD $P$, our algorithm runs in time
+$(1/\eps)^{O(\log \log (1/\epsilon))}$, and outputs a hypothesis PBD that is $\epsilon$-close to $P$ in total variation distance.
+The sample complexity of our algorithm is known to be nearly-optimal, up to logarithmic factors, as established
+in previous work. However, the previously best known running time for properly
+learning PBDs was $(1/\epsilon)^{O(\log(1/\epsilon))}$, and was essentially obtained by
+enumeration over an appropriate  $\epsilon$-cover. We remark that the running time of this cover-based approach cannot be
+improved, as any $\epsilon$-cover for the space of PBDs has size  $(1/\epsilon)^{\Omega(\log(1/\epsilon))}$.
+
+As one of our main contributions, we provide a novel structural characterization of PBDs,
+showing that any PBD $P$ is $\epsilon$-close to another PBD $Q$ with $O(\log(1/\epsilon))$ distinct parameters.
+More precisely, we prove that, for all $\epsilon >0,$ there exists
+an explicit collection $\cal{M}$ of $(1/\epsilon)^{O(\log \log (1/\epsilon))}$ vectors of multiplicities,
+such that for any PBD $P$ there exists a PBD $Q$ with $O(\log(1/\epsilon))$ distinct parameters whose multiplicities are given by some element of ${\cal M}$,
+such that $Q$ is $\epsilon$-close to $P.$  Our proof combines tools from Fourier analysis and algebraic geometry.
+
+
+Our approach to the proper learning problem is as follows:
+Starting with an accurate non-proper hypothesis, we fit a PBD to this hypothesis.
+This fitting problem can be formulated as a natural polynomial optimization problem.
+Our aforementioned structural characterization allows
+us to reduce the corresponding fitting problem
+to a collection of $(1/\epsilon)^{O(\log \log(1/\epsilon))}$
+systems of low-degree polynomial inequalities.
+We show that each such system can be solved in time $(1/\epsilon)^{O(\log \log(1/\epsilon))}$,
+which yields the overall running time of our algorithm.
+},
+}

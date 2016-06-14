@@ -1,0 +1,24 @@
+@InProceedings{awasthi16,
+  author = {Awasthi, Pranjal and Balcan, Maria-Florina and Haghtalab, Nika and Zhang, Hongyang},
+  title = {Learning and 1-bit Compressed Sensing under Asymmetric Noise},
+  pages = {152-192},
+  abstract = {We study the \emph{approximate recovery} problem: Given corrupted $1$-bit measurements of the form $sign(w^* \cdot x_i)$,
+recover a vector $w$ that is a good approximation to $w^* \in \Re^d$.
+This problem has been studied by both the learning theory and signal processing communities.
+In learning theory, this is known as the problem of \emph{learning halfspaces with noise},
+and in signal processing, as \emph{$1$-bit compressed sensing}, in which there is an additional assumption that $w^*$ is $t$-sparse.
+The challenge in both cases is to design computationally efficient algorithms that are tolerant to large amounts of noise under realistic noise models.
+Furthermore, in the case of 1-bit compressed sensing, we require  the number of measurements $x_i$ to scale polynomially in $t$ and
+only polylogarithmically in $d$, the ambient dimension. In this work, we introduce algorithms with nearly optimal guarantees for both problems
+under two realistic noise models, \emph{bounded (Massart) noise} and \emph{adversarial (agnostic) noise}, when the measurements
+$x_i$'s are drawn from any isotropic log-concave distribution.
+
+In bounded (Massart) noise, an adversary can flip the measurement of each point $x$ with probability $\eta(x)\leq \eta< 1/2$.
+For this problem, we present an efficient algorithm that returns $w$ such that $\| w- w^*\|_2 \leq \epsilon$ in time $poly(d, \frac 1 \epsilon)$
+for \emph{any} constant $\eta < 1/2$.  This improves significantly over the best known result of Awasthi et al. 2015, in this space that required the noise to be as small as $\eta\approx 10^{-6}$.
+We then introduce an attribute-efficient variant of this algorithm for $1$-bit compressed sensing that achieves
+the same guarantee with $poly(t, \log(d), \frac 1 {\epsilon})$ measurements when $\|w^*\|_0\leq t$.
+For adversarial (agnostic) noise, where any $\nu$ fraction of measurements can be corrupted, we provide an algorithm that
+returns $w$ such that $\|w-w^*\|_2 \leq O(\nu) + \epsilon$, with  $\tilde\Omega( \frac t {\epsilon^3}  \polylog(d))$  measurements. Our results improve on the best known approximation results in this space and under some regimes improve on the sample complexity of the existing results. Furthermore, this  is the first result of its kind in 1-bit compressed sensing
+that goes beyond the Gaussian marginal distribution and works for any isotrpic log-concave distribution.},
+}

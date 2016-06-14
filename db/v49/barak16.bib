@@ -1,0 +1,9 @@
+@InProceedings{barak16,
+  author = {Barak, Boaz and Moitra, Ankur},
+  title = {Noisy Tensor Completion via the Sum-of-Squares Hierarchy},
+  pages = {417-445},
+  abstract = {In the noisy tensor completion problem we observe $m$ entries (whose location is chosen uniformly at random) from an unknown $n_1 \times n_2 \times n_3$ tensor $T$. We assume that $T$ is entry-wise close to being rank $r$. Our goal is to fill in its missing entries using as few observations as possible. Let $n = \max(n_1, n_2, n_3)$. We show that if
+$m =  n^{3/2} r$ then there is a polynomial time algorithm based on the sixth level of the sum-of-squares hierarchy for completing it. Our estimate agrees with almost all of $T$'s entries almost exactly and works even when our observations are corrupted by noise. This is also the first algorithm for tensor completion that works in the overcomplete case when $r > n$, and in fact it works all the way up to $r = n^{3/2-\epsilon}$.
+
+Our proofs are short and simple and are based on establishing a new connection between noisy tensor completion (through the language of Rademacher complexity) and the task of refuting random constant satisfaction problems. This connection seems to have gone unnoticed even in the context of matrix completion. Furthermore, we use this connection to show matching lower bounds. Our main technical result is in characterizing the Rademacher complexity of the sequence of norms that arise in the sum-of-squares relaxations to the tensor nuclear norm.  These results point to an interesting new direction: Can we explore computational vs. sample complexity tradeoffs through the sum-of-squares hierarchy?},
+}

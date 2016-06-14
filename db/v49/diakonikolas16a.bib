@@ -1,0 +1,37 @@
+@InProceedings{diakonikolas16a,
+  author = {I. Diakonikolas and D. M. Kane and A. Stewart},
+  title = {Optimal Learning via the Fourier Transform
+for Sums of Independent Integer Random Variables},
+  pages = {831-849},
+  abstract = {We study the structure and learnability of sums of independent integer random variables (SIIRVs).
+For $k \in \mathbb{Z}_{+}$, a {\em$k$-SIIRV of order $n \in \mathbb{Z}_{+}$} is the probability distribution of the sum of $n$
+mutually independent random variables each supported on $\{0, 1, \dots, k-1\}$.
+We denote by ${\cal S}_{n,k}$ the set of all $k$-SIIRVs of order $n$.
+
+How many samples are required to learn an arbitrary distribution in ${\cal S}_{n,k}$?
+In this paper, we tightly characterize the sample and computational complexity of this problem.
+More precisely, we design a computationally efficient algorithm that uses $\widetilde{O}(k/\epsilon^2)$ samples,
+and learns an arbitrary $k$-SIIRV within error $\epsilon,$ in total variation distance. Moreover, we show that
+the {\em optimal} sample complexity of this learning problem is
+$\Theta((k/\epsilon^2)\sqrt{\log(1/\epsilon)}),$ i.e., we prove an upper bound and a matching
+information-theoretic lower bound.
+Our algorithm proceeds by learning the Fourier transform of the target $k$-SIIRV in its effective support.
+Its correctness relies on the {\em approximate sparsity} of the Fourier transform of $k$-SIIRVs --
+a structural property that we establish, roughly stating that the Fourier transform of $k$-SIIRVs
+has small magnitude outside a small set.
+
+Along the way we prove several new structural results about $k$-SIIRVs.
+As one of our main structural contributions, we give an efficient algorithm to construct a
+sparse {\em proper} $\epsilon$-cover for ${\cal S}_{n,k},$ in total variation distance.
+We also obtain a novel geometric characterization of the space of $k$-SIIRVs. Our
+characterization allows us to prove a tight lower bound on the size of $\epsilon$-covers for ${\cal S}_{n,k}$
+-- establishing that our cover upper bound is optimal -- and is the key ingredient in our tight sample complexity lower bound.
+
+Our approach of exploiting the sparsity of the Fourier transform in
+distribution learning is general, and has recently found additional applications.
+In a subsequent work, we use a generalization of this idea
+to obtain the first computationally efficient learning algorithm for Poisson multinomial distributions.
+In~a separate work, we build on our Fourier-based approach to obtain the fastest known proper learning algorithm
+for Poisson binomial distributions ($2$-SIIRVs).
+},
+}

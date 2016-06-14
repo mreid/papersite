@@ -1,0 +1,51 @@
+@InProceedings{alon16,
+  author = {Alon, Noga and Moran, Shay and Yehudayoff, Amir},
+  title = {Sign rank versus {VC} dimension},
+  pages = {47-80},
+  abstract = {This work studies the maximum
+possible sign rank of $N \times N$ sign matrices with a given
+VC dimension $d$.
+For $d=1$, this maximum is {three}.
+For $d=2$, this maximum is $\tilde{\Theta}(N^{1/2})$.
+For $d >2$, similar but slightly less accurate statements hold.
+Our lower bounds improve over previous ones
+by Ben-David et al.~and can be interpreted as exhibiting
+a weakness of kernel-based classifiers.
+Our upper bounds, on the other hand,
+can be interpreted as exhibiting the universality
+of kernel-based classifiers.
+
+The lower bounds are obtained by probabilistic constructions,
+using a theorem of Warren in real algebraic topology.
+The upper bounds are obtained using
+a result of Welzl about spanning trees with low stabbing number,
+and using the moment curve.
+
+The upper bound technique is also used to:
+(i) provide estimates on the number of classes
+of a given VC dimension,
+and the number of maximum
+classes of a given VC dimension -- answering a question of Frankl from '89,
+and (ii) design an efficient
+algorithm that provides an $O(N/\log(N))$ multiplicative
+approximation for the sign rank
+(computing the sign rank is equivalent to the existential theory of the reals).
+
+
+We also observe a general connection between sign rank
+and spectral gaps which is based on Forster's argument.
+Consider the $N \times N$ adjacency matrix of a $\Delta$ regular graph
+with a second eigenvalue of absolute value $\lambda$ and
+$\Delta \leq N/2$.
+We show that the sign rank of the signed version of this matrix
+is at least $\Delta/\lambda$.
+We use this connection to prove the existence
+of a maximum class $C\subseteq\{\pm 1\}^N$ with VC dimension $2$
+and sign rank $\tilde{\Theta}(N^{1/2})$. This answers a question of
+Ben-David et al.~regarding the sign rank of large VC classes.
+We also describe limitations of this approach,
+in the spirit of the Alon-Boppana theorem.
+
+We further describe connections to communication complexity, geometry,
+learning theory, and combinatorics.},
+}

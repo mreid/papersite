@@ -1,0 +1,14 @@
+@InProceedings{bhojanapalli16,
+  author = {Bhojanapalli, Srinadh and Kyrillidis, Anastasios and Sanghavi, Sujay},
+  title = {Dropping Convexity for Faster Semi-definite Optimization},
+  pages = {530-582},
+  abstract = {We study the minimization of a convex function $f(X)$ over the set of $n \times n$ positive semi-definite matrices,
+but when the problem is recast as $\min_U g(U) :=  f(UU^\top)$, with $U \in \mathbb{R}^{n \times r}$ and $r \leq n$.
+We study the performance of gradient descent on $g$---which we refer to as Factored Gradient Descent (\textsc{Fgd})---under standard assumptions on the {\em original} function $f$.
+
+We provide a rule for selecting the step size and, with this choice, show that the \emph{local} convergence rate of \textsc{Fgd} mirrors that of standard gradient descent on the original $f$: \emph{i.e.}, after $k$ steps, the error is $O(1/k)$ for smooth $f$, and exponentially small in $k$ when $f$ is (restricted) strongly convex.
+In addition, we provide a procedure to initialize \textsc{Fgd} for (restricted) strongly convex objectives and when one only has access to $f$ via a first-order oracle; for several problem instances, such proper initialization leads to \emph{global} convergence guarantees.
+
+\textsc{Fgd} and similar procedures are widely used in practice for problems that can be posed as matrix factorization.
+To the best of our knowledge, this is the first paper to provide precise convergence rate guarantees for general convex functions under standard convex assumptions.},
+}

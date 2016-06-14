@@ -1,0 +1,7 @@
+@InProceedings{cesa-bianchi16,
+  author = {Cesa-Bianchi, Nicol`o and Gentile, Claudio and Mansour, Yishay and Minora, Alberto},
+  title = {Delay and Cooperation in Nonstochastic Bandits},
+  pages = {605-622},
+  abstract = {We study networks of communicating learning agents that cooperate to solve a common nonstochastic bandit problem. Agents use an underlying communication network to get messages about actions selected by other agents, and drop messages that took more than $d$ hops to arrive, where $d$ is a delay parameter. We introduce Exp3-Coop, a cooperative version of the Exp3 algorithm and prove that with $K$ actions and $N$ agents the average per-agent regret after $T$ rounds is at most of order $\sqrt{\left(d+1 + \frac{K}{N}\alpha_{\leq d}\right)(T\ln K)}$, where $\alpha_{\leq d}$ is the independence number of the $d$-th power of the communication graph $G$. We then show that for any connected graph, for $d=\sqrt{K}$ the regret bound is $K^{1/4}\sqrt{T}$, strictly better than the minimax regret $\sqrt{KT}$ for noncooperating agents. More informed choices of $d$ lead to bounds which are arbitrarily close to the full information minimax regret $\sqrt{T\ln K}$ when $G$ is dense. When $G$ has sparse components, we show that a variant of Exp3-Coop, allowing agents to choose their parameters according to their centrality in $G$, strictly improves the regret. Finally, as a by-product of our analysis, we provide the first characterization of the minimax regret for bandit learning with delay.
+},
+}
