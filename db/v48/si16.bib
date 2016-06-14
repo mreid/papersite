@@ -1,0 +1,7 @@
+@InProceedings{si16,
+  supplementary = {Supplementary:si16-supp.pdf},
+  title = {Computationally Efficient Nystr\"{o}m Approximation using Fast Transforms},
+  author = {Si Si and Cho-Jui Hsieh and Inderjit Dhillon},
+  pages = {2655-2663},
+  abstract = {Our goal is to improve the {\it training} and {\it prediction} time of Nystr\"{o}m method, which is a widely-used technique for generating low-rank kernel matrix approximations. When applying the Nystr\"{o}m approximation for large-scale applications, both training and prediction time is dominated by computing kernel values between a data point and all landmark points. With $m$ landmark points, this computation requires $\Theta(md)$ time (flops), where $d$ is the input dimension. In this paper, we propose the use of a family of fast transforms to generate structured landmark points for Nystr\"{o}m approximation. By exploiting fast transforms, e.g., Haar transform and Hadamard transform, our modified Nystr\"{o}m method requires only $\Theta(m)$ or $\Theta(m\log d)$ time to compute the kernel values between a given data point and $m$ landmark points. This improvement in time complexity can significantly speed up kernel approximation and benefit prediction speed in kernel machines. For instance, on the webspam data (more than 300,000 data points), our proposed algorithm enables kernel SVM prediction to deliver 98\% accuracy and the resulting prediction time is 1000 times faster than LIBSVM and only 10 times slower than linear SVM prediction (which yields only 91\% accuracy).},
+}
