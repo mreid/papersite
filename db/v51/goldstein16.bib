@@ -1,0 +1,7 @@
+@InProceedings{goldstein16,
+  supplementary = {Supplementary:goldstein16-supp.pdf},
+  title = {Unwrapping ADMM: Efficient Distributed Computing via Transpose Reduction},
+  author = {Goldstein, Tom and Taylor, Gavin and Barabin, Kawika and Sayre, Kent},
+  pages = {1151-1158},
+  abstract = {Recent approaches to distributed model fitting rely heavily on consensus ADMM, where each node solves small sub-problems using only local data.  We propose iterative methods that solve global sub-problems over an entire distributed dataset.  This is possible using transpose reduction strategies that allow a single node to solve least-squares over massive datasets without putting all the data in one place.  This results in simple iterative methods that avoid the expensive inner loops required for consensus methods.  We analyze the convergence rates of the proposed schemes and demonstrate the efficiency of this approach by fitting linear classifiers and sparse linear models to large datasets using a distributed implementation with up to 20,000 cores in far less time than previous approaches.},
+}

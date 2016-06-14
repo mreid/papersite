@@ -1,0 +1,7 @@
+@InProceedings{zhou16,
+  supplementary = {Supplementary:zhou16-supp.pdf},
+  title = {On Convergence of Model Parallel Proximal Gradient Algorithm for Stale Synchronous Parallel System},
+  author = {Zhou, Yi and Yu, Yaoliang and Dai, Wei and Liang, Yingbin and Xing, Eric},
+  pages = {713-722},
+  abstract = {With ever growing data volume and model size, an error-tolerant, communication efficient, yet versatile parallel algorithm has become a vital part for the success of many large-scale applications. In this work we propose mspg, an extension of the flexible proximal gradient algorithm to the model parallel and stale synchronous setting. The worker machines of mspg operate asynchronously as long as they are not too far apart, and they communicate efficiently through a dedicated parameter server. Theoretically, we provide a rigorous analysis of the various convergence properties of mspg, and a salient feature of our analysis is its seamless generality that allows both nonsmooth and nonconvex functions. Under mild conditions, we prove the whole iterate sequence of mspg converges to a critical point (which is optimal under convexity assumptions). We further provide an economical implementation of mspg, completely bypassing the need of keeping a local full model. We confirm our theoretical findings through numerical experiments.},
+}

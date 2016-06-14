@@ -1,0 +1,7 @@
+@InProceedings{bloniarz16,
+  supplementary = {Supplementary:bloniarz16-supp.pdf},
+  title = {Supervised Neighborhoods for Distributed Nonparametric Regression},
+  author = {Bloniarz, Adam and Talwalkar, Ameet and Yu, Bin and Wu, Christopher},
+  pages = {1450-1459},
+  abstract = {Techniques for nonparametric regression based on fitting small-scale local models at prediction time have long been studied in statistics and pattern recognition, but have received less attention in modern large-scale machine learning applications. In practice, such methods are generally applied to low-dimensional problems, but may falter with high-dimensional predictors if they use a Euclidean distance-based kernel. We propose a new method, SILO, for fitting prediction-time local models that uses supervised neighborhoods that adapt to the local shape of the regression surface. To learn such neighborhoods, we use a weight function between points derived from random forests. We prove the consistency of SILO, and demonstrate through simulations and real data that our method works well in both the serial and distributed settings. In the latter case, SILO learns the weighting function in a divide-and-conquer manner, entirely avoiding communication at training time.},
+}

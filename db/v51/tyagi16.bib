@@ -1,0 +1,7 @@
+@InProceedings{tyagi16,
+  supplementary = {Supplementary:tyagi16-supp.pdf},
+  title = {Learning Sparse Additive Models with Interactions in High Dimensions},
+  author = {Tyagi, Hemant and Kyrillidis, Anastasios and Gärtner, Bernd and Krause, Andreas},
+  pages = {111-120},
+  abstract = {A function $f: \mathbb{R}^d \rightarrow \mathbb{R}$ is referred to as a Sparse Additive Model (SPAM), if it is of the form $f(x) = \sum_{l \in S} \phi_{l}(x_l)$, where $S \subset [d]$, $|S| \ll d$. Assuming $\phi_l$'s and $S$ to be unknown, the problem of estimating $f$ from its samples has been studied extensively. In this work, we consider a generalized SPAM, allowing for second order interaction terms. For some $S_1 \subset [d]$, $S_2 \subset {[d] \choose 2}$, the function $f$ is assumed to be of the form:  $f(x) = \sum_{p \in S_1} \phi_{p} (x_p) + \sum_{(l,l') \in S_2} \phi_{l,l'} (x_l, x_{l'})$. Assuming $\phi_{p}$, $\phi_{(l,l')}$, $S_1$ and $S_2$ to be unknown, we provide a randomized algorithm that queries $f$ and exactly recovers $S_1,S_2$. Consequently, this also enables us to estimate the underlying $\phi_p$, $\phi_{l,l'}$. We derive sample complexity bounds for our scheme and also extend our analysis to include the situation where the queries are corrupted with noise -- either stochastic,  or arbitrary but bounded. Lastly, we provide simulation results on synthetic data, that validate our theoretical findings.},
+}

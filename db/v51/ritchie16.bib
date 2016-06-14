@@ -1,0 +1,7 @@
+@InProceedings{ritchie16,
+  supplementary = {Supplementary:ritchie16-supp.zip},
+  title = {C3: Lightweight Incrementalized MCMC for Probabilistic Programs using Continuations and Callsite Caching},
+  author = {Ritchie, Daniel and Stuhlmüller, Andreas and Goodman, Noah},
+  pages = {28-37},
+  abstract = {Lightweight, source-to-source transformation approaches to implementing MCMC for probabilistic programming languages are popular for their simplicity, support of existing deterministic code, and ability to execute on existing fast runtimes. However, they are also inefficient, requiring a complete re-execution of the program on every Metropolis Hastings proposal. We present a new extension to the lightweight approach, C3, which enables efficient, incrementalized re-execution of MH proposals. C3 is based on two core ideas: transforming probabilistic programs into continuation passing style (CPS), and caching the results of function calls.  It is particularly effective at speeding up recursive programs with many local latent variables. We show that on several common models, C3 reduces proposal runtime by 20-100x, in some cases reducing runtime complexity from linear in model size to constant. We also demonstrate nearly an order of magnitude speedup on a complex inverse procedural modeling application.},
+}

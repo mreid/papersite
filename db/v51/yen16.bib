@@ -1,0 +1,7 @@
+@InProceedings{yen16,
+  supplementary = {Supplementary:yen16-supp.pdf},
+  title = {Scalable Exemplar Clustering and Facility Location via Augmented Block Coordinate Descent with Column Generation},
+  author = {Yen, Ian En-Hsu and Malioutov, Dmitry and Kumar, Abhishek},
+  pages = {1260-1269},
+  abstract = {In recent years exemplar clustering has become a popular tool for applications in document and video summarization, active learning, and  clustering with general similarity, where cluster centroids are required to be a subset of the data samples rather than their linear combinations. The problem is also well-known as facility location in the operations research literature. While the problem has well-developed convex relaxation with approximation and recovery guarantees, it has number of variables grows quadratically with the number of samples. Therefore, state-of-the-art methods can hardly handle more than $10^4$ samples (i.e. $10^8$ variables). In this  work, we propose an Augmented-Lagrangian with Block Coordinate  Descent (AL-BCD) algorithm that utilizes problem structure to obtain closed-form solution for each block sub-problem, and exploits low-rank representation of the dissimilarity matrix to search  active columns without computing the entire matrix. Experiments show our approach to be orders of magnitude faster than existing approaches and can handle problems of up to $10^6$ samples. We also demonstrate successful applications of the algorithm on world-scale facility location, document summarization and active learning.},
+}
