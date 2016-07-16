@@ -22,17 +22,16 @@ def bibtohash(obj, bib)
   # +bib+:: +BibTeX+ object that contains strings etc
   # +errhandler+:: +Proc+ object that takes a pipe object as first and only param (may be nil)
   ha = obj.to_hash(:quotes=>'').rekey!(&:to_s)
-
   ha['layout'] = ha['bibtex_type'].to_s
   ha.tap { |hs| hs.delete('bibtex_type') }
 
-  ha['key'] = ha['bibtex_key']
+  ha['key'] = ha['bibtex_key'].to_s
   ha.tap { |hs| hs.delete('bibtex_key') }
 
   ha['categories'] = Array.new(1)
   ha['categories'][0] = ha['key']
 
-  ha['month'] = ha['month_numeric']
+  ha['month'] = ha['month_numeric'].to_i
   ha.tap { |hs| hs.delete('month_numeric') }
 
   ha.delete_if {|key, value| key[0..2] == "opt" }
@@ -43,13 +42,21 @@ def bibtohash(obj, bib)
     ha['abstract'] = detex(ha['abstract'])
   end
 
+  
   if ha.has_key?('pages')
     pages = ha['pages'].split('-')
-    ha['firstpage'] = pages[0]
-    ha['lastpage'] = pages[-1]
+    ha['firstpage'] = pages[0].to_i
+    ha['lastpage'] = pages[-1].to_i
+    puts ha['firstpage'] + ha['lastpage'] 
     ha.tap { |hs| hs.delete('pages') }
   end
 
+  if ha.has_key?('comments')
+    if ha['comments'].downcase == 'yes' or ha['comments'].downcase == 'true'
+      ha['comments'] = true
+    end
+  end
+  
   if ha.has_key?('sections')
     sections = ha['sections'].split('|')
     hasections = Array.new(sections.length)
@@ -57,9 +64,6 @@ def bibtohash(obj, bib)
       name_title = section.split('=')
       hasections[index] = {'name' => name_title[0], 'title' => name_title[-1]}
     end
-  end
-  ha.each do |key, value|
-    ha[key] = detex(value)
   end
   ha['sections'] = hasections
   if ha.has_key?('editor')    
@@ -70,6 +74,15 @@ def bibtohash(obj, bib)
   if ha.has_key?('author')
     ha['authors'] = splitauthors(ha, obj)
     ha.tap { |hs| hs.delete('author') }
+  end
+  if ha.has_key?('published')
+    ha['published'] = Date.parse ha['published']
+  end
+  if ha.has_key?('start')
+    ha['start'] = Date.parse ha['start']
+  end
+  if ha.has_key?('end')
+    ha['end'] = Date.parse ha['end']
   end
   return ha
 end
@@ -83,8 +96,9 @@ def mindigit(str, num=2)
 end
 
 def filename(date, title)
-  
-  f = date + '-' + title + '.md'
+  puts date
+  puts title
+  f = date.to_s + '-' + title.to_s + '.md'
   return f
 end
 
@@ -109,7 +123,7 @@ else
   obj.join
   ha = bibtohash(obj, bib)
   
-  reponame = ha['shortname'].downcase + ha['year']
+  reponame = ha['shortname'].to_s.downcase + ha['year'].to_s
   system "jekyll new " + procdir + reponame
   File.delete(*Dir.glob(procdir + reponame + '/_posts/*.markdown'))
   # Add details to _config.yml file
@@ -123,8 +137,9 @@ else
   ha['github_username'] = 'mlresearch'
   ha['markdown'] = 'kramdown'
   ha['permalink'] = '/:categories/:title.html'
-  ya = ha.to_yaml
+  ya = ha.to_yaml(:ExplicitTypes => true)
   published = ha['published']
+  
   out = File.open(procdir + reponame + '/' + '_config.yml', 'w')    
   out.puts "# Site settings"
   out.puts "# Auto generated from " + proceedings
@@ -140,7 +155,7 @@ Dir.glob(bibdir + volume + '/*.bib') do |bib_file|
     obj.replace(bib.q('@string'))
     obj.join
     ha = bibtohash(obj, bib)
-    ya = ha.to_yaml
+    ya = ha.to_yaml(:ExplicitTypes => true)
     fname = filename(published, ha['key'])
     out = File.open(procdir + reponame + '/_posts/' + fname, 'w')
     out.puts ya
@@ -149,5 +164,9 @@ Dir.glob(bibdir + volume + '/*.bib') do |bib_file|
 end
 
 FileUtils.cp procdir +  'papersite/ruby/inproceedings.html', procdir + reponame + '/_layouts/'
+FileUtils.cp procdir +  'papersite/ruby/paper_list.html', procdir + reponame + '/_includes/'
+FileUtils.cp procdir +  'papersite/ruby/paper_abstract.html', procdir + reponame + '/_includes/'
+FileUtils.cp procdir +  'papersite/ruby/paper_google_scholar.html', procdir + reponame + '/_includes/'
+FileUtils.cp procdir +  'papersite/ruby/disqus_comment_code.html', procdir + reponame + '/_includes/'
 FileUtils.cp procdir + 'papersite/ruby/about.md', procdir + reponame + '/'
 FileUtils.cp procdir + 'papersite/ruby/index.html', procdir + reponame + '/'

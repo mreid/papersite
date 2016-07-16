@@ -5,58 +5,14 @@ layout: default
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
         
-  <meta name="citation_title" content="Kernel Mean Estimation via Spectral Filtering">
-
-  {% for author in page.authors %}
-  <meta name="citation_author" content="{{ page.author.first }}{{ page.author.last }}">
-  {% endfor %}
-  
-  <meta name="citation_publication_date" content="{{ page.year }}">
-  <meta name="citation_conference_title" content="{{ site.conference }}">
-
-    
-  <meta name="citation_firstpage" content="{{ page.firstpage }}">
-  <meta name="citation_lastpage" content="{{ page.lastpage }}">
-    
-  <meta name="citation_pdf_url" content="{{ page.pdf }}">
-    
-
-  <meta name="description" content="Electronic Proceedings of {{ site.conference }}">
-  <meta name="viewport" content="width=device-width">
+  {% include paper_google_scholar.html %}
         
-  </head>
+  <meta name="viewport" content="width=device-width">
 
-  <article class="post-content">
-    <h1>{{ page.title }}</h1>
+</head>
 
-    <div id="authors">
-      <br>
-      {% for author in page.authors %}
-      {% if author.url %}
-      [{{ author.firstname }} {{ author.lastname }}]({{ author.url }}), 
-      {% else %}
-      {{ author.firstname }} {{ author.lastname }}, 
-      {% endif %}
-      {% endfor %}
-      </br>
-    </div>
-    <div id="info">
-      {{ site.conference | markdownify }}, pp {{ page.firstpage }}-{{ page.lastpage }}, {{ page.year }}
-    </div> <!-- info -->
-    
-    <h2>Abstract</h2>
-    <div id="abstract">
-      {{ page.abstract | markdownify }}
-    </div>
-    <h2>Related Material</h2>
-    <div id="extras">
-      <ul>
-	<li><a href="{{ page.pdf }}">Download PDF</a></li>
-	{% for extra in page.extras %}
-	<li><a href="{{ extra.link }}">{{ extra.label }}</a></li>
-	{% endfor %}
-      </ul>
-      {{ content | markdownify }}
-    </div> <!-- extras -->
+{% include paper_abstract.html %}
 
-</div> <!-- content -->
+{% if site.comments %}
+{% include disqus_comment_code.html %}
+{% endif %}

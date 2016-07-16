@@ -5,7 +5,7 @@ layout: default
 <div class="home">
 
   <h1>Proceedings of Machine Learning Research</h1>
-  <h2>Volume {{ site.volume }}: {{ site.conference }} {{ site.start | date: "%b %-d" }} to {{ site.end | date: "%b %-d, %Y" }}, {{ site.address }}</h2>
+  <h2>Volume {{ site.volume }}: {{ site.conference }} {{ site.start | date: "%B %-d" }} to {{ site.end | date: "%B %-d, %Y" }}, {{ site.address }}</h2>
 
   
   <p><strong>Editors:
@@ -30,44 +30,18 @@ layout: default
   {% if site.sections %}
   {% for section in site.sections %}
   <h3 id="{{ section.name }}">{{ section.title }}</h3>
-    {% for post in site.posts %}
-    {% if section.name == {{ post.section }} %}
-    <div class="paper">
-      <p class="title">{{ post.title }}</p>
-      <p class="details">
-	<span class="authors">
-	  {% for author in post.authors %}
-	  {{ author.firstname }} {{ author.lastname }},
-	  {% endfor %}
-	</span>
-      </p>
-      <p class="links">
-	[<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">abs</a>]
-	[<a href="{{ post.pdf }}">pdf</a>]
-      </p>
-    </div>
+    {% for post in site.posts | sort_by: "firstpage" %}
+    {% if section.name == post.section %}
+    {% include paper_list.html %}
     {% endif %}
     {% endfor %}
   </dl>
   {% endfor %}
   {% endif %}
   <dl>
-  {% for post in site.posts %}
+  {% for post in site.posts | sort_by: "firstpage" %}
   {% unless post.section %} 
-  <div class="paper">
-    <p class="title">{{ post.title }}</p>
-    <p class="details">
-      <span class="authors">
-	{% for author in post.authors %}
-	{{ author.firstname }} {{ author.lastname }},
-	{% endfor %}
-      </span>
-    </p>
-    <p class="links">
-      [<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">abs</a>]
-      [<a href="{{ post.pdf }}">pdf</a>]
-    </p>
-  </div>
+  {% include paper_list.html %}
   {% endunless %}
   {% endfor %}
 
