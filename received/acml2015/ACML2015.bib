@@ -1,0 +1,430 @@
+@Proceedings{ACML2015,
+    booktitle = {Proceedings of The 7th Asian Conference on Machine Learning},
+    editor = {Georey Holmes and Tie-Yan Liu},
+    volume = {45},
+    year = {2015},
+    shortname = {ACML}
+}
+
+@InProceedings{Horev15,
+    title = {Geometry-Aware Principal Component Analysis for Symmetric Positive Definite Matrices},
+    author = {Horev, Inbal and Yger, Florian  and Sugiyama, Masashi},
+    pages = {1-16},
+    abstract = {Symmetric positive definite (SPD) matrices, e.g. covariance matrices, are ubiquitous in machine learning applications.
+However, because their size grows as $n^2$ (where $n$ is the number of variables) their high-dimensionality is a crucial point when working with them.
+Thus, it is often useful to apply to them dimensionality reduction techniques.
+Principal component analysis (PCA) is a canonical tool for dimensionality reduction, which for vector data reduces the dimension of the input data while maximizing the preserved variance.
+Yet, the commonly used, naive extensions of PCA to matrices result in sub-optimal variance retention.
+Moreover, when applied to SPD matrices, they ignore the geometric structure of the space of SPD matrices, further degrading the performance.
+In this paper we develop a new Riemannian geometry based formulation of PCA for SPD matrices that i) preserves more data variance by appropriately extending PCA to matrix data, and ii) extends the standard definition from the Euclidean to the Riemannian geometries.
+We experimentally demonstrate the usefulness of our approach as pre-processing for EEG signals.}
+}
+
+@InProceedings{Kaban15a,
+    title = {Non-asymptotic Analysis of Compressive Fisher Discriminants in terms of the Effective Dimension},
+    author = {Kaban, Ata},
+    pages = {17-32},
+    abstract = {We provide a non-asymptotic analysis of the generalisation error of compressive Fisher linear discriminant (FLD) classification that is dimension free under
+mild assumptions. Our analysis includes the effects that random projection has on classification performance under covariance model misspecification, 
+as well as various good and bad effects of random projections that contribute to the overall performance of compressive FLD.
+We also give an asymptotic bound as a corollary of our finite sample result.
+An important ingredient of our analysis is to develop new dimension-free bounds on the largest and smallest eigenvalue of the compressive covariance, 
+which may be of independent interest.}
+}
+
+@InProceedings{Sasaki15,
+    title = {SSufficient Dimension Reduction via Direct Estimation
+of the Gradients of Logarithmic Conditional Densities},
+    author = {Sasaki, Hiroaki and Tangkaratt, Voot and Sugiyama, Masashi},
+    pages = {33-48},
+    abstract = {Sufficient dimension reduction (SDR) is a framework of supervised
+ linear dimension reduction, and is aimed at finding a low-dimensional
+ orthogonal projection matrix for input data such that the projected
+ input data retains maximal information on output data. A
+ computationally efficient approach employs gradient estimates of the
+ conditional density of the output given input data to find an
+ appropriate projection matrix. However, since the gradients of the
+ conditional densities are typically estimated by a local linear
+ smoother, it does not perform well when the input dimensionality is
+ high. In this paper, we propose a novel estimator of the gradients of
+ logarithmic conditional densities called the \emph{least-squares
+ logarithmic conditional density gradients} (LSLCG), which fits a
+ gradient model \emph{directly} to the true gradient without conditional
+ density estimation under the squared loss. Thanks to the simple
+ least-squares formulation, LSLCG gives a closed-form solution that can
+ be computed efficiently. In addition, all the parameters can be
+ automatically determined by cross-validation. Through experiments on a
+ large variety of artificial and benchmark datasets, we demonstrate that
+ the SDR method based on LSLCG outperforms existing SDR methods both in
+ estimation accuracy and computational efficiency.}
+}
+
+@InProceedings{Kondo15,
+    title = {Bayesian Masking: Sparse Bayesian Estimation with Weaker Shrinkage Bias},
+    author = {Kondo, Yohei and Maeda, Shin-ichi and Hayashi, Kohei},
+    pages = {49-64},
+    abstract = {A common strategy for sparse linear regression is to introduce regularization,
+ which eliminates irrelevant features by letting the
+  corresponding weights be zeros.
+  However, regularization often shrinks the estimator for
+  relevant features, which leads to incorrect feature selection.
+  
+  Motivated by the above-mentioned issue, we propose Bayesian masking (BM), a sparse estimation method which
+  imposes no regularization on the weights. 
+  The key concept of BM is to introduce binary latent variables that randomly mask features.
+  Estimating the masking rates determines the relevance of the features automatically.
+  We derive a variational Bayesian inference algorithm that maximizes the lower bound of
+  the factorized information criterion (FIC), which is a recently developed asymptotic criterion for evaluating the marginal log-likelihood.
+  In addition, we propose reparametrization to accelerate the convergence of the derived algorithm.
+  Finally, we show that BM outperforms Lasso and automatic relevance determination (ARD) in terms of the sparsity-shrinkage trade-off. }
+}
+
+@InProceedings{Kaban15b,
+    title = {A New Look at Nearest Neighbours: Identifying Benign Input Geometries via Random Projections},
+    author = {Kaban, Ata},
+    pages = {65-80},
+    abstract = {It is well known that in general, the nearest neighbour rule (NN) has sample complexity that is exponential in the input space dimension $d$ when only smoothness is assumed on the label posterior function. Here we consider NN on randomly projected  data, and we show that, if the input domain has a small "metric size", then the sample complexity becomes exponential in the metric entropy integral of the set of normalised chords of the input domain. This metric entropy integral measures the complexity of the input domain, and can be much smaller than $d$ -- for instance in cases when the data lies in a  linear or a smooth nonlinear subspace of the ambient space, or when it has a sparse representation. We then show that the guarantees we obtain for the compressive NN also hold for the dataspace NN in bounded domains; thus the random projection takes the role of an analytic tool to identify benign structures under which NN learning is possible from a small sample size. Numerical simulations on data designed to have intrinsically low complexity confirm our theoretical findings, and display a striking agreement in the empirical performances of compressive NN and dataspace NN. This suggests that high dimensional data sets that have a low complexity underlying structure are well suited for computationally cheap  compressive NN learning.  
+}
+}
+
+@InProceedings{Antoniuk15,
+    title = {Consistency of structured output learning with missing labels},
+    author = {Antoniuk, Kostiantyn and Franc, Vojtech and Hlavac, Vaclav},
+    pages = {81-95},
+    abstract = {In this paper we study statistical consistency of partial losses suitable for
+  learning structured output predictors from examples containing missing
+  labels. We provide sufficient conditions on data generating distribution which
+  admit to prove that the expected risk of the structured predictor learned by
+  minimizing the partial loss converges to the optimal Bayes risk defined by an
+  associated complete loss. We define a concept of surrogate classification
+  calibrated partial losses which are easier to optimize yet their minimization
+  preserves the statistical consistency. We give some concrete examples of
+  surrogate partial losses which are classification calibrated. In particular,
+  we show that the ramp-loss which is in the core of many existing algorithms 
+  is classification calibrated.}
+}
+
+@InProceedings{Yu15,
+    title = {Maximum Margin Partial Label Learning},
+    author = {Yu, Fei and Zhang, Min-Ling},
+    pages = {96-111},
+    abstract = {Partial label learning deals with the problem that each training example is associated with a set of \emph{candidate} labels, and only one among the set is the ground-truth label. The basic strategy to learn from partial label examples is disambiguation, i.e. by trying to recover the ground-truth labeling information from the candidate label set. As one of the major machine learning techniques, maximum margin criterion has been employed to solve the partial label learning problem. Therein, disambiguation is performed by optimizing the margin between the maximum modeling output from candidate labels and that from non-candidate labels. However, in this formulation the margin between the ground-truth label and other candidate labels is not differentiated. In this paper, a new maximum margin formulation for partial label learning is proposed which aims to directly maximize the margin between the ground-truth label and all other labels. Specifically, an alternating optimization procedure is utilized to coordinate \emph{ground-truth label identification} and \emph{margin maximization}. Extensive experiments show that the derived partial label learning approach achieves competitive performance against other state-of-the-art comparing approaches.
+}
+}
+
+@InProceedings{Zhang15a,
+    title = {Robust Multivariate Regression with Grossly Corrupted Observations and Its Application to Personality Prediction},
+    author = {Zhang, Xiaowei and Cheng, Li and Zhu, Tingshao},
+    pages = {112-126},
+    abstract = {We consider the problem of multivariate linear regression with a small fraction of the responses being missing and grossly corrupted, where the magnitudes and locations of such occurrences are not known in priori. This is addressed in our approach by explicitly taking into account the error source and its sparseness nature. Moreover, our approach allows each regression task to possess its distinct noise level. We also propose a new algorithm that is theoretically shown to always converge to the optimal solution of its induced non-smooth optimization problem. Experiments on controlled simulations suggest the competitiveness of our algorithm comparing to existing multivariate regression models. In particular, we apply our model to predict the \textit{Big-Five} personality from user behaviors at Social Network Sites (SNSs) and microblogs, an important yet difficult problem in psychology, where empirical results demonstrate its superior performance with respect to related learning methods.
+}
+}
+
+@InProceedings{Bao15,
+    title = {Data-Guided Approach for Learning and Improving User Experience in Computer Networks},
+    author = {Bao, Yanan and Liu, Xin and Pande, Amit},
+    pages = {127-142},
+    abstract = {Machine learning algorithms have been traditionally used to understand user behavior or system performance. In computer networks, with a subset of input features as controllable network parameters, we envision developing a data-driven network resource allocation framework that can optimize user experience. In particular, we explore how to leverage a classifier learned from training instances to optimally guide network resource allocation to improve the overall performance on test instances. Based on logistic regression, we propose an optimal resource allocation algorithm, as well as heuristics with low-complexity. We evaluate the performance of the proposed algorithms using a synthetic Gaussian dataset, a real world dataset on video streaming over throttled networks, and a tier-one cellular operator's customer complaint traces. The evaluation demonstrates the effectiveness of the proposed algorithms; e.g., the optimal algorithm can have a 400\% improvement compared with the baseline.
+}
+}
+
+@InProceedings{Niu15,
+    title = {A Unified Framework for Jointly Learning Distributed Representations of Word and Attributes},
+    author = {Niu, Liqiang and Dai, Xin-Yu and Huang, Shujian and Chen, Jiajun},
+    pages = {143-156},
+    abstract = {Distributed word representations have achieved great success in natural language processing (NLP) area. However, most distributed models focus on local context properties and learn task-specific representations individually, therefore lack the ability to fuse multi-attributes and learn jointly. In this paper, we propose a unified framework which jointly learns distributed representations of word and attributes: characteristics of word. In our models, we consider three types of attributes: topic, lemma and document. Besides learning distributed attribute representations, we find that using additional attributes is beneficial to improve word representations. Several experiments are conducted to evaluate the performance of the learned topic representations, document representations, and improved word representations, respectively. The experimental results show that our models achieve significant and competitive results.
+}
+}
+
+@InProceedings{Liu15,
+    title = {Preference Relation-based Markov Random Fields for Recommender Systems},
+    author = {Liu, Ahaowu and Li, Gang and Tran, Truyen and Jiang, Yuan},
+    pages = {157-172},
+    abstract = {A \emph{preference relation}-based Top-N recommendation approach, 
+	\emph{PrefMRF}, is proposed to capture both the second-order and 
+	the higher-order interactions among users and items. 
+	Traditionally Top-N recommendation was achieved by predicting 
+	the item ratings first, and then inferring the item rankings, 
+	based on the assumption of availability of \emph{explicit} feedbacks 
+	such as ratings, and the assumption that optimizing the ratings 
+	is equivalent to optimizing the item rankings. 
+	Nevertheless, both assumptions are not always true in real 
+	world applications. The proposed \emph{PrefMRF} approach drops these 
+	assumptions by explicitly exploiting the preference relations, 
+	a more practical user feedback. 
+	Comparing to related work, the proposed \emph{PrefMRF} approach has 
+	the unique property of modeling both the second-order and the 
+	higher-order interactions among users and items.
+	To the best of our knowledge,
+	this is the first time both types of interactions
+	have been captured in \emph{preference relation}-based method.
+	Experiment results on public datasets demonstrate that both 
+	types of interactions have been properly captured, 
+	and significantly improved Top-N recommendation performance 
+	has been achieved.}
+}
+
+@InProceedings{Li15,
+    title = {Detecting Accounting Frauds in Publicly Traded U.S. Firms: A Machine Learning Approach},
+    author = {Li, Bin and Yu, Julia and Zhang, Jie and Ke, Bin},
+    pages = {173-188},
+    abstract = {This paper studies how machine learning techniques can facilitate the
+detection of accounting fraud in publicly traded US firms.
+Existing studies often mimic human experts and employ the
+financial or nonfinancial ratios as the features for their
+systems. We depart from these studies by adopting raw
+accounting variables, which are directly available from a firm's
+financial statement and thereby can be easily applied to new firms
+at low cost. Further, we collected the most complete fraud dataset
+of US publicly traded firms and labeled the fraud and non-fraud
+firm-years. One key issue of the dataset is that the data is
+extremely imbalanced, in which the fraud firm-years are often less
+than one percent. Without re-sampling the data, we further propose
+to tackle the imbalance issue by adopting the techniques of
+imbalanced learning. In particular, we employ the linear and
+nonlinear Biased Penalty Support Vector Machine and the Ensemble Methods, both of
+which have been proved to successfully handle the imbalance issue
+in the machine learning literatures. We finally evaluate our approach
+by conducting extensive empirical studies. Empirical results show
+that the proposed schema can achieve much better
+performance, in terms of balanced accuracy, than the state of the
+art. Besides the performance, our approaches can also compute very
+fast, which further supports their practical deployment.}
+}
+
+@InProceedings{Zhang15b,
+    title = {Improving Sybil Detection via Graph Pruning and Regularization Techniques},
+    author = {Zhang, Huanhuan and Zhang, Jie and Fung, Carol and Xu, Chang},
+    pages = {189-204},
+    abstract = {Due to their open and anonymous nature, online social networks are
+particularly vulnerable to Sybil attacks. In recent years, there
+has been a rising interest in leveraging social network
+topological structures to combat Sybil attacks. Unfortunately, due
+to their strong dependency on unrealistic assumptions, existing
+graph-based Sybil defense mechanisms suffer from high false
+detection rates. In this paper, we focus on enhancing those
+mechanisms by considering additional graph structural information
+underlying social networks. Our solutions are based on our novel
+understanding and interpretation of Sybil detection as the problem
+of partially labeled classification. Specifically, we first
+propose an effective graph pruning technique to enhance the
+robustness of existing Sybil defense mechanisms against target
+attacks, by utilizing the local structural similarity between
+neighboring nodes in a social network. Second, we design a
+domain-specific graph regularization method to further improve the
+performance of those mechanisms by exploiting the relational
+property of the social network. Experimental results on four
+popular online social network datasets demonstrate that our
+proposed techniques can significantly improve the detection
+accuracy over the original Sybil defense mechanisms.}
+}
+
+@InProceedings{Cheung15,
+    title = {Proximal Average Approximated Incremental Gradient Method for Composite Penalty Regularized Empirical Risk Minimization},
+    author = {Cheung, Yiu-ming and Lou, Jian},
+    pages = {205-220},
+    abstract = {Proximal average (PA) is an approximation technique proposed recently to handle nonsmooth composite regularizer in empirical risk minimization problem. For nonsmooth composite regularizer, it is often difficult to directly derive the corresponding proximal update when solving with popular proximal update. While traditional approaches resort to complex splitting methods like ADMM, proximal average provides an alternative, featuring the tractability of implementation and theoretical analysis. Nevertheless, compared to SDCA-ADMM and SAG-ADMM which are examples of ADMM-based methods achieving faster convergence rate and low per-iteration complexity, existing PA-based approaches either converge slowly (e.g. PA-ASGD) or suffer from high per-iteration cost (e.g. PA-APG). In this paper, we therefore propose a new PA-based algorithm called PA-SAGA, which is optimal in both convergence rate and per-iteration cost, by incorporating into incremental gradient-based framework.
+}
+}
+
+@InProceedings{Christoffel15,
+    title = {Class-prior Estimation for Learning from Positive and Unlabeled Data},
+    author = {Christoffel, Marthinus and Niu, Gang and Sugiyama, Masashi},
+    pages = {221-236},
+    abstract = {We consider the problem of estimating the \emph{class prior} in an unlabeled dataset.
+Under the assumption that an additional labeled dataset is available,
+the class prior can be estimated by fitting a mixture of class-wise data distributions
+to the unlabeled data distribution.
+However, in practice, such an additional labeled dataset is often not available.
+In this paper, we show that, with additional samples coming only from the positive class,
+the class prior of the unlabeled dataset can be estimated correctly.
+Our key idea is to use properly penalized divergences for model fitting
+to cancel the error caused by the absence of negative samples.
+We further show that the use of the penalized $L_1$-distance
+gives a computationally efficient algorithm with an analytic solution,
+and establish its uniform deviation bound and estimation error bound.
+Finally, we experimentally demonstrate the usefulness of the proposed method.}
+}
+
+@InProceedings{Huynh15,
+    title = {Streaming Variational Inference for Dirichlet Process Mixtures},
+    author = {Huynh, Viet and Phung, Dinh and Venkatesh, Svetha},
+    pages = {237-252},
+    abstract = {Bayesian nonparametric models are theoretically suitable to learn
+streaming data due to their complexity relaxation to the volume of
+observed data. However, most of the existing variational inference
+algorithms are not applicable to streaming applications since they
+require truncation on variational distributions. In this paper, we
+present two truncation-free variational algorithms, one for mix-membership
+inference called TFVB (truncation-free variational Bayes), and the
+other for hard clustering inference called TFME (truncation-free maximization
+expectation). With these algorithms, we further developed a streaming
+learning framework for the popular Dirichlet process mixture (DPM)
+models. Our experiments demonstrate the usefulness of our framework
+in both synthetic and real-world data.}
+}
+
+@InProceedings{Ko15,
+    title = {Expectation Propagation for Rectified Linear Poisson Regression},
+    author = {Ko, Young-Jun and Seeger, Matthias W.},
+    pages = {253-268},
+    abstract = {The Poisson likelihood with rectified linear function as non-linearity is a physically plausible model to discribe the stochastic arrival process of photons or other particles at a detector. 
+    At low emission rates the discrete nature of this process leads to measurement noise that behaves very differently from additive white Gaussian noise.
+    To address the intractable inference problem for such models, we present a novel efficient and robust Expectation Propagation algorithm entirely based on analytically tractable computations operating reliably in regimes where quadrature based implementations can fail.
+    Full posterior inference therefore becomes an attractive alternative in areas generally dominated by methods of point estimation.
+    Moreover, we discuss the rectified linear function in the context of other common non-linearities and identify situations where it can serve as a robust alternative.}
+}
+
+@InProceedings{Zhao15a,
+    title = {Curriculum Learning of Bayesian Network Structures},
+    author = {Zhao, Yanpeng and Chen, Yetian and Tu, Kewei and Tian, Jin},
+    pages = {269-284},
+    abstract = {Bayesian networks (BNs) are directed graphical models that have been widely used in various tasks for probabilistic reasoning and causal modeling. 
+	One major challenge in these tasks is to learn the BN structures from data.
+	In this paper, we propose a novel heuristic algorithm for BN structure learning that takes advantage of the idea of \emph{curriculum learning}. Our algorithm learns the BN structure by stages. At each stage a subnet is learned over a selected subset of the random variables conditioned on fixed values of the rest of the variables. The selected subset grows with stages and eventually includes all the variables.
+	We prove theoretical advantages of our algorithm and also empirically show that it outperformed the state-of-the-art heuristic approach in learning BN structures.	
+}
+}
+
+@InProceedings{Nguyen15,
+    title = {Continuous Target Shift Adaptation in Supervised Learning},
+    author = {Nguyen, Tuan Duong and Christoffel, Marthinus and Sugiyama, Masashi},
+    pages = {285-300},
+    abstract = {Supervised learning in machine learning concerns inferring an underlying
+relation between covariate $\bx$ and target $y$ based on training
+covariate-target data. It is traditionally assumed that training data and test data, on which the
+generalization performance of a learning algorithm is measured, follow the same
+probability distribution. However, this standard assumption is often violated in
+many real-world applications such as computer vision, natural language
+processing, robot control, or survey design, due to intrinsic non-stationarity
+of the environment or inevitable sample selection bias. This situation is
+called \emph{dataset shift} and has attracted a great deal of attention
+recently. In the paper, we consider supervised learning problems under the
+\emph{target shift} scenario, where the target marginal distribution $p(y)$
+changes between the training and testing phases, while the target-conditioned
+covariate distribution $p(\bx|y)$ remains unchanged. Although various methods
+for mitigating target shift in classification (a.k.a. \emph{class prior change})
+have been developed so far, few methods can be applied to continuous targets. In
+this paper, we propose methods for continuous target shift adaptation in
+regression and conditional density estimation. More specifically, our
+contribution is a novel importance weight estimator for continuous targets.
+Through experiments, the usefulness of the proposed method is demonstrated.}
+}
+
+@InProceedings{Kotlowski15,
+    title = {Surrogate regret bounds for generalized classification performance metrics},
+    author = {Kotlowski, Wojciech and Dembczynski, Krzysztof},
+    pages = {301-316},
+    abstract = {We consider optimization of generalized performance metrics for binary classification
+by means of surrogate loss.  We focus on a class of metrics, which are linear-fractional functions
+of the false positive and false negative rates (examples of which include $F_{\beta}$-measure,
+Jaccard similarity coefficient, AM measure, and many others).
+Our analysis concerns the following two-step procedure. First, a real-valued function
+$f$ is learned by minimizing a surrogate loss for binary classification on the training sample.
+It is assumed that the surrogate loss
+is a strongly proper composite loss function (examples of which include
+logistic loss, squared-error loss, exponential loss, etc.). Then, given $f$, a threshold $\hat{\theta}$ is
+tuned on a separate validation sample, by direct optimization of the target performance measure.
+We show that the regret of the resulting classifier (obtained from thresholding $f$ on $\hat{\theta}$) 
+measured with respect to the target metric is upperbounded by the regret of $f$ measured with respect
+to the surrogate loss. 
+Our finding is further analyzed
+in~a~computational study on both synthetic and real data~sets.}
+}
+
+@InProceedings{Xia15,
+    title = {Budgeted Bandit Problems with Continuous Random Costs},
+    author = {Xia, Yingce and Ding, Wenkui and Zhang, Xu-Dong and Yu, Nenghai and Qin, Tao},
+    pages = {317-332},
+    abstract = {We study the budgeted bandit problem, where each arm is associated with both a reward and a cost. In a budgeted bandit problem, the objective is to design an arm pulling algorithm in order to maximize the total reward before the budget runs out. In this work, we study both multi-armed bandits and linear bandits, and focus on the setting with continuous random costs. We propose an upper confidence bound based algorithm for multi-armed bandits and a confidence ball based algorithm for linear bandits, and prove logarithmic regret bounds for both algorithms. We conduct simulations on the proposed algorithms, which verify the effectiveness of our proposed algorithms.
+}
+}
+
+@InProceedings{Zhao15b,
+    title = {Regularized Policy Gradients: Direct Variance Reduction in Policy Gradient Estimation},
+    author = {Zhao, Tingting and Niu, Gang and Xie, Ning and Yang, Jucheng and Sugiyama, Masashi},
+    pages = {333-348},
+    abstract = {Policy gradient algorithms are widely used in reinforcement learning problems
+with continuous action spaces, which update the policy parameters along
+the steepest direction of the expected return.
+However, large variance of policy gradient estimation often causes instability
+of policy update.
+In this paper, we propose to suppress the variance of gradient estimation
+by directly
+employing the variance of policy gradients as a regularizer.
+Through experiments, we demonstrate that the proposed variance-regularization technique
+combined with parameter-based exploration and baseline subtraction
+provides more reliable policy updates than non-regularized counterparts. }
+}
+
+@InProceedings{Dai15,
+    title = {Statistical Unfolded Logic Learning},
+    author = {Dai, Wang-Zhou and Zhou, Zhi-Hua},
+    pages = {349-361},
+    abstract = {During the past decade, Statistical Relational Learning (SRL) and
+Probabilistic Inductive Logic Programming (PILP), owing to their
+strength in capturing structure information, have attracted much
+attention for learning relational models such as weighted logic
+rules. Typically, a generative model is assumed for the structured
+joint distribution, and the learning process is accomplished in an
+enormous relational space. In this paper, we propose a new framework,
+i.e., Statistical Unfolded Logic (SUL) learning. In contrast to
+learning rules in the relational space directly, SUL propositionalizes
+the structure information into an attribute-value data set, and thus,
+statistical discriminative learning which is much more efficient than
+generative relational learning can be executed. In addition to
+achieving better generalization performance, SUL is able to conduct
+predicate invention that is hard to be realized by traditional SRL and
+PILP approaches. Experiments on real tasks show that our proposed
+approach is superior to state-of-the-art weighted rules learning
+approaches.}
+}
+
+@InProceedings{Shu15,
+    title = {Integration of Single-view Graphs with Diffusion of Tensor Product Graphs for Multi-view Spectral Clustering},
+    author = {Shu, Le and Latecki, Longin Jan},
+    pages = {362-377},
+    abstract = {Multi-view clustering takes diversity of multiple views (representations) into consideration.
+Multiple views may be obtained from various sources or different feature subsets and often provide complementary information to each other.
+In this paper, we propose a novel graph-based approach to integrate multiple representations to improve clustering performance.
+While original graphs have been widely used in many existing multi-view clustering approaches,
+the key idea of our approach is to integrate multiple views by exploring higher order information.
+In particular, given graphs constructed separately from single view data,
+we build cross-view tensor product graphs (TPGs), each of which is a Kronecker product of a pair of single-view graphs.
+Since each cross-view TPG captures higher order relationships of data under two different views, it is no surprise that we obtain more reliable similarities. 
+We linearly combine multiple cross-view TPGs to integrate higher order information.
+Efficient graph diffusion process on the fusion TPG helps to reveal the underlying cluster structure and boosts the clustering performance.
+Empirical study shows that the proposed approach outperforms state-of-the-art methods on benchmark datasets.}
+}
+
+@InProceedings{Irsoy15,
+    title = {Autoencoder Trees},
+    author = {Irsoy, Ozan and Alpaydn, Ethem},
+    pages = {378-390},
+    abstract = {We discuss an autoencoder model in which the encoding and decoding functions are implemented by decision trees. We use the soft decision tree where internal nodes realize soft multivariate splits given by a gating function and the overall output is the average of all leaves weighted by the gating values on their path. The encoder tree takes the input and generates a lower dimensional representation in the leaves and the decoder tree takes this and reconstructs the original input. Exploiting the continuity of the trees, autoencoder trees are trained with stochastic gradient-descent. On handwritten digit and news data, we see that the autoencoder trees yield good reconstruction error compared to traditional autoencoder perceptrons. We also see that the autoencoder tree captures hierarchical representations at different granularities of the data on its different levels and the leaves capture the localities in the input space.
+}
+}
+
+@InProceedings{Sankar15,
+    title = {Similarity-based Contrastive Divergence Methods for Energy-based Deep Learning Models},
+    author = {Sankar, Adepu Ravi and Balasubramanian, Vineeth N},
+    pages = {391-406},
+    abstract = {Energy-based deep learning models like Restricted Boltzmann Machines are increasingly used for real-world applications. However, all these models inherently depend on the Contrastive Divergence (CD) method for training and maximization of log likelihood of generating the given data distribution. CD, which internally uses Gibbs sampling, often does not perform well due to issues such as biased samples, poor mixing of Markov chains and high-mass probability modes. Variants of CD such as PCD, Fast PCD and Tempered MCMC have been proposed to address this issue. In this work, we propose a new approach to CD-based methods, called Diss-CD, which uses dissimilar data to allow the Markov chain to explore new modes in the probability space. This method can be used with all variants of CD (or PCD), and across all energy-based deep learning models. Our experiments on using this approach on standard datasets including MNIST, Caltech-101 Silhouette and Synthetic Transformations, demonstrate the promise of this approach, showing fast convergence of error in learning and also a better approximation of log likelihood of the data.
+}
+}
+
+@InProceedings{Zhu15,
+    title = {One-Pass Multi-View Learning},
+    author = {Zhu, Yue and Gao, Wei and Zhou, Zhi-Hua},
+    pages = {407-422},
+    abstract = {Multi-view learning has been an important learning paradigm where data come from multiple channels or appear in multiple modalities. Many approaches have been developed in this field, and have achieved better performance than single-view ones. Those approaches, however, always work on small-size datasets with low dimensionality, owing to their high computational cost. In recent years, it has been witnessed that many applications involve large-scale multi-view data, e.g., hundreds of hours of video (including visual, audio and text views) is uploaded to YouTube every minute, bringing a big challenge to previous multi-view algorithms. This work  concentrates on the large-scale multi-view learning for classification and proposes the One-Pass Multi-View (OPMV) framework which goes through the training data only once without storing the entire training examples. This approach jointly optimizes the composite objective functions with consistency linear constraints for different views. We verify, both theoretically and empirically, the effectiveness of the proposed algorithm.  
+}
+}
+
+@InProceedings{Zhou15,
+    title = {Largest Source Subset Selection for Instance Transfer},
+    author = {Zhou, Shuang and Schoenmakers, Gijs and Smirnov, Evgueni and Peeters, Ralf and Driessens, Kurt and Chen, Siqi},
+    pages = {423-438},
+    abstract = {Instance-transfer learning has emerged as a promising  learning framework to boost performance of prediction models on newly-arrived tasks. The success of the framework depends on the relevance of the source data to the target data. This paper proposes a new approach to source data selection for instance-transfer learning.  The approach is capable of selecting the largest subset $S^*$ of the source data which relevance to the target data is statistically guaranteed to be the highest among any superset of $S^*$. The approach is formally described and theoretically justified.  Experimental results on real-world data sets demonstrate that the approach outperforms existing instance selection methods.
+}
+}

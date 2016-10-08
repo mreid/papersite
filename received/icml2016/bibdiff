@@ -1,0 +1,1298 @@
+11c11
+< @InProceedings{haha16,
+---
+> @InProceedings{shaha16,
+18c18
+< @InProceedings{hahb16,
+---
+> @InProceedings{shahb16,
+25c25
+< @InProceedings{eller16,
+---
+> @InProceedings{weller16,
+32c32
+< @InProceedings{haham16,
+---
+> @InProceedings{shaham16,
+39c39
+< @InProceedings{anga16,
+---
+> @InProceedings{yanga16,
+46c46
+< @InProceedings{inn16,
+---
+> @InProceedings{finn16,
+53c53
+< @InProceedings{iea16,
+---
+> @InProceedings{xiea16,
+60c60
+< @InProceedings{andasamy16,
+---
+> @InProceedings{kandasamy16,
+67c67
+< @InProceedings{eea16,
+---
+> @InProceedings{leea16,
+74c74
+< @InProceedings{hetan16,
+---
+> @InProceedings{khetan16,
+81c81
+< @InProceedings{ulo16,
+---
+> @InProceedings{bulo16,
+88c88
+< @InProceedings{anti16,
+---
+> @InProceedings{fanti16,
+95c95
+< @InProceedings{iua16,
+---
+> @InProceedings{liua16,
+102c102
+< @InProceedings{aragiannis16,
+---
+> @InProceedings{caragiannis16,
+109c109
+< @InProceedings{rpita16,
+---
+> @InProceedings{arpita16,
+116c116
+< @InProceedings{ock16,
+---
+> @InProceedings{nock16,
+123c123
+< @InProceedings{osenski16,
+---
+> @InProceedings{rosenski16,
+130c130
+< @InProceedings{teeg16,
+---
+> @InProceedings{steeg16,
+137c137
+< @InProceedings{modei16,
+---
+> @InProceedings{amodei16,
+144c144
+< @InProceedings{hanga16,
+---
+> @InProceedings{zhanga16,
+151c151
+< @InProceedings{etzen16,
+---
+> @InProceedings{metzen16,
+158c158
+< @InProceedings{ilad-bachrach16,
+---
+> @InProceedings{gilad-bachrach16,
+165c165
+< @InProceedings{ladymyrov16,
+---
+> @InProceedings{vladymyrov16,
+172c172
+< @InProceedings{ia16,
+---
+> @InProceedings{lia16,
+179c179
+< @InProceedings{eeb16,
+---
+> @InProceedings{leeb16,
+186c186
+< @InProceedings{ana16,
+---
+> @InProceedings{fan16,
+193c193
+< @InProceedings{hamira16,
+---
+> @InProceedings{shamira16,
+200c200
+< @InProceedings{hamirb16,
+---
+> @InProceedings{shamirb16,
+207c207
+< @InProceedings{anb16,
+---
+> @InProceedings{lan16,
+214c214
+< @InProceedings{iub16,
+---
+> @InProceedings{liub16,
+221c221
+< @InProceedings{ue16,
+---
+> @InProceedings{xue16,
+228c228
+< @InProceedings{ib16,
+---
+> @InProceedings{lib16,
+235c235
+< @InProceedings{enon16,
+---
+> @InProceedings{menon16,
+242c242
+< @InProceedings{eddi16,
+---
+> @InProceedings{reddi16,
+249c249
+< @InProceedings{anganath16,
+---
+> @InProceedings{ranganath16,
+256c256
+< @InProceedings{dams16,
+---
+> @InProceedings{adams16,
+263c263
+< @InProceedings{horomanska16,
+---
+> @InProceedings{choromanska16,
+270c270
+< @InProceedings{andt16,
+---
+> @InProceedings{mandt16,
+277c277
+< @InProceedings{opal16,
+---
+> @InProceedings{gopal16,
+284c284
+< @InProceedings{ua16,
+---
+> @InProceedings{yu16,
+291c291
+< @InProceedings{oang16,
+---
+> @InProceedings{hoang16,
+298c298
+< @InProceedings{hangb16,
+---
+> @InProceedings{zhangb16,
+305c305
+< @InProceedings{enatton16,
+---
+> @InProceedings{jenatton16,
+312c312
+< @InProceedings{ingla16,
+---
+> @InProceedings{singla16,
+319c319
+< @InProceedings{aremba16,
+---
+> @InProceedings{zaremba16,
+326c326
+< @InProceedings{erer16,
+---
+> @InProceedings{lerer16,
+333c333
+< @InProceedings{iuc16,
+---
+> @InProceedings{liuc16,
+340c340
+< @InProceedings{angb16,
+---
+> @InProceedings{yangb16,
+347c347
+< @InProceedings{odosinnikova16,
+---
+> @InProceedings{podosinnikova16,
+354c354
+< @InProceedings{baru16,
+---
+> @InProceedings{ubaru16,
+361c361
+< @InProceedings{ieb16,
+---
+> @InProceedings{xieb16,
+368c368
+< @InProceedings{asiviswanathan16,
+---
+> @InProceedings{kasiviswanathan16,
+375c375
+< @InProceedings{ojnovic16,
+---
+> @InProceedings{vojnovic16,
+382c382
+< @InProceedings{iud16,
+---
+> @InProceedings{liud16,
+389c389
+< @InProceedings{ouillet16,
+---
+> @InProceedings{couillet16,
+396c396
+< @InProceedings{ohnson16,
+---
+> @InProceedings{johnson16,
+403c403
+< @InProceedings{k16,
+---
+> @InProceedings{ok16,
+410c410
+< @InProceedings{inogradska16,
+---
+> @InProceedings{vinogradska16,
+417c417
+< @InProceedings{amm16,
+---
+> @InProceedings{hamm16,
+424c424
+< @InProceedings{eia16,
+---
+> @InProceedings{wei16,
+431c431
+< @InProceedings{rosse16,
+---
+> @InProceedings{grosse16,
+438c438
+< @InProceedings{avi16,
+---
+> @InProceedings{ravi16,
+445c445
+< @InProceedings{sokin16,
+---
+> @InProceedings{osokin16,
+452c452
+< @InProceedings{aoa16,
+---
+> @InProceedings{gaoa16,
+459c459
+< @InProceedings{hangc16,
+---
+> @InProceedings{zhangc16,
+466c466
+< @InProceedings{hena16,
+---
+> @InProceedings{shen16,
+473c473
+< @InProceedings{urtis16,
+---
+> @InProceedings{curtis16,
+480c480
+< @InProceedings{imsekli16,
+---
+> @InProceedings{simsekli16,
+487c487
+< @InProceedings{iang16,
+---
+> @InProceedings{jiang16,
+494c494
+< @InProceedings{ub16,
+---
+> @InProceedings{qua16,
+501c501
+< @InProceedings{ic16,
+---
+> @InProceedings{lic16,
+508c508
+< @InProceedings{ea16,
+---
+> @InProceedings{le16,
+515c515
+< @InProceedings{henb16,
+---
+> @InProceedings{chena16,
+522c522
+< @InProceedings{llen-zhua16,
+---
+> @InProceedings{allen-zhua16,
+529c529
+< @InProceedings{atrini16,
+---
+> @InProceedings{patrini16,
+536c536
+< @InProceedings{angc16,
+---
+> @InProceedings{wanga16,
+543c543
+< @InProceedings{maizumi16,
+---
+> @InProceedings{imaizumi16,
+550c550
+< @InProceedings{edregosa16,
+---
+> @InProceedings{pedregosa16,
+557c557
+< @InProceedings{halev-shwartza16,
+---
+> @InProceedings{shalev-shwartza16,
+564c564
+< @InProceedings{ren16,
+---
+> @InProceedings{anava16,
+566c566
+<   author = {Oren and Shie Mannor},
+---
+>   author = {Oren Anava and Shie Mannor},
+571c571
+< @InProceedings{heng16,
+---
+> @InProceedings{zheng16,
+578c578
+< @InProceedings{afran16,
+---
+> @InProceedings{safran16,
+585c585
+< @InProceedings{unner16,
+---
+> @InProceedings{dunner16,
+592c592
+< @InProceedings{halev-shwartzb16,
+---
+> @InProceedings{shalev-shwartzb16,
+599c599
+< @InProceedings{imentel-alarcon16,
+---
+> @InProceedings{pimentel-alarcon16,
+606c606
+< @InProceedings{ohena16,
+---
+> @InProceedings{cohena16,
+613c613
+< @InProceedings{laude16,
+---
+> @InProceedings{glaude16,
+620c620
+< @InProceedings{elnyk16,
+---
+> @InProceedings{melnyk16,
+627c627
+< @InProceedings{osh16,
+---
+> @InProceedings{tosh16,
+634c634
+< @InProceedings{londel16,
+---
+> @InProceedings{blondel16,
+641c641
+< @InProceedings{ermain16,
+---
+> @InProceedings{germain16,
+648c648
+< @InProceedings{uleo16,
+---
+> @InProceedings{puleo16,
+655c655
+< @InProceedings{avid16,
+---
+> @InProceedings{david16,
+662c662
+< @InProceedings{lhoseiny16,
+---
+> @InProceedings{elhoseiny16,
+669c669
+< @InProceedings{arr16,
+---
+> @InProceedings{carr16,
+676c676
+< @InProceedings{rjevani16,
+---
+> @InProceedings{arjevani16,
+683c683
+< @InProceedings{id16,
+---
+> @InProceedings{lid16,
+690c690
+< @InProceedings{ipf16,
+---
+> @InProceedings{wipf16,
+697c697
+< @InProceedings{ewling16,
+---
+> @InProceedings{newling16,
+704c704
+< @InProceedings{avanbakhsha16,
+---
+> @InProceedings{ravanbakhsha16,
+711c711
+< @InProceedings{ohenb16,
+---
+> @InProceedings{cohenb16,
+718c718
+< @InProceedings{uc16,
+---
+> @InProceedings{tu16,
+725c725
+< @InProceedings{una16,
+---
+> @InProceedings{jun16,
+732c732
+< @InProceedings{elanger16,
+---
+> @InProceedings{belanger16,
+739c739
+< @InProceedings{hangd16,
+---
+> @InProceedings{zhangd16,
+746c746
+< @InProceedings{remblay16,
+---
+> @InProceedings{tremblay16,
+753c753
+< @InProceedings{asai16,
+---
+> @InProceedings{kasai16,
+760c760
+< @InProceedings{hange16,
+---
+> @InProceedings{zhange16,
+767c767
+< @InProceedings{eramo16,
+---
+> @InProceedings{deramo16,
+774c774
+< @InProceedings{swal16,
+---
+> @InProceedings{oswal16,
+781c781
+< @InProceedings{al16,
+---
+> @InProceedings{gal16,
+788c788
+< @InProceedings{eed16,
+---
+> @InProceedings{reed16,
+795c795
+< @InProceedings{rabhakaran16,
+---
+> @InProceedings{prabhakaran16,
+802c802
+< @InProceedings{llen-zhub16,
+---
+> @InProceedings{allen-zhub16,
+809c809
+< @InProceedings{howmik16,
+---
+> @InProceedings{bhowmik16,
+816c816
+< @InProceedings{hai16,
+---
+> @InProceedings{zhai16,
+823c823
+< @InProceedings{llen-zhuc16,
+---
+> @InProceedings{allen-zhuc16,
+830c830
+< @InProceedings{rjovsky16,
+---
+> @InProceedings{arjovsky16,
+837c837
+< @InProceedings{hangf16,
+---
+> @InProceedings{zhangf16,
+844c844
+< @InProceedings{angd16,
+---
+> @InProceedings{wangb16,
+851c851
+< @InProceedings{steris16,
+---
+> @InProceedings{asteris16,
+858c858
+< @InProceedings{iue16,
+---
+> @InProceedings{liue16,
+865c865
+< @InProceedings{rpitb16,
+---
+> @InProceedings{arpitb16,
+872c872
+< @InProceedings{ie16,
+---
+> @InProceedings{lie16,
+879c879
+< @InProceedings{ernando16,
+---
+> @InProceedings{fernando16,
+886c886
+< @InProceedings{unb16,
+---
+> @InProceedings{sun16,
+893c893
+< @InProceedings{ahmani16,
+---
+> @InProceedings{rahmani16,
+900c900
+< @InProceedings{atariya16,
+---
+> @InProceedings{katariya16,
+907c907
+< @InProceedings{ardt16,
+---
+> @InProceedings{hardt16,
+914c914
+< @InProceedings{omiyama16,
+---
+> @InProceedings{komiyama16,
+921c921
+< @InProceedings{if16,
+---
+> @InProceedings{lif16,
+928c928
+< @InProceedings{ud16,
+---
+> @InProceedings{wu16,
+935c935
+< @InProceedings{azana16,
+---
+> @InProceedings{hazana16,
+942c942
+< @InProceedings{onga16,
+---
+> @InProceedings{songa16,
+949c949
+< @InProceedings{ue16,
+---
+> @InProceedings{xua16,
+956c956
+< @InProceedings{alduzzi16,
+---
+> @InProceedings{balduzzi16,
+963c963
+< @InProceedings{orda16,
+---
+> @InProceedings{korda16,
+970c970
+< @InProceedings{haoa16,
+---
+> @InProceedings{zhaoa16,
+977c977
+< @InProceedings{handelwal16,
+---
+> @InProceedings{khandelwal16,
+984c984
+< @InProceedings{uana16,
+---
+> @InProceedings{duan16,
+991c991
+< @InProceedings{ing16,
+---
+> @InProceedings{ding16,
+998c998
+< @InProceedings{lyanov16,
+---
+> @InProceedings{ulyanov16,
+1005c1005
+< @InProceedings{irzasoleiman16,
+---
+> @InProceedings{mirzasoleiman16,
+1012c1012
+< @InProceedings{ange16,
+---
+> @InProceedings{wangc16,
+1019c1019
+< @InProceedings{umar16,
+---
+> @InProceedings{kumar16,
+1026c1026
+< @InProceedings{olin16,
+---
+> @InProceedings{colin16,
+1033c1033
+< @InProceedings{onen16,
+---
+> @InProceedings{gonen16,
+1040c1040
+< @InProceedings{aa16,
+---
+> @InProceedings{la16,
+1047c1047
+< @InProceedings{latanios16,
+---
+> @InProceedings{platanios16,
+1054c1054
+< @InProceedings{hattacharya16,
+---
+> @InProceedings{bhattacharya16,
+1061c1061
+< @InProceedings{asinska16,
+---
+> @InProceedings{jasinska16,
+1068c1068
+< @InProceedings{aaloe16,
+---
+> @InProceedings{maaloe16,
+1075c1075
+< @InProceedings{anevet16,
+---
+> @InProceedings{canevet16,
+1082c1082
+< @InProceedings{aneshmand16,
+---
+> @InProceedings{daneshmand16,
+1089c1089
+< @InProceedings{uia16,
+---
+> @InProceedings{bui16,
+1096c1096
+< @InProceedings{itrovic16,
+---
+> @InProceedings{mitrovic16,
+1103c1103
+< @InProceedings{ernandez-lobatoa16,
+---
+> @InProceedings{hernandez-lobatoa16,
+1110c1110
+< @InProceedings{eb16,
+---
+> @InProceedings{gea16,
+1117c1117
+< @InProceedings{ernandez-lobatob16,
+---
+> @InProceedings{hernandez-lobatob16,
+1124c1124
+< @InProceedings{ezende16,
+---
+> @InProceedings{rezende16,
+1131c1131
+< @InProceedings{atarajan16,
+---
+> @InProceedings{natarajan16,
+1138c1138
+< @InProceedings{alherbe16,
+---
+> @InProceedings{malherbe16,
+1145c1145
+< @InProceedings{angf16,
+---
+> @InProceedings{wangd16,
+1152c1152
+< @InProceedings{arsen16,
+---
+> @InProceedings{larsen16,
+1159c1159
+< @InProceedings{ab16,
+---
+> @InProceedings{sa16,
+1166c1166
+< @InProceedings{hibagaki16,
+---
+> @InProceedings{shibagaki16,
+1173c1173
+< @InProceedings{egenne16,
+---
+> @InProceedings{degenne16,
+1180c1180
+< @InProceedings{oiles16,
+---
+> @InProceedings{hoiles16,
+1187c1187
+< @InProceedings{andey16,
+---
+> @InProceedings{pandey16,
+1194c1194
+< @InProceedings{artins16,
+---
+> @InProceedings{martins16,
+1201c1201
+< @InProceedings{ubeck16,
+---
+> @InProceedings{bubeck16,
+1208c1208
+< @InProceedings{anagawa16,
+---
+> @InProceedings{kanagawa16,
+1215c1215
+< @InProceedings{edina16,
+---
+> @InProceedings{medina16,
+1222c1222
+< @InProceedings{onilla16,
+---
+> @InProceedings{bonilla16,
+1229c1229
+< @InProceedings{uf16,
+---
+> @InProceedings{xub16,
+1236c1236
+< @InProceedings{chnabel16,
+---
+> @InProceedings{schnabel16,
+1243c1243
+< @InProceedings{oon16,
+---
+> @InProceedings{yoon16,
+1250c1250
+< @InProceedings{ocatelli16,
+---
+> @InProceedings{locatelli16,
+1257c1257
+< @InProceedings{iuf16,
+---
+> @InProceedings{niu16,
+1264c1264
+< @InProceedings{ouizos16,
+---
+> @InProceedings{louizos16,
+1271c1271
+< @InProceedings{ug16,
+---
+> @InProceedings{xuc16,
+1278c1278
+< @InProceedings{iao16,
+---
+> @InProceedings{miao16,
+1285c1285
+< @InProceedings{ensch16,
+---
+> @InProceedings{mensch16,
+1292c1292
+< @InProceedings{ord16,
+---
+> @InProceedings{oord16,
+1299c1299
+< @InProceedings{imsek16,
+---
+> @InProceedings{simsek16,
+1306c1306
+< @InProceedings{ig16,
+---
+> @InProceedings{lig16,
+1313c1313
+< @InProceedings{eshi16,
+---
+> @InProceedings{meshi16,
+1320c1320
+< @InProceedings{roraa16,
+---
+> @InProceedings{aroraa16,
+1327c1327
+< @InProceedings{asbug16,
+---
+> @InProceedings{basbug16,
+1334c1334
+< @InProceedings{ec16,
+---
+> @InProceedings{he16,
+1341c1341
+< @InProceedings{angg16,
+---
+> @InProceedings{wange16,
+1348c1348
+< @InProceedings{uh16,
+---
+> @InProceedings{qub16,
+1355c1355
+< @InProceedings{azanb16,
+---
+> @InProceedings{hazanb16,
+1362c1362
+< @InProceedings{antoro16,
+---
+> @InProceedings{santoro16,
+1369c1369
+< @InProceedings{aia16,
+---
+> @InProceedings{daia16,
+1376c1376
+< @InProceedings{erolat16,
+---
+> @InProceedings{perolat16,
+1383c1383
+< @InProceedings{ower16,
+---
+> @InProceedings{gower16,
+1390c1390
+< @InProceedings{aib16,
+---
+> @InProceedings{baia16,
+1397c1397
+< @InProceedings{ieleman16,
+---
+> @InProceedings{dieleman16,
+1404c1404
+< @InProceedings{ahavy16,
+---
+> @InProceedings{zahavy16,
+1411c1411
+< @InProceedings{riesen16,
+---
+> @InProceedings{friesen16,
+1418c1418
+< @InProceedings{hahc16,
+---
+> @InProceedings{shahc16,
+1425c1425
+< @InProceedings{niha16,
+---
+> @InProceedings{mniha16,
+1432c1432
+< @InProceedings{eldt16,
+---
+> @InProceedings{veldt16,
+1439c1439
+< @InProceedings{ui16,
+---
+> @InProceedings{su16,
+1446c1446
+< @InProceedings{awakita16,
+---
+> @InProceedings{kawakita16,
+1453c1453
+< @InProceedings{ichaeli16,
+---
+> @InProceedings{michaeli16,
+1460c1460
+< @InProceedings{akhlin16,
+---
+> @InProceedings{rakhlin16,
+1467c1467
+< @InProceedings{anihelka16,
+---
+> @InProceedings{danihelka16,
+1474c1474
+< @InProceedings{angh16,
+---
+> @InProceedings{wangf16,
+1481c1481
+< @InProceedings{usano16,
+---
+> @InProceedings{kusano16,
+1488c1488
+< @InProceedings{iepert16,
+---
+> @InProceedings{niepert16,
+1495c1495
+< @InProceedings{iamos16,
+---
+> @InProceedings{diamos16,
+1502c1502
+< @InProceedings{enaff16,
+---
+> @InProceedings{henaff16,
+1509c1509
+< @InProceedings{auer16,
+---
+> @InProceedings{bauer16,
+1516c1516
+< @InProceedings{amaswamy16,
+---
+> @InProceedings{ramaswamy16,
+1523c1523
+< @InProceedings{ih16,
+---
+> @InProceedings{lih16,
+1530c1530
+< @InProceedings{rouillon16,
+---
+> @InProceedings{trouillon16,
+1537c1537
+< @InProceedings{ikram16,
+---
+> @InProceedings{vikram16,
+1544c1544
+< @InProceedings{llamanis16,
+---
+> @InProceedings{allamanis16,
+1551c1551
+< @InProceedings{apralov16,
+---
+> @InProceedings{kapralov16,
+1558c1558
+< @InProceedings{ogers16,
+---
+> @InProceedings{rogers16,
+1565c1565
+< @InProceedings{rraqabi16,
+---
+> @InProceedings{erraqabi16,
+1572c1572
+< @InProceedings{alle16,
+---
+> @InProceedings{balle16,
+1579c1579
+< @InProceedings{homasa16,
+---
+> @InProceedings{thomasa16,
+1586c1586
+< @InProceedings{iatowski16,
+---
+> @InProceedings{wiatowski16,
+1593c1593
+< @InProceedings{yrgkanis16,
+---
+> @InProceedings{syrgkanis16,
+1600c1600
+< @InProceedings{ongb16,
+---
+> @InProceedings{songb16,
+1607c1607
+< @InProceedings{wanga16,
+---
+> @InProceedings{hwanga16,
+1614c1614
+< @InProceedings{nihb16,
+---
+> @InProceedings{mnihb16,
+1621c1621
+< @InProceedings{alal16,
+---
+> @InProceedings{dalal16,
+1628c1628
+< @InProceedings{alkanski16,
+---
+> @InProceedings{balkanski16,
+1635c1635
+< @InProceedings{hangg16,
+---
+> @InProceedings{shang16,
+1642c1642
+< @InProceedings{angi16,
+---
+> @InProceedings{wangg16,
+1649c1649
+< @InProceedings{iug16,
+---
+> @InProceedings{liuf16,
+1656c1656
+< @InProceedings{anc16,
+---
+> @InProceedings{pana16,
+1663c1663
+< @InProceedings{chim16,
+---
+> @InProceedings{achim16,
+1670c1670
+< @InProceedings{apakonstantinou16,
+---
+> @InProceedings{papakonstantinou16,
+1677c1677
+< @InProceedings{ena16,
+---
+> @InProceedings{yena16,
+1684c1684
+< @InProceedings{azayeli16,
+---
+> @InProceedings{fazayeli16,
+1691c1691
+< @InProceedings{hiang16,
+---
+> @InProceedings{chiang16,
+1698c1698
+< @InProceedings{uib16,
+---
+> @InProceedings{gui16,
+1705c1705
+< @InProceedings{angnier16,
+---
+> @InProceedings{sangnier16,
+1712c1712
+< @InProceedings{iberty16,
+---
+> @InProceedings{liberty16,
+1719c1719
+< @InProceedings{uanb16,
+---
+> @InProceedings{guan16,
+1726c1726
+< @InProceedings{ina16,
+---
+> @InProceedings{lina16,
+1733c1733
+< @InProceedings{rostig16,
+---
+> @InProceedings{frostig16,
+1740c1740
+< @InProceedings{ii16,
+---
+> @InProceedings{lii16,
+1747c1747
+< @InProceedings{ezeshki16,
+---
+> @InProceedings{pezeshki16,
+1754c1754
+< @InProceedings{sband16,
+---
+> @InProceedings{osband16,
+1761c1761
+< @InProceedings{antchelian16,
+---
+> @InProceedings{kantchelian16,
+1768c1768
+< @InProceedings{iong16,
+---
+> @InProceedings{xiong16,
+1775c1775
+< @InProceedings{avanbakhshb16,
+---
+> @InProceedings{ravanbakhshb16,
+1782c1782
+< @InProceedings{ashimoto16,
+---
+> @InProceedings{hashimoto16,
+1789c1789
+< @InProceedings{and16,
+---
+> @InProceedings{panb16,
+1796c1796
+< @InProceedings{airouz16,
+---
+> @InProceedings{kairouz16,
+1803c1803
+< @InProceedings{nouye16,
+---
+> @InProceedings{inouye16,
+1810c1810
+< @InProceedings{im16,
+---
+> @InProceedings{lim16,
+1817c1817
+< @InProceedings{adeh16,
+---
+> @InProceedings{zadeh16,
+1824c1824
+< @InProceedings{angj16,
+---
+> @InProceedings{yangc16,
+1831c1831
+< @InProceedings{ij16,
+---
+> @InProceedings{lij16,
+1838c1838
+< @InProceedings{henc16,
+---
+> @InProceedings{chenb16,
+1845c1845
+< @InProceedings{horomanski16,
+---
+> @InProceedings{choromanski16,
+1852c1852
+< @InProceedings{ornschein16,
+---
+> @InProceedings{bornschein16,
+1859c1859
+< @InProceedings{bernethy16,
+---
+> @InProceedings{abernethy16,
+1866c1866
+< @InProceedings{utajar16,
+---
+> @InProceedings{cutajar16,
+1873c1873
+< @InProceedings{ltschuler16,
+---
+> @InProceedings{altschuler16,
+1880c1880
+< @InProceedings{lmahairi16,
+---
+> @InProceedings{almahairi16,
+1887c1887
+< @InProceedings{eidari16,
+---
+> @InProceedings{heidari16,
+1894c1894
+< @InProceedings{aghunathan16,
+---
+> @InProceedings{raghunathan16,
+1901c1901
+< @InProceedings{ottesch16,
+---
+> @InProceedings{bottesch16,
+1908c1908
+< @InProceedings{ussmann16,
+---
+> @InProceedings{mussmann16,
+1915c1915
+< @InProceedings{odomanov16,
+---
+> @InProceedings{rodomanov16,
+1922c1922
+< @InProceedings{hwialkowski16,
+---
+> @InProceedings{chwialkowski16,
+1929c1929
+< @InProceedings{ainforth16,
+---
+> @InProceedings{rainforth16,
+1936c1936
+< @InProceedings{arber16,
+---
+> @InProceedings{garber16,
+1943c1943
+< @InProceedings{iec16,
+---
+> @InProceedings{xiec16,
+1950c1950
+< @InProceedings{aob16,
+---
+> @InProceedings{yao16,
+1957c1957
+< @InProceedings{ik16,
+---
+> @InProceedings{si16,
+1964c1964
+< @InProceedings{eyre16,
+---
+> @InProceedings{peyre16,
+1971c1971
+< @InProceedings{oychowdhury16,
+---
+> @InProceedings{roychowdhury16,
+1978c1978
+< @InProceedings{aeedi16,
+---
+> @InProceedings{saeedi16,
+1985c1985
+< @InProceedings{stinovskiy16,
+---
+> @InProceedings{ustinovskiy16,
+1992c1992
+< @InProceedings{aic16,
+---
+> @InProceedings{daib16,
+1999c1999
+< @InProceedings{uha16,
+---
+> @InProceedings{guha16,
+2006c2006
+< @InProceedings{aylor16,
+---
+> @InProceedings{taylor16,
+2013c2013
+< @InProceedings{hend16,
+---
+> @InProceedings{chenc16,
+2020c2020
+< @InProceedings{ed16,
+---
+> @InProceedings{geb16,
+2027c2027
+< @InProceedings{aid16,
+---
+> @InProceedings{baib16,
+2034c2034
+< @InProceedings{o16,
+---
+> @InProceedings{ho16,
+2041c2041
+< @InProceedings{isse16,
+---
+> @InProceedings{cisse16,
+2048c2048
+< @InProceedings{aoc16,
+---
+> @InProceedings{gaob16,
+2055c2055
+< @InProceedings{h16,
+---
+> @InProceedings{oh16,
+2062c2062
+< @InProceedings{uh16,
+---
+> @InProceedings{suh16,
+2069c2069
+< @InProceedings{chein16,
+---
+> @InProceedings{schein16,
+2076c2076
+< @InProceedings{olombo16,
+---
+> @InProceedings{colombo16,
+2083c2083
+< @InProceedings{uj16,
+---
+> @InProceedings{gu16,
+2090c2090
+< @InProceedings{ongc16,
+---
+> @InProceedings{gong16,
+2097c2097
+< @InProceedings{inb16,
+---
+> @InProceedings{linb16,
+2104c2104
+< @InProceedings{rorab16,
+---
+> @InProceedings{arorab16,
+2111c2111
+< @InProceedings{angk16,
+---
+> @InProceedings{wangh16,
+2118c2118
+< @InProceedings{charya16,
+---
+> @InProceedings{acharya16,
+2125c2125
+< @InProceedings{homasb16,
+---
+> @InProceedings{thomasb16,
+2132c2132
+< @InProceedings{arlson16,
+---
+> @InProceedings{carlson16,
+2139c2139
+< @InProceedings{haob16,
+---
+> @InProceedings{zhaob16,
+2146c2146
+< @InProceedings{bel16,
+---
+> @InProceedings{abel16,
+2153c2153
+< @InProceedings{eib16,
+---
+> @InProceedings{lei16,
+2160c2160
+< @InProceedings{ielik16,
+---
+> @InProceedings{bielik16,
+2167c2167
+< @InProceedings{yorgy16,
+---
+> @InProceedings{gyorgy16,
+2174c2174
+< @InProceedings{uketina16,
+---
+> @InProceedings{luketina16,
+2181,2182c2181,2182
+< @InProceedings{krour16,
+<   title = {Model-Free Trajectory Optimization\\ for Reinforcement Learning},
+---
+> @InProceedings{akrour16,
+>   title = {Model-Free Trajectory Optimization for Reinforcement Learning},
+2188c2188
+< @InProceedings{orba16,
+---
+> @InProceedings{korba16,
+2195c2195
+< @InProceedings{ucic16,
+---
+> @InProceedings{lucic16,
+2202c2202
+< @InProceedings{ohenc16,
+---
+> @InProceedings{cohenc16,
+2209c2209
+< @InProceedings{iatkowski16,
+---
+> @InProceedings{piatkowski16,
+2216c2216
+< @InProceedings{iemer16,
+---
+> @InProceedings{riemer16,
+2223c2223
+< @InProceedings{ohansson16,
+---
+> @InProceedings{johansson16,
+2227c2227
+<   abstract = {Observational studies are rising in importance due to the widespread accumulation of data in fields such as healthcare, education, employment and ecology. We consider the task of answering counterfactual questions such as, "Would this patient have lower blood sugar had she received a different medication?". We propose a new algorithmic framework for counterfactual inference which brings together ideas from domain adaptation and representation learning. In addition to a theoretical justification, we perform an empirical comparison with previous approaches to causal inference from observational data. Our deep learning algorithm significantly outperforms the previous state-of-the-art.}
+---
+>   abstract = {Observational studies are rising in importance due to the widespread accumulation of data in fields such as healthcare, education, employment and ecology. We consider the task of answering counterfactual questions such as, ``Would this patient have lower blood sugar had she received a different medication?". We propose a new algorithmic framework for counterfactual inference which brings together ideas from domain adaptation and representation learning. In addition to a theoretical justification, we perform an empirical comparison with previous approaches to causal inference from observational data. Our deep learning algorithm significantly outperforms the previous state-of-the-art.}
+2230c2230
+< @InProceedings{wangb16,
+---
+> @InProceedings{hwangb16,
+2237c2237
+< @InProceedings{aige16,
+---
+> @InProceedings{paige16,
+2244c2244
+< @InProceedings{loem-reddy16,
+---
+> @InProceedings{bloem-reddy16,
+2251c2251
+< @InProceedings{ulcehre16,
+---
+> @InProceedings{gulcehre16,
+2258c2258
+< @InProceedings{enb16,
+---
+> @InProceedings{yenb16,

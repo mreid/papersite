@@ -1,0 +1,329 @@
+@Proceedings{pgm2016,
+booktitle = {Proceedings of the Eighth International Conference on Probabilistic Graphical Models},
+shortname = {PGM 2016},
+year = {2016},
+editor = {Alessandro Antonucci and Giorgio Corani and Cassio Polpo {de Campos}},
+volume = {52}}
+
+@inProceedings{bendtsen16,
+title = {Regime Aware Learning},
+author = {Bendtsen, Marcus},
+pages = {1-12},
+abstract = {We propose a regime aware learning algorithm to learn a sequence of Bayesian networks (BNs) that model a system that undergoes {\it regime} changes. The last BN in the sequence represents the system's current regime, and should be used for BN inference. To explore the feasibility of the algorithm, we create baseline tests against learning a singe BN, and show that our proposed algorithm outperforms the single BN approach. We also apply the learning algorithm on real world data from the financial domain, where it is evident that the algorithm is able to produce BNs that have adapted to the regime changes during the most recent global financial crisis of 2007-08.},
+crossref = {pgm2016}}
+
+@inProceedings{benjumeda16,
+title = {Learning Tractable Multidimensional {B}ayesian Network Classifiers},
+author = {Benjumeda, Marco and Bielza, Concha and Larra{\~n}aga, Pedro},
+pages = {13-24},
+abstract = {Multidimensional classification has become one of the most relevant topics in view of the many domains that require a vector of class values to be assigned to a vector of given features. The popularity of multidimensional Bayesian network classifiers has increased in the last few years due to their expressive power and the existence of methods for learning different families of these models. The problem with this approach is that the computational cost of using the learned models is usually high, especially if there are a lot of class variables. Class-bridge decomposability means that the multidimensional classification problem can be divided into multiple subproblems for these models. In this paper, we prove that class-bridge decomposability can also be used to guarantee the tractability of the models. We also propose a strategy for efficiently bounding their inference complexity, providing a simple learning method with an order-based search that obtains tractable multidimensional Bayesian network classifiers. Experimental results show that our approach is competitive with other methods in the state of the art and ensures the tractability of the learned models.},
+crossref = {pgm2016}}
+
+@inProceedings{bolgar16,
+title = {{B}ayesian Matrix Factorization with Non-Random Missing Data using Informative {G}aussian Process Priors and Soft Evidences},
+author = {Bolg\'ar, Bence and Antal, P\'eter},
+pages = {25-36},
+abstract = {We propose an extended Bayesian matrix factorization method, which can incorporate multiple sources of side information, combine multiple \emph{a priori} estimates for the missing data and integrates a flexible missing not at random submodel. The model is formalized as probabilistic graphical model and a corresponding Gibbs sampling scheme is derived to perform unrestricted inference. We discuss the application of the method for completing drug--target interaction matrices, also discussing specialties in this domain. Using real-world drug--target interaction data, the performance of the method is compared against both a general Bayesian matrix factorization method and a specific one developed for drug--target interaction prediction. Results demonstrate the advantages of the extended model.},
+crossref = {pgm2016}}
+
+@inProceedings{bolt16,
+title = {{B}ayesian Networks: a Combined Tuning Heuristic},
+author = {Bolt, Janneke H.},
+pages = {37-49},
+abstract = {One of the issues in tuning an output probability of a Bayesian network by changing multiple parameters is the relative amount of the individual parameter changes. In an existing heuristic parameters are tied such that their changes induce locally a maximal change of the tuned probability. This heuristic, however, may reduce the attainable values of the tuned probability considerably. In another existing heuristic parameters are tied such that they simultaneously change in the entire interval $\langle 0,1\rangle$. The tuning range of this heuristic will in general be larger then the tuning range of the locally optimal heuristic. Disadvantage, however, is that knowledge of the local optimal change is not exploited. In this paper a heuristic is proposed that is locally optimal, yet covers the larger tuning range of the second heuristic. Preliminary experiments show that this heuristic is a promising alternative.},
+crossref = {pgm2016}}
+
+@inProceedings{bueno16,
+title = {Learning Complex Uncertain States Changes via Asymmetric Hidden {M}arkov Models: an Industrial Case},
+author = {Bueno, Marcos L.P. and Hommersom, Arjen and Lucas, Peter J.F. and Verwer, Sicco and Linard, Alexis},
+pages = {50-61},
+abstract = {In many problems involving multivariate time series, Hidden Markov Models (HMMs) are often employed to model complex behavior over time. HMMs can, however, require large number of states, that can lead to overfitting issues especially when limited data is available. In this work, we propose a family of models called Asymmetric Hidden Markov Models (HMM-As), that generalize the emission distributions to arbitrary Bayesian-network distributions. The new model allows for state-specific graphical structures defined over the space of observable features, what renders more compact state spaces and hence a better handling of the complexity-overfitting trade-off. We first define asymmetric HMMs, followed by the definition of a learning procedure inspired on the structural expectation-maximization framework allowing for decomposing learning per state. Then, we relate representation aspects of HMM-As to standard and independent HMMs. The last contribution of the paper is a set of experiments that elucidate the behavior of asymmetric HMMs on practical scenarios, including simulations and industry-based scenarios. The empirical results indicate that HMMs are limited when learning structured distributions, what is prevented by the more parsimonious representation of HMM-As. Furthermore, HMM-As showed to be promising in uncovering multiple graphical structures and providing better model fit in a case study from the domain of large-scale printers, thus providing additional problem insight.},
+crossref = {pgm2016}}
+
+@inProceedings{butz16a,
+title = {On {B}ayesian Network Inference with Simple Propagation},
+author = {Butz, Cory J. and Oliveira, Jhonatan S. and Santos, Andr\'e E. dos and Madsen, Anders L.},
+pages = {62-73},
+abstract = {\emph{Simple Propagation} (SP) was recently proposed as a new join tree propagation algorithm for exact inference in discrete Bayesian networks and empirically shown to be faster than \emph{Lazy Propagation} (LP) when applied on optimal (or close to) join trees built from real-world and benchmark Bayesian networks. This paper extends SP in two directions. First, we propose and empirically evaluate eight heuristics for determining elimination orderings in SP. Second, we show that the relevant potentials in SP are precisely those in LP.},
+crossref = {pgm2016}}
+
+@inProceedings{butz16b,
+title = {Relevant Path Separation: A Faster Method for Testing Independencies in {B}ayesian Networks},
+author = {Butz, Cory J. and Santos, Andr\'e E. dos and Oliveira, Jhonatan S.},
+pages = {74-85},
+abstract = {\emph{Directed separation} (d-separation) played a fundamental role in the founding of \emph{Bayesian networks} (BNs) and continues to be useful today in a wide range of applications. Given an independence to be tested, current implementations of d-separation explore the \emph{active} part of a BN. On the other hand, an overlooked property of d-separation implies that d-separation need only consider the \emph{relevant} part of a BN. We propose a new method for testing independencies in BNs, called \emph{relevant path separation} (rp-separation), which explores the intersection between the active and relevant parts of a BN. Favourable experimental results are reported.},
+crossref = {pgm2016}}
+
+@inProceedings{cattaneo16,
+title = {Conditional Probability Estimation},
+author = {Cattaneo, Marco E. G. V.},
+pages = {86-97},
+abstract = {This paper studies in particular an aspect of the estimation of conditional probability distributions by maximum likelihood that seems to have been overlooked in the literature on Bayesian networks: The information conveyed by the conditioning event should be included in the likelihood function as well.},
+crossref = {pgm2016}}
+
+@inProceedings{chen16,
+title = {On Pruning with the MDL Score},
+author = {Chen, Eunice Yuh-Jie and Choi, Arthur and Darwiche, Adnan},
+pages = {98-109},
+abstract = {The space of Bayesian network structures is forbiddingly large and hence numerous techniques have been developed to prune this search space, but without eliminating the optimal structure. Such techniques are critical for structure learning to scale to larger datasets with more variables. Prior works exploited properties of the MDL score to prune away large regions of the search space that can be safely ignored by optimal structure learning algorithms. In this paper, we propose new techniques for pruning regions of the search space that can be safely ignored by algorithms that enumerate the $k$-best Bayesian network structures. Empirically, we show that these techniques allow a state-of-the-art structure enumeration algorithm to scale to datasets with significantly more variables.},
+crossref = {pgm2016}}
+
+@inProceedings{cozman16,
+title = {Probabilistic Graphical Models Specified by Probabilistic Logic Programs: Semantics and Complexity},
+author = {Cozman, Fabio Gagliardi and Mau\'a, Denis Deratani},
+pages = {110-122},
+abstract = {We look at probabilistic logic programs as a specification language for probabilistic models, and study their interpretation and complexity. Acyclic programs specify Bayesian networks, and, depending on constraints on logical atoms, their inferential complexity reaches complexity classes $\#\mathsf{P}$, $\#\mathsf{NP}$, and even $\#\mathsf{EXP}$. We also investigate (cyclic) stratified probabilistic logic programs, showing that they have the same complexity as acyclic probabilistic logic programs, and that they can be depicted using chain graphs.},
+crossref = {pgm2016}}
+
+@inProceedings{debock16,
+title = {Reintroducing Credal Networks under Epistemic Irrelevance},
+author = {De~Bock, Jasper},
+pages = {123-135},
+abstract = {A credal network under epistemic irrelevance is a generalised version of a Bayesian network that loosens its two main building blocks. On the one hand, the local probabilities do not have to be specified exactly. On the other hand, the assumptions of independence do not have to hold exactly. Conceptually, these credal networks are elegant and useful. However, in practice, they have long remained very hard to work with, both theoretically and computationally. This paper provides a general introduction to this type of credal networks and presents some promising new theoretical developments that were recently proved using sets of desirable gambles and lower previsions. We explain these developments in terms of probabilities and expectations, thereby making them more easily accessible to the Bayesian network community.},
+crossref = {pgm2016}}
+
+@inProceedings{dementiev16,
+title = {{B}ayesian Torrent Classification by File Name and Size Only},
+author = {Dementiev, Eugene and Fenton, Norman},
+pages = {136-146},
+abstract = {Torrent traffic, much of which is assumed to be illegal downloads of copyrighted content, accounts for up to 35\% of internet downloads. Yet, the process of classification and identification of these downloads is unclear, and original data for such studies is often unavailable. Many torrent items lack supporting description or meta-data, in which case only file name and size are available. We describe a novel Bayesian network based classifier system that predicts medium category, pornographic content and risk of fakes and malware based on torrent name and size, optionally supplemented with external databases of titles and actors. We show that our method outperforms a commercial benchmark system and has the potential to rival human classifiers.},
+crossref = {pgm2016}}
+
+@inProceedings{dimauro16,
+title = {Multi-Label Classification with Cutset Networks},
+author = {Di~Mauro, Nicola and Vergari, Antonio and Esposito, Floriana},
+pages = {147-158},
+abstract = {In this work, we tackle the problem of Multi-Label Classification (MLC) by using Cutset Networks (CNets), weighted probabilistic model trees, recently proposed as \emph{tractable} probabilistic models for discrete distributions. We employ CNets to perform Most Probable Explanation (MPE) inference exactly and efficiently and we improve a state-of-the-art structure learning algorithm for CNets by explicitly taking advantage of label dependencies. We achieve this by forcing the tree inner nodes to represent only feature variables and by exploiting structural heuristics while learning the leaf models. A thorough experimental evaluation on ten real-world datasets shows how the proposed approach improves several metrics for MLC, proving it to be competitive with problem transformation methods like classifier chains.},
+crossref = {pgm2016}}
+
+@inProceedings{endres16,
+title = {Statistical Matching of Discrete Data by {B}ayesian Networks},
+author = {Endres, Eva and Augustin, Thomas},
+pages = {159-170},
+abstract = {Statistical matching (also known as data fusion, data merging, or data integration) is the umbrella term for a collection of methods which serve to combine different data sources. The objective is to obtain joint information about variables which have not jointly been collected in one survey, but on two (or more) surveys with disjoint sets of observation units. Besides specific variables for the different data files, it is indispensable to have common variables which are observed in both data sets and on basis of which the matching can be performed. Several existing statistical matching approaches are based on the assumption of conditional independence of the specific variables given the common variables. Relying on the well-known fact that d-separation is related to conditional independence for a probability distribution which factorizes along a directed acyclic graph, we suggest to use probabilistic graphical models as a powerful tool for statistical matching. In this paper, we describe and discuss first attempts for statistical matching of discrete data by Bayesian networks. The approach is exemplarily applied to data collected within the scope of the German General Social Survey.},
+crossref = {pgm2016}}
+
+@inProceedings{ettouzi16,
+title = {An Exact Approach to Learning Probabilistic Relational Model},
+author = {Ettouzi, Nourhene and Leray, Philippe and Ben~Messaoud, Montassar},
+pages = {171-182},
+abstract = {Probabilistic Graphical Models (PGMs) offer a popular framework including a variety of statistical formalisms, such as Bayesian networks (BNs). These latter are able to depict real-world situations with high degree of uncertainty. Due to their power and flexibility, several extensions were proposed, ensuring thereby the suitability of their use. Probabilistic Relational Models (PRMs) extend BNs to work with relational databases rather than propositional data. Their construction represents an active area since it remains the most complicated issue. Only few works have been proposed in this direction, and most of them don't guarantee an optimal identification of their dependency structure. In this paper we intend to propose an approach that ensures returning an optimal PRM structure. It is inspired from a BN method whose performance was already proven.},
+crossref = {pgm2016}}
+
+@inProceedings{gasse16,
+title = {Identifying the irreducible disjoint factors of a multivariate probability distribution},
+author = {Gasse, Maxime and Aussem, Alex},
+pages = {183-194},
+abstract = {We study the problem of decomposing a multivariate probability distribution $p(\mathbf{v})$ defined over a set of random variables $\mathbf{V}=\{V_1,\dots,V_n\}$ into a product of factors defined over disjoint subsets $\{\mathbf{V}_{F_1},\dots,\mathbf{V}_{F_m}\}$. We show that the decomposition of $\mathbf{V}$ into irreducible disjoint factors forms a unique partition, which corresponds to the connected components of a Bayesian or Markov network, given that it is faithful to $p$. Finally, we provide three generic procedures to identify these factors with $O(n^2)$ pairwise conditional independence tests ($V_i\perp V_j {\mathbin{\mid}}\mathbf{Z}$) under much less restrictive assumptions: 1) $p$ supports the Intersection property ii) $p$ supports the Composition property iii) no assumption at all.},
+crossref = {pgm2016}}
+
+@inProceedings{geier16,
+title = {On Stacking Probabilistic Temporal Models with Bidirectional Information Flow},
+author = {Glodek, Michael and Layher, Georg and Neumann, Heiko and Biundo, Susanne and Palm, G\"unther},
+pages = {195-206},
+abstract = {We discuss hierarchical combinations of probabilistic models where the upper layer is crafted for predicting time-series data. The combination of models makes the na\"ive Bayes assumption, stating that the latent variables of the models are independent given the time-indexed label variables. In this setting an additional independence assumption between time steps and mildly inconsistent results are often accepted to make inference computationally feasible. We discuss how the application of approximate inference to the practically intractable joint model instead, shifts the need for these simplifications from model design time to inference time, and the application of loopy belief propagation to the joint model realizes bidirectional communication between models during inference. A first empirical evaluation of the proposed architecture on an activity recognition task demonstrates the benefits of the layered architecture and examines the effects of bidirectional information flow.},
+crossref = {pgm2016}}
+
+@inProceedings{goergen16,
+title = {A Differential Approach to Causality in Staged Trees},
+author = {G\"orgen, Christiane and Smith, Jim Q.},
+pages = {207-215},
+abstract = {In this paper, we apply a recently developed differential approach to inference in staged tree models to causal inference. Staged trees generalise modelling techniques established for Bayesian networks (BN). They have the advantage that they can depict highly nuanced structure impossible to express in a BN and also enable us to perform causal manipulations associated with very general types of interventions on the system. Conveniently, what we call the interpolating polynomial of a staged tree has been found to be an analogue to the essential graph of a BN. By analysing this polynomial in a differential framework, we find that interventions on the model can be expressed as a very simple operation. We can therefore clearly state causal hypotheses which are invariant for all staged trees representing the same causal model. The technology we develop here, illustrated through a simple example, enables us to search for a variety of complex manipulations in large systems accurately and efficiently.},
+crossref = {pgm2016}}
+
+@inProceedings{hyttinen16,
+title = {Causal Discovery from Subsampled Time Series Data by Constraint Optimization},
+author = {Hyttinen, Antti and Plis, Sergey and J\"arvisalo, Matti and Eberhardt, Frederick and Danks, David},
+pages = {216-227},
+abstract = {This paper focuses on causal structure estimation from time series data in which measurements are obtained at a coarser timescale than the causal timescale of the underlying system. Previous work has shown that such subsampling can lead to significant errors about the system's causal structure if not properly taken into account. In this paper, we first consider the search for the system timescale causal structures that correspond to a given measurement timescale structure. We provide a constraint satisfaction procedure whose computational performance is several orders of magnitude better than previous approaches. We then consider finite-sample data as input, and propose the first constraint optimization approach for recovering the system timescale causal structure. This algorithm optimally recovers from possible conflicts due to statistical errors. More generally, these advances allow for a robust and non-parametric estimation of system timescale causal structures from subsampled time series data.},
+crossref = {pgm2016}}
+
+@inProceedings{jaini16,
+title = {Online Algorithms for Sum-Product Networks with Continuous Variables},
+author = {Jaini, Priyank and Rashwan, Abdullah and Zhao, Han and Liu, Yue and Banijamali, Ershad and Chen, Zhitang and Poupart, Pascal},
+pages = {228-239},
+abstract = {Sum-product networks (SPNs) have recently emerged as an attractive representation due to their dual interpretation as a special type of deep neural network with clear semantics and a tractable probabilistic graphical model. We explore online algorithms for parameter learning in SPNs with continuous variables. More specifically, we consider SPNs with Gaussian leaf distributions and show how to derive an online Bayesian moment matching algorithm to learn from streaming data. We compare the resulting generative models to stacked restricted Boltzmann machines and generative moment matching networks on real-world datasets.},
+crossref = {pgm2016}}
+
+@inProceedings{karra16,
+title = {Hybrid Copula {B}ayesian Networks},
+author = {Karra, Kiran and Mili, Lamine},
+pages = {240-251},
+abstract = {This paper introduces the hybrid copula Bayesian network (HCBN) model, a generalization of the copula Bayesian network (CBN) model developed by Elidan (2010) for continuous random variables to multivariate mixed probability distributions of discrete and continuous random variables. To this end, we extend the theorems proved by Ne\v{s}lehov\`a (2007) from bivariate to multivariate copulas with discrete and continuous marginal distributions. Using the multivariate copula with discrete and continuous marginal distributions as a theoretical basis, we construct an HCBN that can model all possible permutations of discrete and continuous random variables for parent and child nodes, unlike the popular conditional linear Gaussian network model. Finally, we demonstrate on a numerous synthetic datasets and a real life dataset that our HCBN compares favorably, from a modeling and flexibility viewpoint, to other hybrid models including the conditional linear Gaussian and the mixture of truncated exponentials models.},
+crossref = {pgm2016}}
+
+@inProceedings{kraisangka16,
+title = {Making Large Cox's Proportional Hazard Models Tractable in {B}ayesian Networks},
+author = {Kraisangka, Jidapa and Druzdzel, Marek J.},
+pages = {252-263},
+abstract = {Cox's proportional hazard (CPH) model is a statistical technique that captures the interaction between a set of risk factors and an effect variable. While the CPH model is popular in survival analysis, Bayesian networks offer an attractive alternative that is intuitive, general, theoretically sound, and avoids CPH model's restrictive assumptions. Existing CPH models are a great source of existing knowledge that can be reused in Bayesian networks. The main problem with applying Bayesian networks to survival analysis is their exponential growth in complexity as the number of risk factors increases. It is not uncommon to see complex CPH models with as many as 20 risk factors. Our paper focuses on making large survival analysis models derived from the CPH model tractable in Bayesian networks. We evaluate the effect of two complexity reduction techniques: (1)~parent divorcing, and (2)~removing less important risk factors based on the accuracy of the resulting models.},
+crossref = {pgm2016}}
+
+@inProceedings{kwisthout16,
+title = {The Parameterized Complexity of Approximate Inference in {B}ayesian Networks},
+author = {Kwisthout, Johan},
+pages = {264-274},
+abstract = {Computing posterior and marginal probabilities constitutes the backbone of almost all inferences in Bayesian networks. These computations are known to be intractable in general, both to compute exactly and to approximate by sampling algorithms. While it is well known under what constraints {\em exact} computation can be rendered tractable (viz., bounding tree-width of the moralized network and bounding the cardinality of the variables) it is less known under what constraints {\em approximate} Bayesian inference can be tractable. Here, we use the formal framework of {\em fixed-error randomized tractability} (a randomized analogue of fixed-parameter tractability) to address this problem, both by re-interpreting known results from the literature and providing some additional new results, including results on fixed parameter tractable de-randomization of approximate inference.},
+crossref = {pgm2016}}
+
+@inProceedings{kyrimi16,
+title = {A Progressive Explanation of Inference in `Hybrid' {B}ayesian Networks for Supporting Clinical Decision Making},
+author = {Kyrimi, Evangelia and Marsh, William},
+pages = {275-286},
+abstract = {Many Bayesian networks (BNs) have been developed as decision support tools. However, far fewer have been used in practice. Sometimes it is assumed that an accurate prediction is enough for useful decision support but this neglects the importance of trust: a user who does not trust a tool will not accept its advice. Giving users an explanation of the way a BN reasons may make its predictions easier to trust. In this study, we propose a progressive explanation of inference that can be applied to any hybrid BN. The key questions that we answer are: which important evidence supports or contradicts the prediction and through which intermediate variables does the evidence flow. The explanation is illustrated using different scenarios in a BN designed for medical decision support.},
+crossref = {pgm2016}}
+
+@inProceedings{liu16,
+title = {Learning Parameters of Hybrid Time {B}ayesian Networks},
+author = {Liu, Manxia and Hommersom, Arjen and van~der~Heijden, Maarten and Lucas, Peter J.F.},
+pages = {287-298},
+abstract = {Time granularity is an important factor in characterizing dynamical systems. Hybrid time Bayesian networks model the dynamics of systems that contain both irregularly-timed variables and variables whose evolution is naturally described by discrete time. The former observations are modeled as variables in continuous-time manner and the latter are modeled by discrete-time random variables. We address the problem of learning parameters of hybrid time models from complete data where all the states are known at any time point, and from incomplete trajectories, where continuous-time variables are observed only at some time points. We show that for the complete case, the parameters can be estimated straightforwardly. When some continuous-time variables are (partially) unobserved, it becomes infeasible to learn the parameters in closed form. In that case, we propose to use Markov chain Monte Carlo sampling to estimate the posterior distribution over the parameters. We tested the approach on a number of hybrid time models where continuous-time variables are completely or partially observed, showing that close estimation of the original parameters can be recovered. A medical example is used to illustrate the learning parameters of hybrid time Bayesian networks.},
+crossref = {pgm2016}}
+
+@inProceedings{malinsky16,
+title = {Estimating Causal Effects with Ancestral Graph {M}arkov Models},
+author = {Malinsky, Daniel and Spirtes, Peter},
+pages = {299-309},
+abstract = {We present an algorithm for estimating bounds on causal effects from observational data which combines graphical model search with simple linear regression. We assume that the underlying system can be represented by a linear structural equation model with no feedback, and we allow for the possibility of latent variables. Under assumptions standard in the causal search literature, we use conditional independence constraints to search for an equivalence class of ancestral graphs. Then, for each model in the equivalence class, we perform the appropriate regression (using causal structure information to determine which covariates to include in the regression) to estimate a set of possible causal effects. Our approach is based on the ``IDA'' procedure of Maathuis et al.\ (2009), which assumes that all relevant variables have been measured (i.e., no unmeasured confounders). We generalize their work by relaxing this assumption, which is often violated in applied contexts. We validate the performance of our algorithm on simulated data and demonstrate improved precision over IDA when latent variables are present.},
+crossref = {pgm2016}}
+
+@inProceedings{marx16,
+title = {Joint {B}ayesian Modelling of Internal Dependencies and Relevant Multimorbidities of a Heterogeneous Disease},
+author = {Marx, P\'eter and Millinghoffer, Andr\'as and Juh\'asz, Gabriella and Antal, P\'eter},
+pages = {310-320},
+abstract = {A heterogeneous target disease represented by multiple descriptors and disease subtypes frequently has a rich internal dependency structure. The identification of comorbidities and particularly the multimorbidities of such diseases requires very large sample size as relevant comorbidities may form complex interactions. We demonstrate this phenomena by applying a Bayesian probabilistic graphical model on a large-scale medical datasets UK Biobank (117,392 samples), specifically by showing that in this case the posterior landscape of multimorbidities is still flat. As a potential solution, we evaluate a Bayesian method, which provides a hierarchic, multivariate characterization of strongly relevant morbidities and a Bayesian, systems-based score for exploring interactions for a heterogeneous disease. It explores complete sets of strongly relevant comorbidities using full multivariate representation for the internal dependencies within the target disease. We used depression as target, a heterogeneous disease in the UK Biobank dataset. Results are compared against scenarios using a univariate and an independent, multivariate representation of the target medical condition, specifically investigating multitarget interaction posteriors and its approximations.},
+crossref = {pgm2016}}
+
+@inProceedings{masegosa16,
+title = {d-{VMP}: Distributed Variational Message Passing},
+author = {Masegosa, Andr\'{e}s R. and Mart\'{\i}nez, Ana M. and Langseth, Helge and Nielsen, Thomas D. and Salmer\'{o}n, Antonio and Ramos-L\'{o}pez, Dar\'{i}o and Madsen, Anders L.},
+pages = {321-332},
+abstract = {Motivated by a real-world financial dataset, we propose a distributed variational message passing scheme for learning conjugate exponential models. We show that the method can be seen as a projected natural gradient ascent algorithm, and it therefore has good convergence properties. This is supported experimentally, where we show that the approach is robust wrt.\ common problems like imbalanced data, heavy-tailed empirical distributions, and a high degree of missing values. The scheme is based on map-reduce operations, and utilizes the memory management of modern big data frameworks like Apache Flink to obtain a time-efficient and scalable implementation. The proposed algorithm compares favourably to stochastic variational inference both in terms of speed and quality of the learned models. For the scalability analysis, we evaluate our approach over a network with more than one billion nodes (and approx.\ $75\%$ latent variables) using a computer cluster with 128 processing units.},
+crossref = {pgm2016}}
+
+@inProceedings{maua16,
+title = {The Effect of Combination Functions on the Complexity of Relational {B}ayesian Networks},
+author = {Mau\'a, Denis Deratani and Cozman, Fabio Gagliardi},
+pages = {333-344},
+abstract = {We study the complexity of marginal inference with Relational Bayesian Networks as parameterized by their probability formulas. We show that without combination functions, inference is \#{\sc\MakeLowercase{P}}-equivalent, displaying the same complexity as standard Bayesian networks (this is so even when relations have unbounded arity and when the domain is succinctly specified in binary notation). By allowing increasingly more expressive probability formulas using only maximization as combination, we obtain inferential complexity that ranges from \#{\sc\MakeLowercase{p}}-equivalent to {\sc\MakeLowercase{fpspace}}-complete to {\sc\MakeLowercase{exp}}-hard. In fact, by suitable restrictions to the number of nestings of combination functions, we obtain complexity classes in all levels of the counting hierarchy. Finally, we investigate the use of arbitrary combination functions and obtain that inference is {\sc\MakeLowercase{fexp}}-complete even under a seemingly strong restriction.},
+crossref = {pgm2016}}
+
+@inProceedings{melibari16,
+title = {Dynamic Sum Product Networks for Tractable Inference on Sequence Data},
+author = {Melibari, Mazen and Poupart, Pascal and Doshi, Prashant and Trimponias, George},
+pages = {345-355},
+abstract = {Sum-Product Networks (SPN) have recently emerged as a new class of tractable probabilistic models. Unlike Bayesian networks and Markov networks where inference may be exponential in the size of the network, inference in SPNs is in time linear in the size of the network. Since SPNs represent distributions over a fixed set of variables only, we propose dynamic sum product networks (DSPNs) as a generalization of SPNs for sequence data of varying length. A DSPN consists of a template network that is repeated as many times as needed to model data sequences of any length. We present a local search technique to learn the structure of the template network. In contrast to dynamic Bayesian networks for which inference is generally exponential in the number of variables per time slice, DSPNs inherit the linear inference complexity of SPNs. We demonstrate the advantages of DSPNs over DBNs and other models on several datasets of sequence data.},
+crossref = {pgm2016}}
+
+@inProceedings{morales16,
+title = {Regression Methods Applied to Flight Variables for Situational Awareness Estimation Using Dynamic {B}ayesian Networks},
+author = {Morales, Carlos and Moral, Seraf\'{i}n},
+pages = {356-367},
+abstract = {Situational awareness can be a valuable indicator of the performance of flight crews and the way pilots manage navigation information can be relevant to its estimation. In this research, dynamic Bayesian networks are applied to a dataset of variables both collected in real time during simulated flights and added with expert knowledge. This paper compares different approaches to the discretization of continuous variables and to the estimation of pilot actions based on variable regression, in order to optimize the model performance.},
+crossref = {pgm2016}}
+
+@inProceedings{ogarrio16,
+title = {A Hybrid Causal Search Algorithm for Latent Variable Models},
+author = {Ogarrio, Juan Miguel and Spirtes, Peter and Ramsey, Joe},
+pages = {368-379},
+abstract = {Existing score-based causal model search algorithms such as \textit{GES} (and a speeded up version, \textit{FGS}) are asymptotically correct, fast, and reliable, but make the unrealistic assumption that the true causal graph does not contain any unmeasured confounders. There are several constraint-based causal search algorithms (e.g \textit{RFCI}, \emph{FCI}, or \emph{FCI+}) that are asymptotically correct without assuming that there are no unmeasured confounders, but often perform poorly on small samples. We describe a combined score and constraint-based algorithm, \emph{GFCI}, that we prove is asymptotically correct. On synthetic data, \textit{GFCI} is only slightly slower than \emph{RFCI} but more accurate than \textit{FCI}, \textit{RFCI} and \textit{FCI+}.},
+crossref = {pgm2016}}
+
+@inProceedings{parviainen16,
+title = {{B}ayesian Networks for Variable Groups},
+author = {Parviainen, Pekka and Kaski, Samuel},
+pages = {380-391},
+abstract = {Bayesian networks, and especially their structures, are powerful tools for representing conditional independencies and dependencies between random variables. In applications where related variables form \emph{a priori} known groups, chosen to represent different ``views'' to or aspects of the same entities, one may be more interested in modeling dependencies between groups of variables rather than between individual variables. Motivated by this, we study prospects of representing relationships between variable groups using Bayesian network structures. We show that for dependency structures between groups to be expressible exactly, the data have to satisfy the so-called groupwise faithfulness assumption. We also show that one cannot learn causal relations between groups using only groupwise conditional independencies, but also variable-wise relations are needed. Additionally, we present algorithms for finding the groupwise dependency structures.},
+crossref = {pgm2016}}
+
+@inProceedings{pena16,
+title = {Learning Acyclic Directed Mixed Graphs from Observations and Interventions},
+author = {Pe{\~n}a, Jose M.},
+pages = {392-402},
+abstract = {We introduce a new family of mixed graphical models that consists of graphs with possibly directed, undirected and bidirected edges but without directed cycles. Moreover, there can be up to three edges between any pair of nodes. The new family includes Richardson's acyclic directed mixed graphs, as well as Andersson-Madigan-Perlman chain graphs. These features imply that no family of mixed graphical models that we know of subsumes the new models. We also provide a causal interpretation of the new models as systems of structural equations with correlated errors. Finally, we describe an exact algorithm for learning the new models from observational and interventional data via answer set programming.},
+crossref = {pgm2016}}
+
+@inProceedings{plajner16,
+title = {Student Skill Models in Adaptive Testing},
+author = {Martin~Plajner, Martin~Plajner and Ji\v{r}\'{i}~Vomlel, Ji\v{r}\'{i}~Vomlel},
+pages = {403-414},
+abstract = {This paper provides a common framework, a generic model, for Computerized Adaptive Testing (CAT) for different model types. We present question selection methods for CAT for this generic model. We use three different types of models, Item Response Theory, Bayesian Networks, and Neural Networks, that instantiate the generic model. We illustrate the usefulness of a special model condition -- the monotonicity -- and discuss its inclusion in these model types. With Bayesian networks we use specific type of learning using generalized linear models to ensure the monotonicity. We conducted simulated CAT tests on empirical data. Behavior of individual models was assessed based on these tests. The best performing model was the BN model constructed by a domain expert its parameters were learned from data under the monotonicity condition.},
+crossref = {pgm2016}}
+
+@inProceedings{ramos-lopez16,
+title = {Scalable MAP inference in {B}ayesian networks based on a Map-Reduce approach},
+author = {Ramos-L\'opez, Dar\'{\i}o and Salmer\'on, Antonio and Rum\'{\i}, Rafel and Mart\'{\i}nez, Ana M. and Nielsen, Thomas D. and Masegosa, Andr\'es R. and Langseth, Helge and Madsen, Anders L.},
+pages = {415-425},
+abstract = {Maximum a posteriori (MAP) inference is a particularly complex type of probabilistic inference in Bayesian networks. It consists of finding the most probable configuration of a set of variables of interest given observations on a collection of other variables. In this paper we study scalable solutions to the MAP problem in hybrid Bayesian networks parameterized using conditional linear Gaussian distributions. We propose scalable solutions based on hill climbing and simulated annealing, built on the Apache Flink framework for big data processing. We analyze the scalability of the solution through a series of experiments on large synthetic networks.},
+crossref = {pgm2016}}
+
+@inProceedings{renooij16,
+title = {Evidence Evaluation: a Study of Likelihoods and Independence},
+author = {Renooij, Silja},
+pages = {426-437},
+abstract = {In the context of evidence evaluation, where the probability of evidence given a certain hypothesis is considered, different pieces of evidence are often combined in a naive way by assuming conditional independence. In this paper we present a number of results that can be used to assess both the importance of a reliable likelihood-ratio estimate and the impact of neglecting dependencies among pieces of evidence for the purpose of evidence evaluation. We analytically study the effect of changes in dependencies between pieces of evidence on the likelihood ratio, and provide both theoretical and empirical bounds on the error in likelihood occasioned by assuming independences that do not hold in practice. In addition, a simple measure of influence strength between pieces of evidence is proposed.},
+crossref = {pgm2016}}
+
+@inProceedings{scutari16,
+title = {An Empirical-{B}ayes Score for Discrete {B}ayesian Networks},
+author = {Scutari, Marco},
+pages = {438-448},
+abstract = {Bayesian network structure learning is often performed in a Bayesian setting, by evaluating candidate structures using their posterior probabilities for a given data set. Score-based algorithms then use those posterior probabilities as an objective function and return the \emph{maximum a posteriori} network as the learned model. For discrete Bayesian networks, the canonical choice for a posterior score is the Bayesian Dirichlet equivalent uniform (BDeu) marginal likelihood with a uniform (U) graph prior (Heckerman et al., 1995). Its favourable theoretical properties descend from assuming a uniform prior both on the space of the network structures and on the space of the parameters of the network. In this paper, we revisit the limitations of these assumptions and we introduce an alternative set of assumptions and the resulting score: the Bayesian Dirichlet sparse (BDs) empirical Bayes marginal likelihood with a marginal uniform (MU) graph prior. We evaluate its performance in an extensive simulation study, showing that MU+BDs is more accurate than U+BDeu both in learning the structure of the network and in predicting new observations, while not being computationally more complex to estimate.},
+crossref = {pgm2016}}
+
+@inProceedings{sechidis16,
+title = {Estimating Mutual Information in Under-Reported Variables},
+author = {Sechidis, Konstantinos and Sperrin, Matthew and Petherick, Emily and Brown, Gavin},
+pages = {449-461},
+abstract = {Under-reporting occurs in survey data when there is a reason to systematically misreport the response to a question. For example, in studies dealing with low birth weight infants, the smoking habits of the mother are very likely to be misreported. This creates problems for calculating effect sizes, such as bias, but these problems are commonly ignored due to lack of generally accepted solutions. We reinterpret this as a problem of learning from missing data, and particularly learning from positive and unlabelled data. By this formalisation we provide a simple method to incorporate prior knowledge of the misreporting and we present how we can use this knowledge to derive corrected point and interval estimates of the mutual information. Then we show how our corrected estimators outperform more complex approaches and we present applications of our theoretical results in real world problems and machine learning tasks.},
+crossref = {pgm2016}}
+
+@inProceedings{shachter16,
+title = {Decisions and Dependence in Influence Diagrams},
+author = {Shachter, Ross D.},
+pages = {462-473},
+abstract = {The concept of dependence among variables in a Bayesian belief network is well understood, but what does it mean in an influence diagram where some of those variables are decisions? 		There are three quite different answers to this question that take the familiar concepts for uncertain variables and extend them to decisions. 		First is responsiveness, whether the choice for a decision affects another variable. 		Second is materiality, whether observing other variables before making a decision affects the choice for the decision and thus improves its quality. 		Third is the usual notion of dependence, assuming that all of the decisions are made optimally given the information available at the time of the decisions. 		There are some subtleties involved, but all three types of decision dependence can be quite useful for understanding a decision model.},
+crossref = {pgm2016}}
+
+@inProceedings{simonsson16,
+title = {Exact Inference on Conditional Linear {$\Gamma$}-{G}aussian {B}ayesian Networks},
+author = {Simonsson, Ivar and Mostad, Petter},
+pages = {474-486},
+abstract = {Exact inference for Bayesian Networks is only possible for quite limited classes of networks. Examples of such classes are discrete networks, conditional linear Gaussian networks, networks using mixtures of truncated exponentials, and networks with densities expressed as truncated polynomials. This paper defines another class with exact inference, based on the normal inverse gamma conjugacy. We describe the theory of this class as well as exemplify our implemented inference algorithm in a practical example. Although generally small and simple, we believe these kinds of networks are potentially quite useful, on their own or in combination with other algorithms and methods for Bayesian Network inference.},
+crossref = {pgm2016}}
+
+@inProceedings{sokolova16,
+title = {Computing Lower and Upper Bounds on the Probability of Causal Statements},
+author = {Sokolova, Elena and Hoogman, Martine and Groot, Perry and Claassen, Tom and Heskes, Tom},
+pages = {487-498},
+abstract = {Causal discovery provides an opportunity to infer causal relationships from purely observational data and to predict the effect of interventions. Constraint-based methods for causal discovery exploit conditional (in)dependencies to infer the direction of causal relationships. They typically work through forward chaining: given some causal statements, others can be inferred by applying relatively straightforward causal logic such as transitivity and acyclicity. Starting from the premise that we can estimate reliabilities for base causal statements, we propose a novel approach to estimate the reliability of novel statements inferred by forward chaining. Since reliabilities for base statements are clearly dependent, if only because inferred from the same data, exact computation is infeasible. However, lending ideas from the area of imprecise probability theory, we can compute bounds on the reliabilities on inferred statements. Specifically, we make use of the good old Fr\'{e}chet inequalities and discuss two different variants: greedy and delayed. In simulation experiments, we show that the delayed variant, at the expense of more bookkeeping and computation time, does provide slightly tighter intervals. We illustrate our method on a real-world data set about attention deficit/hyperactivity disorder.},
+crossref = {pgm2016}}
+
+@inProceedings{studeny16,
+title = {The Chordal Graph Polytope for Learning Decomposable Models},
+author = {Studen\'{y}, Milan and Cussens, James},
+pages = {499-510},
+abstract = {This theoretical paper is inspired by an {\em integer linear programming} (ILP) approach to learning the structure of {\em decomposable models}. We intend to represent decomposable models by special zero-one vectors, named {\em characteristic imsets}. Our approach leads to the study of a special polytope, defined as the convex hull of all characteristic imsets for chordal graphs, named the {\em chordal graph polytope}. We introduce a class of {\em clutter} inequalities and show that all of them are valid for (the vectors in) the polytope. In fact, these inequalities are even facet-defining for the polytope and we dare to conjecture that they lead to a complete polyhedral description of the polytope. Finally, we propose an LP method to solve the {\em separation problem} with these inequalities for use in a cutting plane approach.},
+crossref = {pgm2016}}
+
+@inProceedings{sundararajan16,
+title = {A Genetic Algorithm for Learning Parameters in {B}ayesian Networks using Expectation Maximization},
+author = {Sundararajan, Priya Krishnan and Mengshoel, Ole J.},
+pages = {511-522},
+abstract = {Expectation maximization (EM) is a popular algorithm for parameter estimation in situations with incomplete data. The EM algorithm has, despite its popularity, the disadvantage of often converging to local but non-global optima. Several techniques have been proposed to address this problem, for example initializing EM from multiple random starting points and then selecting the run with the highest likelihood. Unfortunately, this method is computationally expensive. In this paper, our goal is to reduce computational cost while at the same time maximizing likelihood. We propose a Genetic Algorithm for Expectation Maximization (GAEM) for learning parameters in Bayesian networks. GAEM combines the global search property of a genetic algorithm with the local search property of EM. We prove GAEM's global convergence theoretically. Experimentally, we show that GAEM provides significant speed-ups since it tends to select more fit individuals, which converge faster, as parents for the next generation. Specifically, GAEM converges $1.5$ to $7$ times faster while producing better log-likelihood scores than the traditional EM algorithm.},
+crossref = {pgm2016}}
+
+@inProceedings{tan16,
+title = {On Construction of Hybrid Logistic Regression-Na\"ive {B}ayes Model for Classification},
+author = {Tan, Yi and Shenoy, Prakash P. and Chan, Moses W. and Romberg, Paul M.},
+pages = {523-534},
+abstract = {In recent years, several authors have described a hybrid discriminative-generative model for classification. In this paper we examine construction of such hybrid models from data where we use logistic regression (LR) as a discriminative component, and na\"{i}ve Bayes (NB) as a generative component. First, we estimate a Markov blanket of the class variable to reduce the set of features. Next, we use a heuristic to partition the set of features in the Markov blanket into those that are assigned to the LR part, and those that are assigned to the NB part of the hybrid model. The heuristic is based on reducing the conditional dependence of the features in NB part of the hybrid model given the class variable. We implement our method on 21 different classification datasets, and we compare the prediction accuracy of hybrid models with those of pure LR and pure NB models.},
+crossref = {pgm2016}}
+
+@inProceedings{xiang16,
+title = {Compressing {B}ayes Net {CPT}s with Persistent Leaky Causes},
+author = {Xiang, Yang and Jiang, Qian},
+pages = {535-546},
+abstract = {Non-Impeding Noisy-AND (NIN-AND) Trees (NATs) offer a highly expressive compressed casual model for significantly reducing space and inference time of Bayesian Nets (BNs). A causal model often includes a leaky cause for all causes not explicitly named. A leaky cause may be persistent or not. A conditional probability table (CPT) in a BN often behaves as if there is a persistent leaky cause (PLC). We discuss limitations for not modeling PLC explicitly during compression. We also reveal challenges if PLC is explicitly modeled. We extend an earlier solution that is limited to binary NAT models and is incomplete, to a solution that is applicable to multi-valued NAT models and is complete. We demonstrate the effectiveness of the solution experimentally for compressing general BN CPTs with PLCs.},
+crossref = {pgm2016}}
+

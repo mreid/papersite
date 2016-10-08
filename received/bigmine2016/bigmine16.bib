@@ -1,0 +1,168 @@
+@Proceedings{BIGMINE-2016,
+    booktitle = {Proceedings of the 5th International Workshop on Big Data, Streams and Heterogeneous Source Mining: Algorithms, Systems, Programming Models and Applications},
+    editor = {Fan, Wei and Bifet, Albert and Read, Jesse and Yang, Qiang and Yu, Philip S.},
+    volume = {53},
+    year = {2016},
+    shortname = {BIGMINE}
+}
+
+@InProceedings{fan16,
+    title = {Preface},
+    author = {Fan, Wei and Bifet, Albert and Read, Jesse and Yang, Qiang and Yu, Philip S.},
+    pages = {i-viii},
+    abstract = {Recent years have witnessed a dramatic increase in our ability to collect data from various sensors, devices,
+in different formats, from independent or connected applications
+The aim of this workshop is to bring together people from both academia and industry to present their most recent work
+related to big-data issues, and exchange ideas and thoughts in order to advance this big-data challenge, 
+which has been considered as one of the most exciting opportunities in the past 10 years.
+
+Big data flood has outpaced our capability to process, analyze, store and understand these datasets. Consider the Internet data. The web pages indexed by
+Google were around one million in 1998, but quickly reached 1 billion in 2000 and have already exceeded 1 trillion
+in 2008. This rapid expansion is accelerated by the dramatic increase in acceptance of social networking applications,
+such as Facebook, Twitter, Weibo, etc., that allow users to create contents freely and amplify the already huge Web 
+volume. Furthermore, with mobile phones becoming the sensory gateway to get real-time data on people from different
+aspects, the vast amount of data that mobile carrier can potentially process to improve our daily life has 
+significantly outpaced our past CDR (call data record)-based processing for billing purposes only. It can be foreseen 
+that Internet of things (IoT) applications will raise the scale of data to an unprecedented level. People and devices 
+(from home coffee machines to cars, to buses, railway stations and airports) are all loosely connected.
+Trillions of such connected components will generate a huge data ocean, and valuable information must be discovered 
+from the data to help improve quality of life and make our world a better place. For example, after we get up 
+every morning, in order to optimize our commute time to work and complete the optimization before we arrive at office,
+the system needs to process information from traffic, weather, construction, police activities to our calendar schedules, 
+and perform deep optimization under the tight time constraints. In all these applications, we are facing significant 
+challenges in leveraging the vast amount of data, including challenges in (1) system capabilities (2) algorithmic design (3) business models.}
+}
+
+
+@InProceedings{Ahmed16,
+    title = {Exact and Estimation of Local Edge-centric Graphlet Counts},
+    author = {Ahmed K., Nesreen and Willke, Theodore L. and Rossi, Ryan A.},
+	abstract = {Graphlets represent small induced subgraphs and are becoming increasingly important for
+	a variety of applications. Despite the importance of the local graphlet problem, existing
+	work focuses mainly on counting graphlets globally over the entire graph. These global
+	counts have been used for tasks such as graph classification as well as for understanding and
+	summarizing the fundamental structural patterns in graphs. In contrast, this work proposes
+	a flexible, efficient, and scalable parallel framework for the more challenging problem of
+	counting graphlets locally for a given edge or set of edges.The local graphlet counts provide
+	a topologically rigorous characterization of the local structure surrounding an edge. The
+	aim of this work is to obtain the count of every graphlet of size  $k \in \{3, 4 \} $ for each edge.
+	The framework gives rise to efficient, parallel, and accurate unbiased estimation methods as
+	well as exact graphlet algorithms for counting graphlets locally. Experiments demonstrate
+	the effectiveness of the proposed exact and estimation methods.},
+    pages = {1--17}
+}
+
+@InProceedings{Bhat16,
+    title = {Scalable SDE Filtering and Inference with Apache Spark},
+    author = {Bhat, Harish S. and Madushani, R. W. M. A.  and  Rawat, Shagun},
+	abstract = {In this paper, we consider the problem of Bayesian filtering and inference for time series
+	data modeled as noisy, discrete-time observations of a stochastic differential equation (SDE)
+	with undetermined parameters. We develop a Metropolis algorithm to sample from the
+	high-dimensional joint posterior density of all SDE parameters and state time series. Our
+	approach relies on an innovative density tracking by quadrature (DTQ) method to compute
+	the likelihood of the SDE, the part of the posterior that requires the most computational
+	effort to evaluate. As we show, the DTQ method lends itself to a natural implementation
+	using Scala and Apache Spark, an open source framework for scalable data mining. We
+	study the performance and scalability of our algorithm on filtering and inference problems
+	for both regularly and irregularly spaced time series.},
+	pages = {18--34}
+}
+
+@InProceedings{Kader16,
+    title = {Contextual Embedding for Distributed Representations of Entities in a Text Corpus},
+    author = {Kader, Md Abdul and  Boedihardjo, Arnold P. and  Naim, Sheikh Motahar and Hossain, M. Shahriar},
+	abstract = {Distributed representations of textual elements in low dimensional vector space to 
+	capture context has gained great attention recently. Current state-of-the-art word embedding
+	techniques compute distributed representations using co-occurrences of words within a 
+	contextual window discounting the flexibility to incorporate other contextual phenomena like
+	temporal, geographical, and topical contexts. In this paper, we present a flexible framework
+	that has the ability to leverage temporal, geographical, and topical information of documents 
+	along with the textual content to produce more effective vector representations of
+	entities or words within a document collection. The framework first captures contextual 
+	relationships between entities collected from different relevant documents and then leverages
+	these relationships to produce inputs of a graph, or to train a neural network to produce
+	vectors for the entities. Through a set of rigorous experiments we test the performance of
+	our approach and results show that our proposed solution can produce more meaningful
+	vectors than the state-of-the-art methods.},
+	pages = {35--50}
+}
+
+@InProceedings{Ma16,
+    title = {A Sub-linear, Massive-scale Look-alike Audience Extension System A Massive-scale Look-alike Audience Extension},
+    author = {Ma, Qiang  and Wen, Musen and Xia, Zhen and Chen, Datong},
+	abstract = {Look-alike audience extension is a practically effective way to customize high-performance
+	audience in on-line advertising. With look-alike audience extension system, any advertiser
+	can easily generate a set of customized audience by just providing a list of existing customers
+	without knowing the detailed targetable attributes in a sophisticated advertising system.
+	In this paper, we present our newly developed graph-based look-alike system in Yahoo!
+	advertising platform which provides look-alike audiences for thousands of campaigns. 
+	Extensive experiments have been conducted to compare our look-alike model with three other
+	existing look-alike systems using billions of users and millions of user features. The
+	 experiment results show that our developed graph-based method with nearest-neighbor filtering
+	outperforms other methods by more than 50\% regarding conversion rate in app-install ad
+	campaigns.},
+	pages = {51--67}
+}
+
+@InProceedings{Rabieah16,
+    title = {FPGASVM: A Framework for Accelerating Kernelized Support Vector Machine},
+    author = { {Bin Rabieah}, Mudhar and  Bouganis, Christos-Savvas},
+	abstract = {Support Vector Machines (SVM) are powerful supervised learnings method in machine
+	learning. However, their applicability to large problems, where frequent retraining of the
+	system is required, has been limited due to the time consuming training stage whose 
+	computational cost scales quadratically with the number of examples. In this work, a complete
+	FPGA-based system for kernelized SVM training using ensemble learning is presented.
+	The proposed framework builds on the FPGA architecture and utilises a cascaded 
+	multiprecision training flow, exploits the heterogeneity within the training problem by tuning
+	the number representation used, and supports ensemble training tuned to each internal
+	memory structure so to address very large datasets. Its performance evaluation shows
+	that the proposed system achieves more than an order of magnitude better results 
+	compared to state-of-the-art CPU and GPU-based implementations, providing a stepping stone
+	for researchers and practitioners to tackle large-scale SVM problems that require frequent
+	retraining.},
+	pages = {68--84}
+}
+
+@InProceedings{Shah16,
+    title = {Disease Propagation in Social Networks: A Novel Study of Infection Genesis and Spread on Twitter},
+    author = {Shah, Manan},
+	abstract = {The CDC (Centers for Disease Control and Prevention) currently diagnoses millions of
+	cases of infectious diseases annually, generating population disease distributions that, while
+	accurate, are far too delayed for real-time monitoring. The ability to instantly compile
+	and monitor such distributions is critical in identifying outbreaks and facilitating real-time
+	communication between health authorities and health-care providers. This task, however, is
+	made challenging due to the lack of instantly available public health information, creating
+	a need for the analysis of disease spread on frequently updated social media websites.
+	We introduce a novel pipeline based model to generate a real-time, accurate depiction of
+	infectious disease propagation using Twitter data. Our approach, an amalgam of natural
+	language processing and supervised machine learning, is invariant to mass media hype and
+	significantly reduces the noise introduced by the use of tweets. The correlation coefficient
+	between the Twitter disease distribution obtained via our approach and CDC data from
+	mid-2013 to mid-2014 was 0.983, improving upon the best model published for the 2012-13
+	flu season. Our model further correlates well with theoretical models of infection spread
+	across airport networks, verifying its robustness and applicability in the public sphere.},
+	pages = {85--102}
+}
+
+@InProceedings{Yang16,
+    title = {Large Scale CVR Prediction through Dynamic Transfer Learning of Global and Local Features},
+    author = {Yang, Hongxia  and  Lu, Quan and Xianen Qiu, Angus and Han, Chun},
+	abstract = {This paper presents a combination of strategies for conversion rate (CVR) prediction de-
+	ployed at the Yahoo! demand side platform (DSP) Brightroll, targeting at modeling 
+	extremely high dimensional, sparse data with limited human intervention. We propose a
+	novel probabilistic generative model by tightly integrating components of natural language
+	processing, dynamic transfer learning and scalable prediction, named Dynamic Transfer
+	Learning with Reinforced Word Modeling (a.k.a. Trans-RWM ) to predict user 
+	conversion rates. Our model is based on assumptions that: on a higher level, information can
+	be transferable between related campaigns; on a lower level, users who searched similar
+	contents or browsed similar pages would have a higher probability of sharing similar latent
+	purchase interests. Novelties of this framework include (i) A novel natural language
+	 modeling specifically tailored for semantic inputs of CVR prediction; (ii) A Bayesian transfer
+	learning model to dynamically transfer the knowledge from source to the future target;
+	(iii) An automatic new updating rule with adaptive regularization using Stochastic 
+	Gradient Monte Carlo to support the efficient updating of Trans-RWM in high-dimensional and
+	sparse data. We demonstrate that on Brightroll our framework can effectively discriminate
+	extremely rare events in terms of their conversion propensity.},
+	pages = {103--119}
+}
+
