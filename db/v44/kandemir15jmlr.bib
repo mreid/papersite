@@ -1,0 +1,17 @@
+@InProceedings{kandemir15jmlr,
+  title = {The Deep Feed-Forward Gaussian Process: An Effective Generalization to Covariance Priors},
+  author = {Kandemir, Melih and Hamprecht, Fred A.},
+  pages = {145-159},
+  abstract = {We explore ways of applying a prior on the covariance matrix of a Gaussian Process (GP)
+in order to increase its expressive power. We show that two well-known covariance priors,
+Wishart Process and Inverse Wishart Process, boil down to a two-layer feed-forward net-
+work of GPs with a particular kernel function on the neuron at the output layer. Both
+of these models perform supervised manifold learning and target prediction jointly. Also,
+the resultant kernel functions of both of these priors lead to feature maps of finite dimen-
+sionality. Motivated by this fact, we promote replacing these kernels with the Radial Basis
+Function (RBF), which gives an infinite dimensional feature map, enhancing the model flex-
+ibility. We demonstrate on one benchmark task and two challenging medical image analysis
+tasks that our GP network with RBF kernel largely outperforms the earlier two covariance
+priors. We show also that it straightforwardly allows non-linear combination of different
+data views, leading to state-of-the-art multiple kernel learning only as a by-product.},
+}

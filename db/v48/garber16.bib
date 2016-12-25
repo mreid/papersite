@@ -1,0 +1,7 @@
+@InProceedings{garber16,
+  supplementary = {Supplementary:garber16-supp.zip},
+  title = {Faster Eigenvector Computation via Shift-and-Invert Preconditioning},
+  author = {Dan Garber and Elad Hazan and Chi Jin and Sham and Cameron Musco and Praneeth Netrapalli and Aaron Sidford},
+  pages = {2626-2634},
+  abstract = {We give faster algorithms and improved sample complexities for the fundamental problem of estimating the top eigenvector. Given an explicit matrix $A \in \mathbb R^{n \times d}$, we show how to compute an $\epsilon$ approximate top eigenvector of $A^TA$ in time $\tilde O( [nnz(A) + \frac{d sr(A)}{gap^2} ] * \log 1/\epsilon )$. Here $nnz(A)$ is the number of nonzeros in $A$, $sr(A)$ is the stable rank, and $gap$ is the relative eigengap. We also consider an online setting in which, given a stream of i.i.d. samples from a distribution $D$ with covariance matrix $\Sigma$ and a vector $x_0$ which is an $O(gap)$ approximate top eigenvector for $\Sigma$, we show how to refine $x_0$ to an $\epsilon$ approximation using $ O ( \frac{var(D)}{gap * \epsilon} )$ samples from $D$. Here $var(D)$ is a natural notion of variance. Combining our algorithm with previous work to initialize $x_0$, we obtain improved sample complexities and runtimes under a variety of assumptions on $D$. We achieve our results via a robust analysis of the classic shift-and-invert preconditioning method. This technique lets us reduce eigenvector computation to *approximately* solving a series of linear systems with fast stochastic gradient methods.},
+}

@@ -1,0 +1,22 @@
+@inProceedings{masegosa16,
+title = {d-{VMP}: Distributed Variational Message Passing},
+author = {Masegosa, Andr\'{e}s R. and Mart\'{\i}nez, Ana M. and
+Langseth, Helge and Nielsen, Thomas D. and Salmer\'{o}n, Antonio and
+Ramos-L\'{o}pez, Dar\'{i}o and Madsen, Anders L.},
+pages = {321-332},
+abstract = {Motivated by a real-world financial dataset, we propose a
+distributed variational message passing scheme for learning conjugate
+exponential models. We show that the method can be seen as a projected
+natural gradient ascent algorithm, and it therefore has good
+convergence properties. This is supported experimentally, where we
+show that the approach is robust wrt.\ common problems like imbalanced
+data, heavy-tailed empirical distributions, and a high degree of
+missing values. The scheme is based on map-reduce operations, and
+utilizes the memory management of modern big data frameworks like
+Apache Flink to obtain a time-efficient and scalable implementation.
+The proposed algorithm compares favourably to stochastic variational
+inference both in terms of speed and quality of the learned models.
+For the scalability analysis, we evaluate our approach over a network
+with more than one billion nodes (and approx.\ $75\%$ latent
+variables) using a computer cluster with 128 processing units.},
+}

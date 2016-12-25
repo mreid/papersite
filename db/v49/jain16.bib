@@ -1,0 +1,8 @@
+@InProceedings{jain16,
+  author = {Jain, Prateek and Jin, Chi and Kakade, Sham M. and Netrapalli, Praneeth and Sidford, Aaron},
+  title = {Streaming PCA: Matching Matrix Bernstein and Near-Optimal Finite Sample Guarantees for Oja's Algorithm},
+  pages = {1147-1164},
+  abstract = {In this paper we provide improved guarantees for streaming principal component analysis (PCA). Given $A_1, \ldots, A_n\in \mathbb{R}^{d\times d}$ sampled independently from distributions satisfying $\mathbb{E}[A_i] = \Sigma$ for $\Sigma \succeq 0$, we present an $O(d)$-space linear-time single-pass streaming algorithm for estimating the top eigenvector of $\Sigma$. The algorithm nearly matches (and in certain cases improves upon) the accuracy obtained by the standard batch method that computes top eigenvector of the empirical covariance $\frac{1}{n} \sum_{i \in [n]} A_i$ as analyzed by the matrix Bernstein inequality. Moreover, to achieve constant accuracy, our algorithm improves upon the best previous known sample complexities of streaming algorithms by either a multiplicative factor of $O(d)$ or $1/\mathrm{gap}$ where $\mathrm{gap}$ is the relative distance between the top two eigenvalues of $\Sigma$.
+
+We achieve these results through a novel analysis of the classic Oja's algorithm, one of the oldest and perhaps, most popular algorithms for streaming PCA. We show that simply picking a random initial point $w_0$ and applying the natural update rule $w_{i + 1} = w_i + \eta_i A_i w_i$ suffices for suitable choice of $\eta_i$. We believe our result sheds light on how to efficiently perform streaming PCA both in theory and in practice and we hope that our analysis may serve as the basis for analyzing many variants and extensions of streaming PCA.},
+}

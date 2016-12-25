@@ -1,0 +1,7 @@
+@InProceedings{sra16,
+  supplementary = {Supplementary:sra16-supp.pdf},
+  title = {AdaDelay: Delay Adaptive Distributed Stochastic Optimization},
+  author = {Sra, Suvrit and Yu, Adams Wei and Li, Mu and Smola, Alex},
+  pages = {957-965},
+  abstract = {We develop distributed stochastic convex optimization algorithms under a delayed gradient model in which server nodes update parameters and worker nodes compute stochastic (sub)gradients. Our setup is motivated by the behavior of real-world distributed computation systems; in particular, we analyze a setting wherein worker nodes can be differently slow at different times. In contrast to existing approaches, we do not impose a worst-case bound on the delays experienced but rather allow the updates to be sensitive to the actual delays experienced. This sensitivity allows use of larger stepsizes, which can help speed up initial convergence without having to wait too long for slower machines; the global convergence rate is still preserved. We experiment with different delay patterns, and obtain noticeable  improvements for large-scale real datasets with billions of examples and features.},
+}

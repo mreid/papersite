@@ -1,0 +1,6 @@
+@InProceedings{diamos16,
+  title = {Persistent RNNs: Stashing Recurrent Weights On-Chip},
+  author = {Greg Diamos and Shubho Sengupta and Bryan Catanzaro and Mike Chrzanowski and Adam Coates and Erich Elsen and Jesse Engel and Awni Hannun and Sanjeev Satheesh},
+  pages = {2024-2033},
+  abstract = {This paper introduces a new technique for mapping Deep Recurrent Neural Networks (RNN) efficiently onto GPUs. We show how it is possi- ble to achieve substantially higher computational throughput at low mini-batch sizes than direct implementations of RNNs based on matrix multiplications. The key to our approach is the use of persistent computational kernels that exploit the GPU's inverted memory hierarchy to reuse network weights over multiple timesteps. Our initial implementation sustains 2.8 TFLOP/s at a mini-batch size of 4 on an NVIDIA TitanX GPU. This provides a 16x reduction in activation memory footprint, enables model training with 12x more parameters on the same hardware, allows us to strongly scale RNN training to 128 GPUs, and allows us to efficiently explore end-to-end speech recognition models with over 100 layers.},
+}

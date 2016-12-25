@@ -1,0 +1,35 @@
+@InProceedings{banks16,
+  author = {Jess Banks and Cristopher Moore and Joe Neeman and Praneeth Netrapalli},
+  title = {Information-theoretic thresholds for community detection in sparse networks},
+  pages = {383-416},
+  abstract = {We give upper and lower bounds on the information-theoretic threshold for
+community detection in the stochastic block model.  Specifically, consider a
+symmetric stochastic block model with $q$ groups, average degree $d$, and
+connection probabilities $c_{\mathrm{in}}/n$ and $c_{\mathrm{out}}/n$ for within-group and
+between-group edges respectively; let $\lambda = (c_{\mathrm{in}}-c_{\mathrm{out}})/(qd)$.  We
+show that, when $q$ is large, and $\lambda = O(1/q)$, the critical value of $d$
+at which community detection becomes possible---in physical terms, the
+condensation threshold---is
+$$
+d_{\mathrm{c}} = \Theta\left( \frac{\log q}{q \lambda^2} \right) \, ,
+$$
+with tighter results in certain regimes.  Above this threshold, we show that
+any partition of the nodes into $q$ groups which is as `good' as the planted one,
+in terms of the number of within- and between-group edges, is correlated with it.
+This gives an exponential-time algorithm that performs better than chance;
+specifically, community detection becomes possible below the Kesten-Stigum bound
+for $q \ge 5$ in the disassortative case $\lambda < 0$, and for $q \ge 11$ in the
+assortative case $\lambda > 0$
+(similar upper bounds were obtained independently by Abbe and Sandon).
+Conversely, below this threshold, we show that no algorithm can label the vertices better
+than chance, or even distinguish the block model from an Erd\H{o}s-R\'{e}nyi random graph with
+high probability.
+
+Our lower bound on $d_{\mathrm{c}}$ uses Robinson and Wormald's small subgraph conditioning method,
+and we also give (less explicit) results for non-symmetric stochastic block
+models.  In the symmetric case, we obtain explicit results by using bounds
+on certain functions of doubly stochastic matrices due to Achlioptas and Naor;
+indeed, our lower bound on $d_{\mathrm{c}}$ is their second moment lower bound on the
+$q$-colorability threshold for random graphs with a certain effective
+degree.},
+}

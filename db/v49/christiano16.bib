@@ -1,0 +1,13 @@
+@InProceedings{christiano16,
+  author = {Christiano, Paul},
+  title = {Provably manipulation-resistant reputation systems},
+  pages = {670-697},
+  abstract = {Reputation and reliability play a central role in a wide range of applications, from online marketplaces to review aggregators to ridesharing services.  Many reputation systems are vulnerable to manipulation, and protected only by keeping algorithms secret, avoiding high-stakes applications, or using side information to identify malicious users.  The current situation is reminiscent of pre-modern cryptography, characterized by a patchwork of ad hoc techniques with minimal formal understanding of their security.
+
+We propose a reputation system which provably achieves a very strong correctness guarantee under extremely pessimistic assumptions---it works even given a supermajority of malicious users, converges to optimal behavior after a constant number of interactions per user, does not require repeated interactions, and accommodates time-varying quality of resources.
+
+Our formal model is simple but general.  In each period, a user is given an opportunity to interact with a resource, and must accept or reject the proposed interaction.  If they accept, they receive a payoff in $[-1, 1]$.  Ideally all users would behave honestly, pooling their data and quickly learning which resources are worth interacting with.  Our protocol essentially matches this performance when all users are honest, while guaranteeing that adding malicious users or users with varying tastes does very little damage.
+
+We also extend our results to a more challenging setting where users interact with each other rather than with static resources, and where the two parties to an interaction may receive different payoffs.
+},
+}

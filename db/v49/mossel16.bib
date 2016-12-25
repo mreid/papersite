@@ -1,0 +1,24 @@
+@InProceedings{mossel16,
+  author = {Mossel, Elchanan and Xu, Jiaming},
+  title = {Density Evolution in the
+Degree-correlated Stochastic Block Model},
+  pages = {1319-1356},
+  abstract = {There is a recent surge of interest in identifying the sharp recovery thresholds for cluster recovery under the
+stochastic block model. In this paper, we address the more refined question of how many vertices that will be misclassified
+on average. We consider the binary form of the stochastic block model,
+where $n$ vertices are partitioned into  two clusters
+with edge probability
+$a/n$ within the first cluster, $c/n$ within the second cluster, and
+$b/n$ across clusters.  Suppose that as $n \to \infty$,
+$a= b+ \mu \sqrt{ b} $,  $c=b+  \nu \sqrt{ b} $ for two fixed
+constants $\mu, \nu$, and $b \to \infty$ with $b=n^{o(1)}$.
+When the cluster sizes are balanced and $\mu \neq \nu$,
+we show that
+the minimum fraction of misclassified vertices on average is given by  $Q(\sqrt{v^*})$,
+where $Q(x)$ is the Q-function for standard normal,
+$v^*$ is the unique fixed point of $v= \frac{(\mu-\nu)^2}{16} + \frac{ (\mu+\nu)^2 }{16} \mathbb{E}[ \tanh(v+ \sqrt{v} Z)]$,
+and $Z$ is standard normal. Moreover, the minimum  misclassified  fraction on average is attained by a local algorithm, namely
+belief propagation, in time linear in the number of edges. Our proof techniques are based on connecting the cluster recovery problem to
+tree reconstruction problems, and analyzing the density evolution of belief propagation on trees with Gaussian approximations.
+},
+}

@@ -1,0 +1,1097 @@
+@proceedings{COLT2016,
+booktitle={29th Annual Conference on Learning Theory},
+shortname={COLT},
+year = {2016},
+editor = {Feldman, Vitaly and Rakhlin, Alexander and Shamir, Ohad},
+volume = {49}
+}
+
+
+
+@InProceedings{agrawal16,
+author = {Agrawal, Shipra and Devanur, Nikhil R. and Li, Lihong},
+title = {An efficient algorithm for contextual bandits with knapsacks, and an extension to concave objectives},
+  pages     = {4-18},
+abstract = {We consider a contextual version of multi-armed bandit problem with global knapsack constraints.
+In each round, the outcome of pulling an arm is a scalar reward and a resource consumption vector,
+both dependent on the context, and the global knapsack constraints require the total consumption for each resource to be below some pre-fixed budget. The learning agent competes with an arbitrary set of context-dependent policies. This problem was introduced by Badanidiyuru et al., who gave
+a computationally inefficient algorithm with near-optimal regret bounds for it.  We give a \emph{computationally efficient} algorithm for this problem with slightly better regret bounds, by generalizing the approach of Dudik et al. for the non-constrained version of the problem. The computational time of our algorithm scales \emph{logarithmically} in the size of the policy space. This answers the main open question of Badanidiyuru et al.
+We also extend our results to a variant where there are no knapsack constraints but the objective is an arbitrary Lipschitz concave function of the sum of outcome vectors. }
+}
+
+@InProceedings{aliakbarpour16,
+author = {Aliakbarpour, Maryam and Blais, Eric and Rubinfeld, Ronitt},
+title = {Learning and Testing Junta Distributions},
+  pages     = {19-46},
+abstract = {
+We consider the problem of learning distributions in the presence of irrelevant features. This problem is formalized by introducing a new notion of
+\emph{$k$-junta distributions}.
+Informally, a distribution $\mathcal{D}$ over the domain $\mathcal{X}^n$ is a
+\emph{$k$-junta distribution} with respect to another distribution $\mathcal{U}$
+over the same domain
+if there is a set $J \subseteq [n]$ of size $|J| \le k$ that captures the difference between $\mathcal {D}$ and $\mathcal{U}$.
+
+We show that it is possible to learn $k$-junta distributions with
+respect to the uniform distribution over the Boolean hypercube $\{0,1\}^n$
+in time $\poly(n^k, 1/\epsilon)$.
+This result is obtained via a new Fourier-based learning
+algorithm inspired by the Low-Degree Algorithm of
+Linial, Mansour, and Nisan (1993).
+
+We also consider the problem of testing whether an unknown distribution
+is a $k$-junta distribution with respect to the uniform distribution.
+We give a nearly-optimal algorithm for this task.
+Both the analysis of the algorithm and the lower bound showing its optimality are obtained by establishing connections between the problem of testing junta distributions and testing uniformity of weighted collections of distributions.
+}
+}
+
+@InProceedings{alon16,
+author    = {Alon, Noga and Moran, Shay and Yehudayoff, Amir},
+title     = {Sign rank versus {VC} dimension},
+  pages     = {47-80},
+abstract  = {
+This work studies the maximum
+possible sign rank of $N \times N$ sign matrices with a given
+VC dimension $d$.
+For $d=1$, this maximum is {three}.
+For $d=2$, this maximum is $\tilde{\Theta}(N^{1/2})$.
+For $d >2$, similar but slightly less accurate statements hold.
+Our lower bounds improve over previous ones
+by Ben-David et al.~and can be interpreted as exhibiting
+a weakness of kernel-based classifiers.
+Our upper bounds, on the other hand,
+can be interpreted as exhibiting the universality
+of kernel-based classifiers.
+
+The lower bounds are obtained by probabilistic constructions,
+using a theorem of Warren in real algebraic topology.
+The upper bounds are obtained using
+a result of Welzl about spanning trees with low stabbing number,
+and using the moment curve.
+
+The upper bound technique is also used to:
+(i) provide estimates on the number of classes
+of a given VC dimension,
+and the number of maximum
+classes of a given VC dimension -- answering a question of Frankl from '89,
+and (ii) design an efficient
+algorithm that provides an $O(N/\log(N))$ multiplicative
+approximation for the sign rank
+(computing the sign rank is equivalent to the existential theory of the reals).
+
+
+We also observe a general connection between sign rank
+and spectral gaps which is based on Forster's argument.
+Consider the $N \times N$ adjacency matrix of a $\Delta$ regular graph
+with a second eigenvalue of absolute value $\lambda$ and
+$\Delta \leq N/2$.
+We show that the sign rank of the signed version of this matrix
+is at least $\Delta/\lambda$.
+We use this connection to prove the existence
+of a maximum class $C\subseteq\{\pm 1\}^N$ with VC dimension $2$
+and sign rank $\tilde{\Theta}(N^{1/2})$. This answers a question of
+Ben-David et al.~regarding the sign rank of large VC classes.
+We also describe limitations of this approach,
+in the spirit of the Alon-Boppana theorem.
+
+We further describe connections to communication complexity, geometry,
+learning theory, and combinatorics.}
+}
+
+
+@InProceedings{anandkumar16,
+author = {Anandkumar, Animashree and Ge, Rong},
+title = {Efficient approaches for escaping higher order saddle points  in non-convex optimization},
+  pages     = {81-102},
+abstract = {Local search heuristics for non-convex optimizations are popular   in applied machine learning. However, in general it is  hard to  guarantee that such algorithms even  converge to a {\em local minimum}, due to the existence of complicated saddle point structures in high dimensions. Many functions have {\em degenerate} saddle points such that the first and second order derivatives cannot distinguish them with local optima.  In this paper we use higher order derivatives to escape these saddle points: we design the first efficient algorithm  guaranteed to converge to a third order local optimum (while existing techniques are at most second order). We also show that it is NP-hard to extend this further to finding fourth order local optima.}
+}
+
+
+@InProceedings{anari16,
+author = {Anari, Nima and Oveis Gharan, Shayan and Rezaei, Alireza},
+title = {Monte Carlo Markov Chain Algorithms for Sampling Strongly Rayleigh Distributions and Determinantal Point Processes},
+  pages     = {103-115},
+abstract = {Strongly Rayleigh distributions are natural generalizations of product and determinantal probability distributions and
+satisfy the strongest form of negative dependence properties.
+We show that the "natural" Monte Carlo Markov Chain (MCMC) algorithm mixes rapidly in the support of a homogeneous strongly Rayleigh distribution.
+As a byproduct, our proof implies Markov chains can be used to efficiently generate approximate samples of a $k$-determinantal point process.
+This answers an open question raised by Deshpande and Rademacher which was studied recently by Kang, Li-Jegelka-Sra, and Rebeschini-Karbasi.
+}
+}
+
+
+@InProceedings{auer16,
+author    = {Auer, Peter and Chiang, Chao-Kai},
+title     = {An algorithm with nearly optimal pseudo-regret for both stochastic and adversarial bandits},
+  pages     = {116-120},
+abstract  = {We present an algorithm that achieves almost optimal pseudo-regret bounds against adversarial and stochastic bandits. Against adversarial bandits the pseudo-regret is $O(K\sqrt{n \log n})$ and against stochastic bandits the pseudo-regret is $O(\sum_i (\log n)/\Delta_i)$. We also show that no algorithm with $O(\log n)$ pseudo-regret against stochastic bandits can achieve $\tilde{O}(\sqrt{n})$ expected regret against adaptive adversarial bandits. This complements previous results of Bubeck and Slivkins (2012) that show $\tilde{O}(\sqrt{n})$ expected adversarial regret with $O((\log n)^2)$ stochastic pseudo-regret.
+}
+}
+
+
+@InProceedings{avilapires16,
+author = {{\'Avila Pires}, Bernardo and Szepesv\'ari, Csaba},
+title = {Policy Error Bounds for Model-Based Reinforcement Learning with Factored Linear Models},
+  pages     = {121-151},
+abstract = {In this paper we study a model-based approach to calculating approximately optimal policies in Markovian Decision Processes. In particular, we derive novel bounds on the loss of using a policy derived from a factored linear model, a class of models which generalize numerous previous models out of those that come with strong computational guarantees. For the first time in the literature, we derive performance bounds for model-based techniques where the model inaccuracy is measured in weighted norms. Moreover, our bounds show a decreased sensitivity to the discount factor and, unlike similar bounds derived for other approaches, they are insensitive to measure mismatch. Similarly to previous works, our proofs are also based on contraction arguments, but with the main differences that we use carefully constructed norms building on Banach lattices, and the contraction property is only assumed for operators acting on ``compressed'' spaces, thus weakening previous assumptions, while strengthening previous results.}
+}
+
+
+@InProceedings{awasthi16,
+author = {Awasthi, Pranjal and Balcan, Maria-Florina and Haghtalab, Nika and Zhang, Hongyang},
+title = {Learning and 1-bit Compressed Sensing under Asymmetric Noise},
+  pages     = {152-192},
+abstract = {
+We study the \emph{approximate recovery} problem: Given corrupted $1$-bit measurements of the form $sign(w^* \cdot x_i)$,
+recover a vector $w$ that is a good approximation to $w^* \in \Re^d$.
+This problem has been studied by both the learning theory and signal processing communities.
+In learning theory, this is known as the problem of \emph{learning halfspaces with noise},
+and in signal processing, as \emph{$1$-bit compressed sensing}, in which there is an additional assumption that $w^*$ is $t$-sparse.
+The challenge in both cases is to design computationally efficient algorithms that are tolerant to large amounts of noise under realistic noise models.
+Furthermore, in the case of 1-bit compressed sensing, we require  the number of measurements $x_i$ to scale polynomially in $t$ and
+only polylogarithmically in $d$, the ambient dimension. In this work, we introduce algorithms with nearly optimal guarantees for both problems
+under two realistic noise models, \emph{bounded (Massart) noise} and \emph{adversarial (agnostic) noise}, when the measurements
+$x_i$'s are drawn from any isotropic log-concave distribution.
+
+In bounded (Massart) noise, an adversary can flip the measurement of each point $x$ with probability $\eta(x)\leq \eta< 1/2$.
+For this problem, we present an efficient algorithm that returns $w$ such that $\| w- w^*\|_2 \leq \epsilon$ in time $poly(d, \frac 1 \epsilon)$
+for \emph{any} constant $\eta < 1/2$.  This improves significantly over the best known result of Awasthi et al. 2015, in this space that required the noise to be as small as $\eta\approx 10^{-6}$.
+We then introduce an attribute-efficient variant of this algorithm for $1$-bit compressed sensing that achieves
+the same guarantee with $poly(t, \log(d), \frac 1 {\epsilon})$ measurements when $\|w^*\|_0\leq t$.
+For adversarial (agnostic) noise, where any $\nu$ fraction of measurements can be corrupted, we provide an algorithm that
+returns $w$ such that $\|w-w^*\|_2 \leq O(\nu) + \epsilon$, with  $\tilde\Omega( \frac t {\epsilon^3}  \polylog(d))$  measurements. Our results improve on the best known approximation results in this space and under some regimes improve on the sample complexity of the existing results. Furthermore, this  is the first result of its kind in 1-bit compressed sensing
+that goes beyond the Gaussian marginal distribution and works for any isotrpic log-concave distribution.}
+}
+
+
+@InProceedings{azizzadenesheli16a,
+author    = {Azizzadenesheli Kamyar and Lazaric, Alessandro and Anandkumar, Animashree},
+title     = {Reinforcement Learning of POMDPs using Spectral Methods},
+  pages     = {193-256},
+abstract  = {We propose a new reinforcement learning algorithm for partially observable Markov decision processes (POMDP) based on spectral decomposition methods.
+While spectral methods have been previously employed for consistent learning of (passive) latent variable models such as hidden Markov models, POMDPs are more challenging  since the learner interacts with the environment and possibly changes the future observations in the process. We devise a learning algorithm running through episodes, in each episode we employ spectral techniques to learn the POMDP parameters from a trajectory generated by a fixed policy. At the end of the episode, an optimization oracle returns the optimal memoryless planning policy which maximizes the expected reward based on the estimated POMDP model. We prove an order-optimal regret bound w.r.t.\ the optimal memoryless policy and efficient scaling with respect to the dimensionality of observation and action spaces.}
+}
+
+@InProceedings{bach16,
+author = {Bach, Francis and Perchet, Vianney},
+title = {Highly-Smooth Zero-th Order Online Optimization},
+  pages     = {257-283},
+abstract = {The minimization of convex functions which are only available through partial and noisy information is a key methodological problem in many disciplines. In this paper we consider  convex optimization with noisy zero-th order information, that is noisy function evaluations at any desired point. We focus on problems with high degrees of smoothness, such as  logistic regression. We show that as opposed to gradient-based algorithms, high-order smoothness may be used to improve estimation rates, with a precise dependence  of our upper-bounds on the degree of smoothness. In particular, we show that for infinitely differentiable functions, we recover the same dependence on sample size as gradient-based algorithms, with an extra dimension-dependent factor. This is done for both convex and strongly-convex functions, with finite horizon and anytime algorithms. Finally, we also recover similar results in the online optimization setting.}
+}
+
+
+@InProceedings{balcan16a,
+author = {Balcan, Maria-Florina and Du, Simon Shaolei and Wang, Yining and Yu, Adams Wei},
+title = {An Improved Gap-Dependency Analysis of the Noisy Power Method},
+  pages     = {284-309},
+abstract = {We consider the \emph{noisy power method} algorithm, which has wide applications in machine learning and statistics, especially those related to principal component analysis (PCA) under resource (communication, memory or privacy) constraints. Existing analysis of the noisy power method shows an unsatisfactory dependency over the ``consecutive" spectral gap $(\sigma_k-\sigma_{k+1})$ of an input data matrix, which could be very small and hence limits the algorithm's applicability. In this paper, we present a new analysis of the noisy power method that achieves improved gap dependency for both sample complexity and noise tolerance bounds. More specifically, we improve the dependency over $(\sigma_k-\sigma_{k+1})$ to dependency over $(\sigma_k-\sigma_{q+1})$, where $q$ is an intermediate algorithm parameter and could be much larger than the target rank $k$. Our proofs are built upon a novel characterization of proximity between two subspaces that differ from canonical angle characterizations
+analyzed in previous works. Finally, we apply our improved bounds to distributed private PCA and memory-efficient streaming PCA and obtain bounds that are superior to existing results in the literature.}
+}
+
+
+@Inproceedings{balcan16b,
+author={Balcan, Maria-Florina and Vitercik, Ellen and White, Colin},
+title={Learning Combinatorial Functions from Pairwise Comparisons},
+  pages     = {310-335},
+abstract={A large body of work in machine learning has focused
+on the problem of learning a close approximation to an underlying combinatorial function,
+given a small set of labeled examples.
+However, for real-valued functions, cardinal labels might not be accessible, or it may be difficult for an expert to
+consistently assign real-valued labels over the entire set of examples. For instance, it is
+notoriously hard for consumers to reliably assign values to bundles of merchandise.
+Instead, it might be much easier for a consumer to report which of two bundles she likes better.
+
+With this motivation in mind, we consider an alternative learning model, wherein the algorithm must learn the underlying function up to pairwise comparisons, from pairwise comparisons. In this model, we present a series of novel algorithms that learn over a wide variety of combinatorial function classes. These range from graph functions to broad classes of valuation functions that are fundamentally important in microeconomic theory, the analysis of social networks, and machine learning, such as coverage, submodular, XOS, and subadditive functions, as well as functions with sparse Fourier support.}
+}
+
+
+@InProceedings{balsubramani16,
+author = {Balsubramani, Akshay and Karnin, Zohar and Schapire, Robert E. and Zoghi, Masrour},
+title = {Instance-dependent Regret Bounds for Dueling Bandits},
+  pages     = {336-360},
+abstract = {We study the multi-armed dueling bandit problem in which feedback is provided in the form of relative comparisons between pairs of actions, with the goal of eventually learning to select actions that are close to the best. Following  Dudik et al. (2015), we aim for algorithms whose performance approaches that of the optimal randomized choice of actions, the von Neumann winner, expressly avoiding more restrictive assumptions, for instance, regarding the existence of a single best action (a Condorcet winner). In this general setting, the best known algorithms achieve regret O(\sqrt{KT}) in T rounds with K actions. In this paper, we present the first instance-dependent regret bounds for the general problem, focusing particularly on when the von Neumann winner is sparse. Specifically, we propose a new algorithm whose regret, relative to a unique von Neumann winner with sparsity s, is at most O(\sqrt{sT}), plus an instance-dependent constant. Thus, when the sparsity is much smaller than the total number of actions, our result indicates that learning can be substantially faster.}
+}
+
+
+@InProceedings{bandeira16,
+author = {Bandeira, Afonso S. and Boumal, Nicolas and Voroninski, Vladislav},
+title = {On the low-rank approach for semidefinite programs arising in synchronization and community detection},
+  pages     = {361-382},
+abstract = {To address difficult optimization problems, convex relaxations based on semidefinite programming are now common place in many fields. Although solvable in polynomial time, large semidefinite programs tend to be computationally challenging. Over a decade ago, exploiting the fact that in many applications of interest the desired solutions are low rank, Burer and Monteiro proposed a heuristic to solve such semidefinite programs by restricting the search space to low-rank matrices. The accompanying theory does not explain the extent of the empirical success. We focus on Synchronization and Community Detection problems and provide theoretical guarantees shedding light on the remarkable efficiency of this heuristic.}
+}
+
+
+@InProceedings{banks16,
+author = {Jess Banks and Cristopher Moore and Joe Neeman and Praneeth Netrapalli},
+title = {Information-theoretic thresholds for community detection in sparse networks},
+  pages     = {383-416},
+abstract = {We give upper and lower bounds on the information-theoretic threshold for
+community detection in the stochastic block model.  Specifically, consider a
+symmetric stochastic block model with $q$ groups, average degree $d$, and
+connection probabilities $c_{\mathrm{in}}/n$ and $c_{\mathrm{out}}/n$ for within-group and
+between-group edges respectively; let $\lambda = (c_{\mathrm{in}}-c_{\mathrm{out}})/(qd)$.  We
+show that, when $q$ is large, and $\lambda = O(1/q)$, the critical value of $d$
+at which community detection becomes possible---in physical terms, the
+condensation threshold---is
+$$
+d_{\mathrm{c}} = \Theta\left( \frac{\log q}{q \lambda^2} \right) \, ,
+$$
+with tighter results in certain regimes.  Above this threshold, we show that
+any partition of the nodes into $q$ groups which is as `good' as the planted one,
+in terms of the number of within- and between-group edges, is correlated with it.
+This gives an exponential-time algorithm that performs better than chance;
+specifically, community detection becomes possible below the Kesten-Stigum bound
+for $q \ge 5$ in the disassortative case $\lambda < 0$, and for $q \ge 11$ in the
+assortative case $\lambda > 0$
+(similar upper bounds were obtained independently by Abbe and Sandon).
+Conversely, below this threshold, we show that no algorithm can label the vertices better
+than chance, or even distinguish the block model from an Erd\H{o}s-R\'{e}nyi random graph with
+high probability.
+
+Our lower bound on $d_{\mathrm{c}}$ uses Robinson and Wormald's small subgraph conditioning method,
+and we also give (less explicit) results for non-symmetric stochastic block
+models.  In the symmetric case, we obtain explicit results by using bounds
+on certain functions of doubly stochastic matrices due to Achlioptas and Naor;
+indeed, our lower bound on $d_{\mathrm{c}}$ is their second moment lower bound on the
+$q$-colorability threshold for random graphs with a certain effective
+degree.}
+}
+
+@InProceedings{barak16,
+author    = {Barak, Boaz and Moitra, Ankur},
+title     = {Noisy Tensor Completion via the Sum-of-Squares Hierarchy},
+  pages     = {417-445},
+abstract  = {In the noisy tensor completion problem we observe $m$ entries (whose location is chosen uniformly at random) from an unknown $n_1 \times n_2 \times n_3$ tensor $T$. We assume that $T$ is entry-wise close to being rank $r$. Our goal is to fill in its missing entries using as few observations as possible. Let $n = \max(n_1, n_2, n_3)$. We show that if
+$m =  n^{3/2} r$ then there is a polynomial time algorithm based on the sixth level of the sum-of-squares hierarchy for completing it. Our estimate agrees with almost all of $T$'s entries almost exactly and works even when our observations are corrupted by noise. This is also the first algorithm for tensor completion that works in the overcomplete case when $r > n$, and in fact it works all the way up to $r = n^{3/2-\epsilon}$.
+
+Our proofs are short and simple and are based on establishing a new connection between noisy tensor completion (through the language of Rademacher complexity) and the task of refuting random constant satisfaction problems. This connection seems to have gone unnoticed even in the context of matrix completion. Furthermore, we use this connection to show matching lower bounds. Our main technical result is in characterizing the Rademacher complexity of the sequence of norms that arise in the sum-of-squares relaxations to the tensor nuclear norm.  These results point to an interesting new direction: Can we explore computational vs. sample complexity tradeoffs through the sum-of-squares hierarchy?}
+}
+
+
+@InProceedings{belkin16,
+author    = {Belkin, Mikhail and Rademacher, Luis and Voss, James},
+title     = {Basis Learning as an Algorithmic Primitive},
+  pages     = {446-487},
+abstract  = {A number of important problems in theoretical computer science and machine learning can be interpreted as recovering a certain basis. These include  symmetric matrix eigendecomposition, certain tensor decompositions, Independent Component Analysis (ICA), spectral clustering and Gaussian mixture learning. Each of these problems reduces to an instance of our general model, which we call a ``Basis Encoding Function" (BEF). We show that learning a basis within this model can then be provably and efficiently achieved using a first order  iteration algorithm (gradient iteration). Our algorithm goes beyond tensor methods while generalizing a number of existing algorithms---e.g., the power method for symmetric matrices, the tensor power iteration for orthogonal decomposable tensors, and cumulant-based FastICA---all within a broader function-based dynamical systems framework. Our framework also unifies the unusual phenomenon observed in these domains that they can be solved using efficient non-convex optimization. Specifically, we describe a class of BEFs such that their local maxima on the unit sphere are in one-to-one correspondence with the basis elements. This description relies on a certain ``hidden convexity" property of these functions.
+
+We provide a complete theoretical analysis of the gradient iteration even when the BEF is perturbed. We show convergence and complexity bounds polynomial in dimension and other relevant parameters, such as perturbation size. Our perturbation results can be considered as a  non-linear version of the classical Davis-Kahan theorem for perturbations of eigenvectors of symmetric matrices. In addition we show that   our algorithm exhibits fast (superlinear) convergence and relate the speed of convergence to the properties of the BEF. Moreover, the gradient iteration algorithm can be easily and efficiently implemented in practice.}
+}
+
+
+@inProceedings{bellec16,
+author = {Bellec, Pierre C.},
+title = {Aggregation of supports along the Lasso path},
+  pages     = {488-529},
+abstract = {
+In linear regression with fixed design,
+we propose two procedures that aggregate
+a data-driven collection of supports.
+The collection is a subset of the $2^p$ possible supports
+and both its cardinality and its elements can depend on the data.
+The procedures satisfy oracle inequalities with no assumption on the design matrix.
+Then we use these procedures to aggregate the supports that appear on the
+regularization path of the Lasso
+in order to construct an estimator that mimics
+the best Lasso estimator.
+If the restricted eigenvalue condition on the design matrix is satisfied,
+then this estimator achieves optimal prediction bounds.
+Finally, we discuss the computational cost of these procedures.
+}
+}
+
+
+@InProceedings{bhojanapalli16,
+author    = {Bhojanapalli, Srinadh and Kyrillidis, Anastasios and Sanghavi, Sujay},
+title     = {Dropping Convexity for Faster Semi-definite Optimization},
+  pages     = {530-582},
+abstract  = {We study the minimization of a convex function $f(X)$ over the set of $n \times n$ positive semi-definite matrices,
+but when the problem is recast as $\min_U g(U) :=  f(UU^\top)$, with $U \in \mathbb{R}^{n \times r}$ and $r \leq n$.
+We study the performance of gradient descent on $g$---which we refer to as Factored Gradient Descent (\textsc{Fgd})---under standard assumptions on the {\em original} function $f$.
+
+We provide a rule for selecting the step size and, with this choice, show that the \emph{local} convergence rate of \textsc{Fgd} mirrors that of standard gradient descent on the original $f$: \emph{i.e.}, after $k$ steps, the error is $O(1/k)$ for smooth $f$, and exponentially small in $k$ when $f$ is (restricted) strongly convex.
+In addition, we provide a procedure to initialize \textsc{Fgd} for (restricted) strongly convex objectives and when one only has access to $f$ via a first-order oracle; for several problem instances, such proper initialization leads to \emph{global} convergence guarantees.
+
+\textsc{Fgd} and similar procedures are widely used in practice for problems that can be posed as matrix factorization.
+To the best of our knowledge, this is the first paper to provide precise convergence rate guarantees for general convex functions under standard convex assumptions.}
+}
+
+@InProceedings{bubeck16,
+author = {Bubeck, S{\'e}bastien and Eldan, Ronen},
+title = {Multi-scale exploration of convex functions and bandit convex optimization},
+  pages     = {583-589},
+abstract = {We construct a new map from a convex function to a distribution on its domain, with the property that this distribution is a multi-scale exploration of the function. We use this map to solve a decade-old open problem in adversarial bandit convex optimization by showing that the minimax regret for this problem is $\tilde{O}(\mathrm{poly}(n) \sqrt{T})$, where $n$ is the dimension and $T$ the number of rounds. This bound is obtained by studying the dual Bayesian maximin regret via the information ratio analysis of Russo and Van Roy, and then using the multi-scale exploration to construct a new algorithm for the Bayesian convex bandit problem.}
+}
+
+
+@InProceedings{carpentier16,
+author = {Carpentier, Alexandra and Locatelli, Andrea},
+title = {Tight (Lower) Bounds for the Fixed Budget Best Arm Identification Bandit Problem},
+  pages     = {590-604},
+abstract = {We consider the problem of \textit{best arm identification} with a \textit{fixed budget $T$}, in the $K$-armed stochastic bandit setting, with arms distribution defined on $[0,1]$. We prove that any bandit strategy, for at least one bandit problem characterized by a complexity $H$, will misidentify the best arm with probability lower bounded by
+$$\exp\Big(-\frac{T}{\log(K)H}\Big),$$
+where $H$ is the sum for all sub-optimal arms of the inverse of the squared gaps. Our result disproves formally the general belief - coming from results in the fixed confidence setting - that there must exist an algorithm for this problem whose probability of error is upper bounded by $\exp(-T/H)$. This also proves that some existing strategies based on the Successive Rejection of the arms are optimal - closing therefore the current gap between upper and lower bounds for the fixed budget best arm identification problem.}
+}
+
+
+@InProceedings{cesa-bianchi16,
+author = {Cesa-Bianchi, Nicol`o and Gentile, Claudio and Mansour, Yishay and Minora, Alberto},
+title = {Delay and Cooperation in Nonstochastic Bandits},
+  pages     = {605-622},
+abstract =
+{
+We study networks of communicating learning agents that cooperate to solve a common nonstochastic bandit problem. Agents use an underlying communication network to get messages about actions selected by other agents, and drop messages that took more than $d$ hops to arrive, where $d$ is a delay parameter. We introduce Exp3-Coop, a cooperative version of the Exp3 algorithm and prove that with $K$ actions and $N$ agents the average per-agent regret after $T$ rounds is at most of order $\sqrt{\left(d+1 + \frac{K}{N}\alpha_{\leq d}\right)(T\ln K)}$, where $\alpha_{\leq d}$ is the independence number of the $d$-th power of the communication graph $G$. We then show that for any connected graph, for $d=\sqrt{K}$ the regret bound is $K^{1/4}\sqrt{T}$, strictly better than the minimax regret $\sqrt{KT}$ for noncooperating agents. More informed choices of $d$ lead to bounds which are arbitrarily close to the full information minimax regret $\sqrt{T\ln K}$ when $G$ is dense. When $G$ has sparse components, we show that a variant of Exp3-Coop, allowing agents to choose their parameters according to their centrality in $G$, strictly improves the regret. Finally, as a by-product of our analysis, we provide the first characterization of the minimax regret for bandit learning with delay.
+}
+}
+
+
+@InProceedings{chan16,
+author    = {Chan, Siu On and Papailliopoulos, Dimitris and Rubinstein, Aviad},
+title     = {On the Approximability of Sparse PCA},
+  pages     = {623-646},
+abstract  = {It is well known that Sparse PCA (Sparse Principal Component Analysis) is NP-hard to solve exactly on worst-case instances.
+What is the complexity of solving Sparse PCA approximately?
+Our contributions include:
+\begin{enumerate}
+\item a simple and efficient algorithm that achieves an $n^{-1/3}$-approximation;
+\item NP-hardness of approximation to within $(1-\varepsilon)$, for some small constant $\varepsilon > 0$;
+\item SSE-hardness of approximation to within {\em any} constant factor; and
+\item an $\exp\exp\left(\Omega\left(\sqrt{\log \log n}\right)\right)$ (``quasi-quasi-polynomial'') gap for the standard semidefinite program.
+\end{enumerate}}
+}
+
+
+@InProceedings{chen16a,
+author = {Chen, Lijie and Gupta, Anupam and Li, Jian},
+title = {Pure Exploration of Multi-armed Bandit Under Matroid Constraints},
+  pages     = {647-669},
+abstract = {We study the pure exploration problem subject to a matroid constraint	(Best-Basis) in a stochastic multi-armed bandit game.
+In a Best-Basis instance, we are given $n$ stochastic arms with unknown reward distributions, as well as a matroid $\mathcal{M}$ over the arms.
+Let the weight of an arm be the mean of its reward distribution.
+Our goal is to identify a basis of $\mathcal{M}$ with the maximum
+total weight, using as few samples as possible.
+The problem is a significant generalization of the best arm
+identification problem and the top-$k$ arm identification problem, which have attracted significant attentions in
+recent years.
+We study both the exact and PAC versions of Best-Basis, and provide algorithms with nearly-optimal sample complexities for these versions.
+Our results generalize and/or improve on several previous
+results for the top-$k$ arm identification problem and the
+combinatorial pure exploration problem when the combinatorial
+constraint is a matroid.}
+}
+
+
+
+
+
+@InProceedings{christiano16,
+author    = {Christiano, Paul},
+title     = {Provably manipulation-resistant reputation systems},
+  pages     = {670-697},
+abstract  = {Reputation and reliability play a central role in a wide range of applications, from online marketplaces to review aggregators to ridesharing services.  Many reputation systems are vulnerable to manipulation, and protected only by keeping algorithms secret, avoiding high-stakes applications, or using side information to identify malicious users.  The current situation is reminiscent of pre-modern cryptography, characterized by a patchwork of ad hoc techniques with minimal formal understanding of their security.
+
+We propose a reputation system which provably achieves a very strong correctness guarantee under extremely pessimistic assumptions---it works even given a supermajority of malicious users, converges to optimal behavior after a constant number of interactions per user, does not require repeated interactions, and accommodates time-varying quality of resources.
+
+Our formal model is simple but general.  In each period, a user is given an opportunity to interact with a resource, and must accept or reject the proposed interaction.  If they accept, they receive a payoff in $[-1, 1]$.  Ideally all users would behave honestly, pooling their data and quickly learning which resources are worth interacting with.  Our protocol essentially matches this performance when all users are honest, while guaranteeing that adding malicious users or users with varying tastes does very little damage.
+
+We also extend our results to a more challenging setting where users interact with each other rather than with static resources, and where the two parties to an interaction may receive different payoffs.
+}
+}
+
+
+@InProceedings{cohen16,
+author = {Cohen, Nadav and Sharir, Or and Shashua, Amnon},
+title = {On the Expressive Power of Deep Learning: A Tensor Analysis},
+  pages     = {698-728},
+abstract = {It has long been conjectured that hypotheses spaces suitable for data that is compositional in nature, such as text or images, may be more efficiently represented with deep hierarchical networks than with shallow ones. Despite the vast empirical evidence supporting this belief, theoretical justifications to date are limited. In particular, they do not account for the locality, sharing and pooling constructs of convolutional networks, the most successful deep learning architecture to date. In this work we derive a deep network architecture based on arithmetic circuits that inherently employs locality, sharing and pooling. An equivalence between the networks and hierarchical tensor factorizations is established. We show that a shallow network corresponds to CP (rank-1) decomposition, whereas a deep network corresponds to Hierarchical Tucker decomposition. Using tools from measure theory and matrix algebra, we prove that besides a negligible set, all functions that can be implemented by a deep network of polynomial size, require exponential size in order to be realized (or even approximated) by a shallow network. Since log-space computation transforms our networks into SimNets, the result applies directly to a deep learning architecture demonstrating promising empirical performance. The construction and theory developed in this paper shed new light on various practices and ideas employed by the deep learning community.}
+}
+
+
+@InProceedings{cotter16,
+author = {Cotter, Andrew and Gupta, Maya and Pfeifer, Jan},
+title = {A Light Touch for Heavily Constrained SGD},
+  pages     = {729-771},
+abstract = {Minimizing empirical risk subject to a set of constraints can be a
+useful strategy for learning restricted classes of functions, such as monotonic
+functions, submodular functions, classifiers that guarantee a certain class
+label for some subset of examples, etc. However, these restrictions may result
+in a very large number of constraints. Projected stochastic gradient descent
+(SGD) is often the default choice for large-scale optimization in machine
+learning, but requires a projection after each update. For heavily-constrained
+objectives, we propose an efficient extension of SGD that stays close to the
+feasible region while only applying constraints probabilistically at each
+iteration. Theoretical analysis shows a compelling trade-off between
+per-iteration work and the number of iterations needed on problems with a large
+number of constraints.}
+}
+}
+
+
+@inproceedings{cummings16,
+author    = {Rachel Cummings and
+Katrina Ligett and
+Kobbi Nissim and
+Aaron Roth and
+Zhiwei Steven Wu},
+title     = {Adaptive Learning with Robust Generalization Guarantees},
+  pages     = {772-814},
+abstract = { The traditional notion of \emph{generalization}---i.e.,
+learning a hypothesis whose empirical error is close
+to its true error---is surprisingly brittle. As has
+recently been noted [Dwork et al. 2015], even if
+several algorithms have this guarantee in isolation,
+the guarantee need not hold if the algorithms are
+composed adaptively. In this paper, we study three
+notions of generalization---increasing in
+strength---that are \emph{robust} to postprocessing
+and amenable to adaptive composition, and examine
+the relationships between them.  We call the weakest
+such notion \emph{Robust Generalization}. A second,
+intermediate, notion is the stability guarantee
+known as \emph{differential privacy}. The strongest
+guarantee we consider we call \emph{Perfect
+Generalization}. We prove that every hypothesis
+class that is PAC learnable is also PAC learnable in
+a robustly generalizing fashion, with almost the
+same sample complexity. It was previously known that
+differentially private algorithms satisfy robust
+generalization. In this paper, we show that robust
+generalization is a strictly weaker concept, and
+that there is a learning task that can be carried
+out subject to robust generalization guarantees, yet
+cannot be carried out subject to differential
+privacy. We also show that perfect generalization is
+a strictly stronger guarantee than differential
+privacy, but that, nevertheless, many learning tasks
+can be carried out subject to the guarantees of
+perfect generalization.}
+}
+
+
+@InProceedings{daniely16,
+author    = {Daniely, Amit and Shalev-Shwartz, Shai},
+title     = {Complexity Theoretic Limitations on Learning DNF's},
+  pages     = {815-830},
+abstract  = {Using the recently developed framework of Daniely, Linial and Shalev-Shwartz, we show that under a natural assumption on the complexity of random K-SAT, learning DNF formulas is hard. Furthermore, the same assumption implies the hardness of various learning problems, including intersections of logarithmically many halfspaces, agnostically learning conjunctions, as well as virtually all (distribution free) learning problems that were previously shown hard (under various complexity assumptions).
+}
+}
+
+
+@InProceedings{diakonikolas16a,
+author = {I. Diakonikolas and D. M. Kane and A. Stewart},
+title = {Optimal Learning via the Fourier Transform
+for Sums of Independent Integer Random Variables},
+  pages     = {831-849},
+abstract = {We study the structure and learnability of sums of independent integer random variables (SIIRVs).
+For $k \in \mathbb{Z}_{+}$, a {\em$k$-SIIRV of order $n \in \mathbb{Z}_{+}$} is the probability distribution of the sum of $n$
+mutually independent random variables each supported on $\{0, 1, \dots, k-1\}$.
+We denote by ${\cal S}_{n,k}$ the set of all $k$-SIIRVs of order $n$.
+
+How many samples are required to learn an arbitrary distribution in ${\cal S}_{n,k}$?
+In this paper, we tightly characterize the sample and computational complexity of this problem.
+More precisely, we design a computationally efficient algorithm that uses $\widetilde{O}(k/\epsilon^2)$ samples,
+and learns an arbitrary $k$-SIIRV within error $\epsilon,$ in total variation distance. Moreover, we show that
+the {\em optimal} sample complexity of this learning problem is
+$\Theta((k/\epsilon^2)\sqrt{\log(1/\epsilon)}),$ i.e., we prove an upper bound and a matching
+information-theoretic lower bound.
+Our algorithm proceeds by learning the Fourier transform of the target $k$-SIIRV in its effective support.
+Its correctness relies on the {\em approximate sparsity} of the Fourier transform of $k$-SIIRVs --
+a structural property that we establish, roughly stating that the Fourier transform of $k$-SIIRVs
+has small magnitude outside a small set.
+
+Along the way we prove several new structural results about $k$-SIIRVs.
+As one of our main structural contributions, we give an efficient algorithm to construct a
+sparse {\em proper} $\epsilon$-cover for ${\cal S}_{n,k},$ in total variation distance.
+We also obtain a novel geometric characterization of the space of $k$-SIIRVs. Our
+characterization allows us to prove a tight lower bound on the size of $\epsilon$-covers for ${\cal S}_{n,k}$
+-- establishing that our cover upper bound is optimal -- and is the key ingredient in our tight sample complexity lower bound.
+
+Our approach of exploiting the sparsity of the Fourier transform in
+distribution learning is general, and has recently found additional applications.
+In a subsequent work, we use a generalization of this idea
+to obtain the first computationally efficient learning algorithm for Poisson multinomial distributions.
+In~a separate work, we build on our Fourier-based approach to obtain the fastest known proper learning algorithm
+for Poisson binomial distributions ($2$-SIIRVs).
+}
+}
+
+
+@InProceedings{diakonikolas16b,
+author = {I. Diakonikolas and D. M. Kane and A. Stewart},
+title = {Properly Learning Poisson Binomial Distributions in Almost Polynomial Time},
+  pages     = {850-878},
+abstract = {We give an algorithm for properly learning Poisson binomial distributions.
+A Poisson binomial distribution (PBD) of order $n \in \mathbb{Z}_+$
+is the discrete probability distribution of the sum of $n$ mutually independent Bernoulli random variables.
+Given $\widetilde{O}(1/\epsilon^2)$ samples from an unknown PBD $P$, our algorithm runs in time
+$(1/\eps)^{O(\log \log (1/\epsilon))}$, and outputs a hypothesis PBD that is $\epsilon$-close to $P$ in total variation distance.
+The sample complexity of our algorithm is known to be nearly-optimal, up to logarithmic factors, as established
+in previous work. However, the previously best known running time for properly
+learning PBDs was $(1/\epsilon)^{O(\log(1/\epsilon))}$, and was essentially obtained by
+enumeration over an appropriate  $\epsilon$-cover. We remark that the running time of this cover-based approach cannot be
+improved, as any $\epsilon$-cover for the space of PBDs has size  $(1/\epsilon)^{\Omega(\log(1/\epsilon))}$.
+
+As one of our main contributions, we provide a novel structural characterization of PBDs,
+showing that any PBD $P$ is $\epsilon$-close to another PBD $Q$ with $O(\log(1/\epsilon))$ distinct parameters.
+More precisely, we prove that, for all $\epsilon >0,$ there exists
+an explicit collection $\cal{M}$ of $(1/\epsilon)^{O(\log \log (1/\epsilon))}$ vectors of multiplicities,
+such that for any PBD $P$ there exists a PBD $Q$ with $O(\log(1/\epsilon))$ distinct parameters whose multiplicities are given by some element of ${\cal M}$,
+such that $Q$ is $\epsilon$-close to $P.$  Our proof combines tools from Fourier analysis and algebraic geometry.
+
+
+Our approach to the proper learning problem is as follows:
+Starting with an accurate non-proper hypothesis, we fit a PBD to this hypothesis.
+This fitting problem can be formulated as a natural polynomial optimization problem.
+Our aforementioned structural characterization allows
+us to reduce the corresponding fitting problem
+to a collection of $(1/\epsilon)^{O(\log \log(1/\epsilon))}$
+systems of low-degree polynomial inequalities.
+We show that each such system can be solved in time $(1/\epsilon)^{O(\log \log(1/\epsilon))}$,
+which yields the overall running time of our algorithm.
+}
+}
+
+
+@InProceedings{elalaoui16,
+author = {{El Alaoui}, Ahmed and Cheng, Xiang and Ramdas, Aaditya and Wainwright, Martin J. and Jordan, Michael I.},
+title = {Asymptotic behavior of $\ell_p$-based {L}aplacian regularization in semi-supervised learning},
+  pages     = {879-906},
+abstract = {Given a weighted graph with $N$ vertices, consider a real-valued
+regression problem in a semi-supervised setting, where one observes
+$n$ labeled vertices, and the task is to label the remaining
+ones. We present a theoretical study of $\ell_p$-based Laplacian
+regularization under a $d$-dimensional geometric random graph model.
+We provide a variational characterization of the performance of this
+regularized learner as $N$ grows to infinity while $n$
+stays constant; the associated optimality conditions lead to a partial
+differential equation that must be satisfied by the associated
+function estimate $\widehat{f}$.  From this formulation we derive several
+predictions on the limiting behavior the function
+$\fhat$, including (a) a phase transition in its smoothness at the
+threshold $p = d + 1$; and (b) a tradeoff between smoothness and
+sensitivity to the underlying unlabeled data distribution $P$.  Thus,
+over the range $p \leq d$, the function estimate $\widehat{f}$ is degenerate
+and ``spiky,'' whereas for $p\geq d+1$, the function estimate $\fhat$
+is smooth.  We show that the effect of the underlying density vanishes
+monotonically with $p$, such that in the limit $p = \infty$,
+corresponding to the so-called Absolutely Minimal Lipschitz Extension,
+the estimate $\widehat{f}$ is independent of the distribution $P$. Under the
+assumption of semi-supervised smoothness, ignoring $P$ can lead to
+poor statistical performance; in particular, we construct a specific
+example for $d=1$ to demonstrate that $p=2$ has lower risk than
+$p=\infty$ due to the former penalty adapting to $P$ and the latter
+ignoring it.  We also provide simulations that verify the accuracy of
+our predictions for finite sample sizes.  Together, these properties
+show that $p = d+1$ is an optimal choice, yielding a function estimate
+$\fhat$ that is both smooth and non-degenerate, while remaining
+maximally sensitive to $P$.
+}
+}
+
+
+@InProceedings{eldan16,
+author    = {Eldan, Ronen and Shamir, Ohad},
+title     = {The Power of Depth for Feedforward Neural Networks},
+  pages     = {907-940},
+abstract  = {We show that there is a simple (approximately radial) function on $\mathbb{R}^d$, expressible by a small 3-layer feedforward neural networks, which cannot be approximated by any 2-layer network, to more than a certain constant accuracy, unless its width is exponential in the dimension. The result holds for virtually all known activation functions, including rectified linear units, sigmoids and thresholds, and formally demonstrates that depth -- even if increased by 1 -- can be exponentially more valuable than width for standard feedforward neural networks. Moreover, compared to related results in the context of Boolean functions, our result requires fewer assumptions, and the proof techniques and construction are very different. }
+}
+
+
+
+
+@InProceedings{flesch16,
+author = {Flesch, Janos and Laraki, Rida and Perchet, Vianney},
+title = {Online Learning and Blackwell Approachability in Quitting Games},
+  pages     = {941-942},
+abstract = {We consider  the sequential decision problem known as regret minimization, or more precisely its generalization to the  vectorial or multi-criteria  setup called Blackwell approachability. We  assume that   Nature, the decision maker, or both, might have some quitting (or terminating) actions so that the stream of payoffs is constant whenever they are chosen. We call those environments  ``quitting games''.
+
+We characterize convex target sets $\cC$ that are Blackwell approachable, in the sense that the decision maker has a policy ensuring that the expected average vector payoff converges to $\cC$ at some given horizon known in advance. Moreover, we also compare these results to the cases where  the horizon is not known and show that, unlike in standard online learning literature, the necessary or sufficient conditions for the anytime version of this problem are drastically different than those for the fixed horizon.
+}
+}
+
+
+@InProceedings{florescu16,
+author = {Florescu, Laura and Perkins, Will},
+title = {Spectral thresholds in the bipartite stochastic block model},
+  pages     = {943-959},
+abstract = {We consider a bipartite stochastic block model on vertex sets $V_1$ and $V_2$, with planted partitions in each, and ask at what densities efficient algorithms can recover the partition of the smaller vertex set.
+
+When $|V_2| \gg |V_1|$, multiple thresholds emerge.  We first locate a sharp threshold for detection of the partition, in the sense of the results of Mossel, Neeman and Sly and  Massoulie for the stochastic block model.  We then show that at a higher edge density, the singular vectors of the rectangular biadjacency matrix exhibit a localization / delocalization phase transition, giving recovery above the threshold and no recovery below.  Nevertheless, we propose a simple spectral algorithm,  Diagonal Deletion SVD, which recovers the partition at a nearly optimal edge density.
+
+The bipartite stochastic block model studied here was used by Feldman, Perkins, Vempala to give a unified algorithm for recovering planted partitions and assignments in random hypergraphs and random $k$-SAT formulae respectively.  Our results give the best known bounds for the clause density at which solutions can be found efficiently in these models as well as showing a barrier to further improvement via this reduction to the bipartite block model.}
+}
+}
+
+
+@InProceedings{foster16,
+author = {Foster, Dean and Kale, Satyen and Karloff, Howard},
+title = {Online Sparse Linear Regression},
+  pages     = {960-970},
+abstract = {We consider the online sparse linear regression problem, which is the problem of sequentially making predictions observing only a limited number of features in each round, to minimize regret with respect to the best sparse linear regressor, where prediction accuracy is measured by square loss. We give an {\em inefficient} algorithm that obtains regret bounded by $\tilde{O}(\sqrt{T})$ after $T$ prediction rounds. We complement this result by showing that no algorithm running in polynomial time per iteration can achieve regret bounded by $O(T^{1-\delta})$ for any constant $\delta > 0$ unless $\textsf{NP} \subseteq \textsf{BPP}$. This computational hardness result resolves an open problem presented in COLT 2014 (Kale, 2014) and also posed by Zolghadr et al. (2013). This hardness result holds even if the algorithm is allowed to access more features than the best sparse linear regressor up to a logarithmic factor in the dimension.}
+}
+
+
+
+
+
+
+
+
+@InProceedings{gao16,
+author    = {Gao, Ziyuan and Ries, Christoph and Simon, Hans and Zilles, Sandra},
+title    = {Preference-based Teaching},
+  pages     = {971-997},
+abstract  = {We introduce a new model of teaching named
+``preference-based teaching'' and a corresponding complexity
+parameter---the preference-based teaching dimension
+(PBTD)---representing the worst-case number of examples
+needed to teach any concept in a given concept class. Although
+the PBTD coincides with the well-known recursive teaching
+dimension (RTD) on finite classes,
+it is radically different on infinite ones:
+the RTD becomes infinite already for
+trivial infinite classes (such as half-intervals)
+whereas the PBTD evaluates to
+reasonably small values for a wide collection
+of infinite classes including classes consisting
+of so-called closed sets w.r.t.~a given closure
+operator, including various classes related to
+linear sets over $\mathbb{N}_0$ (whose RTD had been
+studied quite recently) and including the class
+of Euclidean half-spaces (and some other geometric
+classes). On top of presenting these concrete
+results, we provide the reader with a theoretical
+framework (of a combinatorial flavor) which
+helps to derive bounds on the PBTD.}
+}
+
+
+@InProceedings{garivier16a,
+author    = {Garivier, Aur\'elien and Kaufmann, Emilie},
+title     = {Optimal Best Arm Identification with Fixed Confidence},
+  pages     = {998-1027},
+abstract  = {We give a complete characterization of the complexity of best-arm identification in one-parameter bandit problems. We prove a new, tight lower bound on the sample complexity. We propose the ‘Track-and-Stop’ strategy, which we prove to be asymptotically optimal. It consists in a new sampling rule (which tracks the optimal proportions of arm draws highlighted by the lower bound) and in a stopping rule named after Chernoff, for which we give a new analysis.}
+}
+
+
+@InProceedings{garivier16b,
+author    = {Garivier, Aur\'elien and Kaufmann, Emilie and Koolen, Wouter M.},
+title     = {Maximin Action Identification: A New Bandit Framework for Games},
+  pages     = {1028-1050},
+abstract  = {We study an original problem of pure exploration in a strategic bandit model motivated by Monte Carlo Tree Search. It consists in identifying the best action in a game, when the player may sample random outcomes of sequentially chosen pairs of actions. We propose two strategies for the fixed-confidence setting: Maximin-LUCB, based on lower- and upper- confidence bounds; and Maximin-Racing, which operates by successively eliminating the sub-optimal actions. We discuss the sample complexity of both methods and compare their performance empirically. We sketch a lower bound analysis, and possible connections to an optimal algorithm.}
+}
+
+
+@InProceedings{hajek16,
+author = {Hajek, Bruce and Wu, Yihong and Xu, Jiaming},
+title = {Semidefinite Programs for Exact Recovery of a Hidden Community},
+  pages     = {1051-1095},
+abstract = {
+We study a semidefinite programming (SDP) relaxation of the maximum likelihood estimation
+for exactly recovering a hidden community of cardinality $K$ from an $n \times n$ symmetric
+data matrix $A$, where for distinct indices $i,j$, $A_{ij} \sim P$ if $i, j$ are both in the community and
+$A_{ij} \sim Q$ otherwise, for two known probability distributions $P$ and $Q$.
+We identify a  sufficient
+condition  and a  necessary condition for the success of SDP  for the general model.
+For both the Bernoulli case ($P={{\rm Bern}}(p)$ and $Q={{\rm Bern}}(q)$ with $p>q$) and the Gaussian case
+($P=\mathcal{N}(\mu,1)$ and $Q=\mathcal{N}(0,1)$ with $\mu>0$),
+which correspond to the problem of planted dense subgraph recovery and submatrix
+localization respectively,
+the general results lead to the following
+findings: (1) If $K=\omega( n /\log n)$, SDP attains the information-theoretic recovery limits
+with sharp constants; (2) If $K=\Theta(n/\log n)$, SDP is order-wise optimal, but strictly
+suboptimal by a constant factor; (3) If $K=o(n/\log n)$ and $K \to \infty$, SDP is order-wise suboptimal.
+The same critical scaling for $K$ is found to hold, up to constant factors, for the performance of SDP on the stochastic block model of $n$ vertices partitioned into multiple communities of equal size $K$. A key ingredient in the proof of the necessary condition is a construction of a primal feasible solution based on
+random perturbation of the true cluster matrix.
+}
+}
+
+
+@InProceedings{hazan16,
+author = {Hazan, Elad and Koren, Tomer and Livni, Roi and Mansour, Yishay},
+title = {Online Learning with Low Rank Experts},
+  pages     = {1096-1114},
+abstract = {
+We consider the problem of prediction with expert advice when the losses of the experts have low-dimensional structure: they are restricted to an unknown $d$-dimensional subspace. We devise algorithms with regret bounds that are independent of the number of experts and depend only on the rank $d$. For the stochastic model we show a tight bound of $\Theta(\sqrt{dT})$, and extend it to a setting of an approximate $d$ subspace. For the adversarial model we show an upper bound of $O(d\sqrt{T})$ and a lower bound of $\Omega(\sqrt{dT})$.
+}
+}
+
+
+@InProceedings{huetter16,
+author = {H{\"u}tter, Jan-Christian and Rigollet, Philippe},
+title = {Optimal rates for total variation denoising},
+  pages     = {1115-1146},
+abstract = {Motivated by its practical success, we show that the 2D total variation denoiser satisfies a sharp oracle inequality that leads to near optimal rates of estimation for a large class of image models such as bi-isotonic, H\"older smooth and cartoons.
+Our analysis hinges on properties of the unnormalized Laplacian of the  two-dimensional grid such as eigenvector delocalization and spectral decay. We also present extensions to more than two dimensions as well as several other graphs.
+}
+}
+
+
+@InProceedings{jain16,
+author = {Jain, Prateek and Jin, Chi and Kakade, Sham M. and Netrapalli, Praneeth and Sidford, Aaron},
+title = {Streaming PCA: Matching Matrix Bernstein and Near-Optimal Finite Sample Guarantees for Oja's Algorithm},
+  pages     = {1147-1164},
+abstract = {In this paper we provide improved guarantees for streaming principal component analysis (PCA). Given $A_1, \ldots, A_n\in \mathbb{R}^{d\times d}$ sampled independently from distributions satisfying $\mathbb{E}[A_i] = \Sigma$ for $\Sigma \succeq 0$, we present an $O(d)$-space linear-time single-pass streaming algorithm for estimating the top eigenvector of $\Sigma$. The algorithm nearly matches (and in certain cases improves upon) the accuracy obtained by the standard batch method that computes top eigenvector of the empirical covariance $\frac{1}{n} \sum_{i \in [n]} A_i$ as analyzed by the matrix Bernstein inequality. Moreover, to achieve constant accuracy, our algorithm improves upon the best previous known sample complexities of streaming algorithms by either a multiplicative factor of $O(d)$ or $1/\mathrm{gap}$ where $\mathrm{gap}$ is the relative distance between the top two eigenvalues of $\Sigma$.
+
+We achieve these results through a novel analysis of the classic Oja's algorithm, one of the oldest and perhaps, most popular algorithms for streaming PCA. We show that simply picking a random initial point $w_0$ and applying the natural update rule $w_{i + 1} = w_i + \eta_i A_i w_i$ suffices for suitable choice of $\eta_i$. We believe our result sheds light on how to efficiently perform streaming PCA both in theory and in practice and we hope that our analysis may serve as the basis for analyzing many variants and extensions of streaming PCA.}
+}
+
+
+@InProceedings{kotlowski16,
+author    = {Kot{\l}owski, Wojciech and Koolen, Wouter M. and Malek, Alan},
+title     = {Online Isotonic Regression},
+  pages     = {1165-1189},
+abstract  = {We consider the online version of the isotonic regression problem. Given a set of linearly ordered points (e.g., on the real line), the learner must predict labels sequentially at adversarially chosen positions and is evaluated by her total squared loss compared against the best isotonic (non-decreasing) function in hindsight. We survey several standard online learning algorithms and show that none of them achieve the optimal regret exponent; in fact, most of them (including Online Gradient Descent, Follow the Leader and Exponential Weights) incur linear regret. We then prove that the Exponential Weights algorithm played over a covering net of isotonic functions has a regret bounded by $O\big(T^{1/3} \log^{2/3}(T)\big)$ and present a matching $\Omega(T^{1/3})$ lower bound on regret. We provide a computationally efficient version of this algorithm. We also analyze the noise-free case, in which the revealed labels are isotonic, and show that the bound can be improved to $O(\log T)$ or even to $O(1)$ (when the labels are revealed in isotonic order). Finally, we extend the analysis beyond squared loss and give  bounds for entropic loss and absolute loss.}
+}
+
+
+
+@InProceedings{kuznetsov16,
+author    = {Kuznetsov, Vitaly and Mohri, Mehryar},
+title     = {Time series prediction and online learning},
+  pages     = {1190-1213},
+abstract  = {We present a series of theoretical and algorithmic results combining the benefits of the statistical learning approach to time series prediction with that of on-line learning. We prove new generalization guarantees for hypotheses derived from regret minimization algorithms in the general scenario where the data is generated by a non-stationary non-mixing stochastic process. Our theory enables us to derive model selection techniques with favorable theoretical guarantees in the scenario of time series, thereby solving a problem that is notoriously difficult in that scenario. It also helps us devise new ensemble methods with favorable theoretical guarantees for the task of forecasting non-stationary time series.
+}
+}
+
+
+@InProceedings{lattimore16,
+author = {Lattimore, Tor},
+title = {Regret Analysis of the Finite-Horizon Gittins Index Strategy for Multi-Armed Bandits},
+  pages     = {1214-1245},
+abstract = {I prove near-optimal frequentist regret guarantees for the finite-horizon Gittins index strategy for multi-armed bandits with Gaussian noise and prior. Along the way I derive finite-time bounds on the Gittins index that are asymptotically exact and may be of independent interest. I also discuss computational issues and present experimental results suggesting that a particular version of the Gittins index strategy is an improvement on existing algorithms with finite-time regret guarantees such as UCB and Thompson sampling.
+}
+}
+
+
+@InProceedings{lee16,
+author = {Jason D. Lee and Max Simchowitz and Michael I. Jordan and Benjamin Recht},
+title = {Gradient Descent Only Converges to Minimizers},
+  pages     = {1246-1257},
+abstract = {We show that gradient descent converges to a local minimizer, almost surely with random initial-
+ization. This is proved by applying the Stable Manifold Theorem from dynamical systems theory.}
+}
+
+
+@InProceedings{makarychev16,
+author = {Konstantin Makarychev and Yury Makarychev and Aravindan Vijayaraghavan},
+title = {Learning Communities in the Presence of Errors},
+  pages     = {1258-1291},
+abstract = {We study the problem of learning communities in the presence of modeling errors and give  robust recovery algorithms for the Stochastic Block Model (SBM). This model, which is also known as the Planted Partition Model,  is widely used for community detection and graph partitioning in various fields, including machine learning,  statistics, and social sciences. Many algorithms exist for learning communities in the Stochastic Block Model, but they do not work well in the presence of errors.
+
+In this paper, we initiate the study of robust algorithms for partial recovery in SBM with modeling errors or noise.
+We consider graphs generated according to the Stochastic Block Model and then modified by an adversary. We allow two types of adversarial errors,
+Feige---Kilian or monotone errors, and edge outlier errors. Mossel, Neeman and Sly (STOC 2015) posed an open question about whether an almost exact recovery is possible when the adversary is allowed to add $o(n)$ edges. Our work answers this question affirmatively even in the case of $k>2$ communities.
+
+We then show that our algorithms work not only when the instances come from SBM, but also work when the instances come from
+any distribution of graphs that is $\varepsilon m$ close to SBM in the Kullback---Leibler divergence.
+This result also works in the presence of adversarial errors. Finally, we present almost tight lower bounds for two communities.
+}
+}
+
+
+@InProceedings{massoulie16,
+author={Massoulie, Laurent and Xu, Kuang},
+title={On the capacity of information processing systems},
+  pages     = {1292-1297},
+abstract  = {We propose and analyze a family of \emph{information processing systems}, where a finite set of experts or servers are employed to extract information about a stream of incoming jobs. Each job is associated with a hidden label drawn from some prior distribution. An inspection by an expert produces a noisy outcome that depends both on the job's hidden label and the type of the expert, and occupies the expert for a finite time duration. A decision maker's task is to dynamically assign inspections so that the resulting outcomes can be used to accurately recover the labels of all jobs, while keeping the system stable. Among our chief motivations are applications in crowd-sourcing, diagnostics, and experiment designs, where one wishes to efficiently discover the nature of a large number of items, using a finite pool of computational resources or human agents.
+
+We focus on the \emph{capacity} of such an information processing system. Given a level of accuracy guarantee, we ask how many experts are needed in order to stabilize the system, and through what inspection architecture. Our main result provides an adaptive inspection policy that is asymptotically optimal in the following sense: the ratio between the required number of experts under our policy and the theoretical optimal converges to one, as the probability of error in label recovery tends to zero.}
+}
+
+
+@InProceedings{morgenstern16,
+author    = {Morgenstern, Jamie and Roughgarden, Tim},
+title     = {Learning Simple Auctions},
+  pages     = {1298-1318},
+abstract  = { We present a general framework for proving
+polynomial sample complexity bounds for the problem
+of learning from samples the best auction in a class
+of ``simple'' auctions.  Our framework captures the
+most prominent examples of ``simple'' auctions,
+including anonymous and non-anonymous item and
+bundle pricings, with either a single or multiple
+buyers.  The first step of the framework is to show
+that the set of auction allocation rules have a
+low-dimensional representation.  The second step
+shows that, across the subset of auctions that share
+the same allocations on a given set of samples, the
+auction revenue varies in a low-dimensional way.
+Our results effectively imply that whenever it is
+possible to compute a near-optimal simple auction
+with a known prior, it is also possible to compute
+such an auction with an unknown prior, given a
+polynomial number of samples. }}
+
+
+@InProceedings{mossel16,
+author = {Mossel, Elchanan and Xu, Jiaming},
+title = {Density Evolution in the
+Degree-correlated Stochastic Block Model},
+  pages     = {1319-1356},
+abstract = {
+There is a recent surge of interest in identifying the sharp recovery thresholds for cluster recovery under the
+stochastic block model. In this paper, we address the more refined question of how many vertices that will be misclassified
+on average. We consider the binary form of the stochastic block model,
+where $n$ vertices are partitioned into  two clusters
+with edge probability
+$a/n$ within the first cluster, $c/n$ within the second cluster, and
+$b/n$ across clusters.  Suppose that as $n \to \infty$,
+$a= b+ \mu \sqrt{ b} $,  $c=b+  \nu \sqrt{ b} $ for two fixed
+constants $\mu, \nu$, and $b \to \infty$ with $b=n^{o(1)}$.
+When the cluster sizes are balanced and $\mu \neq \nu$,
+we show that
+the minimum fraction of misclassified vertices on average is given by  $Q(\sqrt{v^*})$,
+where $Q(x)$ is the Q-function for standard normal,
+$v^*$ is the unique fixed point of $v= \frac{(\mu-\nu)^2}{16} + \frac{ (\mu+\nu)^2 }{16} \mathbb{E}[ \tanh(v+ \sqrt{v} Z)]$,
+and $Z$ is standard normal. Moreover, the minimum  misclassified  fraction on average is attained by a local algorithm, namely
+belief propagation, in time linear in the number of edges. Our proof techniques are based on connecting the cluster recovery problem to
+tree reconstruction problems, and analyzing the density evolution of belief propagation on trees with Gaussian approximations.
+}
+}
+
+
+
+
+
+@InProceedings{papadimitriou16,
+author = {Papadimitriou, Christos and Petti, Samantha and Vempala, Santosh},
+title = {Cortical Computation via Iterative Constructions},
+  pages     = {1357-1375},
+abstract = {We study Boolean functions of an arbitrary number of input variables that can be realized by simple iterative constructions based on constant-size primitives. This restricted type of construction needs little global coordination or control and thus is a candidate for neurally feasible computation. Valiant's construction of a majority function can be realized in this manner and, as we show, can be generalized to any uniform threshold function. We study the rate of convergence, finding that while linear convergence to the correct function can be achieved for any threshold using a fixed set of primitives, for quadratic convergence, the size of the primitives must grow as the threshold approaches $0$ or $1$. We also study finite realizations of this process and the learnability of the functions realized. We show that the constructions realized are accurate outside a small interval near the target threshold, where the size of the construction grows as the inverse square of the interval width. This phenomenon, that errors are higher closer to thresholds (and thresholds closer to the boundary are harder to represent), is a well-known cognitive finding.}
+}
+
+
+
+@InProceedings{rajkumar16,
+author = {Rajkumar, Arun and Agarwal, Shivani},
+title = {When can we rank well from comparisons of $O(n\log(n))$
+non-actively chosen pairs?},
+  pages     = {1376-1401},
+abstract = {Ranking from pairwise
+comparisons is a ubiquitous problem and has been studied in disciplines
+ranging from statistics to operations research and from theoretical computer
+science to machine learning. Here we consider a general setting where
+outcomes of pairwise comparisons between items $i$ and $j$ are drawn
+probabilistically by flipping a coin with unknown bias $P_{ij}$ , and ask under
+what conditions on these unknown probabilities one can learn a good ranking
+from comparisons of only $O(n\log(n))$ non-actively chosen pairs. Recent work has
+established this is possible under the Bradley-Terry-Luce (BTL) and noisy
+permutation (NP) models. Here we introduce a broad family of ‘low-rank’
+conditions on the probabilities $P_{ij}$ under which the resulting preference
+matrix $P$ has low rank under some link function, and show these conditions
+encompass the BTL and Thurstone classes as special cases, but are
+considerably more general. We then give a new algorithm called low-rank
+pairwise ranking (LRPR) which provably learns a good ranking from comparisons
+of only $O(n\log(n))$ randomly chosen comparisons under such low-rank models. Our
+algorithm and analysis make use of tools from the theory of low-rank matrix
+completion, and provide a new perspective on the problem of ranking from
+pairwise comparisons in non-active settings.}
+}
+
+
+@InProceedings{risteski16,
+author = {Risteski, Andrej},
+title = {How to calculate partition functions using convex programming hierarchies: provable bounds for variational methods},
+  pages     = {1402-1416},
+abstract = {We consider the problem of approximating partition functions for Ising models. We make use of recent tools in combinatorial optimization: the Sherali-Adams and Lasserre convex programming hierarchies, in combination with variational methods to get algorithms for calculating partition functions in these families. These techniques give new, non-trivial approximation guarantees for the partition function beyond the regime of correlation decay. They also generalize some classical results from statistical physics about the Curie-Weiss ferromagnetic Ising model, as well as provide a partition function counterpart of classical results about max-cut on dense graphs (Arora, 1995). With this, we connect techniques from two apparently disparate research areas -- optimization and counting/partition function approximations. (i.e. \#-P type of problems).
+
+Furthermore, we design to the best of our knowledge the first provable, convex variational methods. Though in the literature there are a host of convex versions of variational methods, they come with no guarantees (apart from some extremely special cases, like e.g. the graph has a single cycle). We consider dense and low rank graphs, and interestingly, the reason our approach works on these types of graphs is because local correlations propagate to global correlations -- completely the opposite of algorithms based on correlation decay. In the process we design novel entropy approximations based on the low-order moments of a distribution.
+
+Our proof techniques are very simple and generic, and likely to be applicable to many other settings other than Ising models. }
+}
+
+
+@InProceedings{russo16,
+author = {Russo, Daniel},
+title = {Simple Bayesian Algorithms for Best Arm Identification},
+  pages     = {1417-1418},
+abstract = {This paper considers the optimal adaptive allocation of measurement effort for identifying the best among a finite set of options or designs.  An experimenter sequentially chooses designs to measure and observes noisy signals of their quality with the goal of confidently identifying the best design  after a small number of measurements. I propose three simple Bayesian algorithms for adaptively allocating measurement effort. One is Top-Two Probability sampling, which computes the two designs with the highest posterior probability of being optimal, and then randomizes to select among these two. One is a variant a top-two sampling which considers not only the probability a design is optimal, but the expected amount by which its quality exceeds that of other designs. The final algorithm is a modified version of Thompson sampling that is tailored for identifying the best design. I prove that these simple algorithms satisfy a strong optimality property. In a frequestist setting where the true quality of the designs is fixed, one hopes the posterior definitively identifies the optimal design, in the sense that that the posterior probability assigned to the event that some other design is optimal converges to zero as measurements are collected. I show that under the proposed algorithms this convergence occurs at an \emph{exponential rate}, and the corresponding exponent is the best possible among all allocation rules.}
+}
+
+
+@InProceedings{sabato16,
+author = {Sabato, Sivan and Hess, Tom},
+title = {Interactive Algorithms: from Pool to Stream},
+  pages     = {1419-1439},
+abstract = {We consider interactive algorithms in the pool-based setting, and in the stream-based setting. Interactive algorithms observe suggested elements (representing actions or queries), and interactively select some of them and receive responses. Pool-based algorithms can select elements at any order, while stream-based algorithms observe elements in sequence, and can only select elements immediately after observing them. We assume that the suggested elements are generated independently from some source distribution, and ask what is the stream size required for emulating a pool algorithm with a given pool size. We provide algorithms and matching lower bounds for general pool algorithms, and for utility-based pool algorithms. We further show that a maximal gap between the two settings exists also in the special case of active learning for binary classification.}
+}
+
+
+@InProceedings{simchowitz16,
+author    = {Simchowitz, Max and Jamieson, Kevin and Recht, Benjamin},
+title     = {Best-of-K-bandits},
+  pages     = {1440-1489},
+abstract  = {This paper studies the Best-of-K Bandit game: At each time the player chooses a subset S among all N-choose-K possible options and observes reward max(X(i) : i in S) where X is a random vector drawn from a joint distribution. The objective is to identify the subset that achieves the highest expected reward with high probability using as few queries as possible. We present distribution-dependent lower bounds based on a particular construction which force a learner to consider all N-choose-K subsets, and match naive extensions of known upper bounds in the bandit setting obtained by treating each subset as a separate arm. Nevertheless, we present evidence that exhaustive search may be avoided for certain, favorable distributions because the influence of high-order order correlations may be dominated by lower order statistics. Finally, we present an algorithm and analysis for independent arms, which mitigates the surprising non-trivial information occlusion that occurs due to only observing the max in the subset. This may inform strategies for more general dependent measures, and we complement these result with independent-arm lower bounds. }
+}
+
+
+@InProceedings{steinhardt16,
+author    = {Steinhardt, Jacob and Valiant, Gregory and Wager, Stefan},
+title     = {Memory, Communication, and Statistical Queries},
+  pages     = {1490-1516},
+abstract  = {If a concept class can be represented with a certain amount of memory, can it be efficiently learned
+with the same amount of memory? What concepts can be efficiently learned by algorithms that
+extract only a few bits of information from each example? We introduce a formal framework for
+studying these questions, and investigate the relationship between the fundamental resources of
+memory or communication and the sample complexity of the learning task. We relate our memory-bounded
+and communication-bounded learning models to the well-studied statistical query model. This connection
+can be leveraged to obtain both upper and lower bounds: we show strong lower bounds on learning parity
+functions with bounded communication, as well as upper bounds on solving sparse linear regression
+problems with limited memory.}
+}
+
+
+@InProceedings{telgarsky16,
+author = {Telgarsky, Matus},
+title = {benefits of depth in neural networks},
+  pages     = {1517-1539},
+abstract = {
+For any positive integer $k$,
+there exist neural networks
+with $\Theta(k^3)$ layers,
+$\Theta(1)$ nodes per layer,
+and $\Theta(1)$ distinct parameters
+which can not be approximated by networks with $O(k)$ layers
+unless they are exponentially large --- they must possess $\Omega(2^k)$ nodes.
+This result is proved here for a class of nodes termed \emph{semi-algebraic gates} which includes
+the common choices of ReLU, maximum, indicator, and piecewise polynomial functions, therefore establishing
+benefits of depth against not just standard networks with ReLU gates, but also convolutional networks
+with ReLU and maximization gates,
+sum-product networks,
+and boosted decision trees
+(in this last case with a stronger separation: $\Omega(2^{k^3})$ total tree nodes are required).
+}
+}
+
+
+@InProceedings{volkovich16,
+author = {Volkovich, Ilya},
+title = {A Guide to Learning Arithmetic Circuits},
+  pages     = {1540-1561},
+abstract = {
+An \emph{arithmetic circuit} is a directed acyclic graph in which the operations are $\{+,\times\}$.
+In this paper, we exhibit several connections between learning algorithms for arithmetic circuits and other problems.
+In particular, we show that:
+
+\begin{itemize}
+\item Efficient learning algorithms for arithmetic circuit classes imply explicit exponential lower bounds.
+
+\item General circuits and formulas can be learned efficiently with membership and equivalence queries iff
+they can be learned efficiently with membership queries only.
+
+\item Low-query learning algorithms for certain classes of circuits imply explicit rigid matrices.
+
+\item Learning algorithms for multilinear depth-3 and depth-4 circuits must compute square roots.
+\end{itemize}}
+}
+
+
+@inproceedings{weed16,
+abstract = {Motivated by online advertising auctions, we consider repeated Vickrey auctions where goods of unknown value are sold sequentially and bidders only learn (potentially noisy) information about a good's value once it is purchased. We adopt an online learning approach with bandit feedback to  model this problem and derive bidding strategies for two models: stochastic and adversarial. In the stochastic model, the observed values of the goods are  random variables centered around the true value of the good. In this case, logarithmic regret is achievable when competing against well behaved adversaries. In the adversarial model, the goods need not be identical. Comparing our performance against that of the best fixed bid in hindsight, we show that sublinear regret is also achievable in this case. For both the stochastic and adversarial models, we prove matching minimax lower bounds showing our strategies to be optimal up to lower-order terms. To our knowledge, this is the first complete set of strategies for bidders participating in auctions of this type.},
+author = {Weed, Jonathan and Perchet, Vianney and Rigollet, Philippe},
+  pages     = {1562-1583},
+title = {Online learning in repeated auctions}}
+
+
+@InProceedings{zhang16a,
+author    = {Zhang, Chicheng and Chaudhuri, Kamalika},
+title     = {The Extended Littlestone's Dimension for Learning with Mistakes and Abstentions},
+  pages     = {1584-1616},
+abstract  = {This paper studies classification with an abstention option in the online setting. In this setting, examples arrive sequentially, the learner is given a hypothesis class $\mathcal{H}$, and the goal of the learner is to either predict a label on each example or abstain, while ensuring that it does not make more than a pre-specified number of mistakes when it does predict a label.
+
+Previous work on this problem has left open two main challenges. First, not much is known about the optimality of algorithms, and in particular, about what an optimal algorithmic strategy is for any individual hypothesis class. Second, while the realizable case has been studied, the more realistic non-realizable scenario is not well-understood. In this paper, we address both challenges. First, we provide a novel measure, called the Extended Littlestone's Dimension, which captures the number of abstentions needed to ensure a certain number of mistakes. Second, we explore the non-realizable case, and provide upper and lower bounds on the number of abstentions required by an algorithm to guarantee a specified number of mistakes.}
+}
+
+
+@InProceedings{zhang16b,
+author = {Zhang, Hongyi and Sra, Suvrit},
+title = {First-order Methods for Geodesically Convex Optimization},
+  pages     = {1617-1638},
+abstract = {Geodesic convexity generalizes the notion of (vector space) convexity to nonlinear metric spaces. But unlike convex optimization, geodesically convex (g-convex) optimization is much less developed. In this paper we contribute to the understanding of g-convex optimization by developing iteration complexity analysis for several first-order algorithms on Hadamard manifolds. Specifically, we prove upper bounds for the global complexity of deterministic and stochastic (sub)gradient methods for optimizing smooth and nonsmooth g-convex functions, both with and without strong g-convexity. Our analysis also reveals how the manifold geometry, especially \emph{sectional curvature}, impacts convergence rates. To the best of our knowledge, our work is the first to provide global complexity analysis for first-order algorithms for general g-convex optimization.}
+}
+
+
+@InProceedings{azizzadenesheli16b,
+author    = {Azizzadenesheli, Kamyar and Lazaric, Alessandro and Anandkumar, Animashree},
+title     = {Open Problem: Approximate Planning of POMDPs in the class of Memoryless Policies},
+  pages     = {1639-1642},
+abstract  = {Planning plays an important role in the broad class of decision theory. Planning has drawn much attention in recent work in the robotics and sequential decision making areas. Recently, Reinforcement Learning (RL), as an agent-environment interaction problem, has brought further attention to planning methods. Generally in RL, one can assume a generative model, e.g. graphical models, for the environment, and then the task for the RL agent is to learn the model parameters and find the optimal strategy based on these learnt parameters. Based on environment behavior, the agent can assume various types of generative models, e.g. Multi Armed Bandit for a static environment, or Markov Decision Process (MDP) for a dynamic environment. The advantage of these popular models is their simplicity, which results in tractable methods of learning the parameters and finding the optimal policy. The drawback of these models is again their simplicity: these models usually underfit and underestimate the actual environment behavior. For example, in robotics, the agent usually has noisy observations of the environment inner state and MDP is not a suitable model.
+
+More complex models like Partially Observable Markov Decision Process (POMDP) can compensate for this drawback. Fitting this model to the environment, where the partial observation is given to the agent, generally gives dramatic performance improvement, sometimes unbounded improvement, compared to MDP. In general, finding the optimal policy for the POMDP model is computationally intractable and fully non convex, even for the class of memoryless policies. The open problem is to come up with a method to find an exact or an approximate optimal stochastic memoryless policy for POMDP models.}
+}
+
+
+@InProceedings{chen16b,
+author = {Chen, Lijie and Li, Jian},
+title = {Open Problem: Best Arm Identification: Almost Instance-Wise Optimality and the Gap Entropy Conjecture},
+  pages     = {1643-1646},
+abstract = {The best arm identification problem (BEST-1-ARM) is the most basic pure exploration
+problem in stochastic multi-armed bandits.
+The problem has a long history and attracted significant attention
+for the last decade.
+However, we do not yet have a complete understanding of the
+optimal sample complexity of the problem:
+The state-of-the-art algorithms achieve a sample complexity
+of $O(\sum_{i=2}^{n} \Delta_{i}^{-2}(\ln\delta^{-1} + \ln\ln\Delta_i^{-1}))$
+($\Delta_{i}$ is the difference between the largest mean and the $i^{th}$ mean), while the best known lower bound is $\Omega(\sum_{i=2}^{n} \Delta_{i}^{-2}\ln\delta^{-1})$ for general instances and $\Omega(\Delta^{-2} \ln\ln \Delta^{-1})$ for the two-arm instances.
+We propose to study the instance-wise optimality for the BEST-1-ARM problem.
+Previous work has proved that it is impossible to have an instance optimal
+algorithm for the 2-arm problem.
+However, we conjecture that modulo the additive term
+$\Omega(\Delta_2^{-2} \ln\ln \Delta_2^{-1})$ (which is an upper bound and worst case lower bound for the 2-arm problem),
+there is an instance optimal algorithm for BEST-1-ARM.
+Moreover, we introduce a new quantity, called the gap entropy for a best-arm problem instance, and conjecture that it is the instance-wise lower bound.
+Hence, resolving this conjecture would provide a final answer
+to the old and basic problem.}
+}
+
+
+@InProceedings{feragen16,
+author = {Feragen, Aasa and Hauberg, S{\o}ren},
+title = {Open Problem: Kernel methods on manifolds and metric spaces. What is the probability of a positive definite geodesic exponential kernel?},
+  pages     = {1647-1650},
+abstract = {Radial kernels are well-suited for machine learning over general geodesic metric spaces, where pairwise distances are often the only computable quantity available. We have recently shown that geodesic exponential kernels are only positive definite for all bandwidths when the input space has strong linear properties. This negative result hints that radial kernel are perhaps not suitable over geodesic metric spaces after all. Here, however, we present evidence that large intervals of bandwidths exist where geodesic exponential kernels have high probability of being positive definite over finite datasets, while still having significant predictive power. From this we formulate conjectures on the probability of a positive definite kernel matrix for a finite random sample, depending on the geometry of the data space and the spread of the sample.}
+}
+
+@InProceedings{freund16,
+author = {Yoav Freund},
+title = {Open Problem: Second order regret bounds based on scaling time},
+  pages     = {1651-1654},
+abstract = {We argue that the second order bounds given in
+Cesa-Bianchi2006, which accumulate the square of the
+loss of each action separately, are loose. We
+propose a different form of a second order bound and
+conjecture the it is satisfied by NormalHedge
+ChaudhuriFrHs2009.}
+}
+
+@InProceedings{frongillo16,
+author = {Frongillo, Rafael and Kash, Ian and Becker, Stephen},
+title = {Open Problem: Property Elicitation and Elicitation Complexity},
+  pages     = {1655-1658},
+abstract = {The study of property elicitation is gaining ground in statistics and machine learning as a way to view and reason about the expressive power of emiprical risk minimization (ERM).  Yet beyond a widening frontier of special cases, the two most fundamental questions in this area remain open: which statistics are elicitable (computable via ERM), and which loss functions elicit them?  Moreover, recent work suggests a complementary line of questioning: given a statistic, how many ERM parameters are needed to compute it?  We give concrete instantiations of these important questions, which have numerous applications to machine learning and related fields.}
+}
+
+
+@InProceedings{orabona16,
+author = {Orabona, Francesco and P\'al, D\'avid},
+title = {Open Problem: Parameter-Free and Scale-Free Online Algorithms},
+  pages     = {1659-1664},
+abstract = {
+Existing vanilla algorithms for online linear optimization have $O((\eta R(u) +
+1/\eta) \sqrt{T})$ regret with respect to any competitor $u$, where $R(u)$ is a
+$1$-strongly convex regularizer and $\eta > 0$ is a tuning parameter of the
+algorithm. For certain decision sets and regularizers, the so-called
+\emph{parameter-free} algorithms have $\widetilde O(\sqrt{R(u) T})$ regret with
+respect to any competitor $u$.  Vanilla algorithm can achieve the same bound
+only for a fixed competitor $u$ known ahead of time by setting $\eta =
+1/\sqrt{R(u)}$. A drawback of both vanilla and parameter-free algorithms is that
+they assume that the norm of the loss vectors is bounded by a constant known to
+the algorithm. There exist \emph{scale-free} algorithms that have $O((\eta R(u) +
+1/\eta) \sqrt{T} \max_{1 \le t \le T} \norm{\ell_t})$ regret with respect to any
+competitor $u$ and for any sequence of loss vector $\ell_1, \dots, \ell_T$.
+Parameter-free analogue of scale-free algorithms have never been designed. Is is
+possible to design algorithms that are simultaneously \emph{parameter-free} and
+\emph{scale-free}?
+}
+}

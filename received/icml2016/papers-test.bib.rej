@@ -1,0 +1,7 @@
+***************
+*** 2180,2181
+- @InProceedings{krour16,
+-   title = {Model-Free Trajectory Optimization\\ for Reinforcement Learning},
+--- 2180,2181 -----
++ @InProceedings{akrour16,
++   title = {Model-Free Trajectory Optimization for Reinforcement Learning},

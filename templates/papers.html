@@ -30,7 +30,16 @@
 	$for(editors)$
 		$firstnames$ $surname$$sep$,
 	$endfor$
-	</strong></p>
+    </strong>
+	$if(production)$
+	<br/>
+	<strong>Production Editor: $production$</strong>
+	$endif$
+	</p>
+
+	$if(note)$ 
+	<div id="note">$note$</div>
+	$endif$
 
 	<div id='sectionnav'>
 		<p>Contents:</p>

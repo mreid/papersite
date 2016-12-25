@@ -1,0 +1,20 @@
+@InProceedings{Kotlowski15,
+  title = {Surrogate regret bounds for generalized classification performance metrics},
+  author = {Kotlowski, Wojciech and Dembczynski, Krzysztof},
+  pages = {301-316},
+  abstract = {We consider optimization of generalized performance metrics for binary classification
+by means of surrogate loss.  We focus on a class of metrics, which are linear-fractional functions
+of the false positive and false negative rates (examples of which include $F_{\beta}$-measure,
+Jaccard similarity coefficient, AM measure, and many others).
+Our analysis concerns the following two-step procedure. First, a real-valued function
+$f$ is learned by minimizing a surrogate loss for binary classification on the training sample.
+It is assumed that the surrogate loss
+is a strongly proper composite loss function (examples of which include
+logistic loss, squared-error loss, exponential loss, etc.). Then, given $f$, a threshold $\hat{\theta}$ is
+tuned on a separate validation sample, by direct optimization of the target performance measure.
+We show that the regret of the resulting classifier (obtained from thresholding $f$ on $\hat{\theta}$) 
+measured with respect to the target metric is upperbounded by the regret of $f$ measured with respect
+to the surrogate loss. 
+Our finding is further analyzed
+in~a~computational study on both synthetic and real data~sets.},
+}

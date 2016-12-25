@@ -1,0 +1,7 @@
+@InProceedings{zaheer16,
+  supplementary = {Supplementary:zaheer16-supp.pdf},
+  title = {Exponential Stochastic Cellular Automata for Massively Parallel Inference},
+  author = {Zaheer, Manzil and Wick, Michael and Tristan, Jean-Baptiste and Smola, Alex and Steele, Guy},
+  pages = {966-975},
+  abstract = {We propose an embarrassingly parallel, memory efficient inference algorithm for latent variable models in which the complete data likelihood is in the exponential family. The algorithm is a stochastic cellular automaton and converges to a valid maximum a posteriori fixed point. Applied to latent Dirichlet allocation we find that our algorithm is over an order or magnitude faster than the fastest current approaches. A simple C++/MPI implementation on a 20-node Amazon EC2 cluster samples at more than 1 billion tokens per second. We process 3 billion documents and achieve predictive power competitive with collapsed Gibbs sampling and variational inference.},
+}

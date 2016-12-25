@@ -1,0 +1,6 @@
+@InProceedings{ravi16,
+  title = {Large Scale Distributed Semi-Supervised Learning Using Streaming Approximation},
+  author = {Ravi, Sujith and Diao, Qiming},
+  pages = {519-528},
+  abstract = {Traditional graph-based semi-supervised learning (SSL) approaches are not suited for massive data and large label scenarios since they scale linearly with the number of edges $|E|$ and distinct labels $m$. To deal with the large label size problem, recent works propose sketch-based methods to approximate the label distribution per node thereby achieving a space reduction from $O(m)$ to $O(\log m)$, under certain conditions. In this paper, we present a novel streaming graph-based SSL approximation that effectively captures the sparsity of the label distribution and further reduces the space complexity per node to $O(1)$. We also provide a distributed version of the algorithm that scales well to large data sizes. Experiments on real-world datasets demonstrate that the new method achieves better performance than existing state-of-the-art algorithms with significant reduction in memory footprint. Finally, we propose a robust graph augmentation strategy using unsupervised deep learning architectures that yields further significant quality gains for SSL in natural language applications.},
+}

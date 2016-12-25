@@ -1,0 +1,7 @@
+@InProceedings{bogunovic16,
+  supplementary = {Supplementary:bogunovic16-supp.pdf},
+  title = {Time-Varying Gaussian Process Bandit Optimization},
+  author = {Bogunovic, Ilija and Scarlett, Jonathan and Cevher, Volkan},
+  pages = {314-323},
+  abstract = {We consider the sequential Bayesian optimization problem with bandit feedback, adopting a formulation that allows for the reward function to vary with time. We model the reward function using a Gaussian process whose evolution obeys a simple Markov model.  We introduce two natural extensions of the classical Gaussian process upper confidence bound (GP-UCB) algorithm. The first, R-GP-UCB, resets GP-UCB at regular intervals. The second, TV-GP-UCB, instead forgets about old data in a smooth fashion.  Our main contribution comprises of novel regret bounds for these algorithms, providing an explicit characterization of the trade-off between the time horizon and the rate at which the function varies.  We illustrate the performance of the algorithms on both synthetic and real data, and we find the gradual forgetting of TV-GP-UCB to perform favorably compared to the sharp resetting of R-GP-UCB.  Moreover, both algorithms significantly outperform classical GP-UCB, since it treats stale and fresh data equally.},
+}

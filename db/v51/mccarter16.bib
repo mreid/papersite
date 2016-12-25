@@ -1,0 +1,7 @@
+@InProceedings{mccarter16,
+  supplementary = {Supplementary:mccarter16-supp.pdf},
+  title = {Large-Scale Optimization Algorithms for Sparse Conditional Gaussian Graphical Models},
+  author = {McCarter, Calvin and Kim, Seyoung},
+  pages = {528-537},
+  abstract = {This paper addresses the problem of scalable optimization for L1-regularized conditional Gaussian graphical models.  Conditional Gaussian graphical models generalize the well-known Gaussian graphical models to conditional distributions to model the output network influenced by conditioning input variables. While highly scalable optimization methods exist for sparse Gaussian graphical model estimation, state-of-the-art methods for conditional Gaussian graphical models are not efficient enough and more importantly, fail due to memory constraints for very large problems. In this paper, we propose a new optimization procedure based on a Newton method that efficiently iterates over two sub-problems, leading to drastic improvement in computation time compared to the previous methods. We then extend our method to scale to large problems under memory constraints, using block coordinate descent to limit memory usage while achieving fast convergence. Using synthetic and genomic data, we show that our methods can solve problems with millions of variables and tens of billions of parameters to high accuracy on a single machine.},
+}

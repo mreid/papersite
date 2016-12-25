@@ -1,0 +1,7 @@
+@InProceedings{rolet16,
+  supplementary = {Supplementary:rolet16-supp.pdf},
+  title = {Fast Dictionary Learning with a Smoothed Wasserstein Loss},
+  author = {Rolet, Antoine and Cuturi, Marco and Peyré, Gabriel},
+  pages = {630-638},
+  abstract = {We consider in this paper the dictionary learning problem when the observations are normalized histograms of features. This problem can be tackled using non-negative matrix factorization approaches, using typically Euclidean or Kullback-Leibler fitting errors. Because these fitting errors are separable and treat each feature on equal footing, they are blind to any similarity the features may share. We assume in this work that we have prior knowledge on these features. To leverage this side-information, we propose to use the Wasserstein (\textit{a.k.a.} earth mover's or optimal transport) distance as the fitting error between each original point and its reconstruction, and we propose scalable algorithms to to so. Our methods build upon Fenchel duality and entropic regularization of Wasserstein distances, which improves not only speed but also computational stability. We apply these techniques on face images and text documents. We show in particular that we can learn dictionaries (topics) for bag-of-word representations of texts using words that may not have appeared in the original texts, or even words that come from a different language than that used in the texts.},
+}

@@ -1,0 +1,10 @@
+@InProceedings{atzmon2015,
+  title = {Learning Sparse Metrics, One Feature at a Time},
+  author = {Atzmon, Yuval, and Shalit, Uri and Chechik, Gal},
+  pages = {30-48},
+  abstract = {Learning distance metrics from data is a fundamental problem in machine learning and useful way to extract data-driven features by using the matrix root of a distance matrix. Finding a proper metric amounts to optimization over the cone of positive definite (PD) matrices. This optimization is difficult since restricting optimization to remain within the PD cone or repeatedly projecting to the cone is prohibitively costly.
+
+Here we describe COMET, a block-coordinate descent procedure, which efficiently keeps the search within the PD cone, avoiding both costly projections and unnecessary computation of full gradients. COMET also continuously maintains the Cholesky root of the matrix, providing feature extraction and embedding of samples in a metric space. We further develop a structurally sparse variant of COMET, where only a small number of features interacts with other features. Sparse-COMET significantly accelerates both training and inference while improving interpretability.
+ 
+As a block-coordinate descent procedure, COMET has fast convergence bounds showing linear convergence with high probability. When tested on benchmark datasets in a task of retrieving similar images and similar text documents, COMET has significantly better precision than competing projection-free methods. Furthermore, sparse-COMET achieves almost identical precision as dense-COMET in document classification, while running 4.5 times faster, maintaining a 0.5\% sparsity level, and outperforming competing methods both in precision and in run time. },
+}

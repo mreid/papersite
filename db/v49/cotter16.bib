@@ -1,0 +1,17 @@
+@InProceedings{cotter16,
+  author = {Cotter, Andrew and Gupta, Maya and Pfeifer, Jan},
+  title = {A Light Touch for Heavily Constrained SGD},
+  pages = {729-771},
+  abstract = {Minimizing empirical risk subject to a set of constraints can be a
+useful strategy for learning restricted classes of functions, such as monotonic
+functions, submodular functions, classifiers that guarantee a certain class
+label for some subset of examples, etc. However, these restrictions may result
+in a very large number of constraints. Projected stochastic gradient descent
+(SGD) is often the default choice for large-scale optimization in machine
+learning, but requires a projection after each update. For heavily-constrained
+objectives, we propose an efficient extension of SGD that stays close to the
+feasible region while only applying constraints probabilistically at each
+iteration. Theoretical analysis shows a compelling trade-off between
+per-iteration work and the number of iterations needed on problems with a large
+number of constraints.},
+}
