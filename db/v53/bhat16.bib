@@ -1,0 +1,15 @@
+@InProceedings{bhat16,
+    title = {Scalable SDE Filtering and Inference with Apache Spark},
+    author = {Bhat, Harish S. and Madushani, R. W. M. A.  and  Rawat, Shagun},
+    abstract = {In this paper, we consider the problem of Bayesian filtering and inference for time series
+    data modeled as noisy, discrete-time observations of a stochastic differential equation (SDE)
+    with undetermined parameters. We develop a Metropolis algorithm to sample from the
+    high-dimensional joint posterior density of all SDE parameters and state time series. Our
+    approach relies on an innovative density tracking by quadrature (DTQ) method to compute
+    the likelihood of the SDE, the part of the posterior that requires the most computational
+    effort to evaluate. As we show, the DTQ method lends itself to a natural implementation
+    using Scala and Apache Spark, an open source framework for scalable data mining. We
+    study the performance and scalability of our algorithm on filtering and inference problems
+    for both regularly and irregularly spaced time series.},
+    pages = {18--34}
+}
