@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-
-  {% include head.html %}
-
+  <head>
+    {% include head.html %}
+    <title>{{ page.title }}</title>
+  </head>
   <body>
 
     {% include header.html %}
@@ -12,6 +13,8 @@
         {{ content }}
       </div>
     </div>
+    
+    <center>This document last modified {{ site.time }}</center>
 
     {% include footer.html %}
 

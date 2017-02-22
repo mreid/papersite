@@ -1,7 +1,7 @@
 <meta name="citation_title" content="{{ page.title }}">
 
 {% for author in page.authors %}
-<meta name="citation_author" content="{{ author.firstname }} {{ author.lastname }}">
+<meta name="citation_author" content="{{ author.given }} {{ author.family }}">
 {% endfor %}
 
 {% if page.year %}

@@ -1,21 +1,17 @@
 <article class="post-content">
   <h1>{{ page.title }}</h1>
-  <div id="authors">
-    <br>
-    {% for author in page.authors %}
-    {% if author.url %}
-    [{{ author.givenname }} {{ author.surname }}]({{ author.url }}), 
-    {% else %}
-    {{ author.givenname }} {{ author.surname }}, 
-    {% endif %}
-    {% endfor %}
+  <div id="authors" class="authors">
+    {% assign lastone = page.authors | last %}
+    {% for person in page.authors %}
+    {% include listperson.html %}
+    {% endfor %};
   </div>
-  <div id="info">
-    {{ site.conference }}, pp {{ page.firstpage }}-{{ page.lastpage }}, {{ site.year }}
+  <div id="info" class="authors">
+    {{ site.conference }}, PMLR {{ site.volume }}:{{ page.firstpage }}-{{ page.lastpage }}, {{ site.year }}.
   </div> <!-- info -->
   
   <h2>Abstract</h2>
-  <div id="abstract">
+  <div id="abstract" class="abstract">
     {{ page.abstract | markdownify }}
   </div>
   <h2>Related Material</h2>

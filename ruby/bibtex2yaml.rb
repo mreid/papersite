@@ -8,7 +8,7 @@ require 'pandoc-ruby'
 
 bibdir = '/Users/neil/mlresearch/papersite/db/'
 procdir = '/Users/neil/mlresearch/'
-url = 'http://mlr.press'
+url = 'http://proceedings.mlr.press'
 email = ''
 twitter = 'mlresearch'
 def detex(text)
@@ -30,8 +30,8 @@ def bibtohash(obj, bib)
   ha['key'] = ha['bibtex_key'].to_s
   ha.tap { |hs| hs.delete('bibtex_key') }
 
-  ha['categories'] = Array.new(1)
-  ha['categories'][0] = ha['key']
+  #ha['categories'] = Array.new(1)
+  #ha['categories'][0] = ha['key']
 
   ha['month'] = ha['month_numeric'].to_i
   ha.tap { |hs| hs.delete('month_numeric') }
@@ -53,6 +53,9 @@ def bibtohash(obj, bib)
     ha.tap { |hs| hs.delete('pages') }
   end
 
+  ha['origpdf'] = ha['pdf']
+  ha['pdf'] = './' + ha['key'] + '/' + ha['key'] + '.pdf'
+    
   if ha.has_key?('comments')
     if ha['comments'].downcase == 'yes' or ha['comments'].downcase == 'true'
       ha['comments'] = true
@@ -109,7 +112,7 @@ def splitauthors(ha, obj, type=:author)
   obj[type].each.with_index(0) do |name, index|
     first = detex(name.first)
     last = detex(name.last)
-    a[index] = {'givenname' => first, 'surname' => last}
+    a[index] = {'given' => first, 'family' => last}
   end
   return a
 end
@@ -132,7 +135,7 @@ else
   #File.delete(*Dir.glob(procdir + reponame + '/_posts/*.markdown'))
   # Add details to _config.yml file
   ha['title'] = ha['booktitle']
-  ha['volume'] = volume.to_s
+  ha['volume'] = volume.to_i
   ha['conference'] = ha['booktitle']
   ha['email'] = email
   ha['description'] = ha['booktitle']
@@ -144,7 +147,7 @@ else
   ha['twitter_username'] = twitter
   ha['github_username'] = 'mlresearch'
   ha['markdown'] = 'kramdown'
-  ha['permalink'] = '/:categories/:title.html'
+  ha['permalink'] = '/:title.html'
   ya = ha.to_yaml(:ExplicitTypes => true)
   published = ha['published']
   
@@ -180,6 +183,8 @@ Dir.mkdir(directory_name) unless File.exists?(directory_name)
 FileUtils.cp procdir +  'papersite/ruby/inproceedings.html', '_layouts/'
 FileUtils.cp procdir +  'papersite/ruby/default.html', '_layouts/'
 FileUtils.cp procdir +  'papersite/ruby/paper_list.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/listpaper.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/listperson.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/head.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/header.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/footer.html', '_includes/'

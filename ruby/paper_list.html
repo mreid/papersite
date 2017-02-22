@@ -2,8 +2,9 @@
   <p class="title">{{ post.title }}</p>
   <p class="details">
     <span class="authors">
-      {% for author in post.authors %}
-      {{ author.firstname }} {{ author.lastname }},
+      {% assign lastone = post.authors | last %}
+      {% for person in post.authors %}
+      {% include listperson.html %}
       {% endfor %}
     </span>
   </p>

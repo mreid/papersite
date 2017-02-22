@@ -11,8 +11,10 @@ layout: default
 
 </head>
 
-{% include paper_abstract.html %}
+<div id="content">
+  {% include paper_abstract.html %}
 
-{% if site.comments %}
-{% include disqus_comment_code.html %}
-{% endif %}
+  {% if site.comments %}
+  {% include disqus_comment_code.html %}
+  {% endif %}
+</div>
