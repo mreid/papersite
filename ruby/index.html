@@ -2,26 +2,28 @@
 layout: default
 ---
 
-<div class="home">
+<div id="content" class="home">
 
   <h1>Proceedings of Machine Learning Research</h1>
   <h2>Volume {{ site.volume }}: {{ site.conference }} {{ site.start | date: "%B %-d" }} to {{ site.end | date: "%B %-d, %Y" }}, {{ site.address }}</h2>
 
   
   <p><strong>Editors:
-      {% for editor in site.editors %}
-      {{ editor.firstname }} {{ editor.lastname }}
+      {% assign lastone = site.editor | last %}
+      {% for person in site.editor %}
+      {% include listperson.html %}
       {% endfor %}
   </strong></p>
 
   <div id="sectionnav">
+    {% if site.sections %}
     <p>Contents:</p>
     <ul>
       {% for section in site.sections %}
       <li><a href="#{{ section.name }}">{{ section.title }}</a></li>
       {% endfor %}
     </ul>
-
+    {% endif %}
     <label for="search-authors">Filter Authors:</label>
     <input type="search" name="filter-authors" id="search-authors" value />
     <label for="search-titles">Filter Titles:</label>
@@ -30,18 +32,20 @@ layout: default
   {% if site.sections %}
   {% for section in site.sections %}
   <h3 id="{{ section.name }}">{{ section.title }}</h3>
-    {% for post in site.posts | sort_by: "firstpage" %}
+  {% assign sorted = (site.posts | sort: 'firstpage') %}
+  {% for post in sorted %}
     {% if section.name == post.section %}
-    {% include paper_list.html %}
+    {% include listpaper.html %}
     {% endif %}
     {% endfor %}
   </dl>
   {% endfor %}
   {% endif %}
   <dl>
-  {% for post in site.posts | sort_by: "firstpage" %}
+  {% assign sorted = (site.posts | sort: 'firstpage') %}
+  {% for post in sorted %}
   {% unless post.section %} 
-  {% include paper_list.html %}
+  {% include listpaper.html %}
   {% endunless %}
   {% endfor %}
 

@@ -27,7 +27,7 @@ def bibtohash(obj, bib)
   ha['layout'] = ha['bibtex_type'].to_s
   ha.tap { |hs| hs.delete('bibtex_type') }
 
-  ha['key'] = ha['bibtex_key'].to_s
+  ha['id'] = ha['bibtex_key'].to_s
   ha.tap { |hs| hs.delete('bibtex_key') }
 
   #ha['categories'] = Array.new(1)
@@ -51,10 +51,11 @@ def bibtohash(obj, bib)
     ha['lastpage'] = pages[-1].to_i
     puts ha['firstpage'] + ha['lastpage'] 
     ha.tap { |hs| hs.delete('pages') }
+    ha['page'] = ha['firstpage'].to_s + '-' + ha['lastpage'].to_s
   end
 
   ha['origpdf'] = ha['pdf']
-  ha['pdf'] = './' + ha['key'] + '/' + ha['key'] + '.pdf'
+  ha['pdf'] = './' + ha['id'] + '/' + ha['id'] + '.pdf'
     
   if ha.has_key?('comments')
     if ha['comments'].downcase == 'yes' or ha['comments'].downcase == 'true'
@@ -71,17 +72,21 @@ def bibtohash(obj, bib)
     end
   end
   ha['sections'] = hasections
-  if ha.has_key?('editor')    
-    ha['editors'] = splitauthors(ha, obj, type=:editor)
+  if ha.has_key?('editor')
+    editor = splitauthors(ha, obj, type=:editor)
     ha.tap { |hs| hs.delete('editor') }
+    ha['editor'] = editor
   end
   
   if ha.has_key?('author')
-    ha['authors'] = splitauthors(ha, obj)
+    author = splitauthors(ha, obj)
     ha.tap { |hs| hs.delete('author') }
+    ha['author'] = author
   end
   if ha.has_key?('published')
     ha['published'] = Date.parse ha['published']
+  else
+    #ha['date'] = Date.parse "0000-00-00 00:00:00"
   end
   if ha.has_key?('start')
     ha['start'] = Date.parse ha['start']
@@ -148,6 +153,8 @@ else
   ha['github_username'] = 'mlresearch'
   ha['markdown'] = 'kramdown'
   ha['permalink'] = '/:title.html'
+  ha['gitub'] = {'edit' => true}
+  ha['analytics'] = {'google' => {'tracking_id' => 'UA-92432422-1'}}
   ya = ha.to_yaml(:ExplicitTypes => true)
   published = ha['published']
   
@@ -168,8 +175,17 @@ Dir.glob(bibdir + 'v' + volume.to_s + '/*.bib') do |bib_file|
     obj.replace(bib.q('@string'))
     obj.join
     ha = bibtohash(obj, bib)
+    # make seconds relate to page number for easy ordering.
+    if ha.has_key?('firstpage')
+      seconds = ha['firstpage'].to_i
+      m, s = seconds.divmod(60)
+      h, m = m.divmod(60)
+      d, h = h.divmod(24)
+      ha['date'] = published.to_s + " %02d:%02d:%02d" % [h, m, s]
+    end    
+    ha['publisher'] = 'PMLR'
     ya = ha.to_yaml(:ExplicitTypes => true)
-    fname = filename(published, ha['key'])
+    fname = filename(published, ha['id'])
     out = File.open('_posts/' + fname, 'w')
     out.puts ya
     out.puts "---"
@@ -188,8 +204,10 @@ FileUtils.cp procdir +  'papersite/ruby/listperson.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/head.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/header.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/footer.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/edit_link.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/mathjax_code.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/paper_abstract.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/google_tracking_code.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/paper_google_scholar.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/disqus_comment_code.html', '_includes/'
-FileUtils.cp procdir + 'papersite/ruby/about2.md', '.'
-FileUtils.cp procdir + 'papersite/ruby/index2.html', '.'
+FileUtils.cp procdir + 'papersite/ruby/index.html', '.'
