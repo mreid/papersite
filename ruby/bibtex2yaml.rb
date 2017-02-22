@@ -13,8 +13,10 @@ email = ''
 twitter = 'mlresearch'
 def detex(text)
   # Returning up to second end character is to deal with new line
-  return PandocRuby.convert(text, {:from => :latex, :to => :markdown}, 'no-wrap')[0..-2]
+  #return PandocRuby.convert(text, {:from => :latex, :to => :markdown}, 'no-wrap')[0..-2]
+  return text
 end
+
 def bibtohash(obj, bib)
   # Takes an bib file object and returns a cleaned up hash.
   # Params:
@@ -107,7 +109,7 @@ def splitauthors(ha, obj, type=:author)
   obj[type].each.with_index(0) do |name, index|
     first = detex(name.first)
     last = detex(name.last)
-    a[index] = {'firstname' => first, 'lastname' => last}
+    a[index] = {'givenname' => first, 'surname' => last}
   end
   return a
 end
@@ -116,21 +118,27 @@ if ARGV.length < 1
   puts "Usage: #{$0} <volume>"
 else
   volume = ARGV[0]
-  proceedings = volume + '.bib'
+  proceedings = 'v' + volume.to_s + '.bib'
+  puts bibdir + proceedings
   bib = BibTeX.open(bibdir + proceedings)
   obj = bib['@proceedings'][0]
   obj.replace(bib.q('@string'))
   obj.join
   ha = bibtohash(obj, bib)
-  
-  reponame = ha['shortname'].to_s.downcase + ha['year'].to_s
-  system "jekyll new " + procdir + reponame
-  File.delete(*Dir.glob(procdir + reponame + '/_posts/*.markdown'))
+
+  reponame = 'v' + volume.to_s
+  #reponame = ha['shortname'].to_s.downcase + ha['year'].to_s
+  #system "jekyll new " + procdir + reponame
+  #File.delete(*Dir.glob(procdir + reponame + '/_posts/*.markdown'))
   # Add details to _config.yml file
   ha['title'] = ha['booktitle']
+  ha['volume'] = volume.to_s
   ha['conference'] = ha['booktitle']
   ha['email'] = email
-  ha['description'] = ''
+  ha['description'] = ha['booktitle']
+  if ha.has_key?('address')
+    ha['description'] += ', ' + ha['address']
+  end
   ha['url'] = url
   ha['baseurl'] = '/' + reponame
   ha['twitter_username'] = twitter
@@ -140,15 +148,17 @@ else
   ya = ha.to_yaml(:ExplicitTypes => true)
   published = ha['published']
   
-  out = File.open(procdir + reponame + '/' + '_config.yml', 'w')    
+  out = File.open('_config.yml', 'w')    
   out.puts "# Site settings"
   out.puts "# Auto generated from " + proceedings
   out.puts ya
 end
 puts bibdir
-puts volume
-puts bibdir + volume
-Dir.glob(bibdir + volume + '/*.bib') do |bib_file|
+puts volume.to_s
+puts bibdir + 'v' +  volume.to_s
+directory_name = "_posts"
+Dir.mkdir(directory_name) unless File.exists?(directory_name)
+Dir.glob(bibdir + 'v' + volume.to_s + '/*.bib') do |bib_file|
   bib = BibTeX.open(bib_file)
   # do work on files ending in .rb in the desired directory
   bib['@inproceedings'].each do |obj|
@@ -157,16 +167,24 @@ Dir.glob(bibdir + volume + '/*.bib') do |bib_file|
     ha = bibtohash(obj, bib)
     ya = ha.to_yaml(:ExplicitTypes => true)
     fname = filename(published, ha['key'])
-    out = File.open(procdir + reponame + '/_posts/' + fname, 'w')
+    out = File.open('_posts/' + fname, 'w')
     out.puts ya
     out.puts "---"
   end  
 end
+directory_name = "_layouts"
+Dir.mkdir(directory_name) unless File.exists?(directory_name)
+directory_name = "_includes"
+Dir.mkdir(directory_name) unless File.exists?(directory_name)
 
-FileUtils.cp procdir +  'papersite/ruby/inproceedings.html', procdir + reponame + '/_layouts/'
-FileUtils.cp procdir +  'papersite/ruby/paper_list.html', procdir + reponame + '/_includes/'
-FileUtils.cp procdir +  'papersite/ruby/paper_abstract.html', procdir + reponame + '/_includes/'
-FileUtils.cp procdir +  'papersite/ruby/paper_google_scholar.html', procdir + reponame + '/_includes/'
-FileUtils.cp procdir +  'papersite/ruby/disqus_comment_code.html', procdir + reponame + '/_includes/'
-FileUtils.cp procdir + 'papersite/ruby/about.md', procdir + reponame + '/'
-FileUtils.cp procdir + 'papersite/ruby/index.html', procdir + reponame + '/'
+FileUtils.cp procdir +  'papersite/ruby/inproceedings.html', '_layouts/'
+FileUtils.cp procdir +  'papersite/ruby/default.html', '_layouts/'
+FileUtils.cp procdir +  'papersite/ruby/paper_list.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/head.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/header.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/footer.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/paper_abstract.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/paper_google_scholar.html', '_includes/'
+FileUtils.cp procdir +  'papersite/ruby/disqus_comment_code.html', '_includes/'
+FileUtils.cp procdir + 'papersite/ruby/about2.md', '.'
+FileUtils.cp procdir + 'papersite/ruby/index2.html', '.'
