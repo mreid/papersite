@@ -155,6 +155,10 @@ else
   ha['markdown'] = 'kramdown'
   ha['permalink'] = '/:title.html'
   ha['github'] = {'edit' => true, 'repository' => reponame}
+  if not ha.has_key?('name')
+    ha['name'] = ha['booktitle'] 
+  end
+  
   ha['conference'] = {'name' => ha['name'], 'url' => ha['conference_url'], 'location' => ha['address'], 'dates'=>ha['start'].upto(ha['end']).collect{ |i| i}}
   ha.tap { |hs| hs.delete('address') }
   ha.tap { |hs| hs.delete('conference_url') }
