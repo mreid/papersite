@@ -5,7 +5,7 @@ layout: default
 <div id="content" class="home">
 
   <h1>Proceedings of Machine Learning Research</h1>
-  <h2>Volume {{ site.volume }}: {{ site.conference }}, {{ site.start | date: "%B %-d" }} to {{ site.end | date: "%B %-d, %Y" }}, {{ site.address }}</h2>
+  <h2>Volume {{ site.volume }}: {{ site.conference.name }}, {{ site.conference.dates.first | date: "%B %-d" }} to {{ site.conference.dates.last | date: "%B %-d, %Y" }}, {{ site.conference.location }}</h2>
 
   
   <p><strong>Editors:

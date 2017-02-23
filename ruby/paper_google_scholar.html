@@ -10,7 +10,7 @@
 <meta name="citation_publication_date" content="{{ site.year }}">
 {% endif %}
 
-<meta name="citation_conference_title" content="{{ site.conference }}">
+<meta name="citation_conference_title" content="{{ site.conference.name }}">
 <meta name="citation_issn" content="1938-7228">
 <meta name="citation_volume" content="{{ site.volume }}">
 <meta name="citation_firstpage" content="{{ page.firstpage }}">
@@ -19,8 +19,8 @@
 <meta name="citation_pdf_url" content="{{ page.pdf }}">
 
 {% if site.conference contains 'Proceedings of' %}
-<meta name="description" content="Electronic {{ site.conference }}">
+<meta name="description" content="Electronic {{ site.conference.name }}">
 {% else %}
-<meta name="description" content="Electronic Proceedings of {{ site.conference }}">
+<meta name="description" content="Electronic Proceedings of {{ site.conference.name }}">
 {% endif %}
 

@@ -7,12 +7,12 @@
     {% endfor %};
   </div>
   <div id="info" class="authors">
-    {{ site.conference }}, PMLR {{ site.volume }}:{{ page.firstpage }}-{{ page.lastpage }}, {{ site.year }}.
+    {{ page.container-title }}, PMLR {{ page.volume }}:{{ page.page }}, {{ page.issued.date-parts.first }}.
   </div> <!-- info -->
   
   <h2>Abstract</h2>
   <div id="abstract" class="abstract">
-    {{ page.abstract | markdownify }}
+    {{ page.abstract }}
   </div>
   <h2>Related Material</h2>
   <div id="extras">

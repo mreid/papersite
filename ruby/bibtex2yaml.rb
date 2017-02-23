@@ -4,7 +4,8 @@ require 'rubygems'
 require 'bibtex'
 require 'yaml'
 require 'facets'
-require 'pandoc-ruby'
+require 'latex/decode'
+require 'fileutils'
 
 bibdir = '/Users/neil/mlresearch/papersite/db/'
 procdir = '/Users/neil/mlresearch/'
@@ -14,7 +15,7 @@ twitter = 'mlresearch'
 def detex(text)
   # Returning up to second end character is to deal with new line
   #return PandocRuby.convert(text, {:from => :latex, :to => :markdown}, 'no-wrap')[0..-2]
-  return text
+  return LaTeX.decode text
 end
 
 def bibtohash(obj, bib)
@@ -55,7 +56,7 @@ def bibtohash(obj, bib)
   end
 
   ha['origpdf'] = ha['pdf']
-  ha['pdf'] = './' + ha['id'] + '/' + ha['id'] + '.pdf'
+  ha['pdf'] = 'http://proceedings.pmlr.press/' + ha['id'] + '/' + ha['id'] + '.pdf'
     
   if ha.has_key?('comments')
     if ha['comments'].downcase == 'yes' or ha['comments'].downcase == 'true'
@@ -139,13 +140,13 @@ else
   #system "jekyll new " + procdir + reponame
   #File.delete(*Dir.glob(procdir + reponame + '/_posts/*.markdown'))
   # Add details to _config.yml file
-  ha['title'] = ha['booktitle']
+  booktitle = ha['booktitle']
+  ha['title'] = booktitle
   ha['volume'] = volume.to_i
-  ha['conference'] = ha['booktitle']
   ha['email'] = email
-  ha['description'] = ha['booktitle']
+  ha['description'] = booktitle
   if ha.has_key?('address')
-    ha['description'] += ', ' + ha['address']
+    ha['description'] += ', ' + ha['address'] 
   end
   ha['url'] = url
   ha['baseurl'] = '/' + reponame
@@ -153,7 +154,12 @@ else
   ha['github_username'] = 'mlresearch'
   ha['markdown'] = 'kramdown'
   ha['permalink'] = '/:title.html'
-  ha['gitub'] = {'edit' => true}
+  ha['github'] = {'edit' => true, 'repository' => reponame}
+  ha['conference'] = {'name' => ha['name'], 'url' => ha['conference_url'], 'location' => ha['address'], 'dates'=>ha['start'].upto(ha['end']).collect{ |i| i}}
+  ha.tap { |hs| hs.delete('address') }
+  ha.tap { |hs| hs.delete('conference_url') }
+  ha.tap { |hs| hs.delete('name') }
+
   ha['analytics'] = {'google' => {'tracking_id' => 'UA-92432422-1'}}
   ya = ha.to_yaml(:ExplicitTypes => true)
   published = ha['published']
@@ -176,18 +182,25 @@ Dir.glob(bibdir + 'v' + volume.to_s + '/*.bib') do |bib_file|
     obj.join
     ha = bibtohash(obj, bib)
     # make seconds relate to page number for easy ordering.
-    if ha.has_key?('firstpage')
-      seconds = ha['firstpage'].to_i
-      m, s = seconds.divmod(60)
-      h, m = m.divmod(60)
-      d, h = h.divmod(24)
-      ha['date'] = published.to_s + " %02d:%02d:%02d" % [h, m, s]
-    end    
+    # if ha.has_key?('firstpage')
+    #   seconds = ha['firstpage'].to_i
+    #   m, s = seconds.divmod(60)
+    #   h, m = m.divmod(60)
+    #   d, h = h.divmod(24)
+    #   ha['date'] = published.to_s + " %02d:%02d:%02d" % [h, m, s]
+    # else
+    ha['date'] = published
+    #end    
     ha['publisher'] = 'PMLR'
+    ha['container-title'] = booktitle
+    ha['volume'] = volume
+    ha['genre'] = 'inproceedings'
+    ha['issued'] = {'date-parts' => [published.year, published.month, published.day]} 
     ya = ha.to_yaml(:ExplicitTypes => true)
     fname = filename(published, ha['id'])
     out = File.open('_posts/' + fname, 'w')
     out.puts ya
+    out.puts "# Format based on citeproc: http://blog.martinfenner.org/2013/07/30/citeproc-yaml-for-bibliographies/"
     out.puts "---"
   end  
 end
@@ -210,4 +223,5 @@ FileUtils.cp procdir +  'papersite/ruby/paper_abstract.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/google_tracking_code.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/paper_google_scholar.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/disqus_comment_code.html', '_includes/'
-FileUtils.cp procdir + 'papersite/ruby/index.html', '.'
+FileUtils.cp procdir +  'papersite/ruby/index.html', '.'
+FileUtils.cp procdir +  'papersite/ruby/feed.xml', '.'
