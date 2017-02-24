@@ -189,7 +189,11 @@ Dir.glob(bibdir + 'v' + volume.to_s + '/*.bib') do |bib_file|
     ha['volume'] = volume.to_s
     ha['genre'] = 'inproceedings'
     ha['issued'] = {'date-parts' => [published.year, published.month, published.day]}
-    ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + ha['id'] + '/' + ha['id'] + '.pdf'
+    if volume.to_i>27
+      ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + ha['id'] + '.pdf'
+    else
+      ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + ha['id'] + '/' + ha['id'] + '.pdf'
+    end
     ya = ha.to_yaml(:ExplicitTypes => true)
     fname = filename(published, ha['id'])
     out = File.open('_posts/' + fname, 'w')
