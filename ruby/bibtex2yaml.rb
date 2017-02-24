@@ -75,7 +75,7 @@ def bibtohash(obj, bib)
       ha['comments'] = false
     end
   end
-  
+
   if ha.has_key?('sections')
     sections = ha['sections'].split('|')
     hasections = Array.new(sections.length)
@@ -107,6 +107,10 @@ def bibtohash(obj, bib)
   if ha.has_key?('end')
     ha['end'] = Date.parse ha['end']
   end
+  if ha.has_key?('pages')
+    ha['order'] = pages[0].to_i
+  end
+
   return ha
 end
 

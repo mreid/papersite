@@ -1,7 +1,7 @@
 ---
 layout: null
 ---
-{% assign sorted = (site.posts | sort: 'firstpage') %}{% for post in sorted %}{% capture id %}{{ post.id | remove_first: '/' }}{% endcapture %}
+{% assign sorted = (site.posts | sort: 'order') %}{% for post in sorted %}{% capture id %}{{ post.id | remove_first: '/' }}{% endcapture %}
 - title: "{{ post.title }}"
   volume: {{ post.volume }}
   URL: {{site.url}}{{site.baseurl}}{{ post.url }}{% if post.doi %}
