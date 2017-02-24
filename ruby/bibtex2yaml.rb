@@ -27,7 +27,7 @@ def bibtohash(obj, bib)
   ha = obj.to_hash(:quotes=>'').rekey!(&:to_s)
   ha['layout'] = ha['bibtex_type'].to_s
   ha.tap { |hs| hs.delete('bibtex_type') }
-
+  ha['series'] = "Proceedings of Machine Learning Research"
   ha['id'] = ha['bibtex_key'].to_s
   ha.tap { |hs| hs.delete('bibtex_key') }
 
@@ -50,17 +50,14 @@ def bibtohash(obj, bib)
     pages = ha['pages'].split('-')
     ha['firstpage'] = pages[0].to_i
     ha['lastpage'] = pages[-1].to_i
-    puts ha['firstpage'] + ha['lastpage'] 
     ha.tap { |hs| hs.delete('pages') }
     ha['page'] = ha['firstpage'].to_s + '-' + ha['lastpage'].to_s
   end
-
-  ha['origpdf'] = ha['pdf']
-  ha['pdf'] = 'http://proceedings.pmlr.press/' + ha['id'] + '/' + ha['id'] + '.pdf'
-    
   if ha.has_key?('comments')
     if ha['comments'].downcase == 'yes' or ha['comments'].downcase == 'true'
       ha['comments'] = true
+    else
+      ha['comments'] = false
     end
   end
   
@@ -107,7 +104,6 @@ def mindigit(str, num=2)
 end
 
 def filename(date, title)
-  puts date
   puts title
   f = date.to_s + '-' + title.to_s + '.md'
   return f
@@ -158,8 +154,8 @@ else
   if not ha.has_key?('name')
     ha['name'] = ha['booktitle'] 
   end
-  
-  ha['conference'] = {'name' => ha['name'], 'url' => ha['conference_url'], 'location' => ha['address'], 'dates'=>ha['start'].upto(ha['end']).collect{ |i| i}}
+  address = ha['address']
+  ha['conference'] = {'name' => ha['name'], 'url' => ha['conference_url'], 'location' => address, 'dates'=>ha['start'].upto(ha['end']).collect{ |i| i}}
   ha.tap { |hs| hs.delete('address') }
   ha.tap { |hs| hs.delete('conference_url') }
   ha.tap { |hs| hs.delete('name') }
@@ -169,9 +165,9 @@ else
   published = ha['published']
   
   out = File.open('_config.yml', 'w')    
+  out.puts ya
   out.puts "# Site settings"
   out.puts "# Auto generated from " + proceedings
-  out.puts ya
 end
 puts bibdir
 puts volume.to_s
@@ -185,21 +181,15 @@ Dir.glob(bibdir + 'v' + volume.to_s + '/*.bib') do |bib_file|
     obj.replace(bib.q('@string'))
     obj.join
     ha = bibtohash(obj, bib)
-    # make seconds relate to page number for easy ordering.
-    # if ha.has_key?('firstpage')
-    #   seconds = ha['firstpage'].to_i
-    #   m, s = seconds.divmod(60)
-    #   h, m = m.divmod(60)
-    #   d, h = h.divmod(24)
-    #   ha['date'] = published.to_s + " %02d:%02d:%02d" % [h, m, s]
-    # else
     ha['date'] = published
+    ha['address'] = address
     #end    
     ha['publisher'] = 'PMLR'
     ha['container-title'] = booktitle
-    ha['volume'] = volume
+    ha['volume'] = volume.to_s
     ha['genre'] = 'inproceedings'
-    ha['issued'] = {'date-parts' => [published.year, published.month, published.day]} 
+    ha['issued'] = {'date-parts' => [published.year, published.month, published.day]}
+    ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + ha['id'] + '/' + ha['id'] + '.pdf'
     ya = ha.to_yaml(:ExplicitTypes => true)
     fname = filename(published, ha['id'])
     out = File.open('_posts/' + fname, 'w')
@@ -229,3 +219,5 @@ FileUtils.cp procdir +  'papersite/ruby/paper_google_scholar.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/disqus_comment_code.html', '_includes/'
 FileUtils.cp procdir +  'papersite/ruby/index.html', '.'
 FileUtils.cp procdir +  'papersite/ruby/feed.xml', '.'
+FileUtils.cp procdir +  'papersite/ruby/bibliography.bib', '.'
+FileUtils.cp procdir +  'papersite/ruby/citeproc.yaml', '.'
