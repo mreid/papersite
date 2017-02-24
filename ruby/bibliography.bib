@@ -1,0 +1,33 @@
+---
+layout: null
+---
+
+{% assign o = '{' %}
+{% assign c = '}' %}
+
+@Proceedings{{o}}{{ site.shortname }}{{ site.year }},
+  title =     {{o}}{{ site.title }}{{c}},
+  booktitle = {{o}}{{ site.title }}{{c}},
+  editor =    {{o}}{% assign lastone = site.editor.last %}{% for person in site.editor %}{{ person.given }} {{ person.family }}{% unless person == lastone %} and {%endunless %}{% endfor %}{{c}},
+  publisher = {PMLR},
+  series =    {Proceedings of Machine Learning Research},
+  volume =    {{ site.volume }}
+{{c}}
+{% assign sorted = (site.posts | sort: 'firstpage') %}
+{% for post in sorted %}
+{% capture id %}{{ post.id | remove_first: '/' }}{% endcapture %}
+@InProceedings{{o}}{{ id }},
+  title =     {{o}}{{ post.title }}{{c}},
+  author =    {{o}}{% assign lastone = post.author.last %}{% for person in post.author %}{{ person.given }} {{ person.family }}{% unless person == lastone %} and {%endunless %}{% endfor %}{{c}},
+  editor =    {{o}}{% assign lastone = site.editor.last %}{% for person in site.editor %}{{ person.given }} {{ person.family }}{% unless person == lastone %} and {%endunless %}{% endfor %}{{c}},
+  publisher = {PMLR},
+  series =    {Proceedings of Machine Learning Research},
+  volume =    {{ site.volume }},
+  booktitle = {{o}}{{ post.container-title }}{{c}},
+  pages =     {{o}}{{ post.page }}{{c}},
+  pdf =       {{o}}{{ post.pdf }}{{c}},
+  url =       {{o}}{{site.url}}{{site.baseurl}}{{ post.url }}{{c}},
+  abstract =  {{o}}{{ post.abstract }}{{c}}
+{{c}}
+{% endfor %}
+
