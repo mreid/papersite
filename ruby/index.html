@@ -5,7 +5,10 @@ layout: default
 <div id="content" class="home">
 
   <h1>Proceedings of Machine Learning Research</h1>
-  <h2>Volume {{ site.volume }}: {{ site.conference.name }}, {{ site.conference.dates.first | date: "%B %-d" }} to {{ site.conference.dates.last | date: "%B %-d, %Y" }}, {{ site.conference.location }}</h2>
+  {% assign days = site.conference.dates.size %}
+  {% assign startmonth = site.conference.dates.first | date: "%B" %}
+  {% assign endmonth = site.conference.dates.first | date: "%B" %}
+  <h2>Volume {{ site.volume }}: {{ site.conference.name }}, {% if days > 1 %}{% if startmonth == endmonth %}{{ site.conference.dates.first | date: "%-d" }}-{{ site.conference.dates.last | date: "%-d %B %Y" }}{% else %}{{ site.conference.dates.first | date: "%-d %B" }} to {{ site.conference.dates.last | date: "%-d %B %Y" }}{% endif %}{% else %}{{ site.conference.dates.first | date: "%d %B %Y" }}{% endif %}, {{ site.conference.location }}</h2>
   {% if site.github.edit %}
   <p align="right">[<a href="https://github.com/{{ site.github_username }}/{% if site.github.repository %}{{ site.github.repository }}{% else %}{{ site.baseurl }}{% endif %}/edit/{% if site.github.repository contains 'github.io' %}master{% else %}gh-pages{% endif %}/_config.yml">edit</a>]</p>
   {% endif %}

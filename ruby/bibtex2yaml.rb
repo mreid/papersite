@@ -12,6 +12,13 @@ procdir = '/Users/neil/mlresearch/'
 url = 'http://proceedings.mlr.press'
 email = ''
 twitter = 'mlresearch'
+
+class String
+    def is_i?
+       /\A[-+]?\d+\z/ === self
+    end
+end
+
 def detex(text)
   # Returning up to second end character is to deal with new line
   #return PandocRuby.convert(text, {:from => :latex, :to => :markdown}, 'no-wrap')[0..-2]
@@ -48,8 +55,16 @@ def bibtohash(obj, bib)
   
   if ha.has_key?('pages')
     pages = ha['pages'].split('-')
-    ha['firstpage'] = pages[0].to_i
-    ha['lastpage'] = pages[-1].to_i
+    if pages[0].is_i?
+      ha['firstpage'] = pages[0].to_i
+    else
+      ha['firstpage'] = pages[0]
+    end
+    if pages[-1].is_i?
+      ha['lastpage'] = pages[-1].to_i
+    else
+      ha['lastpage'] = pages[-1]
+    end
     ha.tap { |hs| hs.delete('pages') }
     ha['page'] = ha['firstpage'].to_s + '-' + ha['lastpage'].to_s
   end
