@@ -1,0 +1,82 @@
+@Proceedings{AutoML-2016,
+    booktitle = {Proceedings of the 2016 Workshop on Automatic Machine Learning},
+    editor = {Frank Hutter and Lars Kotthoff and Joaquin Vanschoren},
+    volume = {64},
+    year = {2016},
+    shortname = {AutoML}
+}
+
+@InProceedings{adbdulrahman_effect_2016,
+    title = {Effect of Incomplete Meta-dataset on Average Ranking Method},
+    author = {Salisu Mamman Abdulrahman and Pavel Brazdil},
+    pages = {1-10},
+    abstract = {One of the simplest metalearning methods is the average ranking method. This method uses metadata in the form of test results of a given algorithms on a given datasets and calculates an average rank for each algorithm. The average ranks are used to construct the average ranking. The work described here investigate the problem of how the process of generating the average ranking is affected by incomplete metadata. We are interested in this issue for the following reason. If we could show that incomplete metadata does not affect the final results much, we could explore it in future design. We could simply conduct fewer tests and save thus computation time. Our results show that our method is robust to omission in meta datasets.}
+
+}
+
+@InProceedings{dewancker_strategy_2016,
+    title = {A Strategy for Ranking Optimization Methods using Multiple Criteria},
+    author = {Ian Dewancker and Michael McCourt and Scott Clark and Patrick Hayes and Alexandra Johnson and George Ke},
+    pages = {11-20},
+    abstract = {Many methods for optimizing black-box functions exist, and many metrics exist for judging the performance of a specific optimization method. There is not, however, a generally agreed upon strategy for simultaneously comparing the performance of multiple optimization methods for multiple performance metrics across a range of optimization problems. This paper proposes such a methodology, which uses nonparametric statistical tests to convert the metrics recorded for each problem into a partial ranking of optimization methods; these partial rankings are then amalgamated through a voting mechanism to generate a final score for each optimization method. Mathematical analysis is provided to motivate decisions within this strategy, and numerical results are provided to demonstrate the potential insights afforded thereby.}
+
+}
+
+@InProceedings{guyon_review_2016,
+    title = {A brief Review of the ChaLearn AutoML Challenge: Any-time Any-dataset Learning without Human Intervention},
+    author = {Isabelle Guyon and Imad Chaabane and Hugo Jair Escalante and Sergio Escalera and Damir Jajetic and James Robert Lloyd and N{\'u}ria Maci{\`a} and Bisakha Ray and Lukasz Romaszko and Mich{\`e}le Sebag and Alexander Statnikov and S{\'e}bastien Treguer and Evelyne Viegas},
+    pages = {21-30},
+    abstract = {The ChaLearn AutoML Challenge team conducted a large scale evaluation of fully automatic, black-box learning machines for feature-based classification and regression problems. The test bed was composed of 30 data sets from a wide variety of application domains and ranging across different types of complexity. Over five rounds, participants succeeded in delivering AutoML software capable of being trained and tested without human intervention. Although improvements can still be made to close the gap between human-tweaked and AutoML models, this challenge has been a leap forward in the field and its platform will remain available for post-challenge submissions at http://codalab.org/AutoML.}
+
+}
+
+@InProceedings{kim_scalable_2016,
+    title = {Scalable Structure Discovery in Regression using Gaussian Processes},
+    author = {Hyunjik Kim and Yee Whye Teh},
+    pages = {31-40},
+    abstract = {Automatic Bayesian Covariance Discovery(ABCD) in Lloyd et. al (2014) provides a framework for automating statistical modelling as well as exploratory data analysis for regression problems. However ABCD does not scale due to its O(N^3) running time. This is undesirable not only because the average size of data sets is growing fast, but also because there is potentially more information in bigger data, implying a greater need for more expressive models that can discover sophisticated structure. We propose a scalable version of ABCD, to encompass big data within the boundaries of automated statistical modelling.}
+
+}
+
+@InProceedings{malkomes_bayesian_2016,
+    title = {Bayesian optimization for automated model selection},
+    author = {Gustavo Malkomes and Chip Schaff and Roman Garnett},
+    pages = {41-47},
+    abstract = {Despite the success of kernel-based nonparametric methods, kernel selection still requires considerable expertise, and is often described as a ``black art.'' We present a sophisticated method for automatically searching for an appropriate kernel from an infinite space of potential choices. Previous efforts in this direction have focused on traversing a kernel grammar, only examining the data via computation of marginal likelihood. Our proposed search method is based on Bayesian optimization in model space, where we reason about model evidence as a function to be maximized. We explicitly reason about the data distribution and how it induces similarity between potential model choices in terms of the explanations they can offer for observed data. In this light, we construct a novel kernel between models to explain a given dataset. Our method is capable of finding a model that explains a given dataset well without any human assistance, often with fewer computatio!
+ ns of model evidence than previous approaches, a claim we demonstrate empirically.}
+
+}
+
+@InProceedings{salvador_adapting_2016,
+    title = {Adapting Multicomponent Predictive Systems using Hybrid Adaptation Strategies with Auto-WEKA in Process Industry},
+    author = {Manuel Martin Salvador and Marcin Budka and Bogdan Gabrys},
+    pages = {48-57},
+    abstract = {Automation of composition and optimisation of multicomponent predictive systems (MCPSs) made of a number of preprocessing steps and predictive models is a challenging problem that has been addressed in recent works. However, one of the current challenges is how to adapt these systems in dynamic environments where data is changing over time. In this work we propose a hybrid approach combining different adaptation strategies with the Bayesian optimisation techniques for parametric, structural and hyperparameter optimisation of entire MCPSs. Experiments comparing different adaptation strategies have been performed on 7 datasets from real chemical production processes. Experimental analysis shows that optimisation of entire MCPSs as a method of adaptation to changing environments is feasible and that hybrid strategies perform better in most of the analysed cases.}
+
+}
+
+@InProceedings{mendoza_towards_2016,
+    title = {Towards Automatically-Tuned Neural Networks},
+    author = {Hector Mendoza and Aaron Klein and Matthias Feurer and Jost Tobias Springenberg and Frank Hutter},
+    pages = {58-65},
+    abstract = {Recent advances in AutoML have led to automated tools that can compete with machine learning experts on supervised learning tasks. However, current AutoML tools do not yet support modern neural networks effectively.
+
+    In this work, we present a first version of Auto-Net, which provides automatically-tuned feed-forward neural networks without any human intervention. We report results on datasets from the recent AutoML challenge showing that ensembling Auto-Net with Auto-sklearn often performs better than either alone, and report the first results on winning a competition dataset against human experts with automatically-tuned neural networks.}
+
+}
+
+@InProceedings{olson_tpot_2016,
+    title = {TPOT: A Tree-based Pipeline Optimization Tool for Automating Machine Learning},
+    author = {Randal S. Olson and Jason H. Moore},
+    pages = {66-74},
+    abstract = {As data science becomes more mainstream, there will be an ever-growing demand for data science tools that are more accessible, flexible, and scalable. In response to this demand, automated machine learning (autoML) researchers have begun building systems that automate the process of designing and optimizing machine learning pipelines. In this paper we present TPOT, an open source genetic programming-based autoML system that optimizes a series of feature preprocessors and machine learning models with the goal of maximizing classification accuracy on a supervised classification task. We benchmark TPOT on a series of 150 supervised classification tasks and find that it significantly outperforms a basic machine learning analysis in 22 of them, while experiencing minimal degradation in accuracy on 5 of the benchmarks---all without any domain knowledge nor human input. As such, GP-based autoML systems show considerable promise in the autoML domain.}
+
+}
+
+@InProceedings{orabona_parameter_2016,
+    title = {Parameter-Free Convex Learning through Coin Betting},
+    author = {Francesco Orabona and D{\'a}vid P{\'a}l},
+    pages = {75-82},
+    abstract = {We present a new parameter-free algorithm for online linear optimization over any Hilbert space. It is theoretically optimal, with regret guarantees as good as with the best possible learning rate. The algorithm is simple and easy to implement. The analysis is given via the adversarial coin-betting game, Kelly betting and the Krichevsky-Trofimov estimator. Applications to obtain parameter-free convex optimization and machine learning algorithms are shown.}
+
+}

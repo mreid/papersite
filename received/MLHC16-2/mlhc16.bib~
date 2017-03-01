@@ -1,0 +1,126 @@
+@Proceedings{MLHC-2016,
+    booktitle = {Proceedings of the 1st Machine Learning for Healthcare Conference},
+    editor = {Finale Doshi-Velez and Jim Fackler and David Kale and Byron Wallace and Jenna Weins},
+    volume = {1},
+    year = {2016},
+    shortname = {MLHC}
+}
+
+@InProceedings{Georgatzis16,
+    title = {Input-Output Non-Linear Dynamical Systems applied to Physiological Condition Monitoring},
+    author = {Georgatzis, Konstantinos and Williams, Chris and Hawthorne, Christopher},
+    pages = {1-16},
+    abstract = {We present a non-linear dynamical system for modelling the effect of  drug infusions on the vital signs of patients admitted in Intensive  Care Units (ICUs). More specifically we are interested in modelling  the effect of a widely used anaesthetic drug (Propofol) on a patient's  monitored depth of anaesthesia and haemodynamics. We compare our  approach with one from the Pharmacokinetics/Pharmacodynamics (PK/PD)  literature and show that we can provide significant improvements in  performance without requiring the incorporation of expert  physiological knowledge in our system.}
+}
+@InProceedings{Joshi16,
+    title = {Identifiable Phenotyping using Constrained Non-Negative Matrix Factorization},
+    author = {Joshi, Shalmali and Gunasekar, Suriya and Sontag, David and Joydeep, Gosh},
+    pages = {17-41},
+    abstract = {This work proposes a new algorithm for automated and simultaneous phenotyping of multiple co-occurring medical conditions, also referred to as comorbidities, using clinical notes from electronic health records (EHRs). A latent factor estimation technique, non-negative matrix factorization (NMF), is augmented with domain constraints from weak supervision to obtain sparse latent factors that are grounded to a fixed set of chronic conditions. The proposed grounding mechanism ensures a one-to-one identifiable and interpretable mapping between the latent factors and the target comorbidities. Qualitative assessment of the empirical results by clinical experts show that the proposed model learns clinically interpretable phenotypes which are also shown to have competitive performance on 30 day mortality prediction task. The proposed method can be readily adapted to any non-negative EHR data across various healthcare institutions.}
+}
+@InProceedings{Futoma16,
+    title = {Identifiable Phenotyping using Constrained Non-Negative Matrix Factorization},
+    author = {Futoma, Joseph and Sendak, Mark and Cameron, Blake and Heller, Katherine},
+    pages = {42-54},
+    abstract = {Accurate prediction of the future trajectory of a disease is an important challenge in personalized medicine and population health management.  However, many complex chronic diseases exhibit large degrees of heterogeneity, and furthermore there is not always a single readily available biomarker to quantify disease severity.  Even when such a clinical variable exists, there are often additional related biomarkers that may help improve prediction of future disease state.  To this end, we propose a novel probabilistic generative model for multivariate longitudinal data that captures dependencies between multivariate trajectories of clinical variables.  We use a Gaussian process based regression model for each individual trajectory, and build off ideas from latent class models to induce dependence between their mean functions.  We develop a scalable variational inference algorithm that we use to fit our model to a large dataset of longitudinal electronic patient health records.  Our model's dynamic predictions have significantly lower errors compared to a recent state of the art method for modeling disease trajectories, and they are being incorporated into a population health rounding tool to be used by clinicians at our local accountable care organization.}
+}
+@InProceedings{Vovsha16,
+    title = {Using Kernel Methods and Model Selection for Prediction of Preterm Birth},
+    author = {Vovsha, Ilia and Salleb-Aouissi, Ansaf and Raja, Anita and Koch, Thomas and Rybchuk, Alex and Radeva, Axinia and Rajan, Ashwath and Huang, Yiwen, and Diab, Hatim and Tomar, Ashish and Wapner, Ronald},
+    pages = {55-72},
+    abstract = {We describe an application of machine learning to the problem of predicting preterm birth. We conduct a secondary analysis on a clinical trial dataset collected by the National Institute of Child Health and Human Development (NICHD) while focusing our attention on predicting different classes of preterm birth. We compare three approaches for deriving predictive models: a support vector machine (SVM) approach with linear and non-linear kernels, logistic regression with different model selection along with a model based on decision rules prescribed by physician experts for prediction of preterm birth. Our approach highlights the pre-processing methods applied to handle the inherent dynamics, noise and gaps in the data and describe techniques used to handle skewed class distributions. Empirical experiments demonstrate significant improvement in predicting preterm birth compared to past work.}
+}
+@InProceedings{Razavian16,
+    title = {Multi-task Prediction of Disease Onsets from Longitudinal Laboratory Tests},
+    author = {Razavian, Narges and Marcus, Jake and Sontag, David},
+    pages = {73-100},
+    abstract = {Disparate areas of machine learning have benefited from models that can take raw data with little preprocessing as input and learn rich representations of that raw data in order to perform well on a given prediction task. We evaluate this approach in healthcare by using longitudinal measurements of lab tests, one of the more raw signals of a patient's health state widely available in clinical data, to predict disease onsets. In particular, we train a Long Short-Term Memory (LSTM) recurrent neural network and two novel convolutional neural networks for multi-task prediction of disease onset for 133 conditions based on 18 common lab tests measured over time in a cohort of 298K patients derived from 8 years of administrative claims data. We compare the neural networks to a logistic regression with several hand-engineered, clinically relevant features. We find that the representation-based learning approaches significantly outperform this baseline. We believe that our work suggests a new avenue for patient risk stratification based solely on lab results.}
+} 
+@InProceedings{Ranganath16,
+    title = {Deep Survival Analysis},
+    author = {Ranganath, Rajesh and Perotte, Adler and Elhadad, Noémie and Blei,David},
+    pages = {101-114},
+    abstract = {Disparate areas of machine learning have benefited from models that can take raw data with little preprocessing as input and learn rich representations of that raw data in order to perform well on a given prediction task. We evaluate this approach in healthcare by using longitudinal measurements of lab tests, one of the more raw signals of a patient's health state widely available in clinical data, to predict disease onsets. In particular, we train a Long Short-Term Memory (LSTM) recurrent neural network and two novel convolutional neural networks for multi-task prediction of disease onset for 133 conditions based on 18 common lab tests measured over time in a cohort of 298K patients derived from 8 years of administrative claims data. We compare the neural networks to a logistic regression with several hand-engineered, clinically relevant features. We find that the representation-based learning approaches significantly outperform this baseline. We believe that our work suggests a new avenue for patient risk stratification based solely on lab results.}
+}
+@InProceedings{Ahmed16,
+    title = {Multi-task Learning with Weak Class Labels: Leveraging iEEG to Detect Cortical Lesions in Cryptogenic Epilepsy},
+    author = {Ahmed, Bilal and Thesen, Thomas and Blackmon, Karen and Kuzniecky, Ruben and Devinsky, Orrin and Dy, Jennifer and Brodley, Carla},
+    pages = {115-133},
+    abstract = {Multi-task learning (MTL) is useful for domains in which data originates from multiple sources that are individually under-sampled. MTL methods are able to learn classification models that have higher performance as compared to learning a single model by aggregating all the data together or learning a separate model for each data source. The performance of these methods relies on label accuracy. We develop two models that address the problem of multitask learning when the training data has imprecise labels. We apply these methods to the task of detecting abnormal cortical regions in the MRIs of patients suffering from epilepsy whose MRI were deemed normal by neuroradiologists. We use the results of intracranial-EEG exam as an auxiliary source of supervision. The proposed methods successfully detect abnormal regions for all patients in our sample and achieve higher performance as compared to other methods.}
+}
+@InProceedings{Rose16,
+    title = {gLOP: the global and Local Penalty for Capturing Predictive Heterogeneity},
+    author = {Rose, Rhiannon and Lizotte, Daniel},
+    pages = {134-149},
+    abstract = {When faced with a supervised learning problem, we hope to have rich enough data to build a model that predicts future instances well. However, in practice, problems can exhibit predictive heterogeneity: most instances might be relatively easy to predict, while others might be predictive outliers for which a model trained on the entire dataset does not perform well. Identifying these can help focus future data collection. We present gLOP, the global and Local Penalty, a framework for capturing predictive heterogeneity and identifying predictive outliers. gLOP is based on penalized regression for multitask learning, which improves learning by leveraging training signal information from related tasks. We give two optimization algorithms for gLOP, one space-efficient, and another giving the full regularization path. We also characterize uniqueness in terms of the data and tuning parameters, and present empirical results on synthetic data and on two health research problems.}
+}
+@InProceedings{Liu16,
+    title = {Transferring Knowledge from Text to Predict Disease Onset},
+    author = {Liu, Yun and Stultz, Collin and Guttag, John and Chuang, Kun-Ta and Chuang, Kun-Ta and Liang, Fu-Wen and Su, Huey-Jen},
+    pages = {150-163},
+    abstract = {In many domains such as medicine, training data is in short supply. In such cases, external knowledge is often helpful in building predictive models. We propose a novel method to incorporate publicly available domain expertise to build accurate models. Specifically, we use word2vec models trained on a domain-specific corpus to estimate the relevance of each feature's text description to the prediction problem. We use these relevance estimates to rescale the features, causing more important features to experience weaker regularization. We apply our method to predict the onset of five chronic diseases in the next five years in two genders and two age groups. Our rescaling approach improves the accuracy of the model, particularly when there are few positive examples. Furthermore, our method selects 60\% fewer features, easing interpretation by physicians. Our method is applicable to other domains where feature and outcome descriptions are available.}
+}
+@InProceedings{Tran16,
+    title = {Preterm Birth Prediction: Stable Selection of Interpretable Rules from High Dimensional Data},
+    author = {Tran, Truyen and Luo, Wei and Phung, Dinh and Morris, Jonathan and Rickard, Kristen and Venkatesh, Svetha},
+    pages = {164-177},
+    abstract = {Preterm births occur at an alarming rate of 10-15\%. Preemies have a higher risk of infant mortality, developmental retardation and long-term disabilities. Predicting preterm birth is difficult, even for the most experienced clinicians. The most well-designed clinical study thus far reaches a modest sensitivity of 18.2–24.2\% at specificity of 28.6–33.3\%. We take a different approach by exploiting databases of normal hospital operations. We aims are twofold: (i) to derive an easy-to-use, interpretable prediction rule with quantified uncertainties, and (ii) to construct accurate classifiers for preterm birth prediction. Our approach is to automatically generate and select from hundreds (if not thousands) of possible predictors using stability-aware techniques. Derived from a large database of 15,814 women, our simplified prediction rule with only 10 items has sensitivity of 62.3\% at specificity of 81.5\%.}
+}
+@InProceedings{Thodoroff16,
+    title = {Learning Robust Features using Deep Learning for Automatic Seizure Detection},
+    author = {Thodoroff, Pierre and Pineau, Joelle and Lim, Andrew},
+    pages = {178-190},
+    abstract = {We present and evaluate the capacity of a deep neural network to learn robust features from EEG to automatically detect seizures. This is a challenging problem because seizure manifestations on EEG are extremely variable both inter- and intra-patient. By simultaneously capturing spectral, temporal and spatial information our recurrent convolutional neural network learns a general spatially invariant representation of a seizure. The proposed approach exceeds significantly previous results obtained on cross-patient classifiers both in terms of sensitivity and false positive rate. Furthermore, our model proves to be robust to missing channel and variable electrode montage.}
+}
+@InProceedings{Schüffler16,
+    title = {Mitochondria-based Renal Cell Carcinoma Subtyping: Learning from Deep vs. Flat Feature Representations},
+    author = {Schüffler, Peter J. and Sarungbam, Judy and Muhammad, Hassan and Reznik, Ed and Tickoo, Satish and Fuchs, Thomas},
+    pages = {191-208},
+    abstract = {Accurate subtyping of renal cell carcinoma (RCC) is of crucial importance for understanding disease progression and for making informed treatment decisions. New discoveries of significant alterations to mitochondria between subtypes make immunohistochemical (IHC) staining based image classification an imperative.
+Until now, accurate quantification and subtyping was made impossible by huge IHC variations, the absence of cell membrane staining for cytoplasm segmentation as well as the complete lack of systems for robust and reproducible image based classification.
+In this paper we present a comprehensive classification framework to overcome these challenges for tissue microarrays of RCCs. We compare and evaluate models based on domain specific hand-crafted "flat"-features versus "deep" feature representations from various layers of a pre-trained convolutional neural network (CNN).
+The best model reaches a cross-validation accuracy of 89\%, which demonstrates for the first time, that robust mitochondria-based subtyping of renal cancer is feasible.}
+}
+@InProceedings{Halpern16,
+    title = {Clinical Tagging with Joint Probabilistic Models},
+    author = {Halpern, Yoni and Horng, Steven and Sontag, David},
+    pages = {209-225},
+    abstract = {We describe a method for parameter estimation in bipartite probabilistic graphical models for joint prediction of clinical conditions from the electronic medical record. The method does not rely on the availability of gold-standard labels, but rather uses noisy labels, called anchors, for learning.
+We provide a likelihood-based objective and a moments-based initialization that are effective at learning the model parameters. The learned model is evaluated in a task of assigning a heldout clinical condition to patients based on retrospective analysis of the records, and outperforms baselines which do not account for the noisiness in the labels or do not model the conditions jointly.}
+}
+@InProceedings{Zhang16,
+    title = {Diagnostic Prediction Using Discomfort Drawings with IBTM},
+    author = {Zhang, Cheng and Kjellström, Hedvig and Ek, Carl Henrik and Bertilson, Bo},
+    pages = {226-238},
+    abstract = {In this paper, we explore the possibility to apply machine learning to make diagnostic predictions using discomfort drawings. Discomfort drawings have proven to be an effective method to collect patient data and make diagnostic decisions in real-life practice. 
+A dataset from relevant patient cases is collected for which medical experts provide diagnostic labels. 
+Next, we use a factorized multimodal topic model, Inter-Battery Topic Model (IBTM), to train a system that can make diagnostic predictions given an unseen discomfort drawing. Experimental results show reasonable predictions of diagnostic labels given an unseen discomfort drawing. 
+Additionally, we generate synthetic discomfort drawings with IBTM given a diagnostic label, which results in typical cases of symptoms.
+The positive result indicates a significant potential of machine learning to be used for parts of the pain diagnostic process and to be a decision support system for physicians and other health care personnel.}
+}
+@InProceedings{Ghassemi16,
+    title = {Uncovering Voice Misuse Using Symbolic Mismatch},
+    author = {Ghassemi, Marzyeh and Syed, Zeeshan and Mehta, Daryush and Stan, Jarrad Van and Hillman, Robert and Guttag, John},
+    pages = {239-252},
+    abstract = {Voice disorders affect an estimated 14 million working-aged Americans, and many more worldwide. We present the first large scale study of vocal misuse based on long-term ambulatory data collected by an accelerometer placed on the neck. We investigate an unsupervised data mining approach to uncovering latent information about voice misuse.
+
+We segment signals from over 253 days of data from 22 subjects into over a hundred million single glottal pulses (closures of the vocal folds), cluster segments into symbols, and use symbolic mismatch to uncover differences between patients and matched controls, and between patients pre- and post-treatment. Our results show significant behavioral differences between patients and controls, as well as between some pre- and post-treatment patients. Our proposed approach provides an objective basis for helping diagnose behavioral voice disorders, and is a first step towards a more data-driven understanding of the impact of voice therapy.}
+}
+@InProceedings{Lipton16,
+    title = {Directly Modeling Missing Data in Sequences with RNNs: Improved Classification of Clinical Time Series},
+    author = {Lipton, Zachary C and Kale, Davis and Wetzel, Randall},
+    pages = {253-270},
+    abstract = {We demonstrate a simple strategy to cope with missing data in sequential inputs, addressing the task of multilabel classification of diagnoses given clinical time series. Collected from the intensive care unit (ICU) of a major urban medical center, our data consists of multivariate time series of observations. The data is irregularly sampled, leading to missingness patterns in re-sampled sequences. In this work, we show the remarkable ability of RNNs to make effective use of binary indicators to directly model missing data, improving AUC and F1significantly. However, while RNNs can learn arbitrary functions of the missing data and observations, linear models can only learn substitution values. For linear models and MLPs, we show an alternative strategy to capture this signal. Additionally, we evaluate LSTMs, MLPs, and linear models trained on missingness patterns only, showing that for several diseases, what tests are run can be more predictive than the results themselves.}
+}
+@InProceedings{Quinn16,
+    title = {Deep Convolutional Neural Networks for Microscopy-Based Point of Care Diagnostics},
+    author = {Quinn, John A and Nakasi, Rose and Mugagga, Pius K. B. and Byanyima, Patrick and Lubega, William and Andama, Alfred},
+    pages = {271-281},
+    abstract = {Point of care diagnostics using microscopy and computer vision methods have been applied to a number of practical problems, and are particularly relevant to low-income, high disease burden areas. However, this is subject to the limitations in sensitivity and specificity of the computer vision methods used. In general, deep learning has recently revolutionised the field of computer vision, in some cases surpassing human performance for other object recognition tasks. In this paper, we evaluate the performance of deep convolutional neural networks on three different microscopy tasks: diagnosis of malaria in thick blood smears, tuberculosis in sputum samples, and intestinal parasite eggs in stool samples. In all cases accuracy is very high and substantially better than an alternative approach more representative of traditional medical imaging techniques.}
+}
+@InProceedings{Xu16,
+    title = {A Non-parametric Bayesian Approach for Estimating Treatment-Response Curves from Sparse Time Series},
+    author = {Xu, Yanbo and Xu, Yanxun and Saria, Suchi},
+    pages = {282-300},
+    abstract = {We study the problem of estimating the continuous response over time of actions from observational time series—a retrospective dataset where the policy by which the data are generated are unknown to the learner. We develop a novel method based on Bayesian nonparametrics (BNP) that can flexibly model functional data and provide posterior inference over the treatment response curves both at the individual and population level. On a challenging dataset containing time series from patients admitted to a hospital, we estimate treatment responses for 8 different treatments used in managing blood pressure and kidney function and show that the resulting fits are more accurate than alternative approaches. Accurate methods for obtaining ITRs from observational data can dramatically accelerate the pace at which personalized treatment plans become possible.}
+}
