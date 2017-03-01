@@ -1,0 +1,57 @@
+@Proceedings{tsw16,
+booktitle = {NIPS 2016 Time Series Workshop},
+shortname = {TSW},
+year={2016},
+editor={Anava, Oren and Khaleghi, Azadeh and Cuturi, Marco and Kuznetsov, Vitaly and Rakhlin, Alexander},
+volume={55}
+}
+
+@InProceedings{amjad16,
+title = {Trading Bitcoin and Online Time Series Prediction},
+author = {Amjad, Muhammad and Shah, Devavrat},
+pages = {1-15},
+abstract = {Given live streaming Bitcoin activity, we aim to forecast future Bitcoin prices so as to execute profitable trades. We show that Bitcoin price data exhibit desirable properties such as stationarity and mixing. Even so, some classical time series prediction methods that exploit this behavior, such as ARIMA models, produce poor predictions and also lack a probabilistic interpretation. In light of these limitations, we make two contributions: first, we introduce a theoretical framework for predicting and trading ternary-state Bitcoin price changes, i.e. increase, decrease or no-change; and second, using the framework, we present simple, scalable and real-time algorithms that achieve a high return on average Bitcoin investment (e.g. 6-7x, 4-6x and 3-6x return on investments for tests in 2014, 2015 and 2016), while consistently maintaining a high prediction accuracy (> 60-70\%) and respectable Sharpe Ratio (> 2.0). Furthermore, when trained on a period eight months earlier than the test period, our algorithms performed nearly as well as they did when trained on recent data! As an important contribution, we provide a justification for why it makes sense to use classification algorithms in settings where the underlying time series is stationary and mixing.}
+}
+
+@InProceedings{bentaieb16,
+title = {Sparse and Smooth Adjustments for Coherent Forecasts in Temporal Aggregation of Time Series},
+author = {Ben Taieb, Souhaib},
+pages = {16-26},
+abstract = {Independent forecasts obtained from different temporal aggregates of a given time series may not be mutually consistent. State-of the art forecasting methods usually apply adjustments on the individual level forecasts to satisfy the aggregation constraints. These adjustments require the estimation of the covariance between the individual forecast errors at all aggregation levels. In order to keep a maximum number of individual forecasts unaffected by estimation errors, we propose a new forecasting algorithm that provides sparse and smooth adjustments while still preserving the aggregation constraints. The algorithm computes the revised forecasts by solving a generalized lasso problem. It is shown that it not only provides accurate forecasts, but also applies a significantly smaller number of adjustments to the base forecasts in a large-scale smart meter dataset.}
+}
+
+
+@InProceedings{li16,
+title = {Influential Node Detection in Implicit Social Networks using Multi-task Gaussian Copula Models},
+author = {Li, Qunwei and Kailkhura, Bhavya and Thiagarajan, Jayaraman and Zhang, Zhenliang and Varshney, Pramod},
+pages = {27-37},
+abstract = {Influential node detection is a central research topic in social network analysis. Many existing methods rely on the assumption that the network structure is completely known a priori. However, in many applications, network structure is unavailable to explain the underlying information diffusion phenomenon. To address the challenge of information diffusion analysis with incomplete knowledge of network structure, we develop a multi-task low rank linear influence model. By exploiting the relationships between contagions, our approach can simultaneously predict the volume (i.e. time series prediction) for each contagion (or topic) and automatically identify the most influential nodes for each contagion. The proposed model is validated using synthetic data and an ISIS twitter dataset. In addition to improving the volume prediction performance significantly, we show that the proposed approach can reliably infer the most influential users for specific contagions.}
+}
+
+@article{luo16,
+title={SSH (Sketch, Shingle, & Hash) for Indexing Massive-Scale Time Series},
+author={Luo, Chen and Shrivastava, Anshumali},
+pages = {38-58},
+abstract={Similarity search on time series is a frequent operation in large-scale data-driven applications. Sophisticated similarity measures are standard for time series matching, as they are usually misaligned. Dynamic Time Warping or DTW is the most widely used similarity measure for time series because it combines alignment and matching at the same time.
+However, the alignment makes DTW slow. To speed up the expensive similarity search with DTW, branch and bound based pruning strategies are adopted. However, branch and bound based pruning are only useful for very short queries (low dimensional time series), and the bounds are quite weak for longer queries. Due to the loose bounds branch and bound pruning strategy boils down to a brute-force search. To circumvent this issue, we design SSH (Sketch, Shingle, & Hashing), an efficient and approximate hashing scheme which is much faster than the state-of-the-art branch and bound searching technique: the UCR suite. SSH uses a novel combination of sketching, shingling and hashing techniques to produce (probabilistic) indexes which align (near perfectly) with DTW similarity measure. The generated indexes are then used to create hash buckets for sub-linear search. Our results show that SSH is very effective for longer time sequence and prunes around 95\% candidates, leading to the massive speedup in search with DTW. Empirical results on two large-scale benchmark time series data show that our proposed method can be around 20 times faster than the state-of-the-art package (UCR suite) without any significant loss in accuracy.}
+}
+
+@InProceedings{marti16,
+title={Exploring and measuring non-linear correlations: Copulas, Lightspeed Transportation and Clustering},
+author={Marti, Gautier and Andler, S{\'e}bastien and Nielsen, Frank and Donnat, Philippe},
+pages = {59-69},
+abstract={We propose a methodology to explore and measure the pairwise correlations that exist between variables in a dataset. The methodology leverages copulas for encoding dependence between two variables, state-of-the-art optimal transport for providing a relevant geometry to the copulas, and clustering for summarizing the main dependence patterns found between the variables. Some of the clusters centers can be used to parameterize a novel dependence coefficient which can target or forget specific dependence patterns. Finally, we illustrate and benchmark the methodology on several datasets. Code and numerical experiments are available online at https://www.datagrapple.com/Tech for reproducible research.}
+}
+
+
+@InProceedings{riabiz16,
+title = {{A central limit theorem with application to inference in $\alpha$-stable regression models}},
+author = {Riabiz, Marina and Ardeshiri, Tohid and Godsill, Simon},
+pages = {70-82},
+abstract = {It is well known that the $\alpha$-stable distribution, while having no closed form density function in the general case, admits a Poisson series representation (PSR) in which the terms of the series are a function of the arrival times of a unit rate Poisson process. In our previous work we have shown how to carry out inference for regression models using this series representation, which leads to a very convenient conditionally Gaussian framework, amenable to straightforward Gaussian inference procedures. 
+The PSR has to be truncated to a finite number of terms for practical purposes. The residual terms have been approximated in our previous work by a Gaussian distribution with fully characterised moments.
+In this paper we present a new Central Limit Theorem (CLT) for the residual terms which serves to justify our previous approximation of the residual as Gaussian. 
+Furthermore, we provide an analysis of the asymptotic convergence rate expressed in the CLT.}
+}
+
+

@@ -1,0 +1,115 @@
+@proceedings{icgi16,
+    booktitle = {Proceedings of The 13th International Conference on Grammatical Inference},
+    editor = {Verwer, Sicco and Zaanen, Menno van and Smetsers, Rick},
+    volume = {57},
+    year = {2016},
+    shortname = {ICGI}
+}
+@inproceedings{verwer16,
+  title = {International Conference on Grammatical Inference 2016: Preface},
+  author = {Verwer, Sicco and Zaanen, Menno van and Smetsers, Rick},
+  pages = {1-2},
+  abstract = {}
+}
+@inproceedings{bechet16,
+  title = {Simple K-star Categorial Dependency Grammars and their Inference},
+  author = {B\'echet, Denis and Foret, Annie},
+  pages = {3-14},
+  abstract = {We propose a novel subclass  in the family of Categorial Dependency Grammars (CDG), based on a syntactic criterion on categorial types associated to words in the lexicon and study its learnability. This proposal relies on  a linguistic principle and relates to a former non-constructive condition on iterated dependencies. We show that the projective CDG in this subclass are incrementally learnable in the limit from dependency structures. In contrast to previous proposals, our criterion is both syntactic and  does not impose a (rigidity) bound on the number of categorial types associated to a word.}
+}
+@inproceedings{dediu16,
+  title = {Query Learning Automata with Helpful Labels},
+  author = {Dediu, Adrian-Horia and M. Matos, Joana and Moraga, Claudio},
+  pages = {15-29},
+  abstract = {In the active learning framework, a modified query learning algorithm benefiting by a nontrivial helpful labeling is able to learn automata with a reduced number of queries. In extremis, there exists a helpful labeling allowing the algorithm to learn automata even without counterexamples. We also review the correction queries defining them as particular types of labeling. We introduce minimal corrections, maximal corrections, and random corrections. An experimental approach compares the performance and limitations of various types of queries and corrections. The results show that algorithms using corrections require fewer queries in most of the cases.}
+}
+@inproceedings{groz16,
+  title = {Inferring Non-resettable {M}ealy Machines with n States},
+  author = {Groz, Roland and Oriat, Catherine and Br\'emond, Nicolas},
+  pages = {30-41},
+  abstract = {Automata inference algorithms are used to extract behavioural models of software components. However, when the software system cannot be reset, inference must be done from a single trace. This paper proposes an active learning algorithm that can infer a Mealy model under the assumption that the number of the states of the machine is known and that a characterization set for it is provided. This algorithm improves on a previous paper that used a looser assumption on the number of states. The complexity is polynomial in the number of states of the Mealy machine.}
+}
+@inproceedings{clark16,
+  title = {Testing Distributional Properties of Context-Free Grammars},
+  author = {Clark, Alexander},
+  pages = {42-53},
+  abstract = {Recent algorithms for distributional learning of context-free grammars can learn all languages defined by grammars that have certain distributional properties: the finite kernel property (FKP) and the finite context property (FCP). In this paper we present some algorithms for approximately determining whether a given grammar has one of these properties. We then present the results of some experiments that indicate that with randomly generated context-free grammars in Chomsky normal form, which generate infinite languages and are derivationally sparse, nearly all grammars have the finite kernel property, whereas the finite context property is much less common.}
+}
+@inproceedings{boiret16,
+  title = {Learning Top-Down Tree Transducers with Regular Domain Inspection},
+  author = {Boiret, Adrien and Lemay, Aur\'elien and Niehren, Joachim},
+  pages = {54-65},
+  abstract = {We study the problem of how to learn tree transformations on a given regular tree domain from a finite sample of input-output examples. We assume that the target tree transformation can be defined by a deterministic top-down tree transducer with regular domain inspection (DTOPIreg). An RPNI style learning algorithm that solves this problem  in polynomial time and with polynomially many examples was presented at Pods'2010, but restricted to the case of path-closed regular domains. In this paper, we show that this restriction can be removed.  For this, we present a new normal form for DTOPIreg by extending the Myhill-Nerode theorem for DTOP to regular domain inspections in a nontrivial manner. The RPNI style learning algorithm can also be lifted but becomes more involved too.}
+}
+@inproceedings{strother-garcia16,
+  title = {Using Model Theory for Grammatical Inference: a Case Study from Phonology},
+  author = {Strother-Garcia, Kristina and Heinz, Jerey and Hwangbo, Hyun Jin},
+  pages = {66-78},
+  abstract = {This paper examines the characterization and learning of grammars defined by conjunctions of negative and positive literals (CNPL) where the literals correspond to structures in an enriched model theory of strings. CNPL logic represents an intermediate between conjunctions of negative literals (CNL) and a propositional-style logic, both of which have been well-studied in terms of the language classes they describe. Model-theoretic approaches to formal language theory have traditionally assumed that each position in a string belongs to exactly one unary relation. Using enriched models (which do no satisfy this assumption) presents a new avenue for investigation with potential applications in several fields including linguistics, planning and control, and molecular biology. We demonstrate the value of such structures and CNPL logic with a particular learning problem in phonology.}
+}
+@inproceedings{siyari16,
+  title = {The Generalized Smallest Grammar Problem},
+  author = {Siyari, Payam and Gall\'e, Matthias},
+  pages = {79-92},
+  abstract = {The Smallest Grammar Problem -- the problem of finding the smallest context-free grammar that generates exactly one given sequence -- has never been successfully applied to grammatical inference. We investigate the reasons and propose an extended formulation that seeks to minimize non-recursive grammars, instead of straight-line programs. In addition, we provide very efficient algorithms that approximate the minimization problem of this class of grammars. Our empirical evaluation shows that we are able to find smaller models than the current best approximations to the Smallest Grammar Problem on standard benchmarks, and that the inferred rules capture much better the syntactic structure of natural language.}
+}
+@inproceedings{fukunaga16,
+  title = {Online Grammar Compression for Frequent Pattern Discovery},
+  author = {Fukunaga, Shouhei and Takabatake, Yoshimasa and I, Tomohiro and Sakamoto, Hiroshi},
+  pages = {93-104},
+  abstract = {Various grammar compression algorithms have been proposed in the last decade. A grammar compression is a restricted CFG deriving the string deterministically. An efficient grammar compression develops a smaller CFG by finding duplicated patterns and removing them. This process is just a frequent pattern discovery by grammatical inference. While we can get any frequent pattern in linear time using a preprocessed string, a huge working space is required for longer patterns, and the whole string must be loaded into the memory preliminarily. We propose an online algorithm approximating this problem within a compressed space. The main contribution is an improvement of the previously best known approximation ratio $\Omega(\frac{1}{\lg^2m})$ to Omega(\frac{1}{\lg^*N\lg m})$ where $m$ is the length of an optimal pattern in a string of length $N$ and $\lg^*$ is the iteration of the logarithm base $2$. For a sufficiently large $N$, $\lg^*N$ is practically constant. The experimental results show that our algorithm extracts nearly optimal patterns and achieves a significant improvement in memory consumption compared to the offline algorithm.}
+}
+@inproceedings{arrivault16,
+  title = {{Sp2Learn}: A Toolbox for the Spectral Learning of Weighted Automata},
+  author = {Arrivault, Denis and Benielli, Dominique, and Denis, Fran{\c{c}}ois and Eyraud, Remi},
+  pages = {105-119},
+  abstract = {Sp2Learn is a Python toolbox for the spectral learning of weighted automata from a set of strings, licensed under Free BSD. This paper gives the main formal ideas behind the spectral learning algorithm and details the content of the toolbox. Use cases and an experimental section are also provided.}
+}
+@inproceedings{pellegrino16,
+  title = {Learning Deterministic Finite Automata from Infinite Alphabets},
+  author = {Pellegrino, Gaetano and Hammerschmidt, Christian and Lin, Qin and Verwer, Sicco},
+  pages = {120-131},
+  abstract = {We proposes an algorithm to learn automata infinite alphabets, or at least too large to enumerate. We apply it to define a generic model intended for regression, with transitions constrained by intervals over the alphabet. The algorithm is based on the Red \& Blue framework for learning from an input sample. We show two small case studies where the alphabets are respectively the natural and real numbers, and show how nice properties of automata models like interpretability and graphical representation transfer to regression where typical models are hard to interpret.}
+}
+@inproceedings{balle16,
+  title = {Results of the Sequence PredIction ChallengE ({SPiCe}): a Competition on Learning the Next Symbol in a Sequence},
+  author = {Balle, Borja and Eyraud, R\'emi and Luque, Franco M. and Quattoni, Ariadna and Verwer, Sicco},
+  pages = {132-136},
+  abstract = {The Sequence PredIction ChallengE (SPiCe) is an on-line competition that took place between March and July 2016. Each of the 15 problems was made of a set of whole sequences as training sample, a validation set of prefixes, and a test set of prefixes. The aim was to submit a ranking of the 5 most probable symbols to be the next symbol of each prefix.}
+}
+@inproceedings{shibata16,
+  title = {Predicting Sequential Data with {LSTM}s Augmented with Strictly 2-Piecewise Input Vectors},
+  author = {Shibata, Chihiro and Heinz, Jeffrey},
+  pages = {137-142},
+  abstract = {Recurrent neural networks such as Long-Short Term Memory (LSTM) are often used to learn from various kinds of time-series data, especially those that involved long-distance dependencies.  We introduce a vector representation for the Strictly 2-Piecewise (SP-$2$) formal languages, which encode certain kinds of long-distance dependencies using subsequences. These vectors are added to the LSTM architecture as an additional input. Through experiments with the problems in the SPiCe dataset, we demonstrate that for certain problems, these vectors slightly---but significantly---improve the top-5 score (normalized discounted cumulative gain) as well as the accuracy as compared to the LSTM architecture without the SP-$2$ input vector. These results are also compared to an LSTM architecture with an input vector based on bigrams.}
+}
+@inproceedings{liza16,
+  title = {A Spectral Method that Worked Well in the {SPiCe}'16 Competition},
+  author = {Liza, Farhana Ferdousi and Grze\'s, Marek},
+  pages = {143-148},
+  abstract = {We present methods used in our submission to the Sequence Prediction ChallengE (SPiCe'16). The two methods used to solve the competition tasks were spectral learning and a count based method. Spectral learning led to better results on most of the problems.}
+}
+@inproceedings{sato16,
+  title = {Evaluation of Machine Learning Methods on {SPiCe}},
+  author = {Sato, Ichinari and Chubachi, Kaizaburo and Diptarama},
+  pages = {149-153},
+  abstract = {In this paper, we introduce methods that we used to solve problems from the sequence prediction competition called SPiCe. We train a model from sequences in train data on each problem, and then predict a next symbol following each sequence in test data. We implement several methods to solve these problems. The experiment results show that XGBoost and neural network approaches have good performance overall.}
+}
+@inproceedings{hammerschmidt16,
+  title = {Flexible State-Merging for Learning {(P)DFA}s in Python},
+  author = {Hammerschmidt, Christian and Loos, Benjamin and State, Radu and Engel, Thomas},
+  pages = {154-159},
+  abstract = {We present a Python package for learning (non-)probabilistic deterministic finite state automata and provide heuristics in the red-blue framework. As our package is built along the API of the popular scikit-learn package, it is easy to use and new learning methods are easy to add. It provides PDFA learning as an additional tool for sequence prediction or classification to data scientists, without the need to understand the algorithm itself but rather the limitations of PDFA as a model. With applications of automata learning in diverse fields such as network traffic analysis, software engineering and biology, a stratified package opens opportunities for practitioners.}
+}
+@inproceedings{xi16,
+  title = {Model Selection of Sequence Prediction Algorithms by Compression},
+  author = {Xi, Du and Zhuang, Dai},
+  pages = {160-163},
+  abstract = {This paper describes estimating performance of sequence prediction algorithms and hyperparameters by compressing the training dataset itself with the probablities predicted by the trained model. With such estimation we can automate the selection and tuning process of learning algorithms. Spectral learning algorithm are experimented with.}
+}
+@inproceedings{zhao16,
+  title = {Sequence Prediction Using Neural Network Classiers},
+  author = {Zhao, Yanpeng and Chu, Shanbo and Zhou, Yang and Tu, Kewei},
+  pages = {164-169},
+  abstract = {Being able to guess the next element of a sequence is an important question in many fields. In this paper we present our approaches used in the Sequence Prediction ChallengE (SPiCe), whose goal is to compare the different approaches to that problem on the same datasets. We model sequence prediction as a classification problem and adapt three different neural network models to tackle it. The experimental results show that our neural network based approaches produce better overall performance than the baseline approaches provided in the competition. In the actual competition, we won the second place using these approaches.}
+}
