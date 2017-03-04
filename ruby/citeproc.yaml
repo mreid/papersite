@@ -2,15 +2,15 @@
 layout: null
 ---
 {% assign sorted = (site.posts | sort: 'order') %}{% for post in sorted %}{% capture id %}{{ post.id | remove_first: '/' }}{% endcapture %}
-- title: "{{ post.title }}"
+- title: '{{ post.title | replace: "'", "''" }}'
   volume: {{ post.volume }}
   URL: {{site.url}}{{site.baseurl}}{{ post.url }}{% if post.doi %}
   DOI: {{ post.doi }}{% endif %}{% if post.pdf %}
   PDF: {{ post.pdf }}{% endif %}{% if post.number %}
   issue: {{ post.number }}{% endif %}{% if post.series %}
-  series: "{{ post.series }}"{% endif %}
-  container-title: "{{ post.container-title }}"
-  publisher: "{{ post.publisher }}"
+  series: '{{ post.series }}'{% endif %}
+  container-title: '{{ post.container-title | replace: "'", "''" }}'
+  publisher: '{{ post.publisher | replace: "'", "''" }}'
   author: {% for person in post.author %}
   - family: {{ person.family }}
     given: {{ person.given }}{% if person.orcid %}
@@ -26,4 +26,4 @@ layout: null
   issued:
     date-parts: {% for date-part in post.issued.date-parts %}
       - {{ date-part }}{% endfor %}{% if post.abstract %}
-  abstract: "{{ post.abstract }}"{% endif %}{% endfor %}
+  abstract: '{{ post.abstract | replace: "'", "''"}}'{% endif %}{% endfor %}

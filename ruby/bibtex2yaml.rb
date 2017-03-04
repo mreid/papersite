@@ -269,7 +269,6 @@ Dir.glob(bibdir + 'v' + volume.to_s + '/*.bib') do |bib_file|
     end
 
     ha['address'] = address
-    #end    
     ha['publisher'] = 'PMLR'
     ha['container-title'] = booktitle
     ha['volume'] = volume.to_s
