@@ -146,6 +146,8 @@ def splitauthors(ha, obj, type=:author)
   return a
 end
 
+puts "This script now replaced by update_papers.rb, update_config.rb and update_papersite_files.rb, Do not use!"
+if False
 if ARGV.length < 1
   puts "Usage: #{$0} <volume>"
 else
@@ -327,3 +329,4 @@ FileUtils.cp procdir +  'papersite/ruby/index.html', '.'
 FileUtils.cp procdir +  'papersite/ruby/feed.xml', '.'
 FileUtils.cp procdir +  'papersite/ruby/bibliography.bib', '.'
 FileUtils.cp procdir +  'papersite/ruby/citeproc.yaml', '.'
+end

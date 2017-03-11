@@ -12,6 +12,7 @@
   {% include mathjax_code.html %}
 
   {% include hidden_copy_code.html %}
+  {% if page.layout == 'inproceedings' %}  {% include paper_google_scholar.html %}{% include paper_twitter_meta.html %} {% include paper_open_graph_meta.html %}{% endif %}
 
 </head>
 
