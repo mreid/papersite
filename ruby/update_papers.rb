@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-#!/usr/bin/env ruby
 # File for updating _posts directory with papers for a new proceedings from a directory of bib files.
 # Usage: ./update_papers.rb NN
 # Where NN is the volume number
