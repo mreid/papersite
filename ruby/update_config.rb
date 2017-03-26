@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+# File for updating _config.yml for a new proceedings from a bib file.
+# Usage: ./update_config.rb NN
+# Where NN is the volume number
 
 require 'rubygems'
 require 'bibtex'
