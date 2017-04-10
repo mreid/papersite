@@ -14,9 +14,18 @@ https://github.com/mlresearch/
 
 with the name vNN where NN is the number of the proceedings.
 
-The description of the volume should be of the form "AISTATS 2017
+Use this link:
+
+https://github.com/organizations/mlresearch/repositories/new
+
+To set up the proceedings.
+
+Do *not* initialize with a README. Simply "Create Repository" and *then*
+add relevant people to the edit/write permissions. 
+
+The "Description" field for the repo should be of the form "AISTATS 2017
 Proceedings" or equivalent. This will populate the front page when the
-proceedings are available.
+proceedings are available (see http://proceedings.mlr.press/).
 
 ## When the Proceedings are Ready
 
