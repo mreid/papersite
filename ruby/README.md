@@ -1,23 +1,57 @@
 # Ruby Code
 
-This code is for creating `jekyll` sites for hosting on `GitHub pages`
+This code is for creating `jekyll` sites for hosting PMLR on `GitHub pages`
+
+From the shell there are various ruby scripts to run. The main code
+that does the work is found in `mlresearch.rb`. 
 
 
-A bit hacky for the moment but in the shell there are various ruby scripts to run. The main code is found in `mlresearch.rb`. 
+## At First Request
 
-Unzip the file containing PDFs and the bib file into the current
-directory.
+When the volume was first requested, a new repo should be set up under
 
-Then run
+https://github.com/mlresearch/
+
+with the name vNN where NN is the number of the proceedings.
+
+The description of the volume should be of the form "AISTATS 2017
+Proceedings" or equivalent. This will populate the front page when the
+proceedings are available.
+
+## When the Proceedings are Ready
+
+The proceedings editor needs to provide you you with a zipped file that
+contains the PDFS and supplemental information, as well as a bib file
+containing information about the volume. The specification for all
+this is given here:
+
+http://proceedings.mlr.press/spec.html
+
+The scripts run in `papersite`. As a suggested directory structure, if
+`papersite` is located at
 
 ```bash
+~/username/mlresearch/papersite
+```
+then create the new directory
+
+```
+mkdir ~/USERNAME/mlresearch/vNN
+```
+with NN being the volume number.
+
+Then unzip the file containing PDFs and the bib file into the new
+directory.
+
+```bash
+cd ~/USERNAME/mlresearch/vNN
 ../papersite/ruby/create_volume.rb NN FILE.bib
 ```
 
 Where NN is the volume number and FILE.bib is the file provided by the
 proceedings editors (e.g. gpip2006.bib).
 
-This will move the PDFs into the correct positions, alongwith
+This will move the PDFs into the correct positions, along with
 supplemental material.
 
 Then run
@@ -30,10 +64,12 @@ To bring the relevant paper site files across. Formatting is done in the file `i
 
 Now, assuming you have already created the stub git repo on github,
 you can run the script
+
 ```bash
 # CAREFUL RUNNING THIS! MAKE SURE YOU GET THE REPO VOLUME RIGHT!
 ../papersite/ruby/addrepo.sh NN
 ```
+
 which will init the git repo, and check in the code to the relevant
 repo. 
 
