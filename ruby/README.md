@@ -11,10 +11,10 @@ directory.
 Then run
 
 ```bash
-../papersite/ruby/create_volume.rb VV FILE.bib
+../papersite/ruby/create_volume.rb NN FILE.bib
 ```
 
-Where VV is the volume number and FILE.bib is the file provided by the
+Where NN is the volume number and FILE.bib is the file provided by the
 proceedings editors (e.g. gpip2006.bib).
 
 This will move the PDFs into the correct positions, alongwith
