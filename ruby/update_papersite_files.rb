@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# File for updating _posts directory with papers for a new proceedings from a directory of bib files.
+# Usage: ./update_papersite_files.rb
 
 require 'fileutils'
 require_relative 'mlresearch'
