@@ -18,8 +18,7 @@ layout: default
     {% endfor %}
 </strong></p>
 <p>[<a href="./bibliography.bib">bib</a>][<a href="./citeproc.yaml">citeproc</a>]</p>
-<div id="sectionnav">
-  {% if site.sections %}
+<div id="sectionnav">{% if site.sections %}
   <p>Contents:</p>
   <ul>
     {% for section in site.sections %}
@@ -35,21 +34,16 @@ layout: default
   </p>
 </div>
 {% assign sorted = (site.posts | sort: 'order') %}
-{% if site.sections %}
-{% for section in site.sections %}
+{% if site.sections %}{% for section in site.sections %}
 <h3 id="{{ section.name }}">{{ section.title }}</h3>
-{% for post in sorted %}
-{% if section.name == post.section %}
-{% include listpaper.html %}
-{% endif %}
+{% for post in sorted %}{% if section.name == post.section %}
+{% include listpaper.html %}{% endif %}
 {% endfor %}
 {% endfor %}
 {% endif %}
 
-{% for post in sorted %}
-{% unless post.section %} 
-{% include listpaper.html %}
-{% endunless %}
+{% for post in sorted %}{% unless post.section %} 
+{% include listpaper.html %}{% endunless %}
 {% endfor %}
 
 <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>

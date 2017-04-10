@@ -2,19 +2,35 @@
 
 This code is for creating `jekyll` sites for hosting on `GitHub pages`
 
-A bit hacky for the moment but in the shell run
+Unzip the file containing PDFs and the bib file into the current
+directory.
+
+Then run
 
 ```bash
-./bibtex2yaml.rb v1
+../papersite/ruby/create_volume.rb VV FILE.bib
 ```
 
-and that will create/update the system for volume 1. That volume is `gpip2006`. The main conference information is stored in `_config.yml` which is created from `v1.bib`. The individual paper information is stored as 'posts' in `_posts` as files with `YYYY-MM-DD-keyname.md` for the date of publication and keyname is the bibtex key name.
+Where VV is the volume number and FILE.bib is the file provided by the
+proceedings editors (e.g. gpip2006.bib).
 
-Formatting is done in the file `index.html` in the new repo and the file `_layouts/inproceedings.html` in the repo.
+This will move the PDFs into the correct positions, alongwith
+supplemental material.
 
-For a new conference, once the ruby script has been run, create a repo on github with the `shortnameYYYY` format. Don't create the README file or anything. Then run the script
+Then run
+
 ```bash
-./addrepo.sh shortnameYYYY
+../papersite/ruby/update_papersite_files.rb VV
 ```
-which will init the git repo, and check in the code to the relevant repo. CAREFUL RUNNING THIS! MAKE SURE YOU GET THE REPO NAME RIGHT!
+
+To bring the relevant paper site files across.
+
+Now, assuming you have already created the stub git repo on github,
+you can run the script
+```bash
+# CAREFUL RUNNING THIS! MAKE SURE YOU GET THE REPO VOLUME RIGHT!
+../papersite/ruby/addrepo.sh VV
+```
+which will init the git repo, and check in the code to the relevant
+repo. 
 
