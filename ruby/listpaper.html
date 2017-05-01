@@ -11,7 +11,6 @@
   </p>
   <p class="links">
     [<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">abs</a>]
-    {% if post.pdf %}[<a href="{{ post.pdf }}">pdf</a>]{% endif %}
-    {% if post.supplementary %}[<a href="{{ post.supplementary }}">supplementary</a>]{% endif %}
+    [<a href="{{ post.pdf }}" target="_blank" onclick="ga('send', 'event', 'PDF Downloads', 'Download', {{ post.pdf}}, 10);">Download PDF</a>]{% if post.supplementary %}[<a href="{{ post.supplementary }}" target="_blank" onclick="ga('send', 'event', 'PDF Downloads', 'Download', {{ post.supplementary }}, 11);">Supplementary Material</a>]{% endif %}{% for extra in post.extras %}[<a href="{{ extra.link }}" target="_blank" onclick="ga('send', 'event', 'Extra Downloads', 'Download', '{{ extra.label }}', 12);">{{ extra.label }}</a>]{% endfor %}
   </p>
 </div>
