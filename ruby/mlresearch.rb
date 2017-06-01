@@ -27,11 +27,16 @@ class String
 end
 
 module MLResearch
+  def self.basedir
+    # Get base of directory containing `papersite` repo by going three
+    # steps up from where this file is located
+    File.dirname(__FILE__).split('/')[0..-3].join('/')
+  end 
   def self.procdir
-    '/Users/neil/mlresearch/'
+    self.basedir + '/'
   end
   def self.bibdir
-    '/Users/neil/mlresearch/papersite/db/'
+    self.procdir + '/papersite/db/'
   end
   def self.url
     'http://proceedings.mlr.press'
