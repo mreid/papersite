@@ -5,6 +5,8 @@
 require 'fileutils'
 require_relative 'mlresearch'
 
+print "Updating files. Base directory is " + MLResearch.basedir + "\n"
+
 FileUtils.cp MLResearch.procdir +  'papersite/ruby/index.html', '.'
 FileUtils.cp MLResearch.procdir +  'papersite/ruby/feed.xml', '.'
 FileUtils.cp MLResearch.procdir +  'papersite/ruby/bibliography.bib', '.'
