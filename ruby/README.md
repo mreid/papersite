@@ -5,6 +5,19 @@ This code is for creating `jekyll` sites for hosting PMLR on `GitHub pages`
 From the shell there are various ruby scripts to run. The main code
 that does the work is found in `mlresearch.rb`. 
 
+## Requirements
+
+The `papersite` script depends on the following packages, which will need to
+be install before the scripts here can run:
+
+ - bibtex-ruby
+ - facets
+ - pandoc-ruby
+
+You can install all the above with:
+```
+sudo gem install bibtex-ruby facets pandoc-ruby
+```
 
 ## At First Request
 
