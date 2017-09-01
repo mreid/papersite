@@ -258,7 +258,7 @@ module MLResearch
       filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + letter.chr).parameterize
       while ids.include? filestub
         letter += 1
-        filestub = ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + letter.chr
+        filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + letter.chr).parameterize
       end
       ids.push(filestub)
       puts filestub
@@ -274,7 +274,6 @@ module MLResearch
       if inc_layout
         ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + ha['id'] + '.pdf'
       else
-
         if File.file?(ha['id'] + '.pdf')
           Dir.mkdir(filestub) unless File.exists?(filestub)
           if not File.file?(filestub + '/' + filestub + '.pdf')
