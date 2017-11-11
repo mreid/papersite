@@ -28,10 +28,10 @@ end
 
 module MLResearch
   def self.procdir
-    '/Users/neil/mlresearch/'
+    '/Users/lawrennd/mlresearch/'
   end
   def self.bibdir
-    '/Users/neil/mlresearch/papersite/db/'
+    '/Users/lawrennd/mlresearch/papersite/db/'
   end
   def self.url
     'http://proceedings.mlr.press'
