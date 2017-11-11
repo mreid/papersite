@@ -14,6 +14,7 @@ require 'latex/decode/punctuation'
 require 'latex/decode/symbols'
 require 'latex/decode/greek'
 
+require "active_support/inflector"
 
 require 'fileutils'
 require 'pandoc-ruby'
@@ -27,11 +28,16 @@ class String
 end
 
 module MLResearch
+  def self.basedir
+    # Get base of directory containing `papersite` repo by going three
+    # steps up from where this file is located
+    File.dirname(__FILE__).split('/')[0..-3].join('/')
+  end 
   def self.procdir
     '/Users/lawrennd/mlresearch/'
   end
   def self.bibdir
-    '/Users/lawrennd/mlresearch/papersite/db/'
+    self.procdir + '/papersite/db/'
   end
   def self.url
     'http://proceedings.mlr.press'
@@ -248,10 +254,11 @@ module MLResearch
       ha['issued'] = {'date-parts' => [published.year, published.month, published.day]}
 
       letter = 97
-      filestub = ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + letter.chr
+      # Fix up the filestubs
+      filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + letter.chr).parameterize
       while ids.include? filestub
         letter += 1
-        filestub = ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + letter.chr
+        filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + letter.chr).parameterize
       end
       ids.push(filestub)
       puts filestub
@@ -267,7 +274,6 @@ module MLResearch
       if inc_layout
         ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + ha['id'] + '.pdf'
       else
-
         if File.file?(ha['id'] + '.pdf')
           Dir.mkdir(filestub) unless File.exists?(filestub)
           if not File.file?(filestub + '/' + filestub + '.pdf')
@@ -277,7 +283,8 @@ module MLResearch
         if File.file?(filestub + '/' + filestub + '.pdf')
           ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + filestub + '/' + filestub + '.pdf'
         else
-          raise "PDF file not present"
+          
+          raise "PDF " + filestub + '/' + filestub + '.pdf' + " file not present"
         end
       end
 
