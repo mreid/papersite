@@ -53,12 +53,12 @@ The scripts run in `papersite`. As a suggested directory structure, if
 `papersite` is located at
 
 ```bash
-~/USERNAME/mlresearch/papersite
+~/mlresearch/papersite
 ```
 then create the new directory
 
 ```
-mkdir ~/USERNAME/mlresearch/vNN
+mkdir ~/mlresearch/vNN
 ```
 with NN being the volume number.
 
@@ -66,7 +66,7 @@ Then unzip the file containing PDFs and the bib file into the new
 directory.
 
 ```bash
-cd ~/USERNAME/mlresearch/vNN
+cd ~/mlresearch/vNN
 ../papersite/ruby/create_volume.rb NN FILE.bib
 ```
 
