@@ -53,7 +53,7 @@ The scripts run in `papersite`. As a suggested directory structure, if
 `papersite` is located at
 
 ```bash
-~/username/mlresearch/papersite
+~/USERNAME/mlresearch/papersite
 ```
 then create the new directory
 
