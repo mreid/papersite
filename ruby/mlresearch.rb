@@ -34,7 +34,7 @@ module MLResearch
     File.dirname(__FILE__).split('/')[0..-3].join('/')
   end 
   def self.procdir
-    '/Users/lawrennd/mlresearch/'
+    self.basedir + '/'
   end
   def self.bibdir
     self.procdir + '/papersite/db/'
@@ -72,7 +72,7 @@ module MLResearch
     LaTeX::Decode::Symbols.decode!(string)
     LaTeX::Decode::Greek.decode!(string)
     
-    LaTeX::Decode::Base.strip_braces(string)
+    #LaTeX::Decode::Base.strip_braces(string)
 
     LaTeX.normalize_C(string)
     # Need to deal with different encodings. Map to utf-8
