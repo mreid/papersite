@@ -65,6 +65,7 @@ module MLResearch
     # Returning up to second end character is to deal with new line
     return string unless string.respond_to?(:to_s)
     string = string.is_a?(String) ? string.dup : string.to_s
+    string.force_encoding("utf-8")
     LaTeX::Decode::Base.normalize(string)
     LaTeX::Decode::Accents.decode!(string)
     LaTeX::Decode::Diacritics.decode!(string)
@@ -82,6 +83,7 @@ module MLResearch
     # Returning up to second end character is to deal with new line
     return string unless string.respond_to?(:to_s)
     string = string.is_a?(String) ? string.dup : string.to_s
+    string.force_encoding("utf-8")
     LaTeX::Decode::Base.normalize(string)
     LaTeX::Decode::Accents.decode!(string)
     LaTeX::Decode::Diacritics.decode!(string)
@@ -168,12 +170,14 @@ module MLResearch
     end
     
     if ha.has_key?('editor')
+      ha['bibtex_editor'] = ha['editor']
       editor = splitauthors(ha, obj, type=:editor)
       ha.tap { |hs| hs.delete('editor') }
       ha['editor'] = editor
     end
     
     if ha.has_key?('author')
+      ha['bibtex_author'] = ha['author']
       author = splitauthors(ha, obj)
       ha.tap { |hs| hs.delete('author') }
       ha['author'] = author
