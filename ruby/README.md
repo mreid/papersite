@@ -10,13 +10,14 @@ that does the work is found in `mlresearch.rb`.
 The `papersite` script depends on the following packages, which will need to
 be install before the scripts here can run:
 
+ - ActiveRecord
  - bibtex-ruby
  - facets
  - pandoc-ruby
 
 You can install all the above with:
 ```
-sudo gem install bibtex-ruby facets pandoc-ruby
+sudo gem install bibtex-ruby facets pandoc-ruby activerecord
 ```
 
 ## At First Request
