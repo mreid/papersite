@@ -73,8 +73,25 @@ module MLResearch
     LaTeX::Decode::Symbols.decode!(string)
     LaTeX::Decode::Greek.decode!(string)
     
-    #LaTeX::Decode::Base.strip_braces(string)
+    LaTeX::Decode::Base.strip_braces(string)
 
+    LaTeX.normalize_C(string)
+    # Need to deal with different encodings. Map to utf-8
+  end
+
+    def self.detex_abstract(string)
+    # Returning up to second end character is to deal with new line
+    return string unless string.respond_to?(:to_s)
+    string = string.is_a?(String) ? string.dup : string.to_s
+    string.force_encoding("utf-8")
+    LaTeX::Decode::Base.normalize(string)
+    LaTeX::Decode::Accents.decode!(string)
+    LaTeX::Decode::Diacritics.decode!(string)
+    LaTeX::Decode::Punctuation.decode!(string)
+    #LaTeX::Decode::Symbols.decode!(string)
+    #LaTeX::Decode::Greek.decode!(string)
+    # Don't remove brackets as it messes up maths.
+    
     LaTeX.normalize_C(string)
     # Need to deal with different encodings. Map to utf-8
   end
@@ -122,7 +139,7 @@ module MLResearch
       if ha['abstract'] == ''
         ha.tap { |hs| hs.delete('abstract') }
       else
-        ha['abstract'] = detex(ha['abstract'])
+        ha['abstract'] = detex_abstract(ha['abstract'])
       end
     end
     if ha.has_key?('title')
@@ -407,7 +424,7 @@ module MLResearch
     # Add details to _config.yml file
     ha['volume'] = volume.to_i
     ha['email'] = email
-    address = ha['address']
+    address = detex(ha['address'])
     ha['conference'] = {'name' => ha['name'], 'url' => ha['conference_url'], 'location' => address, 'dates'=>ha['start'].upto(ha['end']).collect{ |i| i}}
     ha.tap { |hs| hs.delete('address') }
     ha.tap { |hs| hs.delete('conference_url') }
