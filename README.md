@@ -1,4 +1,4 @@
-# papersite
+# PMLR Generation Code
 
 Code for generation of the Proceedings of Machine Learning Research.
 
