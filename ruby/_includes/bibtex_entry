@@ -17,7 +17,7 @@
 {% endcapture %}
 {% capture item %}
 \item
-{%end capture%}
+{% endcapture %}
 @InProceedings{{o}}{{ id }},
   title = 	 {{o}}{{ page.tex_title }}{{c}},
   author = 	 {{o}}{{ page.bibtex_author }}{{c}},
