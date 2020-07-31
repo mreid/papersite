@@ -124,6 +124,7 @@ module MLResearch
     ha['layout'] = ha['bibtex_type'].to_s
     ha.tap { |hs| hs.delete('bibtex_type') }
     ha['series'] = "Proceedings of Machine Learning Research"
+    ha['issn' = '2640-3498'
     ha['id'] = ha['bibtex_key'].to_s
     ha.tap { |hs| hs.delete('bibtex_key') }
     
@@ -462,7 +463,14 @@ module MLResearch
     out.puts '  gem \'jekyll-include-cache\''
     out.puts 
 
+    out = File.open('README.md', 'w')
+    out.puts '# PMLR V' + ha['volume']
+    out.puts
+    out.puts 'To suggest fixes to this volume please make a pull request containng the changes for a dit ths
+    out.puts
+    out.puts ha['description']
 
+    
     return ha
     
     
