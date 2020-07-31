@@ -70,7 +70,7 @@ else
   ha['github_username'] = MLResearch.github
   ha['markdown'] = MLResearch.markdown
   ha['permalink'] = '/:title.html'
-  ha['github'] = {'edit' => true, 'repository' => reponame}
+  ha['ghub'] = {'edit' => true, 'repository' => reponame}
   if not ha.has_key?('name')
     ha['name'] = booktitle
   end

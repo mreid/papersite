@@ -230,6 +230,7 @@ module MLResearch
   end
   
   def self.splitauthors(ha, obj, type=:author)
+    puts obj[:author]
     a = Array.new(obj[type].length)       #=> [nil, nil, nil]
     obj[type].each.with_index(0) do |name, index|
       first = detex(name.first)
@@ -347,6 +348,7 @@ module MLResearch
     end  
   end
 
+  
   def self.extractconfig(bibfile, volume)
     # Extract information about the volume from the bib file, place in _config.yml
     file = File.open(bibfile, "rb")
@@ -402,8 +404,10 @@ module MLResearch
     ha['twitter_username'] = twitter
     ha['github_username'] = 'mlresearch'
     ha['markdown'] = 'kramdown'
+    ha['plugins'] = ['jekyll-remote-theme']
+    ha['remote_theme'] = 'lawrennd/proceedings'
     ha['permalink'] = '/:title.html'
-    ha['github'] = {'edit' => true, 'repository' => reponame}
+    ha['ghub'] = {'edit' => true, 'repository' => reponame}
     if not ha.has_key?('name')
       ha['name'] = booktitle
     end
@@ -432,11 +436,35 @@ module MLResearch
     
     ha['analytics'] = {'google' => {'tracking_id' => self.tracking_id}}
     ya = ha.to_yaml(:ExplicitTypes => true)
-    
+
     out = File.open('_config.yml', 'w')    
     out.puts ya
     out.puts "# Site settings"
-    out.puts "# Auto generated from " + bibfile
+    out.puts "# Original source:  " + bibfile 
+
+    ind = {'layout' => 'home'}
+    indtxt = ind.to_yaml(:ExplicityTypes => true)
+    out = File.open('index.html', 'w')
+    out.puts indtxt
+    out.puts "---"
+
+    out = File.open('Gemfile', 'w')
+    # frozen_string_literal: true
+    out.puts 'source "https://rubygems.org"'
+    out.puts
+    out.puts 'git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }'
+    out.puts
+    out.puts 'gem \'jekyll\''
+    out.puts
+    out.puts 'group :jekyll_plugins do'
+    out.puts '  gem \'github-pages\''
+    out.puts '  gem \'jekyll-remote-theme\''
+    out.puts '  gem \'jekyll-include-cache\''
+    out.puts 
+
+
     return ha
+    
+    
   end  
 end

@@ -77,13 +77,7 @@ proceedings editors (e.g. gpip2006.bib).
 This will move the PDFs into the correct positions, along with
 supplemental material.
 
-Then run
-
-```bash
-../papersite/ruby/update_papersite_files.rb NN
-```
-
-To bring the relevant paper site files across. Formatting is done in the file `index.html` in the new repo and the file `_layouts/inproceedings.html`, then there are various includes to get other parts running. 
+The site is created using Jekyll. There is a customised remote-theme for formating the proceedings which is referenced in the `_config.yml` file. 
 
 Now, assuming you have already created the stub git repo on github,
 you can run the script
