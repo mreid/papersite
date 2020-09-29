@@ -18,11 +18,14 @@ else
   bib_filename = ARGV[1]
   reponame = 'v' + volume.to_s
   bib_file = MLResearch.procdir + reponame + '/' + bib_filename
-  puts bib_file
-  puts volume.to_s
-  volume_info = MLResearch.extractconfig(bib_file, volume)
-  
+  volume_info = MLResearch.bibextractconfig(bib_file, volume)
+  MLResearch.write_volume_files(volume_info)
   directory_name = "_posts"
   Dir.mkdir(directory_name) unless File.exists?(directory_name)
   MLResearch.extractpapers(bib_file, volume, volume_info)  
+  out = File.open('index.html', 'w')
+  out.puts "---"
+  out.puts "layout: home"
+  out.puts "---"
+
 end

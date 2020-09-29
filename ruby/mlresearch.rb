@@ -124,7 +124,8 @@ module MLResearch
     ha['layout'] = ha['bibtex_type'].to_s
     ha.tap { |hs| hs.delete('bibtex_type') }
     ha['series'] = "Proceedings of Machine Learning Research"
-    ha['issn' = '2640-3498'
+    ha['publisher'] = "PMLR"
+    ha['issn'] = '2640-3498'
     ha['id'] = ha['bibtex_key'].to_s
     ha.tap { |hs| hs.delete('bibtex_key') }
     
@@ -240,7 +241,14 @@ module MLResearch
     end
     return a
   end
-
+  def self.disambiguate_chars(count)
+    div, mod = count.divmod(26)
+    if div == 0
+      return (mod + 97).chr
+    else
+      return disambiguate_chars(div-1) + (mod+97).chr
+    end
+  end
   def self.extractpapers(bib_file, volume, volume_info)
     # Extract paper info from bib file and put it into yaml files in _posts
     
@@ -276,12 +284,12 @@ module MLResearch
       ha['genre'] = 'inproceedings'
       ha['issued'] = {'date-parts' => [published.year, published.month, published.day]}
 
-      letter = 97
+      count = 0
       # Fix up the filestubs
-      filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + letter.chr).parameterize
+      filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + disambiguate_chars(count)).parameterize
       while ids.include? filestub
-        letter += 1
-        filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + letter.chr).parameterize
+        count += 1
+        filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + disambiguate_chars(count)).parameterize
       end
       ids.push(filestub)
       puts filestub
@@ -349,8 +357,12 @@ module MLResearch
     end  
   end
 
-  
-  def self.extractconfig(bibfile, volume)
+  def self.extractconfig()
+    ha = YAML::load( File.open('_config.yml'))
+
+    return ha
+  end
+  def self.bibextractconfig(bibfile, volume)
     # Extract information about the volume from the bib file, place in _config.yml
     file = File.open(bibfile, "rb")
     contents = file.read
@@ -401,12 +413,15 @@ module MLResearch
       ha['description'] += "  Mark Reid\n"
     end
     ha['url'] = url
+    ha['author'] = {'name' => 'PMLR'}
     ha['baseurl'] = '/' + reponame
     ha['twitter_username'] = twitter
     ha['github_username'] = 'mlresearch'
     ha['markdown'] = 'kramdown'
-    ha['plugins'] = ['jekyll-remote-theme']
+    ha['exclude'] = ['README.md', 'Gemfile', '.gitignore']
+    ha['plugins'] = ['jekyll-feed', 'jekyll-seo-tag', 'jekyll-remote-theme']
     ha['remote_theme'] = 'lawrennd/proceedings'
+    ha['style'] = 'pmlr'
     ha['permalink'] = '/:title.html'
     ha['ghub'] = {'edit' => true, 'repository' => reponame}
     if not ha.has_key?('name')
@@ -436,19 +451,32 @@ module MLResearch
     ha.tap { |hs| hs.delete('name') }
     
     ha['analytics'] = {'google' => {'tracking_id' => self.tracking_id}}
+    ha['orig_bibfile'] = bibfile
+    return ha
+  end
+  def self.write_volume_files(ha)
+    write_config(ha)
+    write_index(ha)
+    write_readme(ha)
+    write_gemfile(ha)
+  end  
+  def self.write_config(ha)
     ya = ha.to_yaml(:ExplicitTypes => true)
 
     out = File.open('_config.yml', 'w')    
     out.puts ya
     out.puts "# Site settings"
-    out.puts "# Original source:  " + bibfile 
-
+    out.puts "# Original source:  " + ha['orig_bibfile']
+  end
+  def self.write_index(ha)
     ind = {'layout' => 'home'}
     indtxt = ind.to_yaml(:ExplicityTypes => true)
     out = File.open('index.html', 'w')
     out.puts indtxt
     out.puts "---"
-
+  end
+  def self.write_gemfile(ha)
+  
     out = File.open('Gemfile', 'w')
     # frozen_string_literal: true
     out.puts 'source "https://rubygems.org"'
@@ -461,18 +489,41 @@ module MLResearch
     out.puts '  gem \'github-pages\''
     out.puts '  gem \'jekyll-remote-theme\''
     out.puts '  gem \'jekyll-include-cache\''
-    out.puts 
+    out.puts 'end'
+    out.puts
+    out.puts '# gem "rails"'
+    out.puts
+  end
+  def self.write_readme(ha)
 
     out = File.open('README.md', 'w')
-    out.puts '# PMLR V' + ha['volume']
-    out.puts
-    out.puts 'To suggest fixes to this volume please make a pull request containng the changes for a dit ths
-    out.puts
-    out.puts ha['description']
-
+    readme = ''
+    readme += "\n\nPublished as Volume " + ha['volume'].to_s + " by the Proceedings of Machine Learning Research on #{ha['published'].strftime('%d %B %Y')}." + "\n"
     
-    return ha
-    
+    if ha.has_key?('editor')
+      readme += "\nVolume Edited by:\n"
+      for name in ha['editor'] 
+        readme += "  * #{name['given']} #{name['family']}\n"
+      end
+    end
+    readme += "\nSeries Editors:\n  * Neil D. Lawrence\n"
+    if (ha['volume'].to_i>27)
+      readme += "  * Mark Reid\n"
+    end
+    out.puts '# PMLR V' + ha['volume'].to_s
+    out.puts
+    out.puts 'To suggest fixes to this volume please make a pull request containng the changes requested and a justificaiton for the changes.'
+    out.puts 
+    out.puts 'To edit the details of this conference work edit the [_config.yml](./_config.yml) file and submit a pull request.'
+    out.puts
+    out.puts 'To make changes to the individual paper details, edit the associated paper file in the [./_posts](./_posts) subdirectory.'
+    out.puts
+    out.puts 'For details of how to publish in PMLR please check http://proceedings.mlr.press/faq.html'
+    out.puts
+    out.puts 'For details of what is required to submit a proceedings please check http://proceedings.mlr.press/spec.html'
+    out.puts
+    out.puts readme
     
   end  
 end
+
