@@ -90,6 +90,17 @@ you can run the script
 which will init the git repo, and check in the code to the relevant
 repo. 
 
+### Note
+
+Recently ML proceedings have been getting bigger, and github doesn't seem to like having them pushed in one go. If you need to split up into multiple commits, here's a script that can work.
+
+```bash
+# CAREFUL RUNNING THIS! MAKE SURE YOU GET THE REPO VOLUME RIGHT!
+../papersite/ruby/addrepo_split.sh vNN
+```
+
+It adds the core files, then commits the initial files before adding papers in alphabetical order.
+
 
 ## Old JMLR Pages
 
