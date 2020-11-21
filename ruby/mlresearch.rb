@@ -1,7 +1,9 @@
 require 'rubygems'
 require 'bibtex'
 require 'yaml'
+require 'csv'
 require 'facets'
+
 require 'latex/decode'
 require 'latex/decode/version'
 require 'latex/decode/compatibility'
@@ -249,11 +251,34 @@ module MLResearch
       return disambiguate_chars(div-1) + (mod+97).chr
     end
   end
-  def self.extractpapers(bib_file, volume, volume_info)
+  def self.extractpapers(bib_file, volume, volume_info, software_file=nil, video_file=nil, supp_file=nil, supp_name=nil)
     # Extract paper info from bib file and put it into yaml files in _posts
+    
+    # Extract information about software links from a csv file.
+    if software_file.nil?
+      software_data = nil
+    else
+      software_data = Hash[*CSV.read(software_file).flatten]
+    end
+
+    # Extract information about software links from a csv file.
+    if video_file.nil?
+      video_data = nil
+    else
+      video_data = Hash[*CSV.read(video_file).flatten]
+    end
+
+    # Extract information about software links from a csv file.
+    if supp_file.nil?
+      supp_data = nil
+    else
+      supp_data = Hash[*CSV.read(supp_file).flatten]
+    end
+    
     
     file = File.open(bib_file, "rb")
     contents = file.read
+
     bib = BibTeX.parse(contents)
     # do work on files ending in .rb in the desired directory
     ids = []
@@ -314,11 +339,18 @@ module MLResearch
         if File.file?(filestub + '/' + filestub + '.pdf')
           ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + filestub + '/' + filestub + '.pdf'
         else
-          
           raise "PDF " + filestub + '/' + filestub + '.pdf' + " file not present"
         end
       end
-
+      
+      # Add software link if it is available.
+      if not ha.has_key?('software') and not software_data.nil? and software_data.has_key?(ha['id'])
+          ha['software'] = software_data[ha['id']]
+      end
+      # Add video link if it is available.
+      if not ha.has_key?('video') and not video_data.nil? and video_data.has_key?(ha['id'])
+          ha['video'] = video_data[ha['id']]
+      end
       # Move all supplementary files to relevant directory
       Dir.glob(ha['id'] +'-supp.*') do |supp_file|
         newfilename =  supp_file.gsub(ha['id'], filestub)
@@ -341,7 +373,16 @@ module MLResearch
         Dir.glob(filestub + '/' + filestub +'-supp.*') do |supp_file|
           ha['extras'] += [{'label' => 'Supplementary ' + File.extname(supp_file)[1..-1].upcase, 'link' => 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + supp_file}]
         end
+        # Add supp link if it is available.
+        if not supp_data.nil? and supp_data.has_key?(ha['id'])
+          if not ha.has_key?('extras')
+            ha['extras'] = []
+          end
+          ha['extras'] += [{'label' => supp_name, 'link'=> supp_data[ha['id']]}]
+        end
       end
+
+        
         
       # If it's not in the bad layout then update key
       if not inc_layout
@@ -362,6 +403,9 @@ module MLResearch
 
     return ha
   end
+
+    
+  
   def self.bibextractconfig(bibfile, volume)
     # Extract information about the volume from the bib file, place in _config.yml
     file = File.open(bibfile, "rb")
