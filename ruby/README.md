@@ -68,7 +68,7 @@ directory.
 
 ```bash
 cd ~/mlresearch/vNN
-../papersite/ruby/create_volume.rb NN FILE.bib
+../papersite/ruby/create_volume.rb -v NN -b FILE.bib
 ```
 
 Where NN is the volume number and FILE.bib is the file provided by the
@@ -84,7 +84,7 @@ you can run the script
 
 ```bash
 # CAREFUL RUNNING THIS! MAKE SURE YOU GET THE REPO VOLUME RIGHT!
-../papersite/ruby/addrepo.sh NN
+../papersite/ruby/addrepo.sh vNN
 ```
 
 which will init the git repo, and check in the code to the relevant
