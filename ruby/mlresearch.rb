@@ -122,7 +122,8 @@ module MLResearch
     # +obj+:: Object to clean up
     # +bib+:: +BibTeX+ object that contains strings etc
     # +errhandler+:: +Proc+ object that takes a pipe object as first and only param (may be nil)
-    ha = obj.to_hash(:quotes=>'').rekey!(&:to_s)
+    
+    ha = obj.to_hash(:quotes=>'').stringify_keys!()
     ha['layout'] = ha['bibtex_type'].to_s
     ha.tap { |hs| hs.delete('bibtex_type') }
     ha['series'] = "Proceedings of Machine Learning Research"
