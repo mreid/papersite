@@ -28,6 +28,7 @@ OptionParser.new do |parser|
     volume=number
     reponame = 'v' + volume.to_s
   end
+    puts(reponame)
   parser.on("-b", "--bibfile BIBFILE", String,
             "The bib file containing information about the papers") do |filename|
     bib_file=MLResearch.procdir + reponame + '/' + filename

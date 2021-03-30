@@ -17,7 +17,7 @@ be install before the scripts here can run:
 
 You can install all the above with:
 ```
-sudo gem install bibtex-ruby facets pandoc-ruby activerecord
+gem install bibtex-ruby facets pandoc-ruby activerecord
 ```
 
 ## At First Request

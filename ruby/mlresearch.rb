@@ -68,7 +68,7 @@ module MLResearch
     string = string_in.dup
     return string unless string.respond_to?(:to_s)
     string = string.is_a?(String) ? string.dup : string.to_s
-    string = string.dup.force_encoding("utf-8")
+    string.force_encoding("utf-8")
     LaTeX::Decode::Base.normalize(string)
     LaTeX::Decode::Accents.decode!(string)
     LaTeX::Decode::Diacritics.decode!(string)
