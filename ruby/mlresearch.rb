@@ -63,11 +63,12 @@ module MLResearch
     ''
   end
 
-  def self.detex(string)
+  def self.detex(string_in)
     # Returning up to second end character is to deal with new line
+    string = string_in.dup
     return string unless string.respond_to?(:to_s)
     string = string.is_a?(String) ? string.dup : string.to_s
-    string.force_encoding("utf-8")
+    string = string.dup.force_encoding("utf-8")
     LaTeX::Decode::Base.normalize(string)
     LaTeX::Decode::Accents.decode!(string)
     LaTeX::Decode::Diacritics.decode!(string)
@@ -238,12 +239,22 @@ module MLResearch
     puts obj[:author]
     a = Array.new(obj[type].length)       #=> [nil, nil, nil]
     obj[type].each.with_index(0) do |name, index|
-      first = detex(name.first)
-      last = detex(name.last)
-      a[index] = {'given' => first, 'family' => last}
+      given = detex(name.given)
+      family = detex(name.family)
+      a[index] = {'given' => given, 'family' => family}
+      puts name.suffix
+      puts name.prefix
+      puts name.suffix
+      if !name.prefix.nil?
+        a[index]['prefix'] = detex(name.prefix)
+      end
+      if !name.suffix.nil?
+        a[index]['suffix'] = detex(name.suffix)
+      end
     end
     return a
   end
+  
   def self.disambiguate_chars(count)
     div, mod = count.divmod(26)
     if div == 0
