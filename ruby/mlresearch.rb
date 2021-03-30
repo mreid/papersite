@@ -154,6 +154,7 @@ module MLResearch
     end
     if ha.has_key?('pages')
       pages = ha['pages'].split('-')
+      puts ha['pages']
       pages[0] = pages[0].strip
       pages[-1] = pages[-1].strip
       if pages[0].is_i?
@@ -263,7 +264,7 @@ module MLResearch
       return disambiguate_chars(div-1) + (mod+97).chr
     end
   end
-  def self.extractpapers(bib_file, volume, volume_info, software_file=nil, video_file=nil, supp_file=nil, supp_name=nil)
+  def self.extractpapers(bib_file, volume_no, volume_info, software_file=nil, video_file=nil, supp_file=nil, supp_name=nil)
     # Extract paper info from bib file and put it into yaml files in _posts
     
     # Extract information about software links from a csv file.
@@ -317,7 +318,7 @@ module MLResearch
       ha['address'] = volume_info['address']
       ha['publisher'] = 'PMLR'
       ha['container-title'] = volume_info['booktitle']
-      ha['volume'] = volume.to_s
+      ha['volume'] = volume_no.to_s
       ha['genre'] = 'inproceedings'
       ha['issued'] = {'date-parts' => [published.year, published.month, published.day]}
 
@@ -334,8 +335,8 @@ module MLResearch
       #puts ha['id']
 
       # True for volumes that didn't necessarily conform to original layout
-      puts volume.to_i
-      inc_layout = ([27..53] + [55..56] + [63..64]).include?(volume.to_i)
+      puts volume_no.to_i
+      inc_layout = ([27..53] + [55..56] + [63..64]).include?(volume_no.to_i)
       puts inc_layout
       puts 
       # Move all pdfs to correct directory with correct filename
@@ -418,11 +419,11 @@ module MLResearch
 
     
   
-  def self.bibextractconfig(bibfile, volume)
+  def self.bibextractconfig(bibfile, volume_no, volume_type)
     # Extract information about the volume from the bib file, place in _config.yml
     file = File.open(bibfile, "rb")
     contents = file.read
-    reponame = 'v' + volume.to_s
+    reponame = volume_type[0].downcase + volume_no.to_s
     bib = BibTeX.parse(contents)
     obj = bib['@proceedings'][0]
     obj.replace(bib.q('@string'))
@@ -451,12 +452,12 @@ module MLResearch
       end
     end
     if(ha['cycles'])
-      ha['description'] += "\n\nPublished in #{ha['sections'].length} Sections as Volume " + volume.to_s + " by the Proceedings of Machine Learning Research.\n"
+      ha['description'] += "\n\nPublished in #{ha['sections'].length} Sections as " + volume_type + " " + volume_no.to_s + " by the Proceedings of Machine Learning Research.\n"
       ha['sections'].each.with_index(0) do |section, index|
         ha['description'] += "  #{section['title']} published on #{section['published'].strftime('%d %B %Y')}\n"
       end
     else
-      ha['description'] += "\n\nPublished as Volume " + volume.to_s + " by the Proceedings of Machine Learning Research on #{ha['published'].strftime('%d %B %Y')}." + "\n"
+      ha['description'] += "\n\nPublished as " + volume_type + " " + volume_no.to_s + " by the Proceedings of Machine Learning Research on #{ha['published'].strftime('%d %B %Y')}." + "\n"
     end
     if ha.has_key?('editor')
       ha['description'] += "\nVolume Edited by:\n"
@@ -465,7 +466,7 @@ module MLResearch
       end
     end
     ha['description'] += "\nSeries Editors:\n  Neil D. Lawrence\n"
-    if (volume.to_i>27)
+    if (volume_no.to_i>27)
       ha['description'] += "  Mark Reid\n"
     end
     ha['url'] = url
@@ -498,7 +499,8 @@ module MLResearch
     #system "jekyll new " + self.procdir + reponame
     #File.delete(*Dir.glob(self.procdir + reponame + '/_posts/*.markdown'))
     # Add details to _config.yml file
-    ha['volume'] = volume.to_i
+    ha['volume'] = volume_no.to_i
+    ha['volume_type'] = volume_type
     ha['email'] = email
     address = detex(ha['address'])
     ha['conference'] = {'name' => ha['name'], 'url' => ha['conference_url'], 'location' => address, 'dates'=>ha['start'].upto(ha['end']).collect{ |i| i}}
@@ -554,7 +556,7 @@ module MLResearch
 
     out = File.open('README.md', 'w')
     readme = ''
-    readme += "\n\nPublished as Volume " + ha['volume'].to_s + " by the Proceedings of Machine Learning Research on #{ha['published'].strftime('%d %B %Y')}." + "\n"
+    readme += "\n\nPublished as " + ha['volume_type'] + " " + ha['volume'].to_s + " by the Proceedings of Machine Learning Research on #{ha['published'].strftime('%d %B %Y')}." + "\n"
     
     if ha.has_key?('editor')
       readme += "\nVolume Edited by:\n"
@@ -566,9 +568,9 @@ module MLResearch
     if (ha['volume'].to_i>27)
       readme += "  * Mark Reid\n"
     end
-    out.puts '# PMLR V' + ha['volume'].to_s
+    out.puts '# PMLR ' + ha['volume_type'][0] + ha['volume'].to_s
     out.puts
-    out.puts 'To suggest fixes to this volume please make a pull request containng the changes requested and a justificaiton for the changes.'
+    out.puts 'To suggest fixes to this volume please make a pull request containng the changes requested and a justification for the changes.'
     out.puts 
     out.puts 'To edit the details of this conference work edit the [_config.yml](./_config.yml) file and submit a pull request.'
     out.puts
