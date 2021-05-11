@@ -211,6 +211,11 @@ module MLResearch
     else
       #ha['date'] = Date.parse "0000-00-00 00:00:00"
     end
+    if ha.has_key?('firstpublished')
+      ha['firstpublished'] = Date.parse ha['firstpublished']
+    else
+      #ha['date'] = Date.parse "0000-00-00 00:00:00"
+    end
     if ha.has_key?('start')
       ha['start'] = Date.parse ha['start']
     end
@@ -299,7 +304,14 @@ module MLResearch
       obj.replace(bib.q('@string'))
       obj.join
       ha = bibtohash(obj)
-      ha['date'] = volume_info['published']
+      if volume_info.has_key?('firstpublished')
+        ha['date'] = volume_info['firstpublished']
+      else
+        ha['date'] = volume_info['published']
+      end
+      if volume_info['volume_type'] == 'Reissue'
+        ha['note'] = "Reissued by PMLR on " + volume_info['published'].strftime('%d %B %Y') + '.'
+      end
       published = ha['date']
       if ha.has_key?('section')
         if volume_info.has_key?('sections')
@@ -318,16 +330,21 @@ module MLResearch
       ha['address'] = volume_info['address']
       ha['publisher'] = 'PMLR'
       ha['container-title'] = volume_info['booktitle']
-      ha['volume'] = volume_no.to_s
+      ha['volume'] = volume_info['volume']
       ha['genre'] = 'inproceedings'
       ha['issued'] = {'date-parts' => [published.year, published.month, published.day]}
 
       count = 0
       # Fix up the filestubs
-      filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + disambiguate_chars(count)).parameterize
+      if volume_info.has_key?('firstpublished')
+        stubdate = volume_info['firstpublished']
+      else
+        stubdate = volume_info['published']
+      end
+      filestub = (ha['author'][0]['family'].downcase + stubdate.strftime('%y') + disambiguate_chars(count)).parameterize
       while ids.include? filestub
         count += 1
-        filestub = (ha['author'][0]['family'].downcase + volume_info['published'].strftime('%y') + disambiguate_chars(count)).parameterize
+        filestub = (ha['author'][0]['family'].downcase + stubdate.strftime('%y') + disambiguate_chars(count)).parameterize
       end
       ids.push(filestub)
       puts filestub
@@ -335,13 +352,10 @@ module MLResearch
       #puts ha['id']
 
       # True for volumes that didn't necessarily conform to original layout
-      puts volume_no.to_i
       inc_layout = ([27..53] + [55..56] + [63..64]).include?(volume_no.to_i)
-      puts inc_layout
-      puts 
       # Move all pdfs to correct directory with correct filename
       if inc_layout
-        ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + ha['id'] + '.pdf'
+        ha['pdf'] = 'http://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + ha['id'] + '.pdf'
       else
         if File.file?(ha['id'] + '.pdf')
           Dir.mkdir(filestub) unless File.exists?(filestub)
@@ -350,7 +364,7 @@ module MLResearch
           end
         end
         if File.file?(filestub + '/' + filestub + '.pdf')
-          ha['pdf'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + filestub + '/' + filestub + '.pdf'
+          ha['pdf'] = 'http://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + filestub + '/' + filestub + '.pdf'
         else
           raise "PDF " + filestub + '/' + filestub + '.pdf' + " file not present"
         end
@@ -380,11 +394,11 @@ module MLResearch
 
       # Link to all -supp files in directory
       if inc_layout
-        ha['supplementary'] = 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + supple
+        ha['supplementary'] = 'http://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + supple
       else
         ha['extras'] = []
         Dir.glob(filestub + '/' + filestub +'-supp.*') do |supp_file|
-          ha['extras'] += [{'label' => 'Supplementary ' + File.extname(supp_file)[1..-1].upcase, 'link' => 'http://proceedings.mlr.press' + '/v' + ha['volume'] + '/' + supp_file}]
+          ha['extras'] += [{'label' => 'Supplementary ' + File.extname(supp_file)[1..-1].upcase, 'link' => 'http://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + supp_file}]
         end
         # Add supp link if it is available.
         if not supp_data.nil? and supp_data.has_key?(ha['id'])
@@ -419,7 +433,7 @@ module MLResearch
 
     
   
-  def self.bibextractconfig(bibfile, volume_no, volume_type)
+  def self.bibextractconfig(bibfile, volume_no, volume_type, volume_prefix)
     # Extract information about the volume from the bib file, place in _config.yml
     file = File.open(bibfile, "rb")
     contents = file.read
@@ -461,13 +475,22 @@ module MLResearch
     end
     if ha.has_key?('editor')
       ha['description'] += "\nVolume Edited by:\n"
-      for name in ha['editor'] 
-        ha['description'] += "  #{name['given']} #{name['family']}\n"
+      for name in ha['editor']
+        family = name['family']
+        if name.has_key?("prefix")
+          family = name['prefix'] + " " + family
+        end
+        if name.has_key?("suffix")
+          family += " " + name['suffix']
+        end
+        ha['description'] += "  #{name['given']} #{family}\n"
       end
     end
     ha['description'] += "\nSeries Editors:\n  Neil D. Lawrence\n"
-    if (volume_no.to_i>27)
-      ha['description'] += "  Mark Reid\n"
+    puts ha['published']
+    puts Date.parse('2021-07-02')
+    if ha['published'] > Date.parse('2021-07-02') # Mark joined after this date.
+      ha['description'] += "  * Mark Reid\n"
     end
     ha['url'] = url
     ha['author'] = {'name' => 'PMLR'}
@@ -499,8 +522,15 @@ module MLResearch
     #system "jekyll new " + self.procdir + reponame
     #File.delete(*Dir.glob(self.procdir + reponame + '/_posts/*.markdown'))
     # Add details to _config.yml file
-    ha['volume'] = volume_no.to_i
     ha['volume_type'] = volume_type
+
+    # Add the prefix if it's a reissue or some other sub-series
+    ha['volume_dir'] = volume_prefix.downcase + volume_no.to_s
+    if not ha['volume_type'] == 'Volume'
+      ha['volume'] = ha['volume_dir'].upcase
+    else
+      ha['volume'] = volume_no.to_s
+    end
     ha['email'] = email
     address = detex(ha['address'])
     ha['conference'] = {'name' => ha['name'], 'url' => ha['conference_url'], 'location' => address, 'dates'=>ha['start'].upto(ha['end']).collect{ |i| i}}
@@ -547,6 +577,7 @@ module MLResearch
     out.puts '  gem \'github-pages\''
     out.puts '  gem \'jekyll-remote-theme\''
     out.puts '  gem \'jekyll-include-cache\''
+    out.puts '  gem \'webrick\'' # bug means that webrick dependency is not loaded
     out.puts 'end'
     out.puts
     out.puts '# gem "rails"'
@@ -556,19 +587,26 @@ module MLResearch
 
     out = File.open('README.md', 'w')
     readme = ''
-    readme += "\n\nPublished as " + ha['volume_type'] + " " + ha['volume'].to_s + " by the Proceedings of Machine Learning Research on #{ha['published'].strftime('%d %B %Y')}." + "\n"
+    readme += "\n\nPublished as " + ha['volume_type'] + " " + ha['volume'] + " by the Proceedings of Machine Learning Research on #{ha['published'].strftime('%d %B %Y')}." + "\n"
     
     if ha.has_key?('editor')
       readme += "\nVolume Edited by:\n"
-      for name in ha['editor'] 
-        readme += "  * #{name['given']} #{name['family']}\n"
+      for name in ha['editor']
+        family = name['family']
+        if name.has_key?("prefix")
+          family = name['prefix'] + " " + family
+        end
+        if name.has_key?("suffix")
+          family += " " + name['suffix']
+        end
+        readme += "  * #{name['given']} #{family}\n"
       end
     end
     readme += "\nSeries Editors:\n  * Neil D. Lawrence\n"
-    if (ha['volume'].to_i>27)
+    if ha['published'] > Date.parse('2011-07-02') # Mark joined after this date.
       readme += "  * Mark Reid\n"
     end
-    out.puts '# PMLR ' + ha['volume_type'][0] + ha['volume'].to_s
+    out.puts '# PMLR ' + ha['volume']
     out.puts
     out.puts 'To suggest fixes to this volume please make a pull request containng the changes requested and a justification for the changes.'
     out.puts 

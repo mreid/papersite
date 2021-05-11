@@ -29,7 +29,7 @@ OptionParser.new do |parser|
             "Write the specific VOLUME of PMLR") do |number|
     volume_no=number
     volume_type="Volume"
-    volume_previx = "v"
+    volume_prefix = "v"
   end
   parser.on("-r", "--reissue VOLUME", Integer,
             "Write the specific VOLUME of PMLR") do |number|
@@ -77,7 +77,7 @@ end
 
 
 # Write the _config.yml file
-volume_info = MLResearch.bibextractconfig(bib_file, volume_no, volume_type)
+volume_info = MLResearch.bibextractconfig(bib_file, volume_no, volume_type, volume_prefix)
 MLResearch.write_volume_files(volume_info)
 
 # Write the papers
