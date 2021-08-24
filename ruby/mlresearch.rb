@@ -42,7 +42,7 @@ module MLResearch
     self.procdir + '/papersite/db/'
   end
   def self.url
-    'http://proceedings.mlr.press'
+    'https://proceedings.mlr.press'
   end
   def self.tracking_id
     'UA-92432422-1'
@@ -355,7 +355,7 @@ module MLResearch
       inc_layout = ([27..53] + [55..56] + [63..64]).include?(volume_no.to_i)
       # Move all pdfs to correct directory with correct filename
       if inc_layout
-        ha['pdf'] = 'http://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + ha['id'] + '.pdf'
+        ha['pdf'] = 'https://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + ha['id'] + '.pdf'
       else
         if File.file?(ha['id'] + '.pdf')
           Dir.mkdir(filestub) unless File.exists?(filestub)
@@ -364,7 +364,7 @@ module MLResearch
           end
         end
         if File.file?(filestub + '/' + filestub + '.pdf')
-          ha['pdf'] = 'http://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + filestub + '/' + filestub + '.pdf'
+          ha['pdf'] = 'https://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + filestub + '/' + filestub + '.pdf'
         else
           raise "PDF " + filestub + '/' + filestub + '.pdf' + " file not present"
         end
@@ -394,11 +394,11 @@ module MLResearch
 
       # Link to all -supp files in directory
       if inc_layout
-        ha['supplementary'] = 'http://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + supple
+        ha['supplementary'] = 'https://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + supple
       else
         ha['extras'] = []
         Dir.glob(filestub + '/' + filestub +'-supp.*') do |supp_file|
-          ha['extras'] += [{'label' => 'Supplementary ' + File.extname(supp_file)[1..-1].upcase, 'link' => 'http://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + supp_file}]
+          ha['extras'] += [{'label' => 'Supplementary ' + File.extname(supp_file)[1..-1].upcase, 'link' => 'https://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + supp_file}]
         end
         # Add supp link if it is available.
         if not supp_data.nil? and supp_data.has_key?(ha['id'])
@@ -614,9 +614,9 @@ module MLResearch
     out.puts
     out.puts 'To make changes to the individual paper details, edit the associated paper file in the [./_posts](./_posts) subdirectory.'
     out.puts
-    out.puts 'For details of how to publish in PMLR please check http://proceedings.mlr.press/faq.html'
+    out.puts 'For details of how to publish in PMLR please check https://proceedings.mlr.press/faq.html'
     out.puts
-    out.puts 'For details of what is required to submit a proceedings please check http://proceedings.mlr.press/spec.html'
+    out.puts 'For details of what is required to submit a proceedings please check https://proceedings.mlr.press/spec.html'
     out.puts
     out.puts readme
     
