@@ -489,7 +489,7 @@ module MLResearch
     ha['description'] += "\nSeries Editors:\n  Neil D. Lawrence\n"
     puts ha['published']
     puts Date.parse('2021-07-02')
-    if ha['published'] > Date.parse('2021-07-02') # Mark joined after this date.
+    if ha['published'] < Date.parse('2021-07-02') # Mark left after this date.
       ha['description'] += "  * Mark Reid\n"
     end
     ha['url'] = url
