@@ -603,12 +603,12 @@ module MLResearch
       end
     end
     readme += "\nSeries Editors:\n  * Neil D. Lawrence\n"
-    if ha['published'] > Date.parse('2011-07-02') # Mark joined after this date.
+    if ha['published'] > Date.parse('2011-07-02') and ha['published'] < Date.parse('2021-04-21') # Mark's dates
       readme += "  * Mark Reid\n"
     end
     out.puts '# PMLR ' + ha['volume']
     out.puts
-    out.puts 'To suggest fixes to this volume please make a pull request containng the changes requested and a justification for the changes.'
+    out.puts 'To suggest fixes to this volume please make a pull request containing the changes requested and a justification for the changes.'
     out.puts 
     out.puts 'To edit the details of this conference work edit the [_config.yml](./_config.yml) file and submit a pull request.'
     out.puts
