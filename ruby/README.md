@@ -20,6 +20,11 @@ You can install all the above with:
 gem install bibtex-ruby facets pandoc-ruby activerecord
 ```
 
+Alternatively, you can use the provided `Gemfile` with:
+```
+bundle install
+```
+
 ## At First Request
 
 When the volume was first requested, a new repo should be set up under
