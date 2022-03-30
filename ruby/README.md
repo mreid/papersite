@@ -70,7 +70,7 @@ with NN being the volume number.
 
 Then unzip the file containing PDFs and the bib file into the new
 directory.
-Add today's date to the `publsihed`-field in the `@Proceedings` entry in `FILE.bib`.
+Add today's date to the `published`-field in the `@Proceedings` entry in `FILE.bib`.
 
 ```bash
 cd ~/mlresearch/vNN
