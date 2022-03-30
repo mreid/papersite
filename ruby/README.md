@@ -3,7 +3,7 @@
 This code is for creating `jekyll` sites for hosting PMLR on `GitHub pages`
 
 From the shell there are various ruby scripts to run. The main code
-that does the work is found in `mlresearch.rb`. 
+that does the work is found in `mlresearch.rb`.
 
 ## Requirements
 
@@ -18,6 +18,11 @@ be install before the scripts here can run:
 You can install all the above with:
 ```
 gem install bibtex-ruby facets pandoc-ruby activerecord
+```
+
+Alternatively, you can use the provided `Gemfile` with:
+```
+bundle install
 ```
 
 ## At First Request
@@ -35,7 +40,7 @@ https://github.com/organizations/mlresearch/repositories/new
 To set up the proceedings.
 
 Do *not* initialize with a README. Simply "Create Repository" and *then*
-add relevant people to the edit/write permissions. 
+add relevant people to the edit/write permissions.
 
 The "Description" field for the repo should be of the form "AISTATS 2017
 Proceedings" or equivalent. This will populate the front page when the
@@ -65,6 +70,7 @@ with NN being the volume number.
 
 Then unzip the file containing PDFs and the bib file into the new
 directory.
+Add today's date to the `published`-field in the `@Proceedings` entry in `FILE.bib`.
 
 ```bash
 cd ~/mlresearch/vNN
@@ -77,7 +83,7 @@ proceedings editors (e.g. gpip2006.bib).
 This will move the PDFs into the correct positions, along with
 supplemental material.
 
-The site is created using Jekyll. There is a customised remote-theme for formating the proceedings which is referenced in the `_config.yml` file. 
+The site is created using Jekyll. There is a customised remote-theme for formating the proceedings which is referenced in the `_config.yml` file.
 
 Now, assuming you have already created the stub git repo on github,
 you can run the script
@@ -88,7 +94,7 @@ you can run the script
 ```
 
 which will init the git repo, and check in the code to the relevant
-repo. 
+repo.
 
 ### Note
 
@@ -120,4 +126,3 @@ To update/create the individual paper information from the
 ```bash
 ./update_papers.rb NN
 ```
-
