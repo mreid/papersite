@@ -34,7 +34,7 @@ module MLResearch
     # Get base of directory containing `papersite` repo by going three
     # steps up from where this file is located
     File.dirname(__FILE__).split('/')[0..-3].join('/')
-  end 
+  end
   def self.procdir
     self.basedir + '/'
   end
@@ -75,7 +75,7 @@ module MLResearch
     LaTeX::Decode::Punctuation.decode!(string)
     LaTeX::Decode::Symbols.decode!(string)
     LaTeX::Decode::Greek.decode!(string)
-    
+
     LaTeX::Decode::Base.strip_braces(string)
 
     LaTeX.normalize_C(string)
@@ -94,7 +94,7 @@ module MLResearch
     #LaTeX::Decode::Symbols.decode!(string)
     #LaTeX::Decode::Greek.decode!(string)
     # Don't remove brackets as it messes up maths.
-    
+
     LaTeX.normalize_C(string)
     # Need to deal with different encodings. Map to utf-8
   end
@@ -109,21 +109,21 @@ module MLResearch
     LaTeX::Decode::Diacritics.decode!(string)
     LaTeX::Decode::Punctuation.decode!(string)
     LaTeX::Decode::Symbols.decode!(string)
-    LaTeX::Decode::Greek.decode!(string)    
+    LaTeX::Decode::Greek.decode!(string)
     LaTeX.normalize_C(string)
     # Need to deal with different encodings. Map to utf-8
   end
   #def self.detex_abstract(text)
   #  return PandocRuby.convert(text, {:from => :latex, :to => :markdown}, 'no-wrap')[0..-2]
   #end
-  
+
   def self.bibtohash(obj)
     # Takes an bib file object and returns a cleaned up hash.
     # Params:
     # +obj+:: Object to clean up
     # +bib+:: +BibTeX+ object that contains strings etc
     # +errhandler+:: +Proc+ object that takes a pipe object as first and only param (may be nil)
-    
+
     ha = obj.to_hash(:quotes=>'').stringify_keys!()
     ha['layout'] = ha['bibtex_type'].to_s
     ha.tap { |hs| hs.delete('bibtex_type') }
@@ -132,13 +132,13 @@ module MLResearch
     ha['issn'] = '2640-3498'
     ha['id'] = ha['bibtex_key'].to_s
     ha.tap { |hs| hs.delete('bibtex_key') }
-    
+
     #ha['categories'] = Array.new(1)
     #ha['categories'][0] = ha['key']
-    
+
     ha['month'] = ha['month_numeric'].to_i
     ha.tap { |hs| hs.delete('month_numeric') }
-    
+
     ha.delete_if {|key, value| key[0..2] == "opt" }
 
     if ha.has_key?('abstract')
@@ -173,7 +173,7 @@ module MLResearch
     if ha.has_key?('firstpage')
       ha['order'] = ha['firstpage'].to_i
     end
-    
+
     published = ha['published']
     ha['cycles'] = false
     if ha.has_key?('sections')
@@ -192,14 +192,14 @@ module MLResearch
       end
       ha['sections'] = hasections
     end
-    
+
     if ha.has_key?('editor')
       ha['bibtex_editor'] = ha['editor']
       editor = splitauthors(ha, obj, type=:editor)
       ha.tap { |hs| hs.delete('editor') }
       ha['editor'] = editor
     end
-    
+
     if ha.has_key?('author')
       ha['bibtex_author'] = ha['author']
       author = splitauthors(ha, obj)
@@ -222,7 +222,7 @@ module MLResearch
     if ha.has_key?('end')
       ha['end'] = Date.parse ha['end']
     end
-    
+
     return ha
   end
   def self.yamltohash(obj)
@@ -234,13 +234,13 @@ module MLResearch
     end
     return str
   end
-  
+
   def self.filename(date, title)
     puts title
     f = date.to_s + '-' + title.to_s + '.md'
     return f
   end
-  
+
   def self.splitauthors(ha, obj, type=:author)
     puts obj[:author]
     a = Array.new(obj[type].length)       #=> [nil, nil, nil]
@@ -260,7 +260,7 @@ module MLResearch
     end
     return a
   end
-  
+
   def self.disambiguate_chars(count)
     div, mod = count.divmod(26)
     if div == 0
@@ -269,9 +269,9 @@ module MLResearch
       return disambiguate_chars(div-1) + (mod+97).chr
     end
   end
-  def self.extractpapers(bib_file, volume_no, volume_info, software_file=nil, video_file=nil, supp_file=nil, supp_name=nil)
+  def self.extractpapers(bib_file, volume_no, volume_info, software_file=nil, video_file=nil, supp_file=nil, supp_name=nil, cicd_mode=false)
     # Extract paper info from bib file and put it into yaml files in _posts
-    
+
     # Extract information about software links from a csv file.
     if software_file.nil?
       software_data = nil
@@ -292,8 +292,8 @@ module MLResearch
     else
       supp_data = Hash[*CSV.read(supp_file).flatten]
     end
-    
-    
+
+
     file = File.open(bib_file, "rb")
     contents = file.read
 
@@ -326,7 +326,7 @@ module MLResearch
           end
         end
       end
-      
+
       ha['address'] = volume_info['address']
       ha['publisher'] = 'PMLR'
       ha['container-title'] = volume_info['booktitle']
@@ -351,25 +351,27 @@ module MLResearch
       #puts ha['author'][0]['family'] + published.year.to_s.slice(-2,-1) + 'a'
       #puts ha['id']
 
-      # True for volumes that didn't necessarily conform to original layout
-      inc_layout = ([27..53] + [55..56] + [63..64]).include?(volume_no.to_i)
-      # Move all pdfs to correct directory with correct filename
-      if inc_layout
-        ha['pdf'] = 'https://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + ha['id'] + '.pdf'
-      else
-        if File.file?(ha['id'] + '.pdf')
-          Dir.mkdir(filestub) unless File.exists?(filestub)
-          if not File.file?(filestub + '/' + filestub + '.pdf')
-            FileUtils.mv(ha['id'] + '.pdf', filestub + '/' + filestub + '.pdf')
+      if not cicd_mode
+        # True for volumes that didn't necessarily conform to original layout
+        inc_layout = ([27..53] + [55..56] + [63..64]).include?(volume_no.to_i)
+        # Move all pdfs to correct directory with correct filename
+        if inc_layout
+          ha['pdf'] = 'https://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + ha['id'] + '.pdf'
+        else
+          if File.file?(ha['id'] + '.pdf')
+            Dir.mkdir(filestub) unless File.exists?(filestub)
+            if not File.file?(filestub + '/' + filestub + '.pdf')
+              FileUtils.mv(ha['id'] + '.pdf', filestub + '/' + filestub + '.pdf')
+            end
+          end
+          if File.file?(filestub + '/' + filestub + '.pdf')
+            ha['pdf'] = 'https://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + filestub + '/' + filestub + '.pdf'
+          else
+            raise "PDF " + filestub + '/' + filestub + '.pdf' + " file not present"
           end
         end
-        if File.file?(filestub + '/' + filestub + '.pdf')
-          ha['pdf'] = 'https://proceedings.mlr.press' + '/' + volume_info['volume_dir'] + '/' + filestub + '/' + filestub + '.pdf'
-        else
-          raise "PDF " + filestub + '/' + filestub + '.pdf' + " file not present"
-        end
       end
-      
+
       # Add software link if it is available.
       if not ha.has_key?('software') and not software_data.nil? and software_data.has_key?(ha['id'])
           ha['software'] = software_data[ha['id']]
@@ -409,20 +411,20 @@ module MLResearch
         end
       end
 
-        
-        
+
+
       # If it's not in the bad layout then update key
       if not inc_layout
         ha['id'] = filestub
       end
-      
+
       ya = ha.to_yaml(:ExplicitTypes => true)
       fname = filename(published, filestub)
       out = File.open('_posts/' + fname, 'w')
       out.puts ya
       out.puts "# Format based on citeproc: http://blog.martinfenner.org/2013/07/30/citeproc-yaml-for-bibliographies/"
       out.puts "---"
-    end  
+    end
   end
 
   def self.extractconfig()
@@ -431,8 +433,8 @@ module MLResearch
     return ha
   end
 
-    
-  
+
+
   def self.bibextractconfig(bibfile, volume_no, volume_type, volume_prefix)
     # Extract information about the volume from the bib file, place in _config.yml
     file = File.open(bibfile, "rb")
@@ -448,7 +450,7 @@ module MLResearch
     booktitle = ha['booktitle']
     ha['description'] = booktitle
     if ha.has_key?('address')
-      ha['description'] += "\n  Held in " + ha['address'] 
+      ha['description'] += "\n  Held in " + ha['address']
     end
     if ha.has_key?('start') and ha.has_key?('end')
       ha['description'] += " on "
@@ -537,7 +539,7 @@ module MLResearch
     ha.tap { |hs| hs.delete('address') }
     ha.tap { |hs| hs.delete('conference_url') }
     ha.tap { |hs| hs.delete('name') }
-    
+
     ha['analytics'] = {'google' => {'tracking_id' => self.tracking_id}}
     ha['orig_bibfile'] = bibfile
     return ha
@@ -547,11 +549,11 @@ module MLResearch
     write_index(ha)
     write_readme(ha)
     write_gemfile(ha)
-  end  
+  end
   def self.write_config(ha)
     ya = ha.to_yaml(:ExplicitTypes => true)
 
-    out = File.open('_config.yml', 'w')    
+    out = File.open('_config.yml', 'w')
     out.puts ya
     out.puts "# Site settings"
     out.puts "# Original source:  " + ha['orig_bibfile']
@@ -564,7 +566,7 @@ module MLResearch
     out.puts "---"
   end
   def self.write_gemfile(ha)
-  
+
     out = File.open('Gemfile', 'w')
     # frozen_string_literal: true
     out.puts 'source "https://rubygems.org"'
@@ -588,7 +590,7 @@ module MLResearch
     out = File.open('README.md', 'w')
     readme = ''
     readme += "\n\nPublished as " + ha['volume_type'] + " " + ha['volume'] + " by the Proceedings of Machine Learning Research on #{ha['published'].strftime('%d %B %Y')}." + "\n"
-    
+
     if ha.has_key?('editor')
       readme += "\nVolume Edited by:\n"
       for name in ha['editor']
@@ -609,7 +611,7 @@ module MLResearch
     out.puts '# PMLR ' + ha['volume']
     out.puts
     out.puts 'To suggest fixes to this volume please make a pull request containing the changes requested and a justification for the changes.'
-    out.puts 
+    out.puts
     out.puts 'To edit the details of this conference work edit the [_config.yml](./_config.yml) file and submit a pull request.'
     out.puts
     out.puts 'To make changes to the individual paper details, edit the associated paper file in the [./_posts](./_posts) subdirectory.'
@@ -619,7 +621,6 @@ module MLResearch
     out.puts 'For details of what is required to submit a proceedings please check https://proceedings.mlr.press/spec.html'
     out.puts
     out.puts readme
-    
-  end  
-end
 
+  end
+end

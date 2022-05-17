@@ -22,6 +22,7 @@ software_file=nil
 reponame=nil
 supp_file = nil
 supp_name = nil
+cicd_mode = false
 
 OptionParser.new do |parser|
   parser.banner = "Usage: create_volume.rb -v VOLUME -b BIBFILE [optional]"
@@ -58,6 +59,10 @@ OptionParser.new do |parser|
             "A csv file containing information about supplementary label") do |label|
     supp_name=label
   end
+  parser.on("-c", "--[no-]cicd-mode",
+            "Validate bibfile only. Will not produce a valid website, but does not require pdfs.") do |cicd|
+    cicd_mode=cicd
+  end
 
 end.parse!
 
@@ -83,9 +88,8 @@ MLResearch.write_volume_files(volume_info)
 # Write the papers
 directory_name = "_posts"
 Dir.mkdir(directory_name) unless File.exists?(directory_name)
-MLResearch.extractpapers(bib_file, volume_no, volume_info, software_file, video_file, supp_file, supp_name)  
+MLResearch.extractpapers(bib_file, volume_no, volume_info, software_file, video_file, supp_file, supp_name, cicd_mode)
 out = File.open('index.html', 'w')
 out.puts "---"
 out.puts "layout: home"
 out.puts "---"
-
