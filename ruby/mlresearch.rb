@@ -351,6 +351,7 @@ module MLResearch
       #puts ha['author'][0]['family'] + published.year.to_s.slice(-2,-1) + 'a'
       #puts ha['id']
 
+      # cicd_mode ignores pdfs since they will generally not be available.
       if not cicd_mode
         # True for volumes that didn't necessarily conform to original layout
         inc_layout = ([27..53] + [55..56] + [63..64]).include?(volume_no.to_i)
